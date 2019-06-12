@@ -9,10 +9,13 @@ import { batchedUpdates } from './batchedUpdates';
 
 // context
 const warningObject = {
+  get state() {
+    throw new Error('Please use <TrackedProvider ...>');
+  },
   get dispatch() {
     throw new Error('Please use <TrackedProvider ...>');
   },
-  get getState() {
+  get subscribe() {
     throw new Error('Please use <TrackedProvider ...>');
   },
 };
