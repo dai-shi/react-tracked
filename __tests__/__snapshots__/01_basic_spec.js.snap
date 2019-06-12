@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic spec create a component 1`] = `
+<div>
+  <div>
+    <span>
+      0
+    </span>
+    <button
+      type="button"
+    >
+      +1
+    </button>
+  </div>
+  <div>
+    <span>
+      0
+    </span>
+    <button
+      type="button"
+    >
+      +1
+    </button>
+  </div>
+</div>
+`;
+
+exports[`basic spec create a component 2`] = `
+<div>
+  <div>
+    <span>
+      1
+    </span>
+    <button
+      type="button"
+    >
+      +1
+    </button>
+  </div>
+  <div>
+    <span>
+      1
+    </span>
+    <button
+      type="button"
+    >
+      +1
+    </button>
+  </div>
+</div>
+`;
