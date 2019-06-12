@@ -4,7 +4,7 @@
 [![npm version](https://badge.fury.io/js/react-tracked.svg)](https://badge.fury.io/js/react-tracked)
 [![bundle size](https://badgen.net/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
 
-Super fast React shared state with context and hooks
+Super fast React global/shared state with context and hooks
 
 ## Motivation
 
