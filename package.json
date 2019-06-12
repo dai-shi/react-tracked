@@ -1,7 +1,7 @@
 {
   "name": "react-tracked",
   "description": "React shared state with performance",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",
