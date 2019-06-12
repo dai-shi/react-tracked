@@ -2,6 +2,7 @@ import {
   createContext,
   createElement,
   useCallback,
+  useEffect,
   useRef,
 } from 'react';
 
@@ -29,9 +30,11 @@ export const TrackedProvider = ({
 }) => {
   const [state, dispatch] = useValue();
   const listeners = useRef([]);
-  batchedUpdates(() => {
-    listeners.current.forEach(listener => listener(state));
-  });
+  useEffect(() => {
+    batchedUpdates(() => {
+      listeners.current.forEach(listener => listener(state));
+    });
+  }, [state]);
   const subscribe = useCallback((listener) => {
     listeners.current.push(listener);
     const unsubscribe = () => {

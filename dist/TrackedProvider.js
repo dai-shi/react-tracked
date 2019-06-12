@@ -52,11 +52,13 @@ var TrackedProvider = function TrackedProvider(_ref) {
       dispatch = _useValue2[1];
 
   var listeners = (0, _react.useRef)([]);
-  (0, _batchedUpdates.batchedUpdates)(function () {
-    listeners.current.forEach(function (listener) {
-      return listener(state);
+  (0, _react.useEffect)(function () {
+    (0, _batchedUpdates.batchedUpdates)(function () {
+      listeners.current.forEach(function (listener) {
+        return listener(state);
+      });
     });
-  });
+  }, [state]);
   var subscribe = (0, _react.useCallback)(function (listener) {
     listeners.current.push(listener);
 
