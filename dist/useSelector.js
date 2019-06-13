@@ -36,6 +36,7 @@ var useSelector = function useSelector(selector, eqlFn, opts) {
   var last = (0, _react.useRef)(null);
   (0, _utils.useIsomorphicLayoutEffect)(function () {
     last.current = {
+      equalityFn: equalityFn,
       selector: selector,
       state: state,
       selected: selected
@@ -47,7 +48,7 @@ var useSelector = function useSelector(selector, eqlFn, opts) {
       var changed;
 
       try {
-        changed = !equalityFn(last.current.selected, last.current.selector(nextState));
+        changed = !last.current.equalityFn(last.current.selected, last.current.selector(nextState));
       } catch (e) {
         changed = true; // stale props or some other reason
       }
@@ -59,10 +60,10 @@ var useSelector = function useSelector(selector, eqlFn, opts) {
     }; // run once in case the state is already changed
 
 
-    callback();
+    forceUpdate();
     var unsubscribe = subscribe(callback);
     return unsubscribe;
-  }, [forceUpdate, subscribe, equalityFn]);
+  }, [subscribe, forceUpdate]);
   return selected;
 };
 

@@ -52,10 +52,10 @@ var useTrackedState = function useTrackedState() {
     }; // run once in case the state is already changed
 
 
-    callback();
+    forceUpdate();
     var unsubscribe = subscribe(callback);
     return unsubscribe;
-  }, [forceUpdate, subscribe]);
+  }, [subscribe, forceUpdate]);
   var proxyCache = (0, _react.useRef)(new WeakMap()); // per-hook proxyCache
 
   return (0, _deepProxy.createDeepProxy)(state, affected, proxyCache.current);
