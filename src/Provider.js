@@ -38,7 +38,7 @@ export const defaultContext = createCustomContext();
 // provider
 // -------------------------------------------------------
 
-export const TrackedProvider = ({
+export const Provider = ({
   useValue,
   customContext = defaultContext,
   children,

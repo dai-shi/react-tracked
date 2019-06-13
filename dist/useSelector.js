@@ -7,7 +7,7 @@ exports.useSelector = void 0;
 
 var _react = require("react");
 
-var _TrackedProvider = require("./TrackedProvider");
+var _Provider = require("./Provider");
 
 var _utils = require("./utils");
 
@@ -24,7 +24,7 @@ var useSelector = function useSelector(selector, eqlFn, opts) {
       _ref$equalityFn = _ref.equalityFn,
       equalityFn = _ref$equalityFn === void 0 ? isFunction(eqlFn) ? eqlFn : defaultEqualityFn : _ref$equalityFn,
       _ref$customContext = _ref.customContext,
-      customContext = _ref$customContext === void 0 ? _TrackedProvider.defaultContext : _ref$customContext;
+      customContext = _ref$customContext === void 0 ? _Provider.defaultContext : _ref$customContext;
 
   var forceUpdate = (0, _utils.useForceUpdate)();
 

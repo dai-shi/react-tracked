@@ -4,7 +4,7 @@ import {
   useRef,
 } from 'react';
 
-import { defaultContext } from './TrackedProvider';
+import { defaultContext } from './Provider';
 
 import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 

@@ -4,7 +4,7 @@ import React, { useReducer, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-  TrackedProvider,
+  Provider,
   useTracked,
 } from 'react-tracked';
 
@@ -53,14 +53,14 @@ const TextBox = () => {
 
 const App = () => (
   <StrictMode>
-    <TrackedProvider useValue={useValue}>
+    <Provider useValue={useValue}>
       <h1>Counter</h1>
       <Counter />
       <Counter />
       <h1>TextBox</h1>
       <TextBox />
       <TextBox />
-    </TrackedProvider>
+    </Provider>
   </StrictMode>
 );
 

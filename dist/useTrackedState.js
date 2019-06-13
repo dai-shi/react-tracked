@@ -7,7 +7,7 @@ exports.useTracked = exports.useTrackedState = void 0;
 
 var _react = require("react");
 
-var _TrackedProvider = require("./TrackedProvider");
+var _Provider = require("./Provider");
 
 var _utils = require("./utils");
 
@@ -18,7 +18,7 @@ var _useDispatch = require("./useDispatch");
 var useTrackedState = function useTrackedState() {
   var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var _opts$customContext = opts.customContext,
-      customContext = _opts$customContext === void 0 ? _TrackedProvider.defaultContext : _opts$customContext;
+      customContext = _opts$customContext === void 0 ? _Provider.defaultContext : _opts$customContext;
   var forceUpdate = (0, _utils.useForceUpdate)();
 
   var _useContext = (0, _react.useContext)(customContext),

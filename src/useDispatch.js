@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { defaultContext } from './TrackedProvider';
+import { defaultContext } from './Provider';
 
 export const useDispatch = (opts = {}) => {
   const {

@@ -4,15 +4,15 @@ type CustomContext = React.Context<unknown>;
 
 export type createCustomContext = () => CustomContext;
 
-export type TrackedProviderProps<S, D> = {
+export type ProviderProps<S, D> = {
   useValue: () => [S, D];
   customContext?: CustomContext;
 };
 
-export type TrackedProviderType<S = unknown, D = unknown>
-  = React.ComponentType<TrackedProviderProps<S, D>>;
+export type ProviderType<S = unknown, D = unknown>
+  = React.ComponentType<ProviderProps<S, D>>;
 
-export const TrackedProvider: TrackedProviderType;
+export const Provider: ProviderType;
 
 type Opts = {
   customContext?: CustomContext;
@@ -31,7 +31,7 @@ export const useSelector: <S, V>(
 ) => V;
 
 export const createContainer: <S, D>(useValue: () => [S, D]) => {
-  TrackedProvider: React.ComponentType;
+  Provider: React.ComponentType;
   useTrackedState: () => S;
   useTracked: () => [S, D];
   useDispatch: () => D;

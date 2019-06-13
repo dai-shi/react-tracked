@@ -3,7 +3,7 @@ import React, { useReducer, StrictMode } from 'react';
 import { render, fireEvent, cleanup } from '@testing-library/react';
 
 import {
-  TrackedProvider,
+  Provider,
   useTracked,
 } from '../src/index';
 
@@ -36,10 +36,10 @@ describe('basic spec', () => {
     };
     const App = () => (
       <StrictMode>
-        <TrackedProvider useValue={useValue}>
+        <Provider useValue={useValue}>
           <Counter />
           <Counter />
-        </TrackedProvider>
+        </Provider>
       </StrictMode>
     );
     const { getAllByText, container } = render(<App />);

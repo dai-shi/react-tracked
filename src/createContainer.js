@@ -1,15 +1,15 @@
 import { createElement } from 'react';
 
-import { TrackedProvider, createCustomContext } from './TrackedProvider';
-import { useTrackedState, useTracked } from './useTracked';
+import { Provider, createCustomContext } from './Provider';
+import { useTrackedState, useTracked } from './useTrackedState';
 import { useDispatch } from './useDispatch';
 import { useSelector } from './useSelector';
 
 export const createContainer = (useValue) => {
   const customContext = createCustomContext();
   return {
-    TrackedProvider: ({ children }) => createElement(
-      TrackedProvider,
+    Provider: ({ children }) => createElement(
+      Provider,
       { useValue, customContext },
       children,
     ),

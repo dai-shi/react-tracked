@@ -3,28 +3,28 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "TrackedProvider", {
+Object.defineProperty(exports, "Provider", {
   enumerable: true,
   get: function get() {
-    return _TrackedProvider.TrackedProvider;
+    return _Provider.Provider;
   }
 });
 Object.defineProperty(exports, "createCustomContext", {
   enumerable: true,
   get: function get() {
-    return _TrackedProvider.createCustomContext;
+    return _Provider.createCustomContext;
   }
 });
 Object.defineProperty(exports, "useTrackedState", {
   enumerable: true,
   get: function get() {
-    return _useTracked.useTrackedState;
+    return _useTrackedState.useTrackedState;
   }
 });
 Object.defineProperty(exports, "useTracked", {
   enumerable: true,
   get: function get() {
-    return _useTracked.useTracked;
+    return _useTrackedState.useTracked;
   }
 });
 Object.defineProperty(exports, "useDispatch", {
@@ -46,9 +46,9 @@ Object.defineProperty(exports, "createContainer", {
   }
 });
 
-var _TrackedProvider = require("./TrackedProvider");
+var _Provider = require("./Provider");
 
-var _useTracked = require("./useTracked");
+var _useTrackedState = require("./useTrackedState");
 
 var _useDispatch = require("./useDispatch");
 

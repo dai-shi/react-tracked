@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Added
 - createContainer
+### Changed
+- rename to simple provider
 
 ## [0.3.0] - 2019-06-13
 ### Changed

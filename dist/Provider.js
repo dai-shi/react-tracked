@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TrackedProvider = exports.defaultContext = exports.createCustomContext = void 0;
+exports.Provider = exports.defaultContext = exports.createCustomContext = void 0;
 
 var _react = require("react");
 
@@ -52,7 +52,7 @@ var defaultContext = createCustomContext(); // ---------------------------------
 
 exports.defaultContext = defaultContext;
 
-var TrackedProvider = function TrackedProvider(_ref) {
+var Provider = function Provider(_ref) {
   var useValue = _ref.useValue,
       _ref$customContext = _ref.customContext,
       customContext = _ref$customContext === void 0 ? defaultContext : _ref$customContext,
@@ -88,4 +88,4 @@ var TrackedProvider = function TrackedProvider(_ref) {
   }, children);
 };
 
-exports.TrackedProvider = TrackedProvider;
+exports.Provider = Provider;
