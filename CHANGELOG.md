@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- createContainer
 
 ## [0.3.0] - 2019-06-13
 ### Changed

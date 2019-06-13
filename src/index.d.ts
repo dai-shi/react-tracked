@@ -29,3 +29,14 @@ export const useSelector: <S, M>(
   equalityFn?: (a: M, b: M) => boolean | Opts & { equalityFn?: (a: M, b: M) => boolean },
   opts?: Opts,
 ) => M;
+
+export const createContainer: <S, D>(useValue: () => [S, D]) => {
+  TrackedProvider: React.ComponentType;
+  useTrackedState: () => S;
+  useTracked: () => [S, D];
+  useDispatch: () => D;
+  useSelector: <M>(
+    selector: (state: S) => M,
+    equalityFn?: (a: M, b: M) => boolean,
+  ) => M;
+};

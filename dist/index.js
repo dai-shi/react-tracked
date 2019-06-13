@@ -39,6 +39,12 @@ Object.defineProperty(exports, "useSelector", {
     return _useSelector.useSelector;
   }
 });
+Object.defineProperty(exports, "createContainer", {
+  enumerable: true,
+  get: function get() {
+    return _createContainer.createContainer;
+  }
+});
 
 var _TrackedProvider = require("./TrackedProvider");
 
@@ -47,3 +53,5 @@ var _useTracked = require("./useTracked");
 var _useDispatch = require("./useDispatch");
 
 var _useSelector = require("./useSelector");
+
+var _createContainer = require("./createContainer");
