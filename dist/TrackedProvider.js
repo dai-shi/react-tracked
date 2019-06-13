@@ -33,8 +33,8 @@ var warningObject = {
 
 };
 
-var calculateChangedBits = function calculateChangedBits() {
-  return 0;
+var calculateChangedBits = function calculateChangedBits(a, b) {
+  return a.dispatch !== b.dispatch || a.subscribe !== b.subscribe ? 1 : 0;
 };
 
 var defaultContext = (0, _react.createContext)(warningObject, calculateChangedBits);
