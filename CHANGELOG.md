@@ -4,6 +4,7 @@
 ### Changed
 - customContext support
 - fix useDispatch
+- remove unnecessary batchedUpdates
 
 ## [0.2.0] - 2019-06-13
 ### Changed

@@ -2,11 +2,10 @@ import {
   createContext,
   createElement,
   useCallback,
-  useEffect,
   useRef,
 } from 'react';
 
-import { batchedUpdates } from './batchedUpdates';
+import { useIsomorphicLayoutEffect } from './utils';
 
 // -------------------------------------------------------
 // context
@@ -46,10 +45,8 @@ export const TrackedProvider = ({
 }) => {
   const [state, dispatch] = useValue();
   const listeners = useRef([]);
-  useEffect(() => {
-    batchedUpdates(() => {
-      listeners.current.forEach(listener => listener(state));
-    });
+  useIsomorphicLayoutEffect(() => {
+    listeners.current.forEach(listener => listener(state));
   }, [state]);
   const subscribe = useCallback((listener) => {
     listeners.current.push(listener);
