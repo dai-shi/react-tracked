@@ -2,6 +2,7 @@
 
 ## [Unreleased]
 ### Changed
+- customContext support
 - fix useDispatch
 
 ## [0.2.0] - 2019-06-13

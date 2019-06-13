@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.TrackedProvider = exports.defaultContext = void 0;
+exports.TrackedProvider = exports.defaultContext = exports.createCustomContext = void 0;
 
 var _react = require("react");
 
@@ -17,7 +17,9 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+// -------------------------------------------------------
 // context
+// -------------------------------------------------------
 var warningObject = {
   get state() {
     throw new Error('Please use <TrackedProvider ...>');
@@ -37,7 +39,17 @@ var calculateChangedBits = function calculateChangedBits(a, b) {
   return a.dispatch !== b.dispatch || a.subscribe !== b.subscribe ? 1 : 0;
 };
 
-var defaultContext = (0, _react.createContext)(warningObject, calculateChangedBits);
+var createCustomContext = function createCustomContext() {
+  var w = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : warningObject;
+  var c = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : calculateChangedBits;
+  return (0, _react.createContext)(w, c);
+};
+
+exports.createCustomContext = createCustomContext;
+var defaultContext = createCustomContext(); // -------------------------------------------------------
+// provider
+// -------------------------------------------------------
+
 exports.defaultContext = defaultContext;
 
 var TrackedProvider = function TrackedProvider(_ref) {

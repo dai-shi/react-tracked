@@ -8,7 +8,10 @@ import {
 
 import { batchedUpdates } from './batchedUpdates';
 
+// -------------------------------------------------------
 // context
+// -------------------------------------------------------
+
 const warningObject = {
   get state() {
     throw new Error('Please use <TrackedProvider ...>');
@@ -20,10 +23,21 @@ const warningObject = {
     throw new Error('Please use <TrackedProvider ...>');
   },
 };
+
 const calculateChangedBits = (a, b) => (
   a.dispatch !== b.dispatch || a.subscribe !== b.subscribe ? 1 : 0
 );
-export const defaultContext = createContext(warningObject, calculateChangedBits);
+
+export const createCustomContext = (
+  w = warningObject,
+  c = calculateChangedBits,
+) => createContext(w, c);
+
+export const defaultContext = createCustomContext();
+
+// -------------------------------------------------------
+// provider
+// -------------------------------------------------------
 
 export const TrackedProvider = ({
   useValue,
