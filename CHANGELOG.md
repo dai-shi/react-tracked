@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- fix useDispatch
 
 ## [0.2.0] - 2019-06-13
 ### Changed
