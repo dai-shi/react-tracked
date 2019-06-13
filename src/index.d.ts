@@ -24,19 +24,19 @@ export const useTracked: <S, D>(opts?: Opts) => [S, D];
 
 export const useDispatch: <D>(opts?: Opts) => D;
 
-export const useSelector: <S, M>(
-  selector: (state: S) => M,
-  equalityFn?: (a: M, b: M) => boolean | Opts & { equalityFn?: (a: M, b: M) => boolean },
+export const useSelector: <S, V>(
+  selector: (state: S) => V,
+  equalityFn?: (a: V, b: V) => boolean | Opts & { equalityFn?: (a: V, b: V) => boolean },
   opts?: Opts,
-) => M;
+) => V;
 
 export const createContainer: <S, D>(useValue: () => [S, D]) => {
   TrackedProvider: React.ComponentType;
   useTrackedState: () => S;
   useTracked: () => [S, D];
   useDispatch: () => D;
-  useSelector: <M>(
-    selector: (state: S) => M,
-    equalityFn?: (a: M, b: M) => boolean,
-  ) => M;
+  useSelector: <V>(
+    selector: (state: S) => V,
+    equalityFn?: (a: V, b: V) => boolean,
+  ) => V;
 };
