@@ -18,6 +18,8 @@ type Opts = {
   customContext?: CustomContext;
 };
 
+export const useTrackedState: <S>(opts?: Opts) => S;
+
 export const useTracked: <S, D>(opts?: Opts) => [S, D];
 
 export const useDispatch: <D>(opts?: Opts) => D;

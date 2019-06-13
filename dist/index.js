@@ -15,6 +15,12 @@ Object.defineProperty(exports, "createCustomContext", {
     return _TrackedProvider.createCustomContext;
   }
 });
+Object.defineProperty(exports, "useTrackedState", {
+  enumerable: true,
+  get: function get() {
+    return _useTracked.useTrackedState;
+  }
+});
 Object.defineProperty(exports, "useTracked", {
   enumerable: true,
   get: function get() {

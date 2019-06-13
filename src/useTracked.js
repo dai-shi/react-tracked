@@ -11,12 +11,14 @@ import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 
 import { createDeepProxy, isDeepChanged } from './deepProxy';
 
-export const useTracked = (opts = {}) => {
+import { useDispatch } from './useDispatch';
+
+export const useTrackedState = (opts = {}) => {
   const {
     customContext = defaultContext,
   } = opts;
   const forceUpdate = useForceUpdate();
-  const { state, dispatch, subscribe } = useContext(customContext);
+  const { state, subscribe } = useContext(customContext);
   const affected = new WeakMap();
   const lastTracked = useRef(null);
   useIsomorphicLayoutEffect(() => {
@@ -52,6 +54,11 @@ export const useTracked = (opts = {}) => {
     return unsubscribe;
   }, [forceUpdate, subscribe]);
   const proxyCache = useRef(new WeakMap()); // per-hook proxyCache
-  const proxied = createDeepProxy(state, affected, proxyCache.current);
-  return useMemo(() => [proxied, dispatch], [proxied, dispatch]);
+  return createDeepProxy(state, affected, proxyCache.current);
+};
+
+export const useTracked = (opts = {}) => {
+  const state = useTrackedState(opts);
+  const dispatch = useDispatch(opts);
+  return useMemo(() => [state, dispatch], [state, dispatch]);
 };

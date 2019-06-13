@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useTracked = void 0;
+exports.useTracked = exports.useTrackedState = void 0;
 
 var _react = require("react");
 
@@ -13,7 +13,9 @@ var _utils = require("./utils");
 
 var _deepProxy = require("./deepProxy");
 
-var useTracked = function useTracked() {
+var _useDispatch = require("./useDispatch");
+
+var useTrackedState = function useTrackedState() {
   var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var _opts$customContext = opts.customContext,
       customContext = _opts$customContext === void 0 ? _TrackedProvider.defaultContext : _opts$customContext;
@@ -21,7 +23,6 @@ var useTracked = function useTracked() {
 
   var _useContext = (0, _react.useContext)(customContext),
       state = _useContext.state,
-      dispatch = _useContext.dispatch,
       subscribe = _useContext.subscribe;
 
   var affected = new WeakMap();
@@ -57,10 +58,18 @@ var useTracked = function useTracked() {
   }, [forceUpdate, subscribe]);
   var proxyCache = (0, _react.useRef)(new WeakMap()); // per-hook proxyCache
 
-  var proxied = (0, _deepProxy.createDeepProxy)(state, affected, proxyCache.current);
+  return (0, _deepProxy.createDeepProxy)(state, affected, proxyCache.current);
+};
+
+exports.useTrackedState = useTrackedState;
+
+var useTracked = function useTracked() {
+  var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var state = useTrackedState(opts);
+  var dispatch = (0, _useDispatch.useDispatch)(opts);
   return (0, _react.useMemo)(function () {
-    return [proxied, dispatch];
-  }, [proxied, dispatch]);
+    return [state, dispatch];
+  }, [state, dispatch]);
 };
 
 exports.useTracked = useTracked;

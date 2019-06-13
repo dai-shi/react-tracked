@@ -5,6 +5,7 @@
 - customContext support
 - fix useDispatch
 - remove unnecessary batchedUpdates
+- split useTrackedState and useTracked
 
 ## [0.2.0] - 2019-06-13
 ### Changed
