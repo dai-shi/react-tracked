@@ -23,7 +23,8 @@
     "examples:minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:typescript": "DIR=02_typescript webpack-dev-server",
     "examples:usestate": "DIR=03_usestate webpack-dev-server",
-    "examples:selector": "DIR=04_selector webpack-dev-server"
+    "examples:selector": "DIR=04_selector webpack-dev-server",
+    "examples:container": "DIR=05_container webpack-dev-server"
   },
   "keywords": [
     "react",
