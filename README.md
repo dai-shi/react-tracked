@@ -35,7 +35,7 @@ import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
 import {
-  TrackedProvider,
+  Provider,
   useTracked,
 } from 'react-tracked';
 
@@ -83,14 +83,14 @@ const TextBox = () => {
 };
 
 const App = () => (
-  <TrackedProvider useValue={useValue}>
+  <Provider useValue={useValue}>
     <h1>Counter</h1>
     <Counter />
     <Counter />
     <h1>TextBox</h1>
     <TextBox />
     <TextBox />
-  </TrackedProvider>
+  </Provider>
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));
