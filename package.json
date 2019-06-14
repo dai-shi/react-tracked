@@ -24,7 +24,8 @@
     "examples:typescript": "DIR=02_typescript webpack-dev-server",
     "examples:usestate": "DIR=03_usestate webpack-dev-server",
     "examples:selector": "DIR=04_selector webpack-dev-server",
-    "examples:container": "DIR=05_container webpack-dev-server"
+    "examples:container": "DIR=05_container webpack-dev-server",
+    "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server"
   },
   "keywords": [
     "react",
