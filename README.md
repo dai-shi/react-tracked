@@ -6,21 +6,29 @@
 
 Super fast React global/shared state with context and hooks
 
-## Motivation
+## Introduction
 
-I have been developing [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux) which is an alternative to react-redux providing state usage tracking for optimization.
-This library provides almost same functionality, but without Redux.
-No middleware, no devtools, and/but no dependencies.
+React Context and useContext is often used to avoid prop drilling,
+however it's known that there's a performance issue.
+When a context value is changed, all components that useContext
+will re-render.
+React idiomatic usage of the Context API is
+to separate concerns into pieces and use multiple contexts.
+If each context value is small enough, there shouldn't be
+any performance issue.
 
-## Analogies
+What if one wants to put a bigger state object into a context
+for various reasons?
+React Redux is one solution in this field. Redux is designed to
+handle one big global state, and React Redux optimizes that use case.
 
-- Like [constate](https://github.com/diegohaz/constate) and [unstated-next](https://github.com/jamiebuilds/unstated-next), this receives `useValue` hook. Unlike them, this doesn't use factory pattern.
-- Like [react-redux](https://react-redux.js.org/api/hooks) and [zustand](https://github.com/react-spring/zustand), it's optimized to trigger re-render only necessarily. Unlike them, this tracks state usage with Proxy for optomization, so you don't need a "selector".
-
-Some other notes:
-
-- not only `useReducer` but also `useState` can be used for `useValue`
-- `useSelector` emulates that in react-redux
+This library tosses a new option. It's based on Context and
+typically with useReducer, and provides APIs to solve
+the performance issue.
+Most notably, it comes with `useTrackedState`, which allows
+optimization without hassle. Technically, it uses Proxy underneath,
+and it tracks state usage in render so that if only used part of the state
+is changed, it will re-render.
 
 ## Install
 
@@ -28,16 +36,13 @@ Some other notes:
 npm install react-tracked
 ```
 
-## Usage
+## Usage (useTracked)
 
 ```javascript
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-  Provider,
-  useTracked,
-} from 'react-tracked';
+import { Provider, useTracked } from 'react-tracked';
 
 const initialState = {
   counter: 0,
@@ -96,6 +101,73 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
+## Technical memo
+
+React context by nature triggers propagation of component re-rendering
+if a value is changed. To avoid this, this libraries use undocumented
+feature of `calculateChangedBits`. It then uses a subscription model
+to force update when a component needs to re-render.
+
+## API
+
+### Provider
+
+```javascript
+const useValue = useReducer(...); // any custom hook that returns a tuple
+const App = () => (
+  <Provider useValue={useValue}>
+    ...
+  </Provider>
+);
+```
+
+### useDispatch
+
+```javascript
+const Component = () => {
+  const dispatch = useDispatch(); // simply to get the second one of the tuple
+  // ...
+};
+```
+
+### useSelector
+
+```javascript
+const Component = () => {
+  const selected = useSelector(selector); // same API in react-redux
+  // ...
+};
+```
+
+### useTrackedState
+
+```javascript
+const Component = () => {
+  const state = useTrackedState(); // same API in reactive-react-redux
+  // ...
+};
+```
+
+### useTracked
+
+```javascript
+const Component = () => {
+  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
+  // ...
+};
+```
+### createContainer
+
+```javascript
+const {
+  Provider,
+  useDispatch,
+  useSelector,
+  useTrackedState,
+  useTracked,
+} = createContainer(useValue); // create all APIs bound with new context
+```
+
 ## Examples
 
 The [examples](examples) folder contains working examples.
@@ -114,3 +186,15 @@ You can also try them in codesandbox.io:
 [04](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/04_selector)
 [05](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/05_container)
 [06](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/06_customhook)
+
+## Related projects
+
+- [constate](https://github.com/diegohaz/constate): for small context values (idiomatic contexts)
+- [unstated-next](https://github.com/jamiebuilds/unstated-next): for small context values (idiomatic contexts)
+- [zustand](https://github.com/react-spring/zustand): no context, subscription only, optimization with selector
+- [react-redux](https://react-redux.js.org/api/hooks): store context with subscription, optimization with selector
+- [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux): state context with subscription, same `useTrackedState` API but for redux
+
+## Blogs
+
+To be written.
