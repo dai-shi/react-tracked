@@ -113,7 +113,7 @@ to force update when a component needs to re-render.
 ### Provider
 
 ```javascript
-const useValue = useReducer(...); // any custom hook that returns a tuple
+const useValue = () => useReducer(...); // any custom hook that returns a tuple
 const App = () => (
   <Provider useValue={useValue}>
     ...
