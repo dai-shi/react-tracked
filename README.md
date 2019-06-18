@@ -192,6 +192,8 @@ You can also try them in codesandbox.io:
 - [constate](https://github.com/diegohaz/constate): for small context values (idiomatic contexts)
 - [unstated-next](https://github.com/jamiebuilds/unstated-next): for small context values (idiomatic contexts)
 - [zustand](https://github.com/react-spring/zustand): no context, subscription only, optimization with selector
+- [storeon](https://github.com/storeon/storeon): store context with subscription, optimization with state names
+- [react-hooks-global-state](https://github.com/dai-shi/react-hooks-global-state): state context, optimization with state names
 - [react-redux](https://react-redux.js.org/api/hooks): store context with subscription, optimization with selector
 - [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux): state context with subscription, same `useTrackedState` API but for redux
 
