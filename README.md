@@ -6,6 +6,8 @@
 
 Super fast React global/shared state with context and hooks
 
+> If you are looking for a Redux-based library, please visit [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux) which has the same hooks API.
+
 ## Introduction
 
 React Context and useContext is often used to avoid prop drilling,
@@ -189,13 +191,9 @@ You can also try them in codesandbox.io:
 
 ## Related projects
 
-- [constate](https://github.com/diegohaz/constate): for small context values (idiomatic contexts)
-- [unstated-next](https://github.com/jamiebuilds/unstated-next): for small context values (idiomatic contexts)
-- [zustand](https://github.com/react-spring/zustand): no context, subscription only, optimization with selector
-- [storeon](https://github.com/storeon/storeon): store context with subscription, optimization with state names
-- [react-hooks-global-state](https://github.com/dai-shi/react-hooks-global-state): state context, optimization with state names
-- [react-redux](https://react-redux.js.org/api/hooks): store context with subscription, optimization with selector
-- [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux): state context with subscription, same `useTrackedState` API but for redux
+![comparison table](https://user-images.githubusercontent.com/490574/59811887-d27e5800-9346-11e9-8f7b-682d33dd3a14.png)
+
+See [#1](https://github.com/dai-shi/react-tracked/issues/1#issue-457545942) for details.
 
 ## Blogs
 
