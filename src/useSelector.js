@@ -19,9 +19,9 @@ export const useSelector = (selector, eqlFn, opts) => {
   const forceUpdate = useForceUpdate();
   const { state, subscribe } = useContext(customContext);
   const selected = selector(state);
-  const last = useRef(null);
+  const ref = useRef(null);
   useIsomorphicLayoutEffect(() => {
-    last.current = {
+    ref.current = {
       equalityFn,
       selector,
       state,
@@ -30,21 +30,21 @@ export const useSelector = (selector, eqlFn, opts) => {
   });
   useEffect(() => {
     const callback = (nextState) => {
-      if (last.current.state === nextState) return;
+      if (ref.current.state === nextState) return;
       let changed;
       try {
-        changed = !last.current.equalityFn(last.current.selected, last.current.selector(nextState));
+        changed = !ref.current.equalityFn(ref.current.selected, ref.current.selector(nextState));
       } catch (e) {
         changed = true; // stale props or some other reason
       }
       if (changed) {
-        last.current.state = nextState;
+        ref.current.state = nextState;
         forceUpdate();
       }
     };
-    // run once in case the state is already changed
-    forceUpdate();
     const unsubscribe = subscribe(callback);
+    // force update in case the state is already changed
+    forceUpdate();
     return unsubscribe;
   }, [subscribe, forceUpdate]);
   return selected;

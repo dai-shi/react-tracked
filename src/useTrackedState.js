@@ -48,9 +48,9 @@ export const useTrackedState = (opts = {}) => {
         forceUpdate();
       }
     };
-    // run once in case the state is already changed
-    forceUpdate();
     const unsubscribe = subscribe(callback);
+    // force update in case the state is already changed
+    forceUpdate();
     return unsubscribe;
   }, [subscribe, forceUpdate]);
   const proxyCache = useRef(new WeakMap()); // per-hook proxyCache

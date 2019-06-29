@@ -49,11 +49,11 @@ var useTrackedState = function useTrackedState() {
         lastTracked.current.state = nextState;
         forceUpdate();
       }
-    }; // run once in case the state is already changed
+    };
 
+    var unsubscribe = subscribe(callback); // force update in case the state is already changed
 
     forceUpdate();
-    var unsubscribe = subscribe(callback);
     return unsubscribe;
   }, [subscribe, forceUpdate]);
   var proxyCache = (0, _react.useRef)(new WeakMap()); // per-hook proxyCache
