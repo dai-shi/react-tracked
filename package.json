@@ -17,7 +17,7 @@
   "scripts": {
     "compile": "babel src -d dist",
     "test": "npm run eslint && npm run tsc-test && npm run jest",
-    "eslint": "eslint --ext .js,.ts,.tsx --ignore-pattern dist .",
+    "eslint": "eslint --ext .js,.ts,.tsx --ignore-pattern dist --ignore-pattern 'examples/counter-*' .",
     "jest": "jest",
     "tsc-test": "tsc --project . --noEmit",
     "examples:minimal": "DIR=01_minimal EXT=js webpack-dev-server",
