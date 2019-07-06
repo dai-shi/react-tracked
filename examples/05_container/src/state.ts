@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 
 const initialState = {
-  counter: 0,
+  count: 0,
 };
 
 type State = typeof initialState;
@@ -14,11 +14,11 @@ const reducer = (state: State, action: Action) => {
   switch (action.type) {
     case 'increment': return {
       ...state,
-      counter: state.counter + 1,
+      count: state.count + 1,
     };
     case 'decrement': return {
       ...state,
-      counter: state.counter - 1,
+      count: state.count - 1,
     };
     default:
       throw new Error('unknown action type');

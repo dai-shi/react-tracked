@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const initialState = {
-  counter: 0,
+  count: 0,
   person: {
     age: 0,
     firstName: '',

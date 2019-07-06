@@ -16,7 +16,7 @@ const Counter = () => {
   const [count, actions] = useTracked();
   return (
     <div>
-      <span>Count:{count}</span>
+      <span>Count: {count}</span>
       <button type="button" onClick={actions.increment}>+1</button>
       <button type="button" onClick={actions.decrement}>-1</button>
     </div>
