@@ -8,7 +8,7 @@ let nextTodoId = 0;
 
 const useAddTodo = () => {
   const setState = useDispatch<SetState>();
-  return useCallback((text: string) => {
+  const addTodo = useCallback((text: string) => {
     setState(s => produce(s, (draft) => {
       draft.todos.push({
         id: nextTodoId++,
@@ -17,6 +17,7 @@ const useAddTodo = () => {
       });
     }));
   }, [setState]);
+  return addTodo;
 };
 
 export default useAddTodo;

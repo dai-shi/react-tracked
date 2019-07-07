@@ -6,7 +6,7 @@ import { SetState } from '../state';
 
 const useToggleTodo = () => {
   const setState = useDispatch<SetState>();
-  return useCallback((id: number) => {
+  const toggleTodo = useCallback((id: number) => {
     setState(s => produce(s, (draft) => {
       const found = draft.todos.find(todo => todo.id === id);
       if (found) {
@@ -14,6 +14,7 @@ const useToggleTodo = () => {
       }
     }));
   }, [setState]);
+  return toggleTodo;
 };
 
 export default useToggleTodo;
