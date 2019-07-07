@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import useAddTodo from '../hooks/useAddTodo';
 
-const AddTodo = () => {
+const AddTodo: React.FC = () => {
   const [text, setText] = useState('');
   const addTodo = useAddTodo();
   return (
