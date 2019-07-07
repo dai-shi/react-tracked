@@ -25,7 +25,8 @@
     "examples:usestate": "DIR=03_usestate webpack-dev-server",
     "examples:selector": "DIR=04_selector webpack-dev-server",
     "examples:container": "DIR=05_container webpack-dev-server",
-    "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server"
+    "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server",
+    "examples:todolist": "DIR=07_todolist webpack-dev-server"
   },
   "keywords": [
     "react",
@@ -55,6 +56,7 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "html-webpack-plugin": "^3.2.0",
+    "immer": "^3.1.3",
     "jest": "^24.8.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
