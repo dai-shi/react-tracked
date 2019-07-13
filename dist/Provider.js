@@ -57,6 +57,11 @@ var Provider = function Provider(_ref) {
       _ref$customContext = _ref.customContext,
       customContext = _ref$customContext === void 0 ? defaultContext : _ref$customContext,
       children = _ref.children;
+  var useValueRef = (0, _react.useRef)(useValue);
+
+  if (useValueRef.current !== useValue) {
+    throw new Error('useValue must be statically defined');
+  }
 
   var _useValue = useValue(),
       _useValue2 = _slicedToArray(_useValue, 2),
