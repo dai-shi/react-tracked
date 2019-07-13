@@ -6,13 +6,7 @@ import { State, Updater } from './state';
 
 const Counter = () => {
   const [state, setState] = useTracked<State, Updater>();
-  const increment1 = () => {
-    setState({
-      ...state,
-      count: state.count + 1,
-    });
-  };
-  const increment2 = () => {
+  const increment = () => {
     setState(s => ({
       ...s,
       count: s.count + 1,
@@ -23,8 +17,7 @@ const Counter = () => {
       {Math.random()}
       <div>
         <span>Count: {state.count}</span>
-        <button type="button" onClick={increment1}>+1</button>
-        <button type="button" onClick={increment2}>+1</button>
+        <button type="button" onClick={increment}>+1</button>
       </div>
     </div>
   );

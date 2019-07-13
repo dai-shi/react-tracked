@@ -15,13 +15,13 @@ const Person = () => {
           value={state.person.firstName}
           onChange={(event) => {
             const firstName = event.target.value;
-            setState({
-              ...state,
+            setState(s => ({
+              ...s,
               person: {
-                ...state.person,
+                ...s.person,
                 firstName,
               },
-            });
+            }));
           }}
         />
       </div>
@@ -31,13 +31,13 @@ const Person = () => {
           value={state.person.lastName}
           onChange={(event) => {
             const lastName = event.target.value;
-            setState({
-              ...state,
+            setState(s => ({
+              ...s,
               person: {
-                ...state.person,
+                ...s.person,
                 lastName,
               },
-            });
+            }));
           }}
         />
       </div>
@@ -47,13 +47,13 @@ const Person = () => {
           value={state.person.age}
           onChange={(event) => {
             const age = Number(event.target.value) || 0;
-            setState({
-              ...state,
+            setState(s => ({
+              ...s,
               person: {
-                ...state.person,
+                ...s.person,
                 age,
               },
-            });
+            }));
           }}
         />
       </div>
