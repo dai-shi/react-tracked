@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.5.0] - 2019-07-13
 ### Changed
 - Warn if useValue is not statically defined
 
