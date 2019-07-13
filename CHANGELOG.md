@@ -1,19 +1,21 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Warn if useValue is not statically defined
 
 ## [0.4.0] - 2019-06-14
 ### Added
-- createContainer
+- Add createContainer
 ### Changed
-- rename to simple provider (breaking change)
+- Rename to simple provider (breaking change)
 
 ## [0.3.0] - 2019-06-13
 ### Changed
-- customContext support
-- fix useDispatch
-- remove unnecessary batchedUpdates
-- split useTrackedState and useTracked
+- Add customContext support
+- Fix useDispatch
+- Remove unnecessary batchedUpdates
+- Split useTrackedState and useTracked
 
 ## [0.2.0] - 2019-06-13
 ### Changed
