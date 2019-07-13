@@ -43,6 +43,10 @@ export const Provider = ({
   customContext = defaultContext,
   children,
 }) => {
+  const useValueRef = useRef(useValue);
+  if (useValueRef.current !== useValue) {
+    throw new Error('useValue must be statically defined');
+  }
   const [state, dispatch] = useValue();
   const listeners = useRef([]);
   useIsomorphicLayoutEffect(() => {
