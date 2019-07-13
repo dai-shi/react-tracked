@@ -11,12 +11,9 @@ import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 
 import { createDeepProxy, isDeepChanged } from './deepProxy';
 
-import { useDispatch } from './useDispatch';
+import { createUseDispatch } from './useDispatch';
 
-export const useTrackedState = (opts = {}) => {
-  const {
-    customContext = defaultContext,
-  } = opts;
+export const createUseTrackedState = customContext => (opts = {}) => {
   const forceUpdate = useForceUpdate();
   const { state, subscribe } = useContext(customContext);
   const affected = new WeakMap();
@@ -57,8 +54,15 @@ export const useTrackedState = (opts = {}) => {
   return createDeepProxy(state, affected, proxyCache.current);
 };
 
-export const useTracked = (opts = {}) => {
-  const state = useTrackedState(opts);
-  const dispatch = useDispatch(opts);
-  return useMemo(() => [state, dispatch], [state, dispatch]);
+export const createUseTracked = (customContext) => {
+  const useTrackedState = createUseTrackedState(customContext);
+  const useDispatch = createUseDispatch(customContext);
+  return (opts) => {
+    const state = useTrackedState(opts);
+    const dispatch = useDispatch();
+    return useMemo(() => [state, dispatch], [state, dispatch]);
+  };
 };
+
+export const useTrackedState = createUseTrackedState(defaultContext);
+export const useTracked = createUseTracked(defaultContext);

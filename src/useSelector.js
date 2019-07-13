@@ -8,14 +8,12 @@ import { defaultContext } from './Provider';
 
 import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 
-const isFunction = f => typeof f === 'function';
 const defaultEqualityFn = (a, b) => a === b;
 
-export const useSelector = (selector, eqlFn, opts) => {
-  const {
-    equalityFn = isFunction(eqlFn) ? eqlFn : defaultEqualityFn,
-    customContext = defaultContext,
-  } = opts || (!isFunction(eqlFn) && eqlFn) || {};
+export const createUseSelector = customContext => (
+  selector,
+  equalityFn = defaultEqualityFn,
+) => {
   const forceUpdate = useForceUpdate();
   const { state, subscribe } = useContext(customContext);
   const selected = selector(state);
@@ -49,3 +47,5 @@ export const useSelector = (selector, eqlFn, opts) => {
   }, [subscribe, forceUpdate]);
   return selected;
 };
+
+export const useSelector = createUseSelector(defaultContext);

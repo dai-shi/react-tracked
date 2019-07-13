@@ -38,14 +38,19 @@ export const defaultContext = createCustomContext();
 // provider
 // -------------------------------------------------------
 
-export const Provider = ({
+export const createProvider = (customContext, customUseValue) => ({
   useValue,
-  customContext = defaultContext,
   children,
 }) => {
-  const useValueRef = useRef(useValue);
-  if (useValueRef.current !== useValue) {
-    throw new Error('useValue must be statically defined');
+  if (customUseValue) {
+    useValue = customUseValue;
+  } else {
+    // Although this looks like violating the hooks rule,
+    // it is ok because it won't change once created.
+    const useValueRef = useRef(useValue);
+    if (useValueRef.current !== useValue) {
+      throw new Error('useValue must be statically defined');
+    }
   }
   const [state, dispatch] = useValue();
   const listeners = useRef([]);
@@ -66,3 +71,5 @@ export const Provider = ({
     children,
   );
 };
+
+export const Provider = createProvider(defaultContext);

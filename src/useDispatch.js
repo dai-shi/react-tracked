@@ -2,10 +2,9 @@ import { useContext } from 'react';
 
 import { defaultContext } from './Provider';
 
-export const useDispatch = (opts = {}) => {
-  const {
-    customContext = defaultContext,
-  } = opts;
+export const createUseDispatch = customContext => () => {
   const { dispatch } = useContext(customContext);
   return dispatch;
 };
+
+export const useDispatch = createUseDispatch(defaultContext);
