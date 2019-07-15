@@ -110,14 +110,29 @@ if a value is changed. To avoid this, this libraries use undocumented
 feature of `calculateChangedBits`. It then uses a subscription model
 to force update when a component needs to re-render.
 
-## API
+## API (container)
+
+### createContainer
+
+```javascript
+import { createContainer } from 'react-tracked';
+
+const useValue = () => useReducer(...); // any custom hook that returns a tuple
+
+const {
+  Provider,
+  useDispatch,
+  useSelector,
+  useTrackedState,
+  useTracked,
+} = createContainer(useValue);
+```
 
 ### Provider
 
 ```javascript
-const useValue = () => useReducer(...); // any custom hook that returns a tuple
 const App = () => (
-  <Provider useValue={useValue}>
+  <Provider>
     ...
   </Provider>
 );
@@ -158,16 +173,65 @@ const Component = () => {
   // ...
 };
 ```
-### createContainer
+
+## API (default context)
+
+### Provider
 
 ```javascript
-const {
-  Provider,
-  useDispatch,
-  useSelector,
-  useTrackedState,
-  useTracked,
-} = createContainer(useValue); // create all APIs bound with new context
+import { Provider } from 'react-tracked';
+
+const useValue = () => useReducer(...); // any custom hook that returns a tuple
+
+const App = () => (
+  <Provider useValue={useValue}>
+    ...
+  </Provider>
+);
+```
+
+### useDispatch
+
+```javascript
+import { useDispatch } from 'react-tracked';
+
+const Component = () => {
+  const dispatch = useDispatch(); // simply to get the second one of the tuple
+  // ...
+};
+```
+
+### useSelector
+
+```javascript
+import { useSelector } from 'react-tracked';
+
+const Component = () => {
+  const selected = useSelector(selector); // same API in react-redux
+  // ...
+};
+```
+
+### useTrackedState
+
+```javascript
+import { useTrackedState } from 'react-tracked';
+
+const Component = () => {
+  const state = useTrackedState(); // same API in reactive-react-redux
+  // ...
+};
+```
+
+### useTracked
+
+```javascript
+import { useTracked } from 'react-tracked';
+
+const Component = () => {
+  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
+  // ...
+};
 ```
 
 ## Examples

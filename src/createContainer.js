@@ -1,21 +1,15 @@
-import { createElement } from 'react';
-
-import { Provider, createCustomContext } from './Provider';
-import { useTrackedState, useTracked } from './useTrackedState';
-import { useDispatch } from './useDispatch';
-import { useSelector } from './useSelector';
+import { createProvider, createCustomContext } from './Provider';
+import { createUseTrackedState, createUseTracked } from './useTrackedState';
+import { createUseDispatch } from './useDispatch';
+import { createUseSelector } from './useSelector';
 
 export const createContainer = (useValue) => {
   const customContext = createCustomContext();
   return {
-    Provider: ({ children }) => createElement(
-      Provider,
-      { useValue, customContext },
-      children,
-    ),
-    useTrackedState: () => useTrackedState({ customContext }),
-    useTracked: () => useTracked({ customContext }),
-    useDispatch: () => useDispatch({ customContext }),
-    useSelector: (selector, equalityFn) => useSelector(selector, { equalityFn, customContext }),
+    Provider: createProvider(customContext, useValue),
+    useTrackedState: createUseTrackedState(customContext),
+    useTracked: createUseTracked(customContext),
+    useDispatch: createUseDispatch(customContext),
+    useSelector: createUseSelector(customContext),
   };
 };
