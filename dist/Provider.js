@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Provider = exports.defaultContext = exports.createCustomContext = void 0;
+exports.Provider = exports.createProvider = exports.defaultContext = exports.createCustomContext = void 0;
 
 var _react = require("react");
 
@@ -52,45 +52,54 @@ var defaultContext = createCustomContext(); // ---------------------------------
 
 exports.defaultContext = defaultContext;
 
-var Provider = function Provider(_ref) {
-  var useValue = _ref.useValue,
-      _ref$customContext = _ref.customContext,
-      customContext = _ref$customContext === void 0 ? defaultContext : _ref$customContext,
-      children = _ref.children;
-  var useValueRef = (0, _react.useRef)(useValue);
+var createProvider = function createProvider(customContext, customUseValue) {
+  return function (_ref) {
+    var useValue = _ref.useValue,
+        children = _ref.children;
 
-  if (useValueRef.current !== useValue) {
-    throw new Error('useValue must be statically defined');
-  }
+    if (customUseValue) {
+      useValue = customUseValue;
+    } else {
+      // Although this looks like violating the hooks rule,
+      // it is ok because it won't change once created.
+      var useValueRef = (0, _react.useRef)(useValue);
 
-  var _useValue = useValue(),
-      _useValue2 = _slicedToArray(_useValue, 2),
-      state = _useValue2[0],
-      dispatch = _useValue2[1];
-
-  var listeners = (0, _react.useRef)([]);
-  (0, _utils.useIsomorphicLayoutEffect)(function () {
-    listeners.current.forEach(function (listener) {
-      return listener(state);
-    });
-  }, [state]);
-  var subscribe = (0, _react.useCallback)(function (listener) {
-    listeners.current.push(listener);
-
-    var unsubscribe = function unsubscribe() {
-      var index = listeners.current.indexOf(listener);
-      listeners.current.splice(index, 1);
-    };
-
-    return unsubscribe;
-  }, []);
-  return (0, _react.createElement)(customContext.Provider, {
-    value: {
-      state: state,
-      dispatch: dispatch,
-      subscribe: subscribe
+      if (useValueRef.current !== useValue) {
+        throw new Error('useValue must be statically defined');
+      }
     }
-  }, children);
+
+    var _useValue = useValue(),
+        _useValue2 = _slicedToArray(_useValue, 2),
+        state = _useValue2[0],
+        dispatch = _useValue2[1];
+
+    var listeners = (0, _react.useRef)([]);
+    (0, _utils.useIsomorphicLayoutEffect)(function () {
+      listeners.current.forEach(function (listener) {
+        return listener(state);
+      });
+    }, [state]);
+    var subscribe = (0, _react.useCallback)(function (listener) {
+      listeners.current.push(listener);
+
+      var unsubscribe = function unsubscribe() {
+        var index = listeners.current.indexOf(listener);
+        listeners.current.splice(index, 1);
+      };
+
+      return unsubscribe;
+    }, []);
+    return (0, _react.createElement)(customContext.Provider, {
+      value: {
+        state: state,
+        dispatch: dispatch,
+        subscribe: subscribe
+      }
+    }, children);
+  };
 };
 
+exports.createProvider = createProvider;
+var Provider = createProvider(defaultContext);
 exports.Provider = Provider;
