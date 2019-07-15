@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [0.6.0] - 2019-07-15
 ### Changed
 - Prefer createContainer to default context (#5)
 
