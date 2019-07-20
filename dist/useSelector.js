@@ -34,26 +34,20 @@ var createUseSelector = function createUseSelector(customContext) {
         selected: selected
       };
     });
-    (0, _react.useEffect)(function () {
+    (0, _utils.useIsomorphicLayoutEffect)(function () {
       var callback = function callback(nextState) {
-        if (ref.current.state === nextState) return;
-        var changed;
-
         try {
-          changed = !ref.current.equalityFn(ref.current.selected, ref.current.selector(nextState));
-        } catch (e) {
-          changed = true; // stale props or some other reason
+          if (ref.current.state === nextState || ref.current.equalityFn(ref.current.selected, ref.current.selector(nextState))) {
+            // not changed
+            return;
+          }
+        } catch (e) {// ignored (stale props or some other reason)
         }
 
-        if (changed) {
-          ref.current.state = nextState;
-          forceUpdate();
-        }
+        forceUpdate();
       };
 
-      var unsubscribe = subscribe(callback); // force update in case the state is already changed
-
-      forceUpdate();
+      var unsubscribe = subscribe(callback);
       return unsubscribe;
     }, [subscribe, forceUpdate]);
     return selected;

@@ -7,8 +7,6 @@ exports.Provider = exports.createProvider = exports.defaultContext = exports.cre
 
 var _react = require("react");
 
-var _utils = require("./utils");
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
@@ -74,12 +72,14 @@ var createProvider = function createProvider(customContext, customUseValue) {
         state = _useValue2[0],
         dispatch = _useValue2[1];
 
-    var listeners = (0, _react.useRef)([]);
-    (0, _utils.useIsomorphicLayoutEffect)(function () {
-      listeners.current.forEach(function (listener) {
-        return listener(state);
-      });
-    }, [state]);
+    var listeners = (0, _react.useRef)([]); // we call listeners in render intentionally.
+    // listeners are not technically pure, but
+    // otherwise we can't get benefits from concurrent mode.
+    // we make sure to work with double or more invocation of listeners.
+
+    listeners.current.forEach(function (listener) {
+      return listener(state);
+    });
     var subscribe = (0, _react.useCallback)(function (listener) {
       listeners.current.push(listener);
 
