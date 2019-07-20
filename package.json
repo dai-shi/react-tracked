@@ -37,9 +37,9 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.5",
     "@types/react": "^16.8.23",
@@ -51,7 +51,7 @@
     "babel-loader": "^8.0.6",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.1",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "eslint-plugin-react-hooks": "^1.6.1",
@@ -62,8 +62,8 @@
     "react-dom": "^16.8.6",
     "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "peerDependencies": {
