@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- No useLayoutEffect for invoking listeners (which leads de-opt sync mode)
 
 ## [0.6.0] - 2019-07-15
 ### Changed

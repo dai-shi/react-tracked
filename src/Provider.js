@@ -5,8 +5,6 @@ import {
   useRef,
 } from 'react';
 
-import { useIsomorphicLayoutEffect } from './utils';
-
 // -------------------------------------------------------
 // context
 // -------------------------------------------------------
@@ -54,9 +52,11 @@ export const createProvider = (customContext, customUseValue) => ({
   }
   const [state, dispatch] = useValue();
   const listeners = useRef([]);
-  useIsomorphicLayoutEffect(() => {
-    listeners.current.forEach(listener => listener(state));
-  }, [state]);
+  // we call listeners in render intentionally.
+  // listeners are not technically pure, but
+  // otherwise we can't get benefits from concurrent mode.
+  // we make sure to work with double or more invocation of listeners.
+  listeners.current.forEach(listener => listener(state));
   const subscribe = useCallback((listener) => {
     listeners.current.push(listener);
     const unsubscribe = () => {

@@ -1,11 +1,9 @@
 import {
   useContext,
-  useEffect,
   useRef,
 } from 'react';
 
 import { defaultContext } from './Provider';
-
 import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 
 const defaultEqualityFn = (a, b) => a === b;
@@ -26,23 +24,20 @@ export const createUseSelector = customContext => (
       selected,
     };
   });
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const callback = (nextState) => {
-      if (ref.current.state === nextState) return;
-      let changed;
       try {
-        changed = !ref.current.equalityFn(ref.current.selected, ref.current.selector(nextState));
+        if (ref.current.state === nextState
+          || ref.current.equalityFn(ref.current.selected, ref.current.selector(nextState))) {
+          // not changed
+          return;
+        }
       } catch (e) {
-        changed = true; // stale props or some other reason
+        // ignored (stale props or some other reason)
       }
-      if (changed) {
-        ref.current.state = nextState;
-        forceUpdate();
-      }
+      forceUpdate();
     };
     const unsubscribe = subscribe(callback);
-    // force update in case the state is already changed
-    forceUpdate();
     return unsubscribe;
   }, [subscribe, forceUpdate]);
   return selected;
