@@ -3,19 +3,22 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isDeepChanged = exports.createDeepProxy = void 0;
+exports.isDeepChanged = exports.createDeepProxy = exports.PLAIN_OBJECT_LIKE = void 0;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 // -------------------------------------------------------
 // deep proxy
 // -------------------------------------------------------
-var OWN_KEYS_SYMBOL = Symbol('OWN_KEYS'); // check if obj is a plain object or an array
+var OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
+var PLAIN_OBJECT_LIKE = Symbol('PLAIN_OBJECT_LIKE'); // check if obj is a plain object or an array
+
+exports.PLAIN_OBJECT_LIKE = PLAIN_OBJECT_LIKE;
 
 var isPlainObject = function isPlainObject(obj) {
   try {
     var proto = Object.getPrototypeOf(obj);
-    return proto === Object.prototype || proto === Array.prototype;
+    return proto === Object.prototype || proto === Array.prototype || !!obj[PLAIN_OBJECT_LIKE];
   } catch (e) {
     return false;
   }

@@ -3,12 +3,14 @@
 // -------------------------------------------------------
 
 const OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
+export const PLAIN_OBJECT_LIKE = Symbol('PLAIN_OBJECT_LIKE');
 
 // check if obj is a plain object or an array
 const isPlainObject = (obj) => {
   try {
     const proto = Object.getPrototypeOf(obj);
-    return proto === Object.prototype || proto === Array.prototype;
+    return proto === Object.prototype || proto === Array.prototype
+      || !!obj[PLAIN_OBJECT_LIKE];
   } catch (e) {
     return false;
   }
