@@ -26,7 +26,8 @@
     "examples:selector": "DIR=04_selector webpack-dev-server",
     "examples:container": "DIR=05_container webpack-dev-server",
     "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server",
-    "examples:todolist": "DIR=07_todolist webpack-dev-server"
+    "examples:todolist": "DIR=07_todolist webpack-dev-server",
+    "examples:comparison": "DIR=08_comparison webpack-dev-server"
   },
   "keywords": [
     "react",
