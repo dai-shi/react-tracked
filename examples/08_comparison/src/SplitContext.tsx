@@ -88,7 +88,7 @@ const PersonFamilyName: React.FC = React.memo(() => {
   );
 });
 
-const NaiveContext: React.FC = () => {
+const SplitContext: React.FC = () => {
   const [state1, dispatch1] = useReducer(reducer1, initialState1);
   const [state2, dispatch2] = useReducer(reducer2, initialState2);
   const value1 = useMemo<[State1, Dispatch1]>(() => [state1, dispatch1], [state1, dispatch1]);
@@ -103,4 +103,4 @@ const NaiveContext: React.FC = () => {
   );
 };
 
-export default NaiveContext;
+export default SplitContext;

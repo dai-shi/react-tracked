@@ -70,7 +70,7 @@ const PersonFamilyName: React.FC = () => {
   );
 };
 
-const NaiveContext: React.FC = () => {
+const ReactTracked: React.FC = () => {
   return (
     <Provider>
       <PersonFirstName />
@@ -79,4 +79,4 @@ const NaiveContext: React.FC = () => {
   );
 };
 
-export default NaiveContext;
+export default ReactTracked;

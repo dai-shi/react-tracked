@@ -85,7 +85,7 @@ const PersonFamilyName: React.FC = () => {
   return <InnerPersonFamilyName familyName={state.familyName} dispatch={dispatch} />;
 };
 
-const NaiveContext: React.FC = () => {
+const ContextWithMemo: React.FC = () => {
   const value = useReducer(reducer, initialState);
   return (
     <PersonContext.Provider value={value}>
@@ -95,4 +95,4 @@ const NaiveContext: React.FC = () => {
   );
 };
 
-export default NaiveContext;
+export default ContextWithMemo;
