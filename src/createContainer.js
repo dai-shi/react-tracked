@@ -6,6 +6,7 @@ import { createUseSelector } from './useSelector';
 export const createContainer = (useValue) => {
   const customContext = createCustomContext();
   return {
+    customContext,
     Provider: createProvider(customContext, useValue),
     useTrackedState: createUseTrackedState(customContext),
     useTracked: createUseTracked(customContext),

@@ -5,6 +5,7 @@ type EqlFn<V> = (a: V, b: V) => boolean;
 // container
 
 export const createContainer: <S, D>(useValue: () => [S, D]) => {
+  customContext: React.Context<S>;
   Provider: React.ComponentType;
   useTrackedState: () => S;
   useTracked: () => [S, D];
@@ -18,6 +19,7 @@ export type ProviderType<S = unknown, D = unknown> = React.ComponentType<{
   useValue: () => [S, D];
 }>;
 
+export const defaultContext: React.Context<unknown>;
 export const Provider: ProviderType;
 export const useTrackedState: <S>() => S;
 export const useTracked: <S, D>() => [S, D];

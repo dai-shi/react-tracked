@@ -120,6 +120,7 @@ import { createContainer } from 'react-tracked';
 const useValue = () => useReducer(...); // any custom hook that returns a tuple
 
 const {
+  customContext,
   Provider,
   useDispatch,
   useSelector,
