@@ -3,14 +3,14 @@ import { StrictMode } from 'react';
 
 import { Provider } from 'react-tracked';
 
-import { useValue } from './state';
+import { useValue, initialState } from './state';
 
 import Counter from './Counter';
 import Person from './Person';
 
 const App = () => (
   <StrictMode>
-    <Provider useValue={useValue}>
+    <Provider useValue={useValue} initialState={initialState}>
       <h1>Counter</h1>
       <Counter />
       <Counter />

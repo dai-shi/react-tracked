@@ -39,6 +39,7 @@ export const defaultContext = createCustomContext();
 export const createProvider = (customContext, customUseValue) => ({
   useValue,
   children,
+  initialState,
 }) => {
   if (customUseValue) {
     useValue = customUseValue;
@@ -50,7 +51,7 @@ export const createProvider = (customContext, customUseValue) => ({
       throw new Error('useValue must be statically defined');
     }
   }
-  const [state, dispatch] = useValue();
+  const [state, dispatch] = useValue(initialState);
   const listeners = useRef([]);
   // we call listeners in render intentionally.
   // listeners are not technically pure, but

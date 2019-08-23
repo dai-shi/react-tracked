@@ -28,7 +28,10 @@ const reducer = (state: State, action: Action) => {
   }
 };
 
-const { Provider, useTracked } = createContainer(() => useReducer(reducer, initialState));
+const {
+  Provider,
+  useTracked,
+} = createContainer((initState: State) => useReducer(reducer, initState));
 
 const PersonFirstName: React.FC = () => {
   const [state, dispatch] = useTracked();
@@ -72,7 +75,7 @@ const PersonFamilyName: React.FC = () => {
 
 const ReactTracked: React.FC = () => {
   return (
-    <Provider>
+    <Provider initialState={initialState}>
       <PersonFirstName />
       <PersonFamilyName />
     </Provider>

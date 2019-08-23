@@ -16,11 +16,11 @@ export type State = {
   visibilityFilter: VisibilityFilterType;
 };
 
-const initialState: State = {
+export const initialState: State = {
   todos: [],
   visibilityFilter: 'SHOW_ALL',
 };
 
-export const useValue = () => useState(initialState);
+export const useValue = (initState: State) => useState(initState);
 
 export type SetState = ReturnType<typeof useValue>[1];

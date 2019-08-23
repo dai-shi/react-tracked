@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-const initialState = {
+export const initialState = {
   count: 0,
 };
 
@@ -25,4 +25,4 @@ const reducer = (state: State, action: Action) => {
   }
 };
 
-export const useValue = () => useReducer(reducer, initialState);
+export const useValue = (initState: State) => useReducer(reducer, initState);

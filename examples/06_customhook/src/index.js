@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 
 import { Provider, useTracked } from 'react-tracked';
 
-const useValue = () => {
-  const [count, setCount] = useState(0);
+const useValue = (initialState = 0) => {
+  const [count, setCount] = useState(initialState);
   const increment = () => setCount(c => c + 1);
   const decrement = () => setCount(c => c - 1);
   return [count, { increment, decrement }];

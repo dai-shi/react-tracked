@@ -3,13 +3,13 @@ import { StrictMode } from 'react';
 
 import { Provider } from 'react-tracked';
 
-import { useValue } from './state';
+import { initialState, useValue } from './state';
 
 import MainApp from './components/App';
 
 const App = () => (
   <StrictMode>
-    <Provider useValue={useValue}>
+    <Provider useValue={useValue} initialState={initialState}>
       <MainApp />
     </Provider>
   </StrictMode>

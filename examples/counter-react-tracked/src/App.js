@@ -15,7 +15,7 @@ const reducer = (state, action) => {
   }
 };
 
-const useValue = () => useReducer(reducer, initialState);
+const useValue = initState => useReducer(reducer, initState);
 
 const Counter = () => {
   const [state, dispatch] = useTracked();
@@ -29,7 +29,7 @@ const Counter = () => {
 };
 
 const App = () => (
-  <Provider useValue={useValue}>
+  <Provider useValue={useValue} initialState={initialState}>
     <Counter />
     <Counter />
   </Provider>

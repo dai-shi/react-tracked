@@ -4,8 +4,12 @@ type EqlFn<V> = (a: V, b: V) => boolean;
 
 // container
 
-export const createContainer: <S, D>(useValue: () => [S, D]) => {
-  Provider: React.ComponentType;
+export type ContainerProviderType<S = unknown, D = unknown> = React.ComponentType<{
+  initialState: S;
+}>;
+
+export const createContainer: <S, D>(useValue: (state: S) => [S, D]) => {
+  Provider: ContainerProviderType;
   useTrackedState: () => S;
   useTracked: () => [S, D];
   useDispatch: () => D;
@@ -14,8 +18,10 @@ export const createContainer: <S, D>(useValue: () => [S, D]) => {
 
 // default context
 
-export type ProviderType<S = unknown, D = unknown> = React.ComponentType<{
-  useValue: () => [S, D];
+// `S = unknown | any` because `App.tsx` does not compile
+export type ProviderType<S = unknown | any, D = unknown> = React.ComponentType<{
+  useValue: (state: S) => [S, D];
+  initialState: S;
 }>;
 
 export const Provider: ProviderType;

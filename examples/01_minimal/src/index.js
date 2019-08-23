@@ -22,7 +22,7 @@ const reducer = (state, action) => {
   }
 };
 
-const useValue = () => useReducer(reducer, initialState);
+const useValue = initState => useReducer(reducer, initState);
 
 const Counter = () => {
   const [state, dispatch] = useTracked();
@@ -53,7 +53,7 @@ const TextBox = () => {
 
 const App = () => (
   <StrictMode>
-    <Provider useValue={useValue}>
+    <Provider useValue={useValue} initialState={initialState}>
       <h1>Counter</h1>
       <Counter />
       <Counter />
