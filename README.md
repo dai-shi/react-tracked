@@ -274,7 +274,7 @@ You can also try them in codesandbox.io:
 <td>Yes *1</td>
 <td>Proxy-based tracking</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=react-tracked@0.4.0">1.5kB</a></td>
+<td><a href="https://bundlephobia.com/result?p=react-tracked@0.7.0">1.5kB</a></td>
 </tr>
 
 <tr>
@@ -283,7 +283,7 @@ You can also try them in codesandbox.io:
 <td>No</td>
 <td>No (should use multiple contexts)</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=constate@1.1.1">296B</a></td>
+<td><a href="https://bundlephobia.com/result?p=constate@1.2.0">329B</a></td>
 </tr>
 
 <tr>
@@ -301,7 +301,7 @@ You can also try them in codesandbox.io:
 <td>Yes</td>
 <td>Selector function</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=zustand@0.2.1">623B</a></td>
+<td><a href="https://bundlephobia.com/result?p=zustand@1.0.3">742B</a></td>
 </tr>
 
 <tr>
@@ -310,7 +310,7 @@ You can also try them in codesandbox.io:
 <td>Yes *3</td>
 <td>Selector function</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=react-sweet-state@1.0.2">4.5kB</a></td>
+<td><a href="https://bundlephobia.com/result?p=react-sweet-state@1.0.4">4.5kB</a></td>
 </tr>
 
 <tr>
@@ -319,7 +319,7 @@ You can also try them in codesandbox.io:
 <td>Yes</td>
 <td>state names</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=storeon@0.8.5">337B</a></td>
+<td><a href="https://bundlephobia.com/result?p=storeon@0.9.4">337B</a></td>
 </tr>
 
 <tr>
@@ -346,7 +346,7 @@ You can also try them in codesandbox.io:
 <td>Yes *1</td>
 <td>Proxy-based tracking</td>
 <td>Redux</td>
-<td><a href="https://bundlephobia.com/result?p=reactive-react-redux@4.0.0-beta.0">8.4kB</a></td>
+<td><a href="https://bundlephobia.com/result?p=reactive-react-redux@4.2.0">1.4kB</a></td>
 </tr>
 
 <tr>
@@ -355,21 +355,33 @@ You can also try them in codesandbox.io:
 <td>Yes</td>
 <td>Selector function</td>
 <td>Redux, immer, and so on</td>
-<td><a href="https://bundlephobia.com/result?p=easy-peasy@2.5.0">10.4kB</a></td>
+<td><a href="https://bundlephobia.com/result?p=easy-peasy@3.0.1">9.5kB</a></td>
 </tr>
 
 <tr>
-<th><a href="https://github.com/avkonst/react-use-state-x">react-use-state-x</a> *5</th>
-<td>mutable reference to state object *4</t3>
+<th><a href="https://github.com/mobxjs/mobx-react-lite">mobx-react-lite</a></th>
+<td>mutable state object</t3>
+<td>No *4</td>
+<td>Proxy-based tracking</td>
+<td>MobX</td>
+<td><a href="https://bundlephobia.com/result?p=mobx-react-lite@1.4.1">1.7kB</a></td>
+</tr>
+
+<tr>
+<th><a href="https://github.com/avkonst/hookstate">hookstate</a></th>
+<td>N/A</t3>
 <td>Yes</td>
-<td>No (should use multiple contexts)</td>
+<td>Proxy-based tracking</td>
 <td>No</td>
-<td><a href="https://bundlephobia.com/result?p=react-use-state-x@0.9.1">2.9kB</a></td>
+<td><a href="https://bundlephobia.com/result?p=@hookstate/core@0.10.1">2.6kB</a></td>
 </tr>
 
 </table>
 
-See [#1](https://github.com/dai-shi/react-tracked/issues/1) for details.
+- *1 Stops context propagation by `calculateChangedBits=0`
+- *2 Uses `observedBits`
+- *3 Hack with readContext
+- *4 Mutation trapped by Proxy triggers re-render
 
 ## Blogs
 
