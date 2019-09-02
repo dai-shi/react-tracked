@@ -183,6 +183,110 @@ const Component = () => {
 };
 ```
 
+## Recipes
+
+There are various usages of `createContainer`.
+
+### useReducer (props)
+
+```javascript
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(({ reducer, initialState, init }) => useReducer(reducer, initialState, init));
+
+const reducer = ...;
+
+const App = ({ initialState }) => (
+  <Provider reducer={reducer} initialState={initialState}>
+    ...
+  </Provider>
+);
+```
+
+### useReducer (embedded)
+
+```javascript
+const reducer = ...;
+const initialState = ...;
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(() => useReducer(reducer, initialState));
+
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
+### useState (props)
+
+```javascript
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(({ initialState }) => useState(initialState);
+
+
+const App = ({ initialState }) => (
+  <Provider initialState={initialState}>
+    ...
+  </Provider>
+);
+```
+
+### useState (empty object)
+
+```javascript
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(() => useState({});
+
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
+### useState (custom actions)
+
+```javascript
+const useValue = () => {
+  const [state, setState] = useState({ count1: 0, count2: 0 });
+  const increment1 = () => {
+    setCount(s => ({ ...s, count1: s.count1 + 1 });
+  };
+  const increment2 = () => {
+    setCount(s => ({ ...s, count2: s.count2 + 2 });
+  };
+  return [count, { increment1, increment2 }];
+};
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(useValue);
+
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
 ## Examples
 
 The [examples](examples) folder contains working examples.
