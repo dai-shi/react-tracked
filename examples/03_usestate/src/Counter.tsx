@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { useTracked } from 'react-tracked';
-
-import { State, Updater } from './state';
+import { useTracked } from './state';
 
 const Counter = () => {
-  const [state, setState] = useTracked<State, Updater>();
+  const [state, setState] = useTracked();
   const increment = () => {
     setState(s => ({
       ...s,

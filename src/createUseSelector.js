@@ -3,17 +3,16 @@ import {
   useRef,
 } from 'react';
 
-import { defaultContext } from './Provider';
 import { useIsomorphicLayoutEffect, useForceUpdate } from './utils';
 
 const defaultEqualityFn = (a, b) => a === b;
 
-export const createUseSelector = customContext => (
+export const createUseSelector = context => (
   selector,
   equalityFn = defaultEqualityFn,
 ) => {
   const forceUpdate = useForceUpdate();
-  const { state, subscribe } = useContext(customContext);
+  const { state, subscribe } = useContext(context);
   const selected = selector(state);
   const ref = useRef(null);
   useIsomorphicLayoutEffect(() => {
@@ -42,5 +41,3 @@ export const createUseSelector = customContext => (
   }, [subscribe, forceUpdate]);
   return selected;
 };
-
-export const useSelector = createUseSelector(defaultContext);

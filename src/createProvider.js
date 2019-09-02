@@ -30,27 +30,12 @@ export const createCustomContext = (
   c = calculateChangedBits,
 ) => createContext(w, c);
 
-export const defaultContext = createCustomContext();
-
 // -------------------------------------------------------
 // provider
 // -------------------------------------------------------
 
-export const createProvider = (customContext, customUseValue) => ({
-  useValue,
-  children,
-}) => {
-  if (customUseValue) {
-    useValue = customUseValue;
-  } else {
-    // Although this looks like violating the hooks rule,
-    // it is ok because it won't change once created.
-    const useValueRef = useRef(useValue);
-    if (useValueRef.current !== useValue) {
-      throw new Error('useValue must be statically defined');
-    }
-  }
-  const [state, dispatch] = useValue();
+export const createProvider = (context, useValue) => (props) => {
+  const [state, update] = useValue(props);
   const listeners = useRef([]);
   // we call listeners in render intentionally.
   // listeners are not technically pure, but
@@ -66,10 +51,8 @@ export const createProvider = (customContext, customUseValue) => ({
     return unsubscribe;
   }, []);
   return createElement(
-    customContext.Provider,
-    { value: { state, dispatch, subscribe } },
-    children,
+    context.Provider,
+    { value: { state, update, subscribe } },
+    props.children,
   );
 };
-
-export const Provider = createProvider(defaultContext);

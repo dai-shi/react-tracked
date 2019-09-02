@@ -1,5 +1,7 @@
 import { useReducer } from 'react';
 
+import { createContainer } from 'react-tracked';
+
 const initialState = {
   count: 0,
   person: {
@@ -9,7 +11,7 @@ const initialState = {
   },
 };
 
-export type State = typeof initialState;
+type State = typeof initialState;
 
 type Action =
   | { type: 'increment' }
@@ -17,8 +19,6 @@ type Action =
   | { type: 'setFirstName'; firstName: string }
   | { type: 'setLastName'; lastName: string }
   | { type: 'setAge'; age: number };
-
-export type Dispatch = (action: Action) => void;
 
 const reducer = (state: State, action: Action) => {
   switch (action.type) {
@@ -56,4 +56,10 @@ const reducer = (state: State, action: Action) => {
   }
 };
 
-export const useValue = () => useReducer(reducer, initialState);
+const useValue = () => useReducer(reducer, initialState);
+
+export const {
+  Provider,
+  useSelector,
+  useUpdate: useDispatch,
+} = createContainer(useValue);

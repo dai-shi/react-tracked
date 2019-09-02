@@ -1,12 +1,10 @@
-/* eslint-env browser */
-
 import React, { useReducer, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-  Provider,
-  useTracked,
-} from 'react-tracked';
+import { createContainer } from 'react-tracked';
+
+const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
+const { Provider, useTracked } = createContainer(useValue);
 
 const initialState = {
   count: 0,
@@ -21,8 +19,6 @@ const reducer = (state, action) => {
     default: throw new Error(`unknown action type: ${action.type}`);
   }
 };
-
-const useValue = () => useReducer(reducer, initialState);
 
 const Counter = () => {
   const [state, dispatch] = useTracked();
@@ -53,7 +49,7 @@ const TextBox = () => {
 
 const App = () => (
   <StrictMode>
-    <Provider useValue={useValue}>
+    <Provider reducer={reducer} initialState={initialState}>
       <h1>Counter</h1>
       <Counter />
       <Counter />

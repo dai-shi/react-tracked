@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { useTracked } from 'react-tracked';
-
-import { State, Updater } from './state';
+import { useTracked } from './state';
 
 const Person = () => {
-  const [state, setState] = useTracked<State, Updater>();
+  const [state, setState] = useTracked();
   return (
     <div>
       {Math.random()}

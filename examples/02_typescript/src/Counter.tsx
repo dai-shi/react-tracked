@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { useTracked } from 'react-tracked';
-
-import { State, Dispatch } from './state';
+import { useTracked } from './state';
 
 const Counter = () => {
-  const [state, dispatch] = useTracked<State, Dispatch>();
+  const [state, dispatch] = useTracked();
   return (
     <div>
       {Math.random()}

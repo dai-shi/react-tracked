@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import { useSelector, useDispatch } from 'react-tracked';
-
-import { State, Dispatch } from './state';
+import { useSelector, useDispatch } from './state';
 
 const Counter = () => {
-  const count = useSelector<State, number>(state => state.count);
-  const dispatch = useDispatch<Dispatch>();
+  const count = useSelector(state => state.count);
+  const dispatch = useDispatch();
   return (
     <div>
       {Math.random()}

@@ -44,7 +44,10 @@ npm install react-tracked
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider, useTracked } from 'react-tracked';
+import { createContainer } from 'react-tracked';
+
+const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
+const { Provider, useTracked } = createContainer(useValue);
 
 const initialState = {
   count: 0,
@@ -90,7 +93,7 @@ const TextBox = () => {
 };
 
 const App = () => (
-  <Provider useValue={useValue}>
+  <Provider reducer={reducer} initialState={initialState}>
     <h1>Counter</h1>
     <Counter />
     <Counter />
@@ -110,18 +113,18 @@ if a value is changed. To avoid this, this libraries use undocumented
 feature of `calculateChangedBits`. It then uses a subscription model
 to force update when a component needs to re-render.
 
-## API (container)
+## API
 
 ### createContainer
 
 ```javascript
 import { createContainer } from 'react-tracked';
 
-const useValue = () => useReducer(...); // any custom hook that returns a tuple
+const useValue = (props) => useReducer(...); // any custom hook that returns a tuple
 
 const {
   Provider,
-  useDispatch,
+  useUpdate,
   useSelector,
   useTrackedState,
   useTracked,
@@ -131,18 +134,20 @@ const {
 ### Provider
 
 ```javascript
-const App = () => (
-  <Provider>
+const App = (props) => (
+  <Provider {...props}>
     ...
   </Provider>
 );
 ```
 
-### useDispatch
+### useUpdate
 
 ```javascript
 const Component = () => {
-  const dispatch = useDispatch(); // simply to get the second one of the tuple
+  // this hook returns the second one of the tuple returned by useValue.
+  // it can be renamed as `dispatch`, `setState`, `actions`, or anything.
+  const dispatch = useUpdate();
   // ...
 };
 ```
@@ -151,7 +156,8 @@ const Component = () => {
 
 ```javascript
 const Component = () => {
-  const selected = useSelector(selector); // same API in react-redux
+  // this is a hook that is compatible with the hook in react-redux
+  const selected = useSelector(selector);
   // ...
 };
 ```
@@ -160,7 +166,9 @@ const Component = () => {
 
 ```javascript
 const Component = () => {
-  const state = useTrackedState(); // same API in reactive-react-redux
+  // this hook returns the first one of the tuple wrapped by Proxy to track usage.
+  // it is compatible with the hook in reactive-react-redux
+  const state = useTrackedState();
   // ...
 };
 ```
@@ -169,67 +177,8 @@ const Component = () => {
 
 ```javascript
 const Component = () => {
-  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
-  // ...
-};
-```
-
-## API (default context)
-
-### Provider
-
-```javascript
-import { Provider } from 'react-tracked';
-
-const useValue = () => useReducer(...); // any custom hook that returns a tuple
-
-const App = () => (
-  <Provider useValue={useValue}>
-    ...
-  </Provider>
-);
-```
-
-### useDispatch
-
-```javascript
-import { useDispatch } from 'react-tracked';
-
-const Component = () => {
-  const dispatch = useDispatch(); // simply to get the second one of the tuple
-  // ...
-};
-```
-
-### useSelector
-
-```javascript
-import { useSelector } from 'react-tracked';
-
-const Component = () => {
-  const selected = useSelector(selector); // same API in react-redux
-  // ...
-};
-```
-
-### useTrackedState
-
-```javascript
-import { useTrackedState } from 'react-tracked';
-
-const Component = () => {
-  const state = useTrackedState(); // same API in reactive-react-redux
-  // ...
-};
-```
-
-### useTracked
-
-```javascript
-import { useTracked } from 'react-tracked';
-
-const Component = () => {
-  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
+  // this hook combines useTrackedState and useUpdate and returns a tuple.
+  const [state, dispatch] = useTracked();
   // ...
 };
 ```

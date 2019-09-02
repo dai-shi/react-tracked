@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { createContainer } from 'react-tracked';
+
 const initialState = {
   count: 0,
   person: {
@@ -9,8 +11,6 @@ const initialState = {
   },
 };
 
-export type State = typeof initialState;
+const useValue = () => useState(initialState);
 
-export type Updater = (s: State | ((s: State) => State)) => void;
-
-export const useValue = () => useState(initialState);
+export const { Provider, useTracked } = createContainer(useValue);

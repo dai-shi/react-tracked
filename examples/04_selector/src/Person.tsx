@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import { useSelector, useDispatch } from 'react-tracked';
-
-import { State, Dispatch } from './state';
+import { useSelector, useDispatch } from './state';
 
 const Person = () => {
-  const person = useSelector<State, State['person']>(state => state.person);
-  const dispatch = useDispatch<Dispatch>();
+  const person = useSelector(state => state.person);
+  const dispatch = useDispatch();
   return (
     <div>
       {Math.random()}

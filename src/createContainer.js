@@ -1,15 +1,15 @@
-import { createProvider, createCustomContext } from './Provider';
-import { createUseTrackedState, createUseTracked } from './useTrackedState';
-import { createUseDispatch } from './useDispatch';
-import { createUseSelector } from './useSelector';
+import { createProvider, createCustomContext } from './createProvider';
+import { createUseTrackedState, createUseTracked } from './createUseTrackedState';
+import { createUseUpdate } from './createUseUpdate';
+import { createUseSelector } from './createUseSelector';
 
 export const createContainer = (useValue) => {
-  const customContext = createCustomContext();
+  const context = createCustomContext();
   return {
-    Provider: createProvider(customContext, useValue),
-    useTrackedState: createUseTrackedState(customContext),
-    useTracked: createUseTracked(customContext),
-    useDispatch: createUseDispatch(customContext),
-    useSelector: createUseSelector(customContext),
+    Provider: createProvider(context, useValue),
+    useTrackedState: createUseTrackedState(context),
+    useTracked: createUseTracked(context),
+    useUpdate: createUseUpdate(context),
+    useSelector: createUseSelector(context),
   };
 };

@@ -2,17 +2,10 @@ import React, { useReducer, StrictMode } from 'react';
 
 import { render, fireEvent, cleanup } from '@testing-library/react';
 
-import {
-  Provider,
-  useTracked,
-} from '../src/index';
+import { createContainer } from '../src/index';
 
 describe('basic spec', () => {
   afterEach(cleanup);
-
-  it('hooks are defiend', () => {
-    expect(useTracked).toBeDefined();
-  });
 
   it('create a component', () => {
     const initialState = {
@@ -25,6 +18,7 @@ describe('basic spec', () => {
       return state;
     };
     const useValue = () => useReducer(reducer, initialState);
+    const { Provider, useTracked } = createContainer(useValue);
     const Counter = () => {
       const [state, dispatch] = useTracked();
       return (
@@ -36,7 +30,7 @@ describe('basic spec', () => {
     };
     const App = () => (
       <StrictMode>
-        <Provider useValue={useValue}>
+        <Provider>
           <Counter />
           <Counter />
         </Provider>
