@@ -34,7 +34,9 @@
     "arrow-body-style": "off",
     "no-plusplus": "off",
     "import/no-useless-path-segments": 0,
-    "import/no-duplicates": "off"
+    "import/no-duplicates": "off",
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
+    "prefer-object-spread": "off"
   },
   "overrides": [{
     "files": ["__tests__/**/*"],

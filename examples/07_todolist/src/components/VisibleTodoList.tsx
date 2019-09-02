@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-props-no-spreading */
+
 import * as React from 'react';
 
 import useVisibleTodos from '../hooks/useVisibleTodos';
