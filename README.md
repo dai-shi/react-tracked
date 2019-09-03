@@ -40,6 +40,9 @@ npm install react-tracked
 
 ## Usage (useTracked)
 
+The following shows a minimal example.
+Please check out others in the [examples](examples) folder.
+
 ```javascript
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
@@ -115,23 +118,38 @@ to force update when a component needs to re-render.
 
 ## API
 
+There's only one function exported from the library.
+This `createContainer` create a provider and other hooks.
+
 ### createContainer
+
+It takes one argument `useValue`,
+which is a hook that returns a tuple `[state, update]`.
+Typically, it's with useReducer and useState,
+but it can be any custom hooks based on them.
+
+Note: you can create multiple containers in one app.
 
 ```javascript
 import { createContainer } from 'react-tracked';
 
-const useValue = (props) => useReducer(...); // any custom hook that returns a tuple
+const useValue = (props) => useReducer(...);
 
 const {
   Provider,
-  useUpdate,
-  useSelector,
-  useTrackedState,
   useTracked,
+  useUpdate,
+  useTrackedState,
+  useSelector,
 } = createContainer(useValue);
 ```
 
 ### Provider
+
+The `Provider` returned by createContainer has to be put
+in the parent component.
+Typically, it's close to the root component,
+but it can be (sometimes desirably) lower in the component tree.
 
 ```javascript
 const App = (props) => (
@@ -141,53 +159,70 @@ const App = (props) => (
 );
 ```
 
-### useUpdate
+### useTracked
+
+The `useTracked` hook returned by createContainer is the recommended hook.
+It simply returns the `[state, update]` tuple that `useValue` returns.
+The `state` is wrapped by Proxy for usage tracking.
 
 ```javascript
 const Component = () => {
-  // this hook returns the second one of the tuple returned by useValue.
-  // it can be renamed as `dispatch`, `setState`, `actions`, or anything.
-  const dispatch = useUpdate();
+  const [state, dispatch] = useTracked();
   // ...
 };
 ```
 
-### useSelector
+### useUpdate
+
+The `useUpdate` hook returned by createContainer is for `update` from `useValue`;
+It's named "update" ambiguously, but typically
+it would be renamed to "dispatch" for useReducer,
+"setState" for useState, or "actions" for any actions.
 
 ```javascript
 const Component = () => {
-  // this is a hook that is compatible with the hook in react-redux
-  const selected = useSelector(selector);
+  const dispatch = useUpdate();
   // ...
 };
 ```
 
 ### useTrackedState
 
+The `useTrackedState` hook returned by createContainer is for `state` from `useValue`;
+This is wrapped by Proxy as same as `useTracked`.
+Use this hook if you don't need `update`.
+This hook is compatible with [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux).
+
 ```javascript
 const Component = () => {
-  // this hook returns the first one of the tuple wrapped by Proxy to track usage.
-  // it is compatible with the hook in reactive-react-redux
   const state = useTrackedState();
   // ...
 };
 ```
 
-### useTracked
+### useSelector
+
+The `useSelector` hook returned by createContainer is an optional hook.
+Use this hook if state usage tracking doesn't work or fit well.
+This hook is compatible with [react-redux](https://react-redux.js.org/api/hooks).
+It would ease transition from/to react-redux apps.
 
 ```javascript
 const Component = () => {
-  // this hook combines useTrackedState and useUpdate and returns a tuple.
-  const [state, dispatch] = useTracked();
+  const selected = useSelector(selector);
   // ...
 };
 ```
 
 ## Recipes
 
-There are various usages of `createContainer`.
+The argument `useValue` in `createContainer` is so flexible
+and there are various usages.
 
 ### useReducer (props)
+
+This is the most typical usage.
+You define a generic reducer and pass `reducer` and `initialState` as props.
 
 ```javascript
 const {
@@ -206,6 +241,13 @@ const App = ({ initialState }) => (
 ```
 
 ### useReducer (embedded)
+
+For most cases, you would have a static reducer.
+In this case, define useValue with the reducer in advance.
+The `initialState` can be defined in useValue like the following example,
+or can be taken from props: `({ initialState }) => useReducer(...)`
+
+This is good for TypeScript because the hooks returned by `createContainer` is already typed.
 
 ```javascript
 const reducer = ...;
@@ -227,6 +269,8 @@ const App = () => (
 
 ### useState (props)
 
+If you don't need reducer, useState should be simpler.
+
 ```javascript
 const {
   Provider,
@@ -244,6 +288,10 @@ const App = ({ initialState }) => (
 
 ### useState (empty object)
 
+You could even start with completely an empty object.
+
+This might not be TypeScript friendly. Although, you could do this: `useState<State>({})`
+
 ```javascript
 const {
   Provider,
@@ -260,6 +308,9 @@ const App = () => (
 ```
 
 ### useState (custom actions)
+
+Finally, you can use a custom hook.
+The `update` can be anything, so for example it can be a set of action functions.
 
 ```javascript
 const useValue = () => {
