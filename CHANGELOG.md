@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.8.0] - 2019-09-05
+### Changed
+- Only provide container API (breaking change) (#16)
+
 ## [0.7.0] - 2019-07-20
 ### Changed
 - No useLayoutEffect for invoking listeners (which leads de-opt sync mode)
