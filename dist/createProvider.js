@@ -20,15 +20,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // -------------------------------------------------------
 var warningObject = {
   get state() {
-    throw new Error('Please use <Provider useValue={...}>');
+    throw new Error('Please use <Provider>');
   },
 
   get dispatch() {
-    throw new Error('Please use <Provider useValue={...}>');
+    throw new Error('Please use <Provider>');
   },
 
   get subscribe() {
-    throw new Error('Please use <Provider useValue={...}>');
+    throw new Error('Please use <Provider>');
   }
 
 };
