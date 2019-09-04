@@ -3,24 +3,22 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useTracked = exports.useTrackedState = exports.createUseTracked = exports.createUseTrackedState = void 0;
+exports.createUseTracked = exports.createUseTrackedState = void 0;
 
 var _react = require("react");
-
-var _Provider = require("./Provider");
 
 var _utils = require("./utils");
 
 var _deepProxy = require("./deepProxy");
 
-var _useDispatch = require("./useDispatch");
+var _createUseUpdate = require("./createUseUpdate");
 
-var createUseTrackedState = function createUseTrackedState(customContext) {
+var createUseTrackedState = function createUseTrackedState(context) {
   return function () {
     var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
     var forceUpdate = (0, _utils.useForceUpdate)();
 
-    var _useContext = (0, _react.useContext)(customContext),
+    var _useContext = (0, _react.useContext)(context),
         state = _useContext.state,
         subscribe = _useContext.subscribe;
 
@@ -61,20 +59,16 @@ var createUseTrackedState = function createUseTrackedState(customContext) {
 
 exports.createUseTrackedState = createUseTrackedState;
 
-var createUseTracked = function createUseTracked(customContext) {
-  var useTrackedState = createUseTrackedState(customContext);
-  var useDispatch = (0, _useDispatch.createUseDispatch)(customContext);
+var createUseTracked = function createUseTracked(context) {
+  var useTrackedState = createUseTrackedState(context);
+  var useUpdate = (0, _createUseUpdate.createUseUpdate)(context);
   return function (opts) {
     var state = useTrackedState(opts);
-    var dispatch = useDispatch();
+    var update = useUpdate();
     return (0, _react.useMemo)(function () {
-      return [state, dispatch];
-    }, [state, dispatch]);
+      return [state, update];
+    }, [state, update]);
   };
 };
 
 exports.createUseTracked = createUseTracked;
-var useTrackedState = createUseTrackedState(_Provider.defaultContext);
-exports.useTrackedState = useTrackedState;
-var useTracked = createUseTracked(_Provider.defaultContext);
-exports.useTracked = useTracked;

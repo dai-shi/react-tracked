@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { createContainer } from 'react-tracked';
+
 export type VisibilityFilterType =
   | 'SHOW_ALL'
   | 'SHOW_COMPLETED'
@@ -11,7 +13,7 @@ export type TodoType = {
   completed: boolean;
 };
 
-export type State = {
+type State = {
   todos: TodoType[];
   visibilityFilter: VisibilityFilterType;
 };
@@ -21,6 +23,11 @@ const initialState: State = {
   visibilityFilter: 'SHOW_ALL',
 };
 
-export const useValue = () => useState(initialState);
+const useValue = () => useState(initialState);
 
-export type SetState = ReturnType<typeof useValue>[1];
+export const {
+  Provider,
+  useUpdate: useSetState,
+  useTracked,
+  useTrackedState,
+} = createContainer(useValue);

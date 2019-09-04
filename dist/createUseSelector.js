@@ -3,11 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.useSelector = exports.createUseSelector = void 0;
+exports.createUseSelector = void 0;
 
 var _react = require("react");
-
-var _Provider = require("./Provider");
 
 var _utils = require("./utils");
 
@@ -15,12 +13,12 @@ var defaultEqualityFn = function defaultEqualityFn(a, b) {
   return a === b;
 };
 
-var createUseSelector = function createUseSelector(customContext) {
+var createUseSelector = function createUseSelector(context) {
   return function (selector) {
     var equalityFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultEqualityFn;
     var forceUpdate = (0, _utils.useForceUpdate)();
 
-    var _useContext = (0, _react.useContext)(customContext),
+    var _useContext = (0, _react.useContext)(context),
         state = _useContext.state,
         subscribe = _useContext.subscribe;
 
@@ -55,5 +53,3 @@ var createUseSelector = function createUseSelector(customContext) {
 };
 
 exports.createUseSelector = createUseSelector;
-var useSelector = createUseSelector(_Provider.defaultContext);
-exports.useSelector = useSelector;

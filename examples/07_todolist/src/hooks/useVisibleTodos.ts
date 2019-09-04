@@ -1,6 +1,4 @@
-import { useTrackedState } from 'react-tracked';
-
-import { TodoType, VisibilityFilterType, State } from '../state';
+import { TodoType, VisibilityFilterType, useTrackedState } from '../state';
 
 const getVisibleTodos = (todos: TodoType[], filter: VisibilityFilterType) => {
   switch (filter) {
@@ -16,7 +14,7 @@ const getVisibleTodos = (todos: TodoType[], filter: VisibilityFilterType) => {
 };
 
 const useVisibleTodos = () => {
-  const state = useTrackedState<State>();
+  const state = useTrackedState();
   return getVisibleTodos(state.todos, state.visibilityFilter);
 };
 

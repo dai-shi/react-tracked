@@ -1,11 +1,10 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-tracked';
 import produce from 'immer';
 
-import { SetState } from '../state';
+import { useSetState } from '../state';
 
 const useToggleTodo = () => {
-  const setState = useDispatch<SetState>();
+  const setState = useSetState();
   const toggleTodo = useCallback((id: number) => {
     setState(s => produce(s, (draft) => {
       const found = draft.todos.find(todo => todo.id === id);

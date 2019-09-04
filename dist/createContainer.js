@@ -5,22 +5,22 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createContainer = void 0;
 
-var _Provider = require("./Provider");
+var _createProvider = require("./createProvider");
 
-var _useTrackedState = require("./useTrackedState");
+var _createUseTrackedState = require("./createUseTrackedState");
 
-var _useDispatch = require("./useDispatch");
+var _createUseUpdate = require("./createUseUpdate");
 
-var _useSelector = require("./useSelector");
+var _createUseSelector = require("./createUseSelector");
 
 var createContainer = function createContainer(useValue) {
-  var customContext = (0, _Provider.createCustomContext)();
+  var context = (0, _createProvider.createCustomContext)();
   return {
-    Provider: (0, _Provider.createProvider)(customContext, useValue),
-    useTrackedState: (0, _useTrackedState.createUseTrackedState)(customContext),
-    useTracked: (0, _useTrackedState.createUseTracked)(customContext),
-    useDispatch: (0, _useDispatch.createUseDispatch)(customContext),
-    useSelector: (0, _useSelector.createUseSelector)(customContext)
+    Provider: (0, _createProvider.createProvider)(context, useValue),
+    useTrackedState: (0, _createUseTrackedState.createUseTrackedState)(context),
+    useTracked: (0, _createUseTrackedState.createUseTracked)(context),
+    useUpdate: (0, _createUseUpdate.createUseUpdate)(context),
+    useSelector: (0, _createUseSelector.createUseSelector)(context)
   };
 };
 

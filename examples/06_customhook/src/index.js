@@ -1,7 +1,7 @@
 import React, { useState, StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider, useTracked } from 'react-tracked';
+import { createContainer } from 'react-tracked';
 
 const useValue = () => {
   const [count, setCount] = useState(0);
@@ -9,6 +9,8 @@ const useValue = () => {
   const decrement = () => setCount(c => c - 1);
   return [count, { increment, decrement }];
 };
+
+const { Provider, useTracked } = createContainer(useValue);
 
 const Counter = () => {
   const [count, actions] = useTracked();
@@ -23,7 +25,7 @@ const Counter = () => {
 
 const App = () => (
   <StrictMode>
-    <Provider useValue={useValue}>
+    <Provider>
       <Counter />
       <Counter />
     </Provider>

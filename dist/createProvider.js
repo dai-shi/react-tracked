@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Provider = exports.createProvider = exports.defaultContext = exports.createCustomContext = void 0;
+exports.createProvider = exports.createCustomContext = void 0;
 
 var _react = require("react");
 
@@ -41,36 +41,19 @@ var createCustomContext = function createCustomContext() {
   var w = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : warningObject;
   var c = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : calculateChangedBits;
   return (0, _react.createContext)(w, c);
-};
-
-exports.createCustomContext = createCustomContext;
-var defaultContext = createCustomContext(); // -------------------------------------------------------
+}; // -------------------------------------------------------
 // provider
 // -------------------------------------------------------
 
-exports.defaultContext = defaultContext;
 
-var createProvider = function createProvider(customContext, customUseValue) {
-  return function (_ref) {
-    var useValue = _ref.useValue,
-        children = _ref.children;
+exports.createCustomContext = createCustomContext;
 
-    if (customUseValue) {
-      useValue = customUseValue;
-    } else {
-      // Although this looks like violating the hooks rule,
-      // it is ok because it won't change once created.
-      var useValueRef = (0, _react.useRef)(useValue);
-
-      if (useValueRef.current !== useValue) {
-        throw new Error('useValue must be statically defined');
-      }
-    }
-
-    var _useValue = useValue(),
+var createProvider = function createProvider(context, useValue) {
+  return function (props) {
+    var _useValue = useValue(props),
         _useValue2 = _slicedToArray(_useValue, 2),
         state = _useValue2[0],
-        dispatch = _useValue2[1];
+        update = _useValue2[1];
 
     var listeners = (0, _react.useRef)([]); // we call listeners in render intentionally.
     // listeners are not technically pure, but
@@ -90,16 +73,14 @@ var createProvider = function createProvider(customContext, customUseValue) {
 
       return unsubscribe;
     }, []);
-    return (0, _react.createElement)(customContext.Provider, {
+    return (0, _react.createElement)(context.Provider, {
       value: {
         state: state,
-        dispatch: dispatch,
+        update: update,
         subscribe: subscribe
       }
-    }, children);
+    }, props.children);
   };
 };
 
 exports.createProvider = createProvider;
-var Provider = createProvider(defaultContext);
-exports.Provider = Provider;

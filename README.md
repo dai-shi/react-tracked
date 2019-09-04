@@ -40,11 +40,17 @@ npm install react-tracked
 
 ## Usage (useTracked)
 
+The following shows a minimal example.
+Please check out others in the [examples](examples) folder.
+
 ```javascript
 import React, { useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider, useTracked } from 'react-tracked';
+import { createContainer } from 'react-tracked';
+
+const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
+const { Provider, useTracked } = createContainer(useValue);
 
 const initialState = {
   count: 0,
@@ -90,7 +96,7 @@ const TextBox = () => {
 };
 
 const App = () => (
-  <Provider useValue={useValue}>
+  <Provider reducer={reducer} initialState={initialState}>
     <h1>Counter</h1>
     <Counter />
     <Counter />
@@ -110,27 +116,150 @@ if a value is changed. To avoid this, this libraries use undocumented
 feature of `calculateChangedBits`. It then uses a subscription model
 to force update when a component needs to re-render.
 
-## API (container)
+## API
+
+There's only one function exported from the library.
+This `createContainer` create a provider and other hooks.
 
 ### createContainer
+
+It takes one argument `useValue`,
+which is a hook that returns a tuple `[state, update]`.
+Typically, it's with useReducer and useState,
+but it can be any custom hooks based on them.
+
+Note: you can create multiple containers in one app.
 
 ```javascript
 import { createContainer } from 'react-tracked';
 
-const useValue = () => useReducer(...); // any custom hook that returns a tuple
+const useValue = (props) => useReducer(...);
 
 const {
   Provider,
-  useDispatch,
-  useSelector,
-  useTrackedState,
   useTracked,
+  useUpdate,
+  useTrackedState,
+  useSelector,
 } = createContainer(useValue);
 ```
 
 ### Provider
 
+The `Provider` returned by createContainer has to be put
+in the parent component.
+Typically, it's close to the root component,
+but it can be (sometimes desirably) lower in the component tree.
+
 ```javascript
+const App = (props) => (
+  <Provider {...props}>
+    ...
+  </Provider>
+);
+```
+
+### useTracked
+
+The `useTracked` hook returned by createContainer is the recommended hook.
+It simply returns the `[state, update]` tuple that `useValue` returns.
+The `state` is wrapped by Proxy for usage tracking.
+
+```javascript
+const Component = () => {
+  const [state, dispatch] = useTracked();
+  // ...
+};
+```
+
+### useUpdate
+
+The `useUpdate` hook returned by createContainer is for `update` from `useValue`;
+It's named "update" ambiguously, but typically
+it would be renamed to "dispatch" for useReducer,
+"setState" for useState, or "actions" for any actions.
+
+```javascript
+const Component = () => {
+  const dispatch = useUpdate();
+  // ...
+};
+```
+
+### useTrackedState
+
+The `useTrackedState` hook returned by createContainer is for `state` from `useValue`;
+This is wrapped by Proxy as same as `useTracked`.
+Use this hook if you don't need `update`.
+This hook is compatible with [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux).
+
+```javascript
+const Component = () => {
+  const state = useTrackedState();
+  // ...
+};
+```
+
+### useSelector
+
+The `useSelector` hook returned by createContainer is an optional hook.
+Use this hook if state usage tracking doesn't work or fit well.
+This hook is compatible with [react-redux](https://react-redux.js.org/api/hooks).
+It would ease transition from/to react-redux apps.
+
+```javascript
+const Component = () => {
+  const selected = useSelector(selector);
+  // ...
+};
+```
+
+## Recipes
+
+The argument `useValue` in `createContainer` is so flexible
+and there are various usages.
+
+### useReducer (props)
+
+This is the most typical usage.
+You define a generic reducer and pass `reducer` and `initialState` as props.
+
+```javascript
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(({ reducer, initialState, init }) => useReducer(reducer, initialState, init));
+
+const reducer = ...;
+
+const App = ({ initialState }) => (
+  <Provider reducer={reducer} initialState={initialState}>
+    ...
+  </Provider>
+);
+```
+
+### useReducer (embedded)
+
+For most cases, you would have a static reducer.
+In this case, define useValue with the reducer in advance.
+The `initialState` can be defined in useValue like the following example,
+or can be taken from props: `({ initialState }) => useReducer(...)`
+
+This is good for TypeScript because the hooks returned by `createContainer` is already typed.
+
+```javascript
+const reducer = ...;
+const initialState = ...;
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(() => useReducer(reducer, initialState));
+
+
 const App = () => (
   <Provider>
     ...
@@ -138,100 +267,75 @@ const App = () => (
 );
 ```
 
-### useDispatch
+### useState (props)
+
+If you don't need reducer, useState should be simpler.
 
 ```javascript
-const Component = () => {
-  const dispatch = useDispatch(); // simply to get the second one of the tuple
+const {
+  Provider,
+  useTracked,
   // ...
-};
-```
+} = createContainer(({ initialState }) => useState(initialState);
 
-### useSelector
 
-```javascript
-const Component = () => {
-  const selected = useSelector(selector); // same API in react-redux
-  // ...
-};
-```
-
-### useTrackedState
-
-```javascript
-const Component = () => {
-  const state = useTrackedState(); // same API in reactive-react-redux
-  // ...
-};
-```
-
-### useTracked
-
-```javascript
-const Component = () => {
-  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
-  // ...
-};
-```
-
-## API (default context)
-
-### Provider
-
-```javascript
-import { Provider } from 'react-tracked';
-
-const useValue = () => useReducer(...); // any custom hook that returns a tuple
-
-const App = () => (
-  <Provider useValue={useValue}>
+const App = ({ initialState }) => (
+  <Provider initialState={initialState}>
     ...
   </Provider>
 );
 ```
 
-### useDispatch
+### useState (empty object)
+
+You could even start with completely an empty object.
+
+This might not be TypeScript friendly. Although, you could do this: `useState<State>({})`
 
 ```javascript
-import { useDispatch } from 'react-tracked';
-
-const Component = () => {
-  const dispatch = useDispatch(); // simply to get the second one of the tuple
+const {
+  Provider,
+  useTracked,
   // ...
-};
+} = createContainer(() => useState({});
+
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
 ```
 
-### useSelector
+### useState (custom actions)
+
+Finally, you can use a custom hook.
+The `update` can be anything, so for example it can be a set of action functions.
 
 ```javascript
-import { useSelector } from 'react-tracked';
-
-const Component = () => {
-  const selected = useSelector(selector); // same API in react-redux
-  // ...
+const useValue = () => {
+  const [state, setState] = useState({ count1: 0, count2: 0 });
+  const increment1 = () => {
+    setCount(s => ({ ...s, count1: s.count1 + 1 });
+  };
+  const increment2 = () => {
+    setCount(s => ({ ...s, count2: s.count2 + 2 });
+  };
+  return [count, { increment1, increment2 }];
 };
-```
 
-### useTrackedState
-
-```javascript
-import { useTrackedState } from 'react-tracked';
-
-const Component = () => {
-  const state = useTrackedState(); // same API in reactive-react-redux
+const {
+  Provider,
+  useTracked,
   // ...
-};
-```
+} = createContainer(useValue);
 
-### useTracked
 
-```javascript
-import { useTracked } from 'react-tracked';
-
-const Component = () => {
-  const [state, dispatch] = useTracked(); // combination of useTrackedState and useDispatch
-  // ...
-};
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
 ```
 
 ## Examples

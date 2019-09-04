@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import { useTracked } from 'react-tracked';
-
-import { State, Dispatch } from './state';
+import { useTracked } from './state';
 
 const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
-  const [state, dispatch] = useTracked<State, Dispatch>();
+  const [state, dispatch] = useTracked();
   return (
     <div>
       {Math.random()}
@@ -20,7 +18,7 @@ const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
 };
 
 const Person = () => {
-  const [state, dispatch] = useTracked<State, Dispatch>();
+  const [state, dispatch] = useTracked();
   return (
     <div>
       {Math.random()}

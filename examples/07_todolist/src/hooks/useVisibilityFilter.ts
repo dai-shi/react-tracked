@@ -1,11 +1,10 @@
 import { useCallback } from 'react';
-import { useTracked } from 'react-tracked';
 import produce from 'immer';
 
-import { VisibilityFilterType, State, SetState } from '../state';
+import { VisibilityFilterType, useTracked } from '../state';
 
 const useVisibilityFilter = () => {
-  const [state, setState] = useTracked<State, SetState>();
+  const [state, setState] = useTracked();
   const setVisibilityFilter = useCallback((filter: VisibilityFilterType) => {
     setState(s => produce(s, (draft) => {
       draft.visibilityFilter = filter;

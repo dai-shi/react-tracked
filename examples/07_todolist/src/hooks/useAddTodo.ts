@@ -1,13 +1,12 @@
 import { useCallback } from 'react';
-import { useDispatch } from 'react-tracked';
 import produce from 'immer';
 
-import { SetState } from '../state';
+import { useSetState } from '../state';
 
 let nextTodoId = 0;
 
 const useAddTodo = () => {
-  const setState = useDispatch<SetState>();
+  const setState = useSetState();
   const addTodo = useCallback((text: string) => {
     setState(s => produce(s, (draft) => {
       draft.todos.push({

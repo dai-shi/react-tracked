@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Provider, useTracked } from 'react-tracked';
+import { createContainer } from 'react-tracked';
 
 const initialState = {
   count: 0,
@@ -16,6 +16,7 @@ const reducer = (state, action) => {
 };
 
 const useValue = () => useReducer(reducer, initialState);
+const { Provider, useTracked } = createContainer(useValue);
 
 const Counter = () => {
   const [state, dispatch] = useTracked();
@@ -29,7 +30,7 @@ const Counter = () => {
 };
 
 const App = () => (
-  <Provider useValue={useValue}>
+  <Provider>
     <Counter />
     <Counter />
   </Provider>
