@@ -66,8 +66,6 @@ const reducer = (state, action) => {
   }
 };
 
-const useValue = () => useReducer(reducer, initialState);
-
 const Counter = () => {
   const [state, dispatch] = useTracked();
   return (
@@ -269,7 +267,7 @@ const App = () => (
 
 ### useState (props)
 
-If you don't need reducer, useState should be simpler.
+If you don't need reducer, useState would be simpler.
 
 ```javascript
 const {
