@@ -5,6 +5,7 @@ const { DIR, EXT = 'ts' } = process.env;
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
   entry: `./examples/${DIR}/src/index.${EXT}`,
   plugins: [
     new HtmlWebpackPlugin({
@@ -36,5 +37,6 @@ module.exports = {
   },
   devServer: {
     port: process.env.PORT || '8080',
+    contentBase: `./examples/${DIR}/public`,
   },
 };

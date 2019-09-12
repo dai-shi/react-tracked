@@ -18,12 +18,12 @@ export const createUseTrackedState = context => (opts = {}) => {
       state,
       affected,
       cache: new WeakMap(),
-      /* eslint-disable no-nested-ternary, indent, @typescript-eslint/indent */
+      /* eslint-disable no-nested-ternary, indent */
       assumeChangedIfNotAffected:
         opts.unstable_forceUpdateForStateChange ? true
       : opts.unstable_ignoreIntermediateObjectUsage ? false
       : /* default */ null,
-      /* eslint-enable no-nested-ternary, indent, @typescript-eslint/indent */
+      /* eslint-enable no-nested-ternary, indent */
     };
   });
   useIsomorphicLayoutEffect(() => {
