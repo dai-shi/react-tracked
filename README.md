@@ -117,7 +117,7 @@ to force update when a component needs to re-render.
 ## API
 
 There's only one function exported from the library.
-This `createContainer` create a provider and other hooks.
+This `createContainer` creates a provider and other hooks.
 
 ### createContainer
 
