@@ -485,6 +485,12 @@ You can also try them in codesandbox.io:
 - *3 Hack with readContext
 - *4 Mutation trapped by Proxy triggers re-render
 
+## Benchmarks
+
+<img alt="benchmark result" src="https://user-images.githubusercontent.com/490574/62705335-28f34300-ba28-11e9-84ea-8f785c445ff4.png" width="425" />
+
+See [this](https://github.com/dai-shi/react-tracked/issues/1#issuecomment-519509857) for details.
+
 ## Blogs
 
 - [Super performant global state with React context and hooks](https://blog.axlight.com/posts/super-performant-global-state-with-react-context-and-hooks/)
