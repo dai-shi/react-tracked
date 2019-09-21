@@ -487,7 +487,7 @@ You can also try them in codesandbox.io:
 
 ## Benchmarks
 
-<img alt="benchmark result" src="https://user-images.githubusercontent.com/490574/62705335-28f34300-ba28-11e9-84ea-8f785c445ff4.png" width="425" />
+<img alt="benchmark result" src="https://user-images.githubusercontent.com/490574/62705335-28f34300-ba28-11e9-84ea-8f785c445ff4.png" width="600" />
 
 See [this](https://github.com/dai-shi/react-tracked/issues/1#issuecomment-519509857) for details.
 
