@@ -3,8 +3,8 @@ module.exports = {
   tagline: 'Super fast React global/shared state with context and hooks',
   organizationName: 'dai-shi',
   projectName: 'react-tracked',
-  url: 'https://dai-shi.github.io',
-  baseUrl: '/react-tracked/',
+  url: 'https://react-tracked.js.org',
+  baseUrl: '/',
   favicon: 'img/favicon.ico',
   themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [],
@@ -25,6 +25,11 @@ module.exports = {
       links: [
         { to: 'docs/introduction', label: 'Getting Started', position: 'left' },
         { to: 'docs/api', label: 'Reference', position: 'left' },
+        {
+          href: 'https://www.npmjs.com/package/react-tracked',
+          label: 'NPM',
+          position: 'right',
+        },
         {
           href: 'https://github.com/dai-shi/react-tracked',
           label: 'GitHub',
