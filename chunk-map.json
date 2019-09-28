@@ -1,30 +1,30 @@
 {
   "main": [
     "/main.190f6b2de1bab5b18c4a.css",
-    "/main.1bbb2e557bffd160c0ec.js"
+    "/main.2a79df4dd2fa8b890298.js"
   ],
   "component---site-src-pages-index-jsc-4-f-f99": [
     "/component---site-src-pages-index-jsc-4-f-f99.8d9527c4d9eb0a2bd071.js"
   ],
   "component---theme-doc-legacy-page-9-e-7-ca5": [],
   "docsMetadata---docs-206-c20": [
-    "/docsMetadata---docs-206-c20.35c891d1a3cec051c9d5.js"
+    "/docsMetadata---docs-206-c20.ca51bb924c602b68168e.js"
   ],
   "component---theme-doc-legacy-item-031-769": [
     "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
     "/component---theme-doc-legacy-item-031-769.71b172d280b4c61154d9.js"
   ],
-  "content---docs-api-5-fb-197": [
-    "/content---docs-api-5-fb-197.efd3bc6592461d843101.js"
-  ],
-  "metadata---docs-apia-09-80e": [
-    "/metadata---docs-apia-09-80e.389bf5ce46b8e4f7c5d5.js"
-  ],
   "content---docs-comparisone-6-c-b98": [
-    "/content---docs-comparisone-6-c-b98.077c7ac905f59d1fd449.js"
+    "/content---docs-comparisone-6-c-b98.28dda244222ffe3423d7.js"
   ],
   "metadata---docs-comparison-6-d-7-2f6": [
-    "/metadata---docs-comparison-6-d-7-2f6.5a36875fdd0ca68b2a48.js"
+    "/metadata---docs-comparison-6-d-7-2f6.eca730f978b6f2ffcb90.js"
+  ],
+  "content---docs-api-5-fb-197": [
+    "/content---docs-api-5-fb-197.fe45a70a84aa511240ee.js"
+  ],
+  "metadata---docs-apia-09-80e": [
+    "/metadata---docs-apia-09-80e.b03647af7f6759fa4162.js"
   ],
   "content---docs-introductiona-09-6b4": [
     "/content---docs-introductiona-09-6b4.73476984826163518467.js"
