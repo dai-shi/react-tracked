@@ -1,47 +1,47 @@
 {
   "main": [
-    "/react-tracked/main.190f6b2de1bab5b18c4a.css",
-    "/react-tracked/main.1c7892a8f1531f753a54.js"
+    "/main.190f6b2de1bab5b18c4a.css",
+    "/main.e99922715b7e7420285b.js"
   ],
   "component---site-src-pages-index-jsc-4-f-f99": [
-    "/react-tracked/component---site-src-pages-index-jsc-4-f-f99.8d9527c4d9eb0a2bd071.js"
+    "/component---site-src-pages-index-jsc-4-f-f99.8d9527c4d9eb0a2bd071.js"
   ],
   "component---theme-doc-legacy-page-9-e-7-ca5": [],
-  "docsMetadata---react-tracked-docsad-7-6b4": [
-    "/react-tracked/docsMetadata---react-tracked-docsad-7-6b4.b837125fd0fa6fafe2e1.js"
+  "docsMetadata---docs-206-c20": [
+    "/docsMetadata---docs-206-c20.3bd9c0a3227da6aaeb79.js"
   ],
   "component---theme-doc-legacy-item-031-769": [
-    "/react-tracked/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
-    "/react-tracked/component---theme-doc-legacy-item-031-769.71b172d280b4c61154d9.js"
+    "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
+    "/component---theme-doc-legacy-item-031-769.71b172d280b4c61154d9.js"
   ],
-  "content---react-tracked-docs-comparisone-6-c-ac5": [
-    "/react-tracked/content---react-tracked-docs-comparisone-6-c-ac5.28dda244222ffe3423d7.js"
+  "content---docs-quick-start-72-e-2df": [
+    "/content---docs-quick-start-72-e-2df.ed595f82735b9f1cdfcd.js"
   ],
-  "metadata---react-tracked-docs-comparison-97-b-525": [
-    "/react-tracked/metadata---react-tracked-docs-comparison-97-b-525.369aaa8245915178a276.js"
+  "metadata---docs-quick-start-1-b-0-d4b": [
+    "/metadata---docs-quick-start-1-b-0-d4b.15a300cf87b9b3728ac2.js"
   ],
-  "content---react-tracked-docs-api-5-fb-1b9": [
-    "/react-tracked/content---react-tracked-docs-api-5-fb-1b9.fe45a70a84aa511240ee.js"
+  "content---docs-introductiona-09-6b4": [
+    "/content---docs-introductiona-09-6b4.007e2bce89faf431c41e.js"
   ],
-  "metadata---react-tracked-docs-api-794-708": [
-    "/react-tracked/metadata---react-tracked-docs-api-794-708.c4be8334a4c1f4a22cf0.js"
+  "metadata---docs-introductiona-75-a0b": [
+    "/metadata---docs-introductiona-75-a0b.3fd652041070eac7d599.js"
   ],
-  "content---react-tracked-docs-introductiona-09-ece": [
-    "/react-tracked/content---react-tracked-docs-introductiona-09-ece.73476984826163518467.js"
+  "content---docs-comparisone-6-c-b98": [
+    "/content---docs-comparisone-6-c-b98.ee6060f588de94566ba0.js"
   ],
-  "metadata---react-tracked-docs-introduction-3-c-2-ef5": [
-    "/react-tracked/metadata---react-tracked-docs-introduction-3-c-2-ef5.807453bc09f8f337aa9b.js"
+  "metadata---docs-comparison-6-d-7-2f6": [
+    "/metadata---docs-comparison-6-d-7-2f6.afc444d1f7fdd02a8589.js"
   ],
-  "content---react-tracked-docs-quick-start-72-e-2db": [
-    "/react-tracked/content---react-tracked-docs-quick-start-72-e-2db.a38d62b92accd53281a5.js"
+  "content---docs-api-5-fb-197": [
+    "/content---docs-api-5-fb-197.b37a6bb544f384afa2c3.js"
   ],
-  "metadata---react-tracked-docs-quick-start-6-bc-e70": [
-    "/react-tracked/metadata---react-tracked-docs-quick-start-6-bc-e70.6d9b88cec652302419a9.js"
+  "metadata---docs-apia-09-80e": [
+    "/metadata---docs-apia-09-80e.55898faa4515b929b19f.js"
   ],
-  "content---react-tracked-docs-recipes-8-e-3-ad8": [
-    "/react-tracked/content---react-tracked-docs-recipes-8-e-3-ad8.028281128b125edaec82.js"
+  "content---docs-recipes-8-e-3-d2b": [
+    "/content---docs-recipes-8-e-3-d2b.028281128b125edaec82.js"
   ],
-  "metadata---react-tracked-docs-recipesc-16-9fd": [
-    "/react-tracked/metadata---react-tracked-docs-recipesc-16-9fd.fb967dd6d8b27ab7f818.js"
+  "metadata---docs-recipes-1-a-8-e80": [
+    "/metadata---docs-recipes-1-a-8-e80.fee1daa8bcd39f7906b6.js"
   ]
 }
