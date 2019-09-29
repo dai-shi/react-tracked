@@ -54,6 +54,15 @@ module.exports = {
           ],
         },
         {
+          title: 'Community',
+          items: [
+            {
+              label: 'Discord',
+              href: 'https://discord.gg/MrQdmzd',
+            },
+          ],
+        },
+        {
           title: 'Social',
           items: [
             {
