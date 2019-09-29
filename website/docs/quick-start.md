@@ -136,7 +136,7 @@ will re-render even if only a small part of the shared state is changed.
 
 React Tracked solves this issue without efforts.
 
-> Note: In pure React, it's recommended to split context into pieces. Check out [this blog post](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) for more information.
+> Note: In pure React, it's recommended to split context into pieces. Check out [this](https://blog.axlight.com/posts/4-options-to-prevent-extra-rerenders-with-react-context/) or [that](https://www.basefactor.com/global-state-with-react) for more information.
 
 ## Install React Tracked
 
