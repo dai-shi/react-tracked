@@ -1,4 +1,5 @@
 /* eslint react/jsx-props-no-spreading: off */
+/* eslint import/no-unresolved: warn */
 
 import React, { useState } from 'react';
 import * as ts from 'typescript';
