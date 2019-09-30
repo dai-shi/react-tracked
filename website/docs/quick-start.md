@@ -25,7 +25,7 @@ npm start # Or yarn start
 
 Now, we create a global state that contains a number and a string.
 
-Create a new file `./src/store.js`. (`./src/store.tsx` in TypeScript)
+Create a new file `./src/store.js`. (`./src/store.tsx` for TypeScript)
 
 ```typescript ts2js
 import React, { createContext, useState, useContext } from 'react';
@@ -52,7 +52,7 @@ export const SharedStateProvider: React.FC = ({ children }) => (
 );
 ```
 
-Create a new file `./src/Counter.js`. (`./src/Counter.tsx` in TypeScript)
+Create a new file `./src/Counter.js`. (`./src/Counter.tsx` for TypeScript)
 
 ```typescript ts2js
 import React from 'react';
@@ -75,7 +75,7 @@ const Counter: React.FC = () => {
 export default Counter;
 ```
 
-Create a new file `./src/TextBox.js`. (`./src/TextBox.tsx` in TypeScript)
+Create a new file `./src/TextBox.js`. (`./src/TextBox.tsx` for TypeScript)
 
 ```typescript ts2js
 import React from 'react';
@@ -98,7 +98,7 @@ const TextBox: React.FC = () => {
 export default TextBox;
 ```
 
-Finally, modify the file `./src/App.js`. (`./src/App.tsx` in TypeScript)
+Finally, modify the file `./src/App.js`. (`./src/App.tsx` for TypeScript)
 
 ```typescript ts2js
 import React from 'react';
@@ -150,7 +150,7 @@ npm install react-tracked # Or yarn add react-tracked
 ## Use React Tracked instead of bare context
 
 It's very simple.
-Modify the file `./src/store.js`. (`./src/store.tsx` in TypeScript)
+Modify the file `./src/store.js`. (`./src/store.tsx` for TypeScript)
 
 ```typescript ts2js
 import { useState } from 'react';
