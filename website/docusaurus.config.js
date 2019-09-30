@@ -6,7 +6,10 @@ module.exports = {
   url: 'https://react-tracked.js.org',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  themes: ['@docusaurus/theme-live-codeblock'],
+  themes: [
+    '@docusaurus/theme-live-codeblock',
+    `${__dirname}/custom_modules/docusaurus-theme-ts2js-codeblock`,
+  ],
   plugins: [],
   presets: [
     [

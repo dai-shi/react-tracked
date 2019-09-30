@@ -1,0 +1,15 @@
+{
+  "name": "docusaurus-theme-ts2js-codeblock",
+  "version": "0.1.0",
+  "description": "Docusaurus TS2JS CodeBlock",
+  "main": "src/index.js",
+  "dependencies": {},
+  "peerDependencies": {
+    "@babel/core": "^7.6.2",
+    "@docusaurus/theme-classic": "^2.0.0-alpha.24",
+    "prettier": "^1.18.2",
+    "react": "^16.8.4",
+    "typescript": "^3.6.3"
+  },
+  "license": "MIT"
+}

@@ -10,8 +10,10 @@
     "@docusaurus/core": "^2.0.0-alpha.24",
     "@docusaurus/preset-classic": "^2.0.0-alpha.24",
     "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.23",
+    "prettier": "^1.18.2",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "typescript": "^3.6.3"
   },
   "browserslist": {
     "production": [
