@@ -32,6 +32,7 @@ const format = (code) => {
 
 const style = on => ({
   border: 0,
+  margin: 0,
   padding: 10,
   backgroundColor: on ? 'rgb(1, 22, 39)' : 'inherit',
   color: on ? 'lightgray' : 'dimgray',
