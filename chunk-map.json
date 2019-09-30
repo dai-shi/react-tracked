@@ -1,16 +1,16 @@
 {
   "main": [
     "/main.190f6b2de1bab5b18c4a.css",
-    "/main.8f6f70e45245d4b40874.js"
+    "/main.53265febf1ae7d29c057.js"
   ],
   "component---site-src-pages-index-jsc-4-f-f99": [
     "/component---site-src-pages-index-jsc-4-f-f99.932466e72c4735ca529b.js"
   ],
   "component---theme-doc-legacy-page-9-e-7-ca5": [
-    "/component---theme-doc-legacy-page-9-e-7-ca5.9a92c3f7d84d89f66a00.js"
+    "/component---theme-doc-legacy-page-9-e-7-ca5.0d72d8d17b5fb2bdf14a.js"
   ],
   "docsMetadata---docs-206-c20": [
-    "/docsMetadata---docs-206-c20.258e1cfeb802b7d705ce.js"
+    "/docsMetadata---docs-206-c20.0417049d864e9e4a7508.js"
   ],
   "component---theme-doc-legacy-item-031-769": [
     "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
@@ -34,16 +34,16 @@
   "metadata---docs-quick-start-1-b-0-d4b": [
     "/metadata---docs-quick-start-1-b-0-d4b.7709d48e95954cef1b8e.js"
   ],
-  "content---docs-recipes-8-e-3-d2b": [
-    "/content---docs-recipes-8-e-3-d2b.6d767b9d3a8686837055.js"
-  ],
-  "metadata---docs-recipes-1-a-8-e80": [
-    "/metadata---docs-recipes-1-a-8-e80.a44e47a3626d20d11154.js"
-  ],
   "content---docs-introductiona-09-6b4": [
-    "/content---docs-introductiona-09-6b4.b58a4d543e53c296cbde.js"
+    "/content---docs-introductiona-09-6b4.72ed823bc042f390386d.js"
   ],
   "metadata---docs-introductiona-75-a0b": [
-    "/metadata---docs-introductiona-75-a0b.b2c36cbac7eee07e2a93.js"
+    "/metadata---docs-introductiona-75-a0b.632484886a29816ad9f5.js"
+  ],
+  "content---docs-recipes-8-e-3-d2b": [
+    "/content---docs-recipes-8-e-3-d2b.31fa8c214b606dd9dfa2.js"
+  ],
+  "metadata---docs-recipes-1-a-8-e80": [
+    "/metadata---docs-recipes-1-a-8-e80.6dcb1df1ca36145e4a84.js"
   ]
 }
