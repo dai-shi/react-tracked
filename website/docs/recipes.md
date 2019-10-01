@@ -148,7 +148,7 @@ const useTrackedSelector = selector => selector(useTrackedState());
 Note: This is different from `useSelector` which has no tracking support
 and triggers re-render based on the ref equality of selected value.
 
-### useTrackedByName
+### useTrackedByName (based on useState)
 
 Sometimes, you might want to select a state by its property name.
 Here's a custom hook to return a tuple `[value, setValue]` selected by a name.
@@ -163,5 +163,20 @@ const useTrackedByName = (name) => {
     }));
   }, [name]);
   return [state[name], update];
+};
+```
+
+### useTrackedWithImmer (based on useState)
+
+Updating a property deep in a state object is troublesome.
+Here's a custom hook to use [immer](https://github.com/immerjs/immer) for setState.
+
+```javasript
+const useTrackedWithImmer = () => {
+  const [state, setState] = useTracked();
+  const update = useCallback((updater) => {
+    setState(oldVal => produce(oldVal, updater));
+  }, []);
+  return [state, update];
 };
 ```
