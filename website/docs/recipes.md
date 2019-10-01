@@ -4,10 +4,15 @@ title: Recipes
 sidebar_label: Recipes
 ---
 
+React Tracked provides a primitive API,
+and there are various ways to use it for apps.
+
+## Recipes for createContainer
+
 The argument `useValue` in `createContainer` is so flexible
 and there are various usages.
 
-## useReducer (props)
+### useReducer (props)
 
 This is the most typical usage.
 You define a generic reducer and pass `reducer` and `initialState` as props.
@@ -28,7 +33,7 @@ const App = ({ initialState }) => (
 );
 ```
 
-## useReducer (embedded)
+### useReducer (embedded)
 
 For most cases, you would have a static reducer.
 In this case, define useValue with the reducer in advance.
@@ -55,7 +60,7 @@ const App = () => (
 );
 ```
 
-## useState (props)
+### useState (props)
 
 If you don't need reducer, useState would be simpler.
 
@@ -74,7 +79,7 @@ const App = ({ initialState }) => (
 );
 ```
 
-## useState (empty object)
+### useState (empty object)
 
 You could even start with completely an empty object.
 
@@ -95,7 +100,7 @@ const App = () => (
 );
 ```
 
-## useState (custom actions)
+### useState (custom actions)
 
 Finally, you can use a custom hook.
 The `update` can be anything, so for example it can be a set of action functions.
@@ -124,4 +129,39 @@ const App = () => (
     ...
   </Provider>
 );
+```
+
+## Recipes for useTracked and useTrackedState
+
+The `useTracked` and `useTrackedState` hooks are useful as is,
+but new hooks can also be created based on them.
+
+### useTrackedSelector
+
+Selector interface is useful to share selection logic.
+You can create a selector hook with state usage tracking very easily.
+
+```javascript
+const useTrackedSelector = selector => selector(useTrackedState());
+```
+
+Note: This is different from `useSelector` which has no tracking support
+and triggers re-render based on the ref equality of selected value.
+
+### useTrackedByName
+
+Sometimes, you might want to select a state by its property name.
+Here's a custom hook to return a tuple `[value, setValue]` selected by a name.
+
+```javascript
+const useTrackedByName = (name) => {
+  const [state, setState] = useTracked();
+  const update = useCallback((newVal) => {
+    setState(oldVal => ({
+      ...oldVal,
+      [name]: typeof newVal === 'function' ? newVal(oldVal[name]) : newVal,
+    }));
+  }, [name]);
+  return [state[name], update];
+};
 ```
