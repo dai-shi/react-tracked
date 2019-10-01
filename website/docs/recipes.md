@@ -171,7 +171,9 @@ const useTrackedByName = (name) => {
 Updating a property deep in a state object is troublesome.
 Here's a custom hook to use [immer](https://github.com/immerjs/immer) for setState.
 
-```javasript
+```javascript
+import produce from 'immer';
+
 const useTrackedWithImmer = () => {
   const [state, setState] = useTracked();
   const update = useCallback((updater) => {
@@ -180,3 +182,5 @@ const useTrackedWithImmer = () => {
   return [state, update];
 };
 ```
+
+Note: This can also be done at `createContainer`.
