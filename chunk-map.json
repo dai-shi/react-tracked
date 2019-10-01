@@ -1,7 +1,7 @@
 {
   "main": [
     "/main.190f6b2de1bab5b18c4a.css",
-    "/main.613f482ebe4fcca685a5.js"
+    "/main.7bf712b28bf1a3caef53.js"
   ],
   "component---site-src-pages-index-jsc-4-f-f99": [
     "/component---site-src-pages-index-jsc-4-f-f99.932466e72c4735ca529b.js"
@@ -10,40 +10,40 @@
     "/component---theme-doc-legacy-page-9-e-7-ca5.97da42910461b2d33f13.js"
   ],
   "docsMetadata---docs-206-c20": [
-    "/docsMetadata---docs-206-c20.72db44c2310cb1798448.js"
+    "/docsMetadata---docs-206-c20.d540c4b707fda083e320.js"
   ],
   "component---theme-doc-legacy-item-031-769": [
     "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
     "/component---theme-doc-legacy-item-031-769.e7e7b52e5701e8c5bf78.js"
   ],
-  "content---docs-quick-start-72-e-2df": [
-    "/content---docs-quick-start-72-e-2df.74076ecae6a4ee6b0608.js"
-  ],
-  "metadata---docs-quick-start-1-b-0-d4b": [
-    "/metadata---docs-quick-start-1-b-0-d4b.08ac4ae0089b2acf70ff.js"
-  ],
-  "content---docs-api-5-fb-197": [
-    "/content---docs-api-5-fb-197.bb5a5a6feb0a6330cf65.js"
-  ],
-  "metadata---docs-apia-09-80e": [
-    "/metadata---docs-apia-09-80e.38381c80952ad5595160.js"
-  ],
   "content---docs-recipes-8-e-3-d2b": [
-    "/content---docs-recipes-8-e-3-d2b.00764dfd7f93ce0ee5da.js"
+    "/content---docs-recipes-8-e-3-d2b.39f11a02947f2ea2f6a2.js"
   ],
   "metadata---docs-recipes-1-a-8-e80": [
-    "/metadata---docs-recipes-1-a-8-e80.e6ed94501d0eaaf0bb94.js"
-  ],
-  "content---docs-introductiona-09-6b4": [
-    "/content---docs-introductiona-09-6b4.72ed823bc042f390386d.js"
-  ],
-  "metadata---docs-introductiona-75-a0b": [
-    "/metadata---docs-introductiona-75-a0b.632484886a29816ad9f5.js"
+    "/metadata---docs-recipes-1-a-8-e80.73abbd4a2bae3b38afd9.js"
   ],
   "content---docs-comparisone-6-c-b98": [
-    "/content---docs-comparisone-6-c-b98.ef600f4c74f71f98e23f.js"
+    "/content---docs-comparisone-6-c-b98.5d4d17a750c6cf60e10d.js"
   ],
   "metadata---docs-comparison-6-d-7-2f6": [
-    "/metadata---docs-comparison-6-d-7-2f6.1ee60108b9171fb568ed.js"
+    "/metadata---docs-comparison-6-d-7-2f6.2fb40c0fcd73114cae20.js"
+  ],
+  "content---docs-introductiona-09-6b4": [
+    "/content---docs-introductiona-09-6b4.b60bfa432415866b940e.js"
+  ],
+  "metadata---docs-introductiona-75-a0b": [
+    "/metadata---docs-introductiona-75-a0b.957d5ed7fda81c6c977d.js"
+  ],
+  "content---docs-api-5-fb-197": [
+    "/content---docs-api-5-fb-197.0205645b5db0674cea5b.js"
+  ],
+  "metadata---docs-apia-09-80e": [
+    "/metadata---docs-apia-09-80e.44d47c5015d03f9e5948.js"
+  ],
+  "content---docs-quick-start-72-e-2df": [
+    "/content---docs-quick-start-72-e-2df.3593edd87bf94611a256.js"
+  ],
+  "metadata---docs-quick-start-1-b-0-d4b": [
+    "/metadata---docs-quick-start-1-b-0-d4b.1bbe9fb1218cecf6df78.js"
   ]
 }
