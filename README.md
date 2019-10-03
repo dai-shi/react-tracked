@@ -1,3 +1,5 @@
+<img alt="logo" src="./website/static/img/react-tracked-logo.png" width="200" height="200" />
+
 # react-tracked
 
 [![Build Status](https://travis-ci.com/dai-shi/react-tracked.svg?branch=master)](https://travis-ci.com/dai-shi/react-tracked)
