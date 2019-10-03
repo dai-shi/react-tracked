@@ -18,15 +18,18 @@ const Home = () => {
     >
       <div style={{
         textAlign: 'center',
-        paddingTop: 70,
-        paddingBottom: 70,
+        paddingTop: 40,
+        paddingBottom: 40,
       }}
       >
+        <img
+          alt="React Tracked Logo"
+          src={withBaseUrl('img/react-tracked-logo.svg')}
+        />
         <h1>{siteConfig.title}</h1>
         <h6>{siteConfig.tagline}</h6>
         <div style={{
           fontSize: '2em',
-          marginTop: 50,
         }}
         >
           <Link

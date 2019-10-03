@@ -25,6 +25,10 @@ module.exports = {
   themeConfig: {
     navbar: {
       title: 'React Tracked',
+      logo: {
+        alt: 'React Tracked Logo',
+        src: 'img/react-tracked-logo.svg',
+      },
       links: [
         { to: 'docs/introduction', label: 'Getting Started', position: 'left' },
         { to: 'docs/api', label: 'Reference', position: 'left' },
