@@ -23,6 +23,7 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    image: 'img/react-tracked-logo.png',
     navbar: {
       title: 'React Tracked',
       logo: {
