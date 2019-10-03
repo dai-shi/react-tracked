@@ -10,6 +10,8 @@ Super fast React global/shared state with context and hooks
 
 > If you are looking for a Redux-based library, please visit [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux) which has the same hooks API.
 
+Documentation site: https://react-tracked.js.org
+
 ## Introduction
 
 React Context and useContext is often used to avoid prop drilling,
