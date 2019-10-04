@@ -27,7 +27,7 @@ const format = (code) => {
     parser: 'typescript',
     plugins: [parserTypescript],
     singleQuote: true,
-    tailingComma: 'all',
+    trailingComma: 'all',
   });
 };
 
