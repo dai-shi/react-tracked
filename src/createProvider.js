@@ -22,7 +22,7 @@ const warningObject = {
 };
 
 const calculateChangedBits = (a, b) => (
-  a.dispatch !== b.dispatch || a.subscribe !== b.subscribe ? 1 : 0
+  a.update !== b.update || a.subscribe !== b.subscribe ? 1 : 0
 );
 
 export const createCustomContext = (
