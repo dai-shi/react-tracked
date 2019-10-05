@@ -114,7 +114,10 @@ const useValue = () => {
   const increment2 = () => {
     setCount(s => ({ ...s, count2: s.count2 + 2 });
   };
-  return [count, { increment1, increment2 }];
+  const actions = useMemo(() => (
+    { increment1, increment2 },
+  ), [increment1, increment2]);
+  return [count, actions];
 };
 
 const {
