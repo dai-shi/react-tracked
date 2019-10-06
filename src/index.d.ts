@@ -13,3 +13,7 @@ export const createContainer: <State, Update, Props>(
   useUpdate: () => Update;
   useSelector: <V>(selector: (state: State) => V, equalityFn?: EqlFn<V>) => V;
 };
+
+// deep proxy utils
+
+export const trackMemo: (obj: unknown) => void;
