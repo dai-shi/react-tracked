@@ -3,14 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.isDeepChanged = exports.createDeepProxy = void 0;
+exports.trackMemo = exports.isDeepChanged = exports.createDeepProxy = void 0;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 // -------------------------------------------------------
 // deep proxy
 // -------------------------------------------------------
-var OWN_KEYS_SYMBOL = Symbol('OWN_KEYS'); // check if obj is a plain object or an array
+var OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
+var TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO'); // check if obj is a plain object or an array
 
 var isPlainObject = function isPlainObject(obj) {
   try {
@@ -35,6 +36,7 @@ var unfreeze = function unfreeze(obj) {
 var createProxyHandler = function createProxyHandler() {
   return {
     recordUsage: function recordUsage(key) {
+      if (this.trackObj) return;
       var used = this.affected.get(this.originalObj);
 
       if (!used) {
@@ -44,16 +46,25 @@ var createProxyHandler = function createProxyHandler() {
 
       used.add(key);
     },
+    recordObjectAsUsed: function recordObjectAsUsed() {
+      this.trackObj = true;
+      this.affected["delete"](this.originalObj);
+    },
     get: function get(target, key) {
       this.recordUsage(key); // eslint-disable-next-line no-use-before-define, @typescript-eslint/no-use-before-define
 
       return createDeepProxy(target[key], this.affected, this.proxyCache);
     },
     has: function has(target, key) {
-      // LIMITATION:
+      if (key === TRACK_MEMO_SYMBOL) {
+        this.recordObjectAsUsed();
+        return true;
+      } // LIMITATION:
       // We simply record the same as get.
       // This means { a: {} } and { a: {} } is detected as changed,
       // if 'a' in obj is handled.
+
+
       this.recordUsage(key);
       return key in target;
     },
@@ -72,6 +83,7 @@ var createDeepProxy = function createDeepProxy(obj, affected, proxyCache) {
     proxyHandler = createProxyHandler();
     proxyHandler.proxy = new Proxy(unfreeze(obj), proxyHandler);
     proxyHandler.originalObj = obj;
+    proxyHandler.trackObj = false; // for trackMemo
 
     if (proxyCache) {
       proxyCache.set(obj, proxyHandler);
@@ -151,6 +163,17 @@ var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, as
   }
 
   return changed;
-};
+}; // explicitly track object with memo
+
 
 exports.isDeepChanged = isDeepChanged;
+
+var trackMemo = function trackMemo(obj) {
+  if (isPlainObject(obj)) {
+    return TRACK_MEMO_SYMBOL in obj;
+  }
+
+  return false;
+};
+
+exports.trackMemo = trackMemo;

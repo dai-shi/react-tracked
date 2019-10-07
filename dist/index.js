@@ -9,5 +9,13 @@ Object.defineProperty(exports, "createContainer", {
     return _createContainer.createContainer;
   }
 });
+Object.defineProperty(exports, "trackMemo", {
+  enumerable: true,
+  get: function get() {
+    return _deepProxy.trackMemo;
+  }
+});
 
 var _createContainer = require("./createContainer");
+
+var _deepProxy = require("./deepProxy");
