@@ -3,6 +3,7 @@
 // -------------------------------------------------------
 
 const OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
+const TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO');
 
 // check if obj is a plain object or an array
 const isPlainObject = (obj) => {
@@ -25,6 +26,7 @@ const unfreeze = (obj) => {
 
 const createProxyHandler = () => ({
   recordUsage(key) {
+    if (this.trackObj) return;
     let used = this.affected.get(this.originalObj);
     if (!used) {
       used = new Set();
@@ -32,12 +34,20 @@ const createProxyHandler = () => ({
     }
     used.add(key);
   },
+  recordObjectAsUsed() {
+    this.trackObj = true;
+    this.affected.delete(this.originalObj);
+  },
   get(target, key) {
     this.recordUsage(key);
     // eslint-disable-next-line no-use-before-define, @typescript-eslint/no-use-before-define
     return createDeepProxy(target[key], this.affected, this.proxyCache);
   },
   has(target, key) {
+    if (key === TRACK_MEMO_SYMBOL) {
+      this.recordObjectAsUsed();
+      return true;
+    }
     // LIMITATION:
     // We simply record the same as get.
     // This means { a: {} } and { a: {} } is detected as changed,
@@ -58,6 +68,7 @@ export const createDeepProxy = (obj, affected, proxyCache) => {
     proxyHandler = createProxyHandler();
     proxyHandler.proxy = new Proxy(unfreeze(obj), proxyHandler);
     proxyHandler.originalObj = obj;
+    proxyHandler.trackObj = false; // for trackMemo
     if (proxyCache) {
       proxyCache.set(obj, proxyHandler);
     }
@@ -113,4 +124,12 @@ export const isDeepChanged = (
     cache.set(origObj, { nextObj, changed });
   }
   return changed;
+};
+
+// explicitly track object with memo
+export const trackMemo = (obj) => {
+  if (isPlainObject(obj)) {
+    return TRACK_MEMO_SYMBOL in obj;
+  }
+  return false;
 };
