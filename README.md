@@ -198,6 +198,7 @@ You can also try them in codesandbox.io:
 [06](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/06_customhook)
 [07](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/07_todolist)
 [08](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/08_comparison)
+[09](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/09_reactmemo)
 
 ## Related projects
 
