@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- A new API trackMemo as an escape hatch for React.memo (#22)
 
 ## [0.9.0] - 2019-10-05
 ### Changed
