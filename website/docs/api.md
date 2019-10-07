@@ -4,8 +4,8 @@ title: API
 sidebar_label: API
 ---
 
-There's only one function exported from the library.
-This `createContainer` creates a provider and other hooks.
+The `createContainer` is a main function exported from the library,
+which creates a provider and other hooks.
 
 ## createContainer
 
@@ -98,4 +98,23 @@ const Component = () => {
   const selected = useSelector(selector);
   // ...
 };
+```
+
+## trackMemo
+
+There is another tiny function exported from the library.
+
+This is used to explicitly mark a prop object as used
+in a memoized component. Otherwise, usage tracking may not
+work correctly because a memoized component doesn't always render
+when a parent component renders.
+
+```javascript
+import { trackMemo } from 'react-tracked';
+
+const ChildComponent = React.memo(({ num1, str1, obj1, obj2 }) => {
+  trackMemo(obj1);
+  trackMemo(obj2);
+  // ...
+});
 ```
