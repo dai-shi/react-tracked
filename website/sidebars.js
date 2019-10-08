@@ -5,6 +5,9 @@ module.exports = {
       'quick-start',
       'comparison',
     ],
+    Tutorial: [
+      'tutorial-01',
+    ],
     Reference: [
       'api',
       'recipes',
