@@ -32,7 +32,7 @@ module.exports = {
       },
       links: [
         { to: 'docs/introduction', label: 'Getting Started', position: 'left' },
-        { to: 'docs/api', label: 'Reference', position: 'left' },
+        { to: 'docs/tutorial-01', label: 'Tutorial', position: 'left' },
         {
           href: 'https://www.npmjs.com/package/react-tracked',
           label: 'NPM',
@@ -54,6 +54,10 @@ module.exports = {
             {
               label: 'Getting Started',
               to: 'docs/introduction',
+            },
+            {
+              label: 'Tutorial',
+              to: 'docs/tutorial-01',
             },
             {
               label: 'Reference',
