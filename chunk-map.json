@@ -1,49 +1,55 @@
 {
   "main": [
     "/main.190f6b2de1bab5b18c4a.css",
-    "/main.46dde41ec38bbf24db2e.js"
+    "/main.6c549c6eaf48875f6621.js"
   ],
   "component---site-src-pages-index-jsc-4-f-f99": [
-    "/component---site-src-pages-index-jsc-4-f-f99.ad35d603f5d0b69f3cb1.js"
+    "/component---site-src-pages-index-jsc-4-f-f99.9d156185a76523b1cd2e.js"
   ],
   "component---theme-doc-legacy-page-9-e-7-ca5": [
-    "/component---theme-doc-legacy-page-9-e-7-ca5.d3eb18dc4d6eb64017b3.js"
+    "/component---theme-doc-legacy-page-9-e-7-ca5.5aa39bd3b3d4e6ce9dd8.js"
   ],
   "docsMetadata---docs-206-c20": [
-    "/docsMetadata---docs-206-c20.dffb7d12dd51f9adbb30.js"
+    "/docsMetadata---docs-206-c20.7113b90b92af02329b45.js"
   ],
   "component---theme-doc-legacy-item-031-769": [
     "/component---theme-doc-legacy-item-031-769.1f1ce10374de019f5d3a.css",
-    "/component---theme-doc-legacy-item-031-769.e7e7b52e5701e8c5bf78.js"
+    "/component---theme-doc-legacy-item-031-769.61c21e3d06d64265dd0d.js"
   ],
   "content---docs-api-5-fb-197": [
-    "/content---docs-api-5-fb-197.08f5bede1183da207f38.js"
+    "/content---docs-api-5-fb-197.741d0c254cdd2d4e9ca6.js"
   ],
   "metadata---docs-apia-09-80e": [
-    "/metadata---docs-apia-09-80e.07a119e28bf6e9d52788.js"
-  ],
-  "content---docs-comparisone-6-c-b98": [
-    "/content---docs-comparisone-6-c-b98.5d4d17a750c6cf60e10d.js"
-  ],
-  "metadata---docs-comparison-6-d-7-2f6": [
-    "/metadata---docs-comparison-6-d-7-2f6.2fb40c0fcd73114cae20.js"
+    "/metadata---docs-apia-09-80e.0ee0807af801143f8c9b.js"
   ],
   "content---docs-quick-start-72-e-2df": [
-    "/content---docs-quick-start-72-e-2df.752f34a0834a5fc3f4fc.js"
+    "/content---docs-quick-start-72-e-2df.c01ba6b8d7aadd04aa2f.js"
   ],
   "metadata---docs-quick-start-1-b-0-d4b": [
-    "/metadata---docs-quick-start-1-b-0-d4b.7709d48e95954cef1b8e.js"
+    "/metadata---docs-quick-start-1-b-0-d4b.ef4797fee5886d6069b0.js"
+  ],
+  "content---docs-comparisone-6-c-b98": [
+    "/content---docs-comparisone-6-c-b98.9e545798114aef06ef67.js"
+  ],
+  "metadata---docs-comparison-6-d-7-2f6": [
+    "/metadata---docs-comparison-6-d-7-2f6.f25942c712b929f3344f.js"
   ],
   "content---docs-recipes-8-e-3-d2b": [
-    "/content---docs-recipes-8-e-3-d2b.045e97af1121ba36ab64.js"
+    "/content---docs-recipes-8-e-3-d2b.aa573a703e4b738f6e09.js"
   ],
   "metadata---docs-recipes-1-a-8-e80": [
-    "/metadata---docs-recipes-1-a-8-e80.56d09521e18be4639b88.js"
+    "/metadata---docs-recipes-1-a-8-e80.a3462bfffb99ef075874.js"
+  ],
+  "content---docs-tutorial-01-b-94-024": [
+    "/content---docs-tutorial-01-b-94-024.09e71685d95e27d46f1b.js"
+  ],
+  "metadata---docs-tutorial-01-a-8-c-69b": [
+    "/metadata---docs-tutorial-01-a-8-c-69b.a2b0e39afb45c8af29f0.js"
   ],
   "content---docs-introductiona-09-6b4": [
-    "/content---docs-introductiona-09-6b4.b58a4d543e53c296cbde.js"
+    "/content---docs-introductiona-09-6b4.de4d078497f555695cc5.js"
   ],
   "metadata---docs-introductiona-75-a0b": [
-    "/metadata---docs-introductiona-75-a0b.b2c36cbac7eee07e2a93.js"
+    "/metadata---docs-introductiona-75-a0b.5e392191b07e9a8e0235.js"
   ]
 }
