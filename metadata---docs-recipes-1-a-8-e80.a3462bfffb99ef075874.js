@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[17],{44:function(e){e.exports=JSON.parse('{"id":"recipes","title":"Recipes","sidebar_label":"Recipes","description":"React Tracked provides a primitive API,","source":"@site/docs/recipes.md","permalink":"/docs/recipes","sidebar":"docs","category":"Reference","previous":"api","previous_title":"API"}')}}]);
