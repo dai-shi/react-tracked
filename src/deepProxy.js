@@ -4,6 +4,7 @@
 
 const OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
 const TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO');
+const GET_ORIGINAL_SYMBOL = Symbol('GET_ORIGINAL');
 
 // check if obj is a plain object or an array
 const isPlainObject = (obj) => {
@@ -39,6 +40,9 @@ const createProxyHandler = () => ({
     this.affected.delete(this.originalObj);
   },
   get(target, key) {
+    if (key === GET_ORIGINAL_SYMBOL) {
+      return this.originalObj;
+    }
     this.recordUsage(key);
     // eslint-disable-next-line no-use-before-define, @typescript-eslint/no-use-before-define
     return createDeepProxy(target[key], this.affected, this.proxyCache);
@@ -132,4 +136,12 @@ export const trackMemo = (obj) => {
     return TRACK_MEMO_SYMBOL in obj;
   }
   return false;
+};
+
+// get original object from proxy
+export const untrack = (obj) => {
+  if (isPlainObject(obj)) {
+    return obj[GET_ORIGINAL_SYMBOL] || obj;
+  }
+  return obj;
 };

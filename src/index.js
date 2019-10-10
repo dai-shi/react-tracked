@@ -1,2 +1,2 @@
 export { createContainer } from './createContainer';
-export { trackMemo } from './deepProxy';
+export { trackMemo, untrack } from './deepProxy';
