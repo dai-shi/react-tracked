@@ -137,7 +137,7 @@ There are some limitations and workarounds.
 const state1 = useTrackedState();
 const state2 = useTrackedState();
 // state1 and state2 is not referentially equal
-// even if the underlying redux state is referentially equal.
+// even if the underlying state is referentially equal.
 ```
 
 You should use `useTrackedState` only once in a component.
