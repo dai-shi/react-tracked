@@ -11,6 +11,7 @@ module.exports = {
     Reference: [
       'api',
       'recipes',
+      'caveats',
     ],
   },
 };
