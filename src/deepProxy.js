@@ -139,7 +139,7 @@ export const trackMemo = (obj) => {
 };
 
 // get original object from proxy
-export const untrack = (obj) => {
+export const getUntracked = (obj) => {
   if (isPlainObject(obj)) {
     return obj[GET_ORIGINAL_SYMBOL] || obj;
   }
