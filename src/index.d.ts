@@ -17,4 +17,4 @@ export const createContainer: <State, Update, Props>(
 // deep proxy utils
 
 export const trackMemo: (obj: unknown) => void;
-export const getUntracked: <T>(obj: T) => T;
+export const getUntrackedObject: <T>(obj: T) => T;

@@ -1,4 +1,4 @@
-import { createDeepProxy, getUntracked } from '../src/deepProxy';
+import { createDeepProxy, getUntrackedObject } from '../src/deepProxy';
 
 const noop = () => {};
 
@@ -12,8 +12,8 @@ describe('object tracking', () => {
     expect(p1).not.toBe(s1);
     expect(p1.a).not.toBe(s1.a);
     expect(p1.a.b).toBe(s1.a.b);
-    expect(getUntracked(p1)).toBe(s1);
-    expect(getUntracked(p1.a)).toBe(s1.a);
-    expect(getUntracked(p1.a.b)).toBe(s1.a.b);
+    expect(getUntrackedObject(p1)).toBe(s1);
+    expect(getUntrackedObject(p1.a)).toBe(s1.a);
+    expect(getUntrackedObject(p1.a.b)).toBe(s1.a.b);
   });
 });
