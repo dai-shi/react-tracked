@@ -52,4 +52,12 @@ dispatch({ type: 'FOO', value: state.foo }); // This may lead unexpected behavio
 dispatch({ type: 'FOO', value: state.fooStr }); // This is OK if state.fooStr is a string
 ```
 
-You should use primitive values for `dispatch`, `setState` and others.
+It's recommended to use primitive values for `dispatch`, `setState` and others.
+
+In case you need to pass an object itself, here's a workaround.
+
+```javascript
+import { getUntrackedObject } from 'react-tracked';
+
+dispatch({ type: 'FOO', value: getUntrackedObject(state.foo) });
+```
