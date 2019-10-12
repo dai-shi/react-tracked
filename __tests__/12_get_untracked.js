@@ -14,6 +14,6 @@ describe('object tracking', () => {
     expect(p1.a.b).toBe(s1.a.b);
     expect(getUntrackedObject(p1)).toBe(s1);
     expect(getUntrackedObject(p1.a)).toBe(s1.a);
-    expect(getUntrackedObject(p1.a.b)).toBe(s1.a.b);
+    expect(getUntrackedObject(p1.a.b)).toBe(null);
   });
 });

@@ -141,7 +141,7 @@ export const trackMemo = (obj) => {
 // get original object from proxy
 export const getUntrackedObject = (obj) => {
   if (isPlainObject(obj)) {
-    return obj[GET_ORIGINAL_SYMBOL] || obj;
+    return obj[GET_ORIGINAL_SYMBOL] || null;
   }
-  return obj;
+  return null;
 };

@@ -84,13 +84,17 @@ const {
 const untrackDeep = <T>(obj: T) => {
   if (typeof obj !== 'object' || obj === null) return obj;
   const untrackedObj = getUntrackedObject(obj);
-  if (untrackedObj !== obj) return untrackedObj;
+  if (untrackedObj !== null) return untrackedObj;
   const newObj = {} as T;
   let modified = false;
   Object.entries(obj).forEach(([k, v]) => {
     const vv = untrackDeep(v);
-    newObj[k as keyof T] = vv;
-    modified = modified || v !== vv;
+    if (vv !== null) {
+      newObj[k as keyof T] = vv;
+      modified = true;
+    } else {
+      newObj[k as keyof T] = v;
+    }
   });
   return modified ? newObj : obj;
 };
@@ -98,7 +102,9 @@ const untrackDeep = <T>(obj: T) => {
 const useDispatch = () => {
   const dispatch = useDispatchOrig();
   return useCallback((action) => {
-    dispatch(untrackDeep(action));
+    const untrackedAction = untrackDeep(action);
+    // console.log(action, untrackedAction);
+    dispatch(untrackedAction);
   }, [dispatch]);
 };
 
