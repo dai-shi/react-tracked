@@ -28,7 +28,8 @@
     "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server",
     "examples:todolist": "DIR=07_todolist webpack-dev-server",
     "examples:comparison": "DIR=08_comparison webpack-dev-server",
-    "examples:reactmemo": "DIR=09_reactmemo webpack-dev-server"
+    "examples:reactmemo": "DIR=09_reactmemo webpack-dev-server",
+    "examples:untracked": "DIR=10_untracked webpack-dev-server"
   },
   "keywords": [
     "react",

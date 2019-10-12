@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- A new API getUntrackedObject as an escape hatch (#24)
 
 ## [0.10.0] - 2019-10-08
 ### Added

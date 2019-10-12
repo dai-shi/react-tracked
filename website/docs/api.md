@@ -102,7 +102,7 @@ const Component = () => {
 
 ## trackMemo
 
-There is another tiny function exported from the library.
+There is a tiny function exported from the library.
 
 This is used to explicitly mark a prop object as used
 in a memoized component. Otherwise, usage tracking may not
@@ -117,4 +117,28 @@ const ChildComponent = React.memo(({ num1, str1, obj1, obj2 }) => {
   trackMemo(obj2);
   // ...
 });
+```
+
+## getUntrackedObject
+
+There are some cases when we need to get an original object
+instead of a tracked object.
+Although it's not a recommended pattern,
+the library exports a function as an escape hatch.
+
+```javascript
+import { getUntrackedObject } from 'react-tracked';
+
+const Component = () => {
+  const state = useTrackedState();
+  const dispatch = useUpdate();
+  const onClick = () => {
+    // this leaks a proxy outside of render
+    dispatch({ type: 'FOO', value: state.foo });
+
+    // this works as expected
+    dispatch({ type: 'FOO', value: getUntrackedObject(state.foo) });
+  };
+  // ...
+};
 ```

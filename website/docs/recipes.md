@@ -134,9 +134,9 @@ const App = () => (
 );
 ```
 
-## Recipes for useTracked and useTrackedState
+## Recipes for useTrackedState and useTracked
 
-The `useTracked` and `useTrackedState` hooks are useful as is,
+The `useTrackedState` and `useTracked` hooks are useful as is,
 but new hooks can also be created based on them.
 
 ### useTrackedSelector
@@ -187,3 +187,42 @@ const useTrackedWithImmer = () => {
 ```
 
 Note: This can also be done at `createContainer`.
+
+## Recipes for useUpdate (useDispatch)
+
+The `useUpdate` simply returns the second item
+in a tuple returned by `useState` or `useReducer`.
+It can be extended as a custom hook.
+
+### useSafeDispatch
+
+This is a modified version of useDispatch that calls `getUntrackedObject`
+recursively on an action object before dispatching it.
+
+```javascript
+import { getUntrackedObject } from 'react-tracked';
+
+const untrackDeep = (obj) => {
+  if (typeof obj !== 'object' || obj === null) return obj;
+  const untrackedObj = getUntrackedObject(obj);
+  if (untrackedObj !== null) return untrackedObj;
+  const newObj = {};
+  let modified = false;
+  Object.entries(obj).forEach(([k, v]) => {
+    newObj[k] = untrackDeep(v);
+    if (newObj[k] !== null) {
+      modified = true;
+    } else {
+      newObj[k] = v;
+    }
+  });
+  return modified ? newObj : obj;
+};
+
+const useSafeDispatch = () => {
+  const dispatch = useDispatch();
+  return useCallback((action) => {
+    dispatch(untrackDeep(action));
+  }, [dispatch]);
+};
+```
