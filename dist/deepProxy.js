@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.trackMemo = exports.isDeepChanged = exports.createDeepProxy = void 0;
+exports.getUntrackedObject = exports.trackMemo = exports.isDeepChanged = exports.createDeepProxy = void 0;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -11,7 +11,8 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 // deep proxy
 // -------------------------------------------------------
 var OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
-var TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO'); // check if obj is a plain object or an array
+var TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO');
+var GET_ORIGINAL_SYMBOL = Symbol('GET_ORIGINAL'); // check if obj is a plain object or an array
 
 var isPlainObject = function isPlainObject(obj) {
   try {
@@ -51,6 +52,10 @@ var createProxyHandler = function createProxyHandler() {
       this.affected["delete"](this.originalObj);
     },
     get: function get(target, key) {
+      if (key === GET_ORIGINAL_SYMBOL) {
+        return this.originalObj;
+      }
+
       this.recordUsage(key); // eslint-disable-next-line no-use-before-define, @typescript-eslint/no-use-before-define
 
       return createDeepProxy(target[key], this.affected, this.proxyCache);
@@ -174,6 +179,17 @@ var trackMemo = function trackMemo(obj) {
   }
 
   return false;
-};
+}; // get original object from proxy
+
 
 exports.trackMemo = trackMemo;
+
+var getUntrackedObject = function getUntrackedObject(obj) {
+  if (isPlainObject(obj)) {
+    return obj[GET_ORIGINAL_SYMBOL] || null;
+  }
+
+  return null;
+};
+
+exports.getUntrackedObject = getUntrackedObject;

@@ -15,6 +15,12 @@ Object.defineProperty(exports, "trackMemo", {
     return _deepProxy.trackMemo;
   }
 });
+Object.defineProperty(exports, "getUntrackedObject", {
+  enumerable: true,
+  get: function get() {
+    return _deepProxy.getUntrackedObject;
+  }
+});
 
 var _createContainer = require("./createContainer");
 
