@@ -109,11 +109,11 @@ The `update` can be anything, so for example it can be a set of action functions
 const useValue = () => {
   const [state, setState] = useState({ count1: 0, count2: 0 });
   const increment1 = useCallback(() => {
-    setCount(s => ({ ...s, count1: s.count1 + 1 }));
-  }, []);
+    setState(s => ({ ...s, count1: s.count1 + 1 }));
+  }, [setState]);
   const increment2 = useCallback(() => {
-    setCount(s => ({ ...s, count2: s.count2 + 2 }));
-  }, []);
+    setState(s => ({ ...s, count2: s.count2 + 2 }));
+  }, [setState]);
   const actions = useMemo(() => (
     { increment1, increment2 },
   ), [increment1, increment2]);
@@ -164,7 +164,7 @@ const useTrackedByName = (name) => {
       ...oldVal,
       [name]: typeof newVal === 'function' ? newVal(oldVal[name]) : newVal,
     }));
-  }, [name]);
+  }, [setState, name]);
   return [state[name], update];
 };
 ```
@@ -181,7 +181,7 @@ const useTrackedWithImmer = () => {
   const [state, setState] = useTracked();
   const update = useCallback((updater) => {
     setState(oldVal => produce(oldVal, updater));
-  }, []);
+  }, [setState]);
   return [state, update];
 };
 ```
