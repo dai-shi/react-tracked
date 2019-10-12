@@ -123,7 +123,7 @@ const ChildComponent = React.memo(({ num1, str1, obj1, obj2 }) => {
 
 There are some cases when we need to get an original object
 instead of a tracked object.
-Although, it's not a recommended pattern,
+Although it's not a recommended pattern,
 the library exports a function as an escape hatch.
 
 ```javascript
@@ -133,8 +133,11 @@ const Component = () => {
   const state = useTrackedState();
   const dispatch = useUpdate();
   const onClick = () => {
-    // dispatch({ type: 'FOO', value: state.foo }); // this will leak a proxy outside of render
-    dispatch({ type: 'FOO', value: getUntrackedObject(state.foo) }); // this works as expected
+    // this leaks a proxy outside of render
+    dispatch({ type: 'FOO', value: state.foo });
+
+    // this works as expected
+    dispatch({ type: 'FOO', value: getUntrackedObject(state.foo) });
   };
   // ...
 };

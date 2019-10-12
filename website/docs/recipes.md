@@ -196,8 +196,8 @@ It can be extended as a custom hook.
 
 ### useSafeDispatch
 
-This is a modified version of useDispatch
-that calls `getUntrackedObject` recursively on an action object in advance.
+This is a modified version of useDispatch that calls `getUntrackedObject`
+recursively on an action object before dispatching it.
 
 ```javascript
 import { getUntrackedObject } from 'react-tracked';
@@ -209,9 +209,8 @@ const untrackDeep = (obj) => {
   const newObj = {};
   let modified = false;
   Object.entries(obj).forEach(([k, v]) => {
-    const vv = untrackDeep(v);
-    if (vv !== null) {
-      newObj[k] = vv;
+    newObj[k] = untrackDeep(v);
+    if (newObj[k] !== null) {
       modified = true;
     } else {
       newObj[k] = v;
