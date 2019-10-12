@@ -4,7 +4,7 @@ title: Tutorial - ToDo App with useState
 sidebar_label: ToDo App (useState)
 ---
 
-This tutorial shows example code with useState.
+This tutorial shows example code with useState and [Immer](https://immerjs.github.io/immer/).
 
 ## src/components/App.js
 
@@ -80,7 +80,9 @@ This is a custom hook to simply return `todos`.
 
 ```typescript ts2js
 import { useCallback } from 'react';
-import { useSetState } from '../store';
+import produce from 'immer';
+
+import { useSetState, State } from '../store';
 
 let nextId = 100;
 
@@ -88,10 +90,11 @@ export const useAddTodo = () => {
   const setState = useSetState();
   return useCallback(
     title => {
-      setState(state => ({
-        ...state,
-        todos: [...state.todos, { id: nextId++, title }],
-      }));
+      setState(
+        produce((draft: State) => {
+          draft.todos.push({ id: nextId++, title });
+        })
+      );
     },
     [setState]
   );
@@ -104,18 +107,20 @@ This is a custom hook to return `addTodo` function.
 
 ```typescript ts2js
 import { useCallback } from 'react';
-import { useSetState } from '../store';
+import produce from 'immer';
+
+import { useSetState, State } from '../store';
 
 export const useChangeTodo = () => {
   const setState = useSetState();
   return useCallback(
     (id: number, note: string) => {
-      setState(state => ({
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === id ? { ...todo, note } : todo
-        ),
-      }));
+      setState(
+        produce((draft: State) => {
+          const todo = draft.todos.find(todo => todo.id === id);
+          if (todo) todo.note = note;
+        })
+      );
     },
     [setState]
   );
@@ -128,18 +133,20 @@ This is a custom hook to return `changeTodo` function.
 
 ```typescript ts2js
 import { useCallback } from 'react';
-import { useSetState } from '../store';
+import produce from 'immer';
+
+import { useSetState, State } from '../store';
 
 export const useClearAllNotes = () => {
   const setState = useSetState();
   return useCallback(() => {
-    setState(state => ({
-      ...state,
-      todos: state.todos.map(todo => {
-        const { note, ...rest } = todo;
-        return rest;
-      }),
-    }));
+    setState(
+      produce((draft: State) => {
+        draft.todos.forEach(todo => {
+          delete todo.note;
+        });
+      })
+    );
   }, [setState]);
 };
 ```
@@ -150,16 +157,20 @@ This is a custom hook to return `clearAllNotes` function.
 
 ```typescript ts2js
 import { useCallback } from 'react';
-import { useSetState } from '../store';
+import produce from 'immer';
+
+import { useSetState, State } from '../store';
 
 export const useDeleteTodo = () => {
   const setState = useSetState();
   return useCallback(
     (id: number) => {
-      setState(state => ({
-        ...state,
-        todos: state.todos.filter(todo => todo.id !== id),
-      }));
+      setState(
+        produce((draft: State) => {
+          const index = draft.todos.findIndex(todo => todo.id === id);
+          if (index >= 0) draft.todos.splice(index, 1);
+        })
+      );
     },
     [setState]
   );
@@ -172,18 +183,20 @@ This is a custom hook to return `deleteTodo` function.
 
 ```typescript ts2js
 import { useCallback } from 'react';
-import { useSetState } from '../store';
+import produce from 'immer';
+
+import { useSetState, State } from '../store';
 
 export const useToggleTodo = () => {
   const setState = useSetState();
   return useCallback(
     (id: number) => {
-      setState(state => ({
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === id ? { ...todo, completed: !todo.completed } : todo
-        ),
-      }));
+      setState(
+        produce((draft: State) => {
+          const todo = draft.todos.find(todo => todo.id === id);
+          if (todo) todo.completed = !todo.completed;
+        })
+      );
     },
     [setState]
   );
