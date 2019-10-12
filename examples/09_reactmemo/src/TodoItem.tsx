@@ -15,6 +15,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       {Math.random()}
       <input
         type="checkbox"
+        checked={todo.completed}
         onChange={() => dispatch({ type: 'TOGGLE_TODO', id: todo.id })}
       />
       <span
