@@ -169,6 +169,7 @@ const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
     <li ref={useFlasher()}>
       <input
         type="checkbox"
+	checked={!!completed}
         onChange={() => dispatch({ type: 'TOGGLE_TODO', id })}
       />
       <span
@@ -260,4 +261,4 @@ This is a util function to show which components render.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/modest-lumiere-j266e).
+You can try [working example](https://codesandbox.io/s/crazy-spence-5z5pm).
