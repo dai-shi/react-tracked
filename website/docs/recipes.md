@@ -117,7 +117,7 @@ const useValue = () => {
   const actions = useMemo(() => (
     { increment1, increment2 },
   ), [increment1, increment2]);
-  return [count, actions];
+  return [state, actions];
 };
 
 const {
@@ -192,7 +192,7 @@ Note: This can also be done at `createContainer`.
 
 The `useUpdate` simply returns the second item
 in a tuple returned by `useState` or `useReducer`.
-It can be extended as a custom hook.
+It can also be extended as a custom hook.
 
 ### useSafeDispatch
 
