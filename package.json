@@ -1,7 +1,7 @@
 {
   "name": "react-tracked",
   "description": "Super fast React global/shared state with context and hooks",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",
