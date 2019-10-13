@@ -72,7 +72,8 @@ export { Provider, useTrackedState, useSetDraft };
 ```
 
 The store is created by useState.
-useUpdated is renamed to useSetState for exporting.
+useUpdated is renamed to useSetState,
+and based on it, useSetDraft with Immer is exported.
 
 ## src/hooks/useTodoList.js
 
