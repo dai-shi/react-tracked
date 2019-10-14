@@ -16,7 +16,8 @@ const state2 = useTrackedState();
 // even if the underlying state is referentially equal.
 ```
 
-You should use `useTrackedState` only once in a component.
+You should use `useTrackedState` only once in a component
+if you need referential equality of objects in the state.
 
 ## An object referential change doesn't trigger re-render if an property of the object is accessed in previous render
 
