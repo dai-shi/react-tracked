@@ -10,6 +10,7 @@
   "main": "./dist/index.js",
   "module": "./src/index.js",
   "types": "./src/index.d.ts",
+  "sideEffects": false,
   "files": [
     "src",
     "dist"
