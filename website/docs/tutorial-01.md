@@ -35,20 +35,19 @@ import { createContainer } from 'react-tracked';
 export type TodoType = {
   id: number;
   title: string;
-  note?: string;
   completed?: boolean;
 };
 
 type State = {
   todos: TodoType[];
+  query: string;
 };
 
 type Action =
   | { type: 'ADD_TODO'; title: string }
   | { type: 'DELETE_TODO'; id: number }
-  | { type: 'CHANGE_TODO'; id: number; note: string }
   | { type: 'TOGGLE_TODO'; id: number }
-  | { type: 'CLEAR_ALL_NOTES' };
+  | { type: 'SET_QUERY'; query: string };
 
 const initialState: State = {
   todos: [
@@ -56,6 +55,7 @@ const initialState: State = {
     { id: 2, title: 'Study JS' },
     { id: 3, title: 'Buy ticket' },
   ],
+  query: '',
 };
 
 let nextId = 4;
@@ -72,13 +72,6 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         todos: state.todos.filter(todo => todo.id !== action.id),
       };
-    case 'CHANGE_TODO':
-      return {
-        ...state,
-        todos: state.todos.map(todo =>
-          todo.id === action.id ? { ...todo, note: action.note } : todo
-        ),
-      };
     case 'TOGGLE_TODO':
       return {
         ...state,
@@ -86,13 +79,10 @@ const reducer = (state: State, action: Action): State => {
           todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
         ),
       };
-    case 'CLEAR_ALL_NOTES':
+    case 'SET_QUERY':
       return {
         ...state,
-        todos: state.todos.map(todo => {
-          const { note, ...rest } = todo;
-          return rest;
-        }),
+        query: action.query,
       };
     default:
       return state;
@@ -123,24 +113,21 @@ import NewTodo from './NewTodo';
 const TodoList: React.FC = () => {
   const dispatch = useDispatch();
   const state = useTrackedState();
-  const { todos } = state;
+  const setQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({ type: 'SET_QUERY', query: event.target.value });
+  };
   return (
     <div>
       <ul>
-        {todos.map(({ id, title, completed, note }) => (
-          <TodoItem
-            key={id}
-            id={id}
-            title={title}
-            completed={completed}
-            note={note}
-          />
+        {state.todos.map(({ id, title, completed }) => (
+          <TodoItem key={id} id={id} title={title} completed={completed} />
         ))}
         <NewTodo />
       </ul>
-      <button onClick={() => dispatch({ type: 'CLEAR_ALL_NOTES' })}>
-        Clear all notes
-      </button>
+      <div>
+        Highlight Query for incomplete items:
+        <input value={state.query} onChange={setQuery} />
+      </div>
     </div>
   );
 };
@@ -150,18 +137,35 @@ export default TodoList;
 
 This component is to show the list of `TodoItem`s,
 `NewTodo` to create a new item, and
-Clear button to reset notes in all items.
+a text field for highlight query.
+This query is only effective against incomplete items.
 
 ## src/TodoItem.js
 
 ```typescript ts2js
 import * as React from 'react';
 
-import { useDispatch, TodoType } from './store';
+import { useDispatch, useTrackedState, TodoType } from './store';
 import { useFlasher } from './utils';
 
-const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
+const renderHighlight = (title: string, query: string) => {
+  if (!query) return title;
+  const index = title.indexOf(query);
+  if (index === -1) return title;
+  return (
+    <>
+      {title.slice(0, index)}
+      <b>{query}</b>
+      {title.slice(index + query.length)}
+    </>
+  );
+};
+
+type Props = TodoType;
+
+const TodoItem: React.FC<Props> = ({ id, title, completed }) => {
   const dispatch = useDispatch();
+  const state = useTrackedState();
   const delTodo = () => {
     dispatch({ type: 'DELETE_TODO', id });
   };
@@ -169,7 +173,7 @@ const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
     <li ref={useFlasher()}>
       <input
         type="checkbox"
-	checked={!!completed}
+        checked={!!completed}
         onChange={() => dispatch({ type: 'TOGGLE_TODO', id })}
       />
       <span
@@ -177,15 +181,8 @@ const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
           textDecoration: completed ? 'line-through' : 'none',
         }}
       >
-        {title}
+        {completed ? title : renderHighlight(title, state.query)}
       </span>
-      <input
-        value={note || ''}
-        placeholder="Enter note..."
-        onChange={e =>
-          dispatch({ type: 'CHANGE_TODO', id, note: e.target.value })
-        }
-      />
       <button onClick={delTodo}>Delete</button>
     </li>
   );
@@ -257,8 +254,8 @@ export const useFlasher = () => {
 };
 ```
 
-This is a util function to show which components render.
+This is a utility function to show which components render.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/crazy-spence-5z5pm).
+You can try [working example](https://codesandbox.io/s/reverent-tree-geptx).
