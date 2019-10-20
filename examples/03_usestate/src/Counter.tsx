@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useTracked } from './state';
 
-const Counter = () => {
+const Counter: React.FC = () => {
   const [state, setState] = useTracked();
   const increment = () => {
     setState(s => ({

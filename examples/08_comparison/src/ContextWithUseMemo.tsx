@@ -5,6 +5,7 @@ import {
   useReducer,
   useRef,
   useMemo,
+  Reducer,
 } from 'react';
 
 const initialState = {
@@ -18,7 +19,7 @@ type Action =
   | { type: 'setFamilyName'; familyName: string };
 type Dispatch = (action: Action) => void;
 
-const reducer = (state: State, action: Action) => {
+const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case 'setFirstName':
       return { ...state, firstName: action.firstName };

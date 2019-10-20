@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useSelector, useDispatch } from './state';
 
-const Person = () => {
+const Person: React.FC = () => {
   const person = useSelector(state => state.person);
   const dispatch = useDispatch();
   return (

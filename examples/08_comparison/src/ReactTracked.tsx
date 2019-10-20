@@ -3,6 +3,7 @@ import {
   useReducer,
   useRef,
   useEffect,
+  Reducer,
 } from 'react';
 
 import { createContainer } from 'react-tracked';
@@ -17,7 +18,7 @@ type Action =
   | { type: 'setFirstName'; firstName: string }
   | { type: 'setFamilyName'; familyName: string };
 
-const reducer = (state: State, action: Action) => {
+const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case 'setFirstName':
       return { ...state, firstName: action.firstName };

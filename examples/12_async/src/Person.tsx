@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useTrackedState, useDispatch } from './store';
 
-const Person = () => {
+const Person: React.FC = () => {
   const state = useTrackedState();
   const dispatch = useDispatch();
   return (

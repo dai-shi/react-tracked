@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer, useCallback, Reducer } from 'react';
 import { createContainer } from 'react-tracked';
 
 type State = {
@@ -22,7 +22,7 @@ type InnerAction =
 type OuterAction =
   | { type: 'INCREMENT' };
 
-const reducer = (state: State, action: InnerAction | OuterAction): State => {
+const reducer: Reducer<State, InnerAction | OuterAction> = (state, action) => {
   switch (action.type) {
     case 'START_FETCH':
       return {

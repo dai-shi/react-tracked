@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useTracked } from './state';
 
-const Person = () => {
+const Person: React.FC = () => {
   const [state, setState] = useTracked();
   return (
     <div>

@@ -17,7 +17,7 @@ const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
   );
 };
 
-const Person = () => {
+const Person: React.FC = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>

@@ -6,6 +6,7 @@ import {
   useRef,
   useEffect,
   useMemo,
+  Reducer,
 } from 'react';
 
 const initialState1 = {
@@ -17,7 +18,7 @@ type Action1 =
   | { type: 'setFirstName'; firstName: string }
 type Dispatch1 = (action: Action1) => void;
 
-const reducer1 = (state: State1, action: Action1) => {
+const reducer1: Reducer<State1, Action1> = (state, action) => {
   switch (action.type) {
     case 'setFirstName':
       return { ...state, firstName: action.firstName };
@@ -37,7 +38,7 @@ type Action2 =
   | { type: 'setFamilyName'; familyName: string };
 type Dispatch2 = (action: Action2) => void;
 
-const reducer2 = (state: State2, action: Action2) => {
+const reducer2: Reducer<State2, Action2> = (state, action) => {
   switch (action.type) {
     case 'setFamilyName':
       return { ...state, familyName: action.familyName };

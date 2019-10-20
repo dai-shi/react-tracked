@@ -3,7 +3,7 @@ import { StrictMode } from 'react';
 
 import PersonForm from './PersonForm';
 
-const App = () => (
+const App: React.FC = () => (
   <StrictMode>
     <PersonForm />
     <div>

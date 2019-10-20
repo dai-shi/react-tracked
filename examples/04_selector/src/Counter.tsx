@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { useSelector, useDispatch } from './state';
 
-const Counter = () => {
+const Counter: React.FC = () => {
   const count = useSelector(state => state.count);
   const dispatch = useDispatch();
   return (

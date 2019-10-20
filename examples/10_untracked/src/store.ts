@@ -1,4 +1,4 @@
-import { useReducer, useCallback } from 'react';
+import { useReducer, useCallback, Reducer } from 'react';
 import { createContainer, getUntrackedObject } from 'react-tracked';
 
 export type TodoType = {
@@ -30,7 +30,7 @@ const initialState: State = {
 
 let nextId = 4;
 
-const reducer = (state: State, action: Action): State => {
+const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return {

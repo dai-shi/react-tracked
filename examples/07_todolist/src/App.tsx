@@ -5,7 +5,7 @@ import { Provider } from './state';
 
 import MainApp from './components/App';
 
-const App = () => (
+const App: React.FC = () => (
   <StrictMode>
     <Provider>
       <MainApp />
