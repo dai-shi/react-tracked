@@ -4,7 +4,7 @@ title: Tutorial - ToDo App with useState
 sidebar_label: ToDo App (useState)
 ---
 
-This tutorial shows example code with useState and [Immer](https://immerjs.github.io/immer/).
+This tutorial shows example code with useState, [Immer](https://immerjs.github.io/immer/) and custom hooks.
 
 ## src/components/App.js
 
@@ -33,15 +33,15 @@ import { useState, useCallback } from 'react';
 import { createContainer } from 'react-tracked';
 import produce from 'immer';
 
-export type TodoType = {
+type TodoType = {
   id: number;
   title: string;
-  note?: string;
   completed?: boolean;
 };
 
 export type State = {
   todos: TodoType[];
+  query: string;
 };
 
 const initialState: State = {
@@ -50,6 +50,7 @@ const initialState: State = {
     { id: 2, title: 'Study JS' },
     { id: 3, title: 'Buy ticket' },
   ],
+  query: '',
 };
 
 const useValue = () => useState(initialState);
@@ -112,49 +113,32 @@ export const useAddTodo = () => {
 
 This is a custom hook to return `addTodo` function.
 
-## src/hooks/useChangeTodo.js
+## src/hooks/useQuery.js
 
 ```typescript ts2js
 import { useCallback } from 'react';
 
-import { useSetDraft, State } from '../store';
+import { useTrackedState, useSetDraft, State } from '../store';
 
-export const useChangeTodo = () => {
+export const useQuery = () => {
+  const state = useTrackedState();
+  const getQuery = () => state.query;
   const setDraft = useSetDraft();
-  return useCallback(
-    (id: number, note: string) => {
+  const setQuery = useCallback(
+    (query: string) => {
       setDraft((draft: State) => {
-        const todo = draft.todos.find(todo => todo.id === id);
-        if (todo) todo.note = note;
+        draft.query = query;
       });
     },
     [setDraft]
   );
+  return { getQuery, setQuery };
 };
 ```
 
-This is a custom hook to return `changeTodo` function.
-
-## src/hooks/useClearAllNotes.js
-
-```typescript ts2js
-import { useCallback } from 'react';
-
-import { useSetDraft, State } from '../store';
-
-export const useClearAllNotes = () => {
-  const setDraft = useSetDraft();
-  return useCallback(() => {
-    setDraft((draft: State) => {
-      draft.todos.forEach(todo => {
-        delete todo.note;
-      });
-    });
-  }, [setDraft]);
-};
-```
-
-This is a custom hook to return `clearAllNotes` function.
+This is a custom hook to return getQuery and setQuery.
+It doesn't return `state.query` directly, because
+it will be used conditionally.
 
 ## src/hooks/useDeleteTodo.js
 
@@ -208,28 +192,25 @@ This is a custom hook to return `toggleTodo` function.
 import * as React from 'react';
 
 import { useTodoList } from '../hooks/useTodoList';
-import { useClearAllNotes } from '../hooks/useClearAllNotes';
+import { useQuery } from '../hooks/useQuery';
 import TodoItem from './TodoItem';
 import NewTodo from './NewTodo';
 
 const TodoList: React.FC = () => {
-  const clearAllNotes = useClearAllNotes();
+  const { getQuery, setQuery } = useQuery();
   const todos = useTodoList();
   return (
     <div>
       <ul>
-        {todos.map(({ id, title, completed, note }) => (
-          <TodoItem
-            key={id}
-            id={id}
-            title={title}
-            completed={completed}
-            note={note}
-          />
+        {todos.map(({ id, title, completed }) => (
+          <TodoItem key={id} id={id} title={title} completed={completed} />
         ))}
         <NewTodo />
       </ul>
-      <button onClick={clearAllNotes}>Clear all notes</button>
+      <div>
+        Highlight Query for incomplete items:
+        <input value={getQuery()} onChange={e => setQuery(e.target.value)} />
+      </div>
     </div>
   );
 };
@@ -246,21 +227,39 @@ Clear button to reset notes in all items.
 ```typescript ts2js
 import * as React from 'react';
 
-import { TodoType } from '../store';
+import { useQuery } from '../hooks/useQuery';
 import { useDeleteTodo } from '../hooks/useDeleteTodo';
 import { useToggleTodo } from '../hooks/useToggleTodo';
-import { useChangeTodo } from '../hooks/useChangeTodo';
 import { useFlasher } from '../utils';
 
-const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
+const renderHighlight = (title, query) => {
+  if (!query) return title;
+  const index = title.indexOf(query);
+  if (index === -1) return title;
+  return (
+    <>
+      {title.slice(0, index)}
+      <b>{query}</b>
+      {title.slice(index + query.length)}
+    </>
+  );
+};
+
+type Props = {
+  id: number;
+  title: string;
+  completed?: boolean;
+};
+
+const TodoItem: React.FC<Props> = ({ id, title, completed }) => {
+  const { getQuery } = useQuery();
   const deleteTodo = useDeleteTodo();
   const toggleTodo = useToggleTodo();
-  const changeTodo = useChangeTodo();
   return (
     <li ref={useFlasher()}>
       <input
         type="checkbox"
-        checked={completed}
+        checked={!!completed}
         onChange={() => toggleTodo(id)}
       />
       <span
@@ -268,13 +267,8 @@ const TodoItem: React.FC<TodoType> = ({ id, title, completed, note }) => {
           textDecoration: completed ? 'line-through' : 'none',
         }}
       >
-        {title}
+        {completed ? title : renderHighlight(title, getQuery())}
       </span>
-      <input
-        value={note || ''}
-        placeholder="Enter note..."
-        onChange={e => changeTodo(id, e.target.value)}
-      />
       <button onClick={() => deleteTodo(id)}>Delete</button>
     </li>
   );
@@ -353,4 +347,4 @@ This is a util function to show which components render.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/black-leftpad-bs43b).
+You can try [working example](https://codesandbox.io/s/infallible-firefly-yzwxc).
