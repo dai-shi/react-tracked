@@ -153,6 +153,7 @@ You can also try them in codesandbox.io:
 [09](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/09_reactmemo)
 [10](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/10_untracked)
 [11](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/11_form)
+[12](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/12_async)
 
 ## Related projects
 
