@@ -113,33 +113,6 @@ export const useAddTodo = () => {
 
 This is a custom hook to return `addTodo` function.
 
-## src/hooks/useQuery.js
-
-```typescript ts2js
-import { useCallback } from 'react';
-
-import { useTrackedState, useSetDraft, State } from '../store';
-
-export const useQuery = () => {
-  const state = useTrackedState();
-  const getQuery = () => state.query;
-  const setDraft = useSetDraft();
-  const setQuery = useCallback(
-    (query: string) => {
-      setDraft((draft: State) => {
-        draft.query = query;
-      });
-    },
-    [setDraft]
-  );
-  return { getQuery, setQuery };
-};
-```
-
-This is a custom hook to return getQuery and setQuery.
-It doesn't return `state.query` directly, because
-it will be used conditionally.
-
 ## src/hooks/useDeleteTodo.js
 
 ```typescript ts2js
@@ -185,6 +158,33 @@ export const useToggleTodo = () => {
 ```
 
 This is a custom hook to return `toggleTodo` function.
+
+## src/hooks/useQuery.js
+
+```typescript ts2js
+import { useCallback } from 'react';
+
+import { useTrackedState, useSetDraft, State } from '../store';
+
+export const useQuery = () => {
+  const state = useTrackedState();
+  const getQuery = () => state.query;
+  const setDraft = useSetDraft();
+  const setQuery = useCallback(
+    (query: string) => {
+      setDraft((draft: State) => {
+        draft.query = query;
+      });
+    },
+    [setDraft]
+  );
+  return { getQuery, setQuery };
+};
+```
+
+This is a custom hook to return getQuery and setQuery.
+It doesn't return `state.query` directly, because
+it will be used conditionally.
 
 ## src/components/TodoList.js
 
