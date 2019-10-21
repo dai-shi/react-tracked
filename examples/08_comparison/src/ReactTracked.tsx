@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {
+import React, {
   useReducer,
   useRef,
   useEffect,

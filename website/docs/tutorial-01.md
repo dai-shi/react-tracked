@@ -9,7 +9,7 @@ This tutorial shows example code with useReducer.
 ## src/App.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { Provider } from './store';
 import TodoList from './TodoList';
@@ -104,7 +104,7 @@ useUpdated is renamed to useDispatch for exporting.
 ## src/TodoList.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { useDispatch, useTrackedState } from './store';
 import TodoItem from './TodoItem';
@@ -143,7 +143,7 @@ This query is only effective against incomplete items.
 ## src/TodoItem.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { useDispatch, useTrackedState, TodoType } from './store';
 import { useFlasher } from './utils';
@@ -201,7 +201,7 @@ See [example/09](https://github.com/dai-shi/react-tracked/tree/master/examples/0
 ## src/NewTodo.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 import { useState } from 'react';
 
 import { useDispatch } from './store';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { ComponentType } from 'react';
 
 type EqlFn<V> = (a: V, b: V) => boolean;
 
@@ -7,7 +7,7 @@ type EqlFn<V> = (a: V, b: V) => boolean;
 export const createContainer: <State, Update, Props>(
   useValue: (props?: Props) => [State, Update],
 ) => {
-  Provider: React.ComponentType<Props>;
+  Provider: ComponentType<Props>;
   useTrackedState: () => State;
   useTracked: () => [State, Update];
   useUpdate: () => Update;

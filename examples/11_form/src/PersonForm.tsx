@@ -1,6 +1,6 @@
 /* eslint react/jsx-props-no-spreading: off */
 
-import * as React from 'react';
+import React from 'react';
 
 import {
   FormProvider,

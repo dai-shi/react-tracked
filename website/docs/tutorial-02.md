@@ -9,7 +9,7 @@ This tutorial shows example code with useState, [Immer](https://immerjs.github.i
 ## src/components/App.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { Provider } from './store';
 import TodoList from './TodoList';
@@ -189,7 +189,7 @@ it will be used conditionally.
 ## src/components/TodoList.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { useTodoList } from '../hooks/useTodoList';
 import { useQuery } from '../hooks/useQuery';
@@ -225,7 +225,7 @@ Clear button to reset notes in all items.
 ## src/components/TodoItem.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 
 import { useQuery } from '../hooks/useQuery';
 import { useDeleteTodo } from '../hooks/useDeleteTodo';
@@ -287,7 +287,7 @@ See [example/09](https://github.com/dai-shi/react-tracked/tree/master/examples/0
 ## src/components/NewTodo.js
 
 ```typescript ts2js
-import * as React from 'react';
+import React from 'react';
 import { useState } from 'react';
 
 import { useAddTodo } from '../hooks/useAddTodo';

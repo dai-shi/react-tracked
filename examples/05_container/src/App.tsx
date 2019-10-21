@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { StrictMode } from 'react';
+import React, { StrictMode } from 'react';
 
 import { createContainer } from 'react-tracked';
 

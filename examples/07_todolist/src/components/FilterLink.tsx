@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import useVisibilityFilter from '../hooks/useVisibilityFilter';
 import { VisibilityFilterType } from '../state';
