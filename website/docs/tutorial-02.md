@@ -31,7 +31,7 @@ It wraps TodoList with Provider.
 ```typescript ts2js
 import { useState, useCallback } from 'react';
 import { createContainer } from 'react-tracked';
-import produce from 'immer';
+import produce, { Draft } from 'immer';
 
 type TodoType = {
   id: number;
@@ -62,7 +62,7 @@ const { Provider, useTrackedState, useUpdate: useSetState } = createContainer(
 const useSetDraft = () => {
   const setState = useSetState();
   return useCallback(
-    draftUpdater => {
+    (draftUpdater: (draft: Draft<State>) => void) => {
       setState(produce(draftUpdater));
     },
     [setState]
@@ -94,7 +94,7 @@ This is a custom hook to simply return `todos`.
 ```typescript ts2js
 import { useCallback } from 'react';
 
-import { useSetDraft, State } from '../store';
+import { useSetDraft } from '../store';
 
 let nextId = 100;
 
@@ -102,7 +102,7 @@ export const useAddTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
     title => {
-      setDraft((draft: State) => {
+      setDraft(draft => {
         draft.todos.push({ id: nextId++, title });
       });
     },
@@ -118,13 +118,13 @@ This is a custom hook to return `addTodo` function.
 ```typescript ts2js
 import { useCallback } from 'react';
 
-import { useSetDraft, State } from '../store';
+import { useSetDraft } from '../store';
 
 export const useDeleteTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
     (id: number) => {
-      setDraft((draft: State) => {
+      setDraft(draft => {
         const index = draft.todos.findIndex(todo => todo.id === id);
         if (index >= 0) draft.todos.splice(index, 1);
       });
@@ -141,13 +141,13 @@ This is a custom hook to return `deleteTodo` function.
 ```typescript ts2js
 import { useCallback } from 'react';
 
-import { useSetDraft, State } from '../store';
+import { useSetDraft } from '../store';
 
 export const useToggleTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
     (id: number) => {
-      setDraft((draft: State) => {
+      setDraft(draft => {
         const todo = draft.todos.find(todo => todo.id === id);
         if (todo) todo.completed = !todo.completed;
       });
@@ -164,7 +164,7 @@ This is a custom hook to return `toggleTodo` function.
 ```typescript ts2js
 import { useCallback } from 'react';
 
-import { useTrackedState, useSetDraft, State } from '../store';
+import { useTrackedState, useSetDraft } from '../store';
 
 export const useQuery = () => {
   const state = useTrackedState();
@@ -172,7 +172,7 @@ export const useQuery = () => {
   const setDraft = useSetDraft();
   const setQuery = useCallback(
     (query: string) => {
-      setDraft((draft: State) => {
+      setDraft(draft => {
         draft.query = query;
       });
     },
