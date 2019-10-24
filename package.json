@@ -32,7 +32,8 @@
     "examples:reactmemo": "DIR=09_reactmemo webpack-dev-server",
     "examples:untracked": "DIR=10_untracked webpack-dev-server",
     "examples:form": "DIR=11_form webpack-dev-server",
-    "examples:async": "DIR=12_async webpack-dev-server"
+    "examples:async": "DIR=12_async webpack-dev-server",
+    "examples:saga": "DIR=13_saga webpack-dev-server"
   },
   "keywords": [
     "react",
@@ -65,8 +66,10 @@
     "jest": "^24.9.0",
     "react": "experimental",
     "react-dom": "experimental",
+    "redux-saga": "^1.1.1",
     "ts-loader": "^6.2.0",
     "typescript": "^3.6.4",
+    "use-saga-reducer": "^1.0.2",
     "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
