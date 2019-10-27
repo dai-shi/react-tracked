@@ -9,7 +9,8 @@
     "react-dom": "experimental",
     "react-tracked": "latest",
     "react-scripts": "^2.1.1",
-    "typescript": "latest"
+    "typescript": "latest",
+    "use-reducer-async": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
