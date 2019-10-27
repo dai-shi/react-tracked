@@ -7,11 +7,10 @@ const Counter: React.FC = () => {
   const dispatch = useDispatch();
   return (
     <div>
-      {Math.random()}
-      <div>
-        <span>Count: {state.count}</span>
-        <button type="button" onClick={() => dispatch({ type: 'INCREMENT' })}>+1</button>
-      </div>
+      <h1>Counter</h1>
+      Count: {state.count}
+      <button type="button" onClick={() => dispatch({ type: 'INCREMENT' })}>+1</button>
+      <button type="button" onClick={() => dispatch({ type: 'DELAYED_DECREMENT' })}>-1 (Delayed)</button>
     </div>
   );
 };

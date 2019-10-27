@@ -1,46 +1,56 @@
-import { useReducer, useCallback, Reducer } from 'react';
+import { Reducer } from 'react';
+import { useReducerAsync, AsyncActionHandlers } from 'use-reducer-async';
 import { createContainer } from 'react-tracked';
 
 type State = {
   firstName: string;
-  loading: boolean;
+  loadingState: 'idle' | 'connecting' | 'fetching';
   count: number;
 };
 
 const initialState: State = {
   firstName: '',
-  loading: false,
+  loadingState: 'idle',
   count: 0,
 };
 
 type InnerAction =
-  | { type: 'START_FETCH' }
-  | { type: 'FINISH_FETCH'; firstName: string }
-  | { type: 'ERROR_FETCH' }
-  | { type: 'CLEAR_FIRST_NAME' };
+  | { type: 'START_FETCH_USER' }
+  | { type: 'CONTINUE_FETCH_USER' }
+  | { type: 'FINISH_FETCH_USER'; firstName: string }
+  | { type: 'ERROR_FETCH_USER' }
+  | { type: 'DECREMENT' };
 
 type OuterAction =
+  | { type: 'CLEAR_USER_NAME' }
   | { type: 'INCREMENT' };
 
-const reducer: Reducer<State, InnerAction | OuterAction> = (state, action) => {
+type Action = InnerAction | OuterAction;
+
+const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
-    case 'START_FETCH':
+    case 'START_FETCH_USER':
       return {
         ...state,
-        loading: true,
+        loadingState: 'connecting',
       };
-    case 'FINISH_FETCH':
+    case 'CONTINUE_FETCH_USER':
       return {
         ...state,
-        loading: false,
+        loadingState: 'fetching',
+      };
+    case 'FINISH_FETCH_USER':
+      return {
+        ...state,
+        loadingState: 'idle',
         firstName: action.firstName,
       };
-    case 'ERROR_FETCH':
+    case 'ERROR_FETCH_USER':
       return {
         ...state,
-        loading: false,
+        loadingState: 'idle',
       };
-    case 'CLEAR_FIRST_NAME':
+    case 'CLEAR_USER_NAME':
       return {
         ...state,
         firstName: '',
@@ -50,40 +60,48 @@ const reducer: Reducer<State, InnerAction | OuterAction> = (state, action) => {
         ...state,
         count: state.count + 1,
       };
+    case 'DECREMENT':
+      return {
+        ...state,
+        count: state.count - 1,
+      };
     default:
       throw new Error('unknown action type');
   }
 };
 
+type AsyncActionFetch = { type: 'FETCH_USER'; id: number }
+type AsyncActionClear = { type: 'DELAYED_DECREMENT' };
+type AsyncAction = AsyncActionFetch | AsyncActionClear;
+
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-type AsyncAction =
-  | { type: 'FETCH_PERSON'; id: number }
-  | { type: 'DELAYED_CLEAR' };
-
-const useValue = () => {
-  const [state, rawDispatch] = useReducer(reducer, initialState);
-  const dispatch = useCallback(async (action: AsyncAction | OuterAction) => {
-    if (action.type === 'FETCH_PERSON') {
-      rawDispatch({ type: 'START_FETCH' });
-      try {
-        const response = await fetch(`https://reqres.in/api/users/${action.id}?delay=1`);
-        const data = await response.json();
-        const firstName = data.data.first_name;
-        if (typeof firstName !== 'string') throw new Error();
-        rawDispatch({ type: 'FINISH_FETCH', firstName });
-      } catch (e) {
-        rawDispatch({ type: 'ERROR_FETCH' });
-      }
-    } else if (action.type === 'DELAYED_CLEAR') {
+const asyncActionHandlers: AsyncActionHandlers<AsyncAction, Action> = {
+  FETCH_USER: dispatch => async (action) => {
+    try {
+      dispatch({ type: 'START_FETCH_USER' });
+      const response = await fetch(`https://reqres.in/api/users/${action.id}?delay=1`);
+      dispatch({ type: 'CONTINUE_FETCH_USER' });
+      const data = await response.json();
       await sleep(500);
-      rawDispatch({ type: 'CLEAR_FIRST_NAME' });
-    } else {
-      rawDispatch(action);
+      const firstName = data.data.first_name;
+      if (typeof firstName !== 'string') throw new Error();
+      dispatch({ type: 'FINISH_FETCH_USER', firstName });
+    } catch (e) {
+      dispatch({ type: 'ERROR_FETCH_USER' });
     }
-  }, []);
-  return [state, dispatch] as [typeof state, typeof dispatch];
+  },
+  DELAYED_DECREMENT: dispatch => async () => {
+    await sleep(500);
+    dispatch({ type: 'DECREMENT' });
+  },
 };
+
+const useValue = () => useReducerAsync<
+  Reducer<State, Action>,
+  AsyncAction,
+  AsyncAction | OuterAction
+>(reducer, initialState, asyncActionHandlers);
 
 export const {
   Provider,

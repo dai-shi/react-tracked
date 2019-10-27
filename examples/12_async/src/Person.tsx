@@ -2,32 +2,32 @@ import React from 'react';
 
 import { useTrackedState, useDispatch } from './store';
 
-const Person: React.FC = () => {
+type Props = {
+  id: string;
+};
+
+const Person: React.FC<Props> = ({ id }) => {
   const state = useTrackedState();
   const dispatch = useDispatch();
   return (
     <div>
-      {Math.random()}
-      <div>
-        First Name:
-        {state.firstName}
-      </div>
-      <div>
+      First Name: {state.firstName}
+      {Number(id) > 0 && (
         <button
           type="button"
-          onClick={() => dispatch({ type: 'FETCH_PERSON', id: 3 })}
+          onClick={() => dispatch({ type: 'FETCH_USER', id: Number(id) })}
         >
-          Fetch user 3
+          Fetch User
         </button>
-      </div>
-      <div>
+      )}
+      {state.firstName && (
         <button
           type="button"
-          onClick={() => dispatch({ type: 'DELAYED_CLEAR' })}
+          onClick={() => dispatch({ type: 'CLEAR_USER_NAME' })}
         >
-          Clear after 500ms
+          Clear
         </button>
-      </div>
+      )}
     </div>
   );
 };
