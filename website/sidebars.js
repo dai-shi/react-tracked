@@ -8,6 +8,7 @@ module.exports = {
     Tutorial: [
       'tutorial-01',
       'tutorial-02',
+      'tutorial-03',
     ],
     Reference: [
       'api',
