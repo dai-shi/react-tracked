@@ -76,7 +76,7 @@ type AsyncAction = AsyncActionFetch | AsyncActionClear;
 
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-const asyncActionHandlers: AsyncActionHandlers<AsyncAction, Action> = {
+const asyncActionHandlers: AsyncActionHandlers<Reducer<State, Action>, AsyncAction> = {
   FETCH_USER: dispatch => async (action) => {
     try {
       dispatch({ type: 'START_FETCH_USER' });

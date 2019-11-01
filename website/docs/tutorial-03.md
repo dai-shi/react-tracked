@@ -112,12 +112,15 @@ const reducer: Reducer<State, Action> = (state, action) => {
 };
 
 type AsyncActionCreate = { type: 'CREATE_TODO'; title: string };
-type AsyncActionToggle = { type: 'TOGGLE_TODO'; todo: TodoType };
+type AsyncActionToggle = { type: 'TOGGLE_TODO'; id: string };
 type AsyncActionDelete = { type: 'DELETE_TODO'; id: string };
 
 type AsyncAction = AsyncActionCreate | AsyncActionDelete | AsyncActionToggle;
 
-const asyncActionHandlers: AsyncActionHandlers<AsyncAction, Action> = {
+const asyncActionHandlers: AsyncActionHandlers<
+  Reducer<State, Action>,
+  AsyncAction
+> = {
   CREATE_TODO: dispatch => async action => {
     try {
       dispatch({ type: 'STARTED' });
@@ -136,15 +139,16 @@ const asyncActionHandlers: AsyncActionHandlers<AsyncAction, Action> = {
       dispatch({ type: 'FAILED', error });
     }
   },
-  TOGGLE_TODO: dispatch => async action => {
+  TOGGLE_TODO: (dispatch, getState) => async action => {
     try {
       dispatch({ type: 'STARTED' });
-      const { id, ...body } = {
-        ...action.todo,
-        completed: !action.todo.completed,
+      const todo = getState().todoMap[action.id];
+      const body = {
+        ...todo,
+        completed: !todo.completed,
       };
       const response = await fetch(
-        `https://reqres.in/api/todos/${id}?delay=1`,
+        `https://reqres.in/api/todos/${action.id}?delay=1`,
         {
           method: 'PUT',
           headers: {
@@ -155,7 +159,7 @@ const asyncActionHandlers: AsyncActionHandlers<AsyncAction, Action> = {
       );
       const data = await response.json();
       if (typeof data.title !== 'string') throw new Error('no title');
-      dispatch({ type: 'TODO_UPDATED', todo: { ...data, id } });
+      dispatch({ type: 'TODO_UPDATED', todo: { ...data, id: action.id } });
     } catch (error) {
       dispatch({ type: 'FAILED', error });
     }
@@ -254,7 +258,6 @@ Notice it only passes `id` to `TodoItem`.
 
 ```typescript ts2js
 import React from 'react';
-import { getUntrackedObject } from 'react-tracked';
 
 import { useDispatch, useTrackedState } from './store';
 
@@ -287,9 +290,7 @@ const TodoItem: React.FC<Props> = ({ id }) => {
       <input
         type="checkbox"
         checked={!!todo.completed}
-        onChange={() =>
-          dispatch({ type: 'TOGGLE_TODO', todo: getUntrackedObject(todo) })
-        }
+        onChange={() => dispatch({ type: 'TOGGLE_TODO', id: todo.id })}
       />
       <span
         style={{
@@ -307,9 +308,8 @@ export default React.memo(TodoItem);
 ```
 
 This is the TodoItem component.
-One caveat is the use of [getUntrackedObject](/docs/api#getuntrackedobject).
-We should almost always use it when dispaching
-an action with an object from the state.
+It dispathes async actions,
+but it doesn't need to know if an action is sync or async.
 
 ## src/NewTodo.js
 
@@ -346,4 +346,4 @@ It uses a local state for the text field.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/gifted-kirch-1io9x).
+You can try [working example](https://codesandbox.io/s/great-euler-22bxz).
