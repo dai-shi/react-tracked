@@ -92,7 +92,6 @@ const {
   // ...
 } = createContainer(() => useState({});
 
-
 const App = () => (
   <Provider>
     ...
@@ -102,7 +101,7 @@ const App = () => (
 
 ### useState (custom actions)
 
-Finally, you can use a custom hook.
+You can also use a custom hook.
 The `update` can be anything, so for example it can be a set of action functions.
 
 ```javascript
@@ -126,6 +125,46 @@ const {
   // ...
 } = createContainer(useValue);
 
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
+### useReducer (with persistence)
+
+Here's how to persist state in localStorage.
+
+```javascript
+const reducer = ...;
+const initialState = ...; // used only if localStorage is empty.
+const storageKey = 'persistedState';
+
+const init = () => {
+  let preloadedState;
+  try {
+    preloadedState =  JSON.parse(localStorage.getItem(storageKey));
+    // validate preloadedState if necessary
+  } catch (e) {
+    // ignore
+  }
+  return preloadedState || initialState;
+};
+
+const useValue = () => {
+  const [state, dispatch] = useReducer(reducer, null, init);
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify(state));
+  }, [state]);
+  return [state, dispatch];
+};
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(useValue);
 
 const App = () => (
   <Provider>
@@ -133,6 +172,38 @@ const App = () => (
   </Provider>
 );
 ```
+
+Using async storage is a bit tricky.
+See [the thread](https://github.com/dai-shi/react-tracked/issues/8#issuecomment-548095476) for an example.
+
+### useState (with propState)
+
+If you already have a state and would like to use Provider with it,
+you can sync a container state with a state from props.
+
+```javascript
+const useValue = ({ propState }) => {
+  const [state, setState] = useState(propState);
+  useEffect(() => { // or useLayoutEffect
+    setState(propState);
+  }, [propState]);
+  return [state, setState];
+};
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(useValue);
+
+const App = ({ propState }) => (
+  <Provider propState={propState}>
+    ...
+  </Provider>
+);
+```
+
+Note that `propState` has to be updated immutably.
 
 ## Recipes for useTrackedState and useTracked
 
