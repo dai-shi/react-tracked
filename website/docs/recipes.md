@@ -144,7 +144,7 @@ const storageKey = 'persistedState';
 const init = () => {
   let preloadedState;
   try {
-    preloadedState =  JSON.parse(localStorage.getItem(storageKey));
+    preloadedState =  JSON.parse(window.localStorage.getItem(storageKey));
     // validate preloadedState if necessary
   } catch (e) {
     // ignore
@@ -155,7 +155,7 @@ const init = () => {
 const useValue = () => {
   const [state, dispatch] = useReducer(reducer, null, init);
   useEffect(() => {
-    localStorage.setItem(storageKey, JSON.stringify(state));
+    window.localStorage.setItem(storageKey, JSON.stringify(state));
   }, [state]);
   return [state, dispatch];
 };
