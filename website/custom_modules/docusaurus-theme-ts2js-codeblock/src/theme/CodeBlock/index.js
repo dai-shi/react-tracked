@@ -35,7 +35,7 @@ const style = on => ({
   border: 0,
   margin: 0,
   padding: 10,
-  backgroundColor: on ? 'rgb(1, 22, 39)' : 'inherit',
+  backgroundColor: on ? 'rgb(41, 45, 62)' : 'inherit',
   color: on ? 'lightgray' : 'dimgray',
   cursor: 'pointer',
 });
@@ -47,7 +47,7 @@ export default (props) => {
     const code = format(lang === 'javascript' ? stripTypes(children) : children);
     return (
       <div>
-        <div>
+        <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.1)' }}>
           <button type="button" style={style(lang === 'javascript')} onClick={() => setLang('javascript')}>JavaScript</button>
           <button type="button" style={style(lang === 'typescript')} onClick={() => setLang('typescript')}>TypeScript</button>
         </div>

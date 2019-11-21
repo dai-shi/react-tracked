@@ -3,8 +3,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import withBaseUrl from '@docusaurus/withBaseUrl';
-
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import Layout from '@theme/Layout';
 
@@ -24,7 +23,7 @@ const Home = () => {
       >
         <img
           alt="React Tracked Logo"
-          src={withBaseUrl('img/react-tracked-logo.svg')}
+          src={useBaseUrl('img/react-tracked-logo.svg')}
         />
         <h1>{siteConfig.title}</h1>
         <h6>{siteConfig.tagline}</h6>
@@ -33,7 +32,7 @@ const Home = () => {
         }}
         >
           <Link
-            to={withBaseUrl('docs/introduction')}
+            to={useBaseUrl('docs/introduction')}
           >
             Getting Started
           </Link>
