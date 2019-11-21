@@ -1,3 +1,5 @@
+/* eslint global-require: off */
+
 module.exports = {
   title: 'React Tracked',
   tagline: 'Super fast React global/shared state with context and hooks',
@@ -8,7 +10,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themes: [
     '@docusaurus/theme-live-codeblock',
-    `${__dirname}/custom_modules/docusaurus-theme-ts2js-codeblock`,
+    require.resolve('./custom_modules/docusaurus-theme-ts2js-codeblock'),
   ],
   plugins: [],
   presets: [
@@ -18,6 +20,9 @@ module.exports = {
         docs: {
           path: 'docs',
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [
+            require('./custom_modules/docusaurus-remark-plugin-ts2js'),
+          ],
         },
       },
     ],

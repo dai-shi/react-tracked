@@ -2,34 +2,9 @@
 /* eslint import/no-unresolved: warn */
 
 import React, { useState } from 'react';
-import * as ts from 'typescript';
-import prettier from 'prettier/standalone';
-import parserTypescript from 'prettier/parser-typescript';
 
 // import CodeBlock from '@docusaurus/theme-classic/src/theme/CodeBlock';
 import CodeBlock from '../../../../../node_modules/@docusaurus/theme-classic/src/theme/CodeBlock';
-
-const stripTypes = (origCode) => {
-  const modifiedCode = origCode.replace(/\n\n/g, '\n//-\n');
-  const result = ts.transpileModule(modifiedCode, {
-    compilerOptions: {
-      target: ts.ScriptTarget.ES2018,
-      module: ts.ModuleKind.ES2018,
-      jsx: ts.JsxEmit.Preserve,
-    },
-  });
-  const code = result.outputText;
-  return code.replace(/\r/g, '').replace(/\n\/\/-\n/g, '\n\n');
-};
-
-const format = (code) => {
-  return prettier.format(code, {
-    parser: 'typescript',
-    plugins: [parserTypescript],
-    singleQuote: true,
-    trailingComma: 'all',
-  });
-};
 
 const style = on => ({
   border: 0,
@@ -41,10 +16,10 @@ const style = on => ({
 });
 
 export default (props) => {
-  const { ts2js, children } = props;
+  const { ts2js, jslen, children } = props;
   const [lang, setLang] = useState('javascript');
   if (ts2js) {
-    const code = format(lang === 'javascript' ? stripTypes(children) : children);
+    const code = lang === 'javascript' ? children.slice(0, jslen) : children.slice(jslen);
     return (
       <div>
         <div style={{ backgroundColor: 'rgba(128, 128, 128, 0.1)' }}>
