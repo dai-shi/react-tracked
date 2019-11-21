@@ -38,11 +38,7 @@ module.exports = {
       links: [
         { to: 'docs/introduction', label: 'Getting Started', position: 'left' },
         { to: 'docs/tutorial-01', label: 'Tutorial', position: 'left' },
-        {
-          href: 'https://www.npmjs.com/package/react-tracked',
-          label: 'NPM',
-          position: 'right',
-        },
+        { to: 'docs/api', label: 'Reference', position: 'left' },
         {
           href: 'https://github.com/dai-shi/react-tracked',
           label: 'GitHub',
@@ -85,6 +81,10 @@ module.exports = {
             {
               label: 'GitHub',
               href: 'https://github.com/dai-shi/react-tracked',
+            },
+            {
+              label: 'NPM',
+              href: 'https://www.npmjs.com/package/react-tracked',
             },
             {
               label: 'Twitter',
