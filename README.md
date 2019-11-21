@@ -130,6 +130,12 @@ to force update when a component needs to re-render.
 
 [docs/caveats](./website/docs/caveats.md)
 
+## Related projects
+
+[docs/comparison](./website/docs/comparison.md)
+
+<https://github.com/dai-shi/lets-compare-global-state-with-react-hooks>
+
 ## Examples
 
 The [examples](examples) folder contains working examples.
@@ -155,12 +161,6 @@ You can also try them in codesandbox.io:
 [11](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/11_form)
 [12](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/12_async)
 [13](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/13_saga)
-
-## Related projects
-
-[docs/comparison](./website/docs/comparison.md)
-
-<https://github.com/dai-shi/lets-compare-global-state-with-react-hooks>
 
 ## Benchmarks
 
