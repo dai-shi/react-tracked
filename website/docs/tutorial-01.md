@@ -99,7 +99,7 @@ export const {
 ```
 
 The store is created by useReducer.
-useUpdated is renamed to useDispatch for exporting.
+useUpdate is renamed to useDispatch for exporting.
 
 ## src/TodoList.js
 
