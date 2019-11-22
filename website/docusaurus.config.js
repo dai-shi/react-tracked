@@ -10,7 +10,6 @@ module.exports = {
   favicon: 'img/favicon.ico',
   themes: [
     '@docusaurus/theme-live-codeblock',
-    require.resolve('./custom_modules/docusaurus-theme-ts2js-codeblock'),
   ],
   plugins: [],
   presets: [
