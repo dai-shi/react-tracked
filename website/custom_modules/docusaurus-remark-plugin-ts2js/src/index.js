@@ -5,7 +5,7 @@ const prettier = require('prettier/standalone');
 const parserTypescript = require('prettier/parser-typescript');
 
 const stripTypes = (origCode) => {
-  const modifiedCode = origCode.replace(/\n\n/g, '\n//-\n');
+  const modifiedCode = origCode.replace(/\n\n/g, '\n//--EMPTYLINE--\n');
   const result = ts.transpileModule(modifiedCode, {
     compilerOptions: {
       target: ts.ScriptTarget.ES2018,
@@ -14,7 +14,7 @@ const stripTypes = (origCode) => {
     },
   });
   const code = result.outputText;
-  return code.replace(/\r/g, '').replace(/\n\/\/-\n/g, '\n\n');
+  return code.replace(/\r/g, '').replace(/\n\/\/--EMPTYLINE--\n/g, '\n\n');
 };
 
 const format = (code) => {
@@ -26,60 +26,72 @@ const format = (code) => {
   });
 };
 
-const rand = Date.now();
+const uniqueId = Date.now(); // a naive way to get a unique id
 
+const nodeForImport = {
+  type: 'import',
+  value: `import Tabs${uniqueId} from '@theme/Tabs';
+import TabItem${uniqueId} from '@theme/TabItem';`,
+};
+
+const matchNode = node => node.type === 'code' && node.meta === 'ts2js';
+
+// this returns a list to replace the node
 const transformNode = (node) => {
   const jscode = format(stripTypes(node.value));
   const tscode = format(node.value);
-  node.children = [{
+  return [{
     type: 'jsx',
-    value: `<Tabs${rand}
+    value: `<Tabs${uniqueId}
   defaultValue="js"
   values={[
     { label: 'JavaScript', value: 'js', },
     { label: 'TypeScript', value: 'ts', },
   ]}
 >
-<TabItem${rand} value="js">`,
+<TabItem${uniqueId} value="js">`,
   }, {
     type: node.type,
     lang: 'javascript',
     value: jscode,
   }, {
     type: 'jsx',
-    value: `</TabItem${rand}>
-<TabItem${rand} value="ts">`,
+    value: `</TabItem${uniqueId}>
+<TabItem${uniqueId} value="ts">`,
   }, {
     type: node.type,
     lang: 'typescript',
     value: tscode,
   }, {
     type: 'jsx',
-    value: `</TabItem${rand}>
-</Tabs${rand}>`,
+    value: `</TabItem${uniqueId}>
+</Tabs${uniqueId}>`,
   }];
-  node.type = 'element';
-  delete node.lang;
-  delete node.meta;
-  delete node.value;
 };
 
 module.exports = () => {
   let transformed = false;
   const transformer = (node) => {
-    if (node.type === 'code' && node.meta === 'ts2js') {
-      transformNode(node);
+    if (matchNode(node)) {
       transformed = true;
-    } else if (Array.isArray(node.children)) {
-      node.children.forEach(transformer);
+      return transformNode(node);
+    }
+    if (Array.isArray(node.children)) {
+      let index = 0;
+      while (index < node.children.length) {
+        const result = transformer(node.children[index]);
+        if (result) {
+          node.children.splice(index, 1, ...result);
+          index += result.length;
+        } else {
+          index += 1;
+        }
+      }
     }
     if (node.type === 'root' && transformed) {
-      node.children.unshift({
-        type: 'import',
-        value: `import Tabs${rand} from '@theme/Tabs';
-import TabItem${rand} from '@theme/TabItem';`,
-      });
+      node.children.unshift(nodeForImport);
     }
+    return null;
   };
   return transformer;
 };
