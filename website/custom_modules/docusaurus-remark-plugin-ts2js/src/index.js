@@ -26,26 +26,37 @@ const format = (code) => {
   });
 };
 
+const rand = Date.now();
+
 const transformNode = (node) => {
   const jscode = format(stripTypes(node.value));
   const tscode = format(node.value);
   node.children = [{
     type: 'jsx',
-    value: '<Tabs\n  defaultValue="js"\n  values={[\n    { label: \'JavaScript\', value: \'js\', },\n    { label: \'TypeScript\', value: \'ts\', },\n  ]\n}>\n<TabItem value="js">',
+    value: `<Tabs${rand}
+  defaultValue="js"
+  values={[
+    { label: 'JavaScript', value: 'js', },
+    { label: 'TypeScript', value: 'ts', },
+  ]}
+>
+<TabItem${rand} value="js">`,
   }, {
     type: node.type,
     lang: 'javascript',
     value: jscode,
   }, {
     type: 'jsx',
-    value: '</TabItem>\n<TabItem value="ts">',
+    value: `</TabItem${rand}>
+<TabItem${rand} value="ts">`,
   }, {
     type: node.type,
     lang: 'typescript',
     value: tscode,
   }, {
     type: 'jsx',
-    value: '</TabItem>\n</Tabs>',
+    value: `</TabItem${rand}>
+</Tabs${rand}>`,
   }];
   node.type = 'paragraph';
   delete node.lang;
@@ -65,7 +76,8 @@ module.exports = () => {
     if (node.type === 'root' && transformed) {
       node.children.unshift({
         type: 'import',
-        value: 'import Tabs from \'@theme/Tabs\';\nimport TabItem from \'@theme/TabItem\';',
+        value: `import Tabs${rand} from '@theme/Tabs';
+import TabItem${rand} from '@theme/TabItem';`,
       });
     }
   };
