@@ -26,7 +26,7 @@ const format = (code) => {
   });
 };
 
-const uniqueId = Date.now(); // a naive way to get a unique id
+const uniqueId = 'UsedByRemarkPluginTs2Js'; // should this be configurable? maybe unnecessary.
 
 const nodeForImport = {
   type: 'import',
