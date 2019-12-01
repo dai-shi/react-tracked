@@ -17,23 +17,24 @@
   ],
   "scripts": {
     "compile": "babel src -d dist",
-    "test": "npm run eslint && npm run tsc-test && npm run jest",
+    "test": "run-s eslint tsc-test jest e2e-test:*",
     "eslint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --ignore-pattern dist --ignore-pattern 'examples/counter-*' .",
-    "jest": "jest",
+    "jest": "jest __tests__/*.js",
     "tsc-test": "tsc --project . --noEmit",
-    "examples:minimal": "DIR=01_minimal EXT=js webpack-dev-server",
-    "examples:typescript": "DIR=02_typescript webpack-dev-server",
-    "examples:usestate": "DIR=03_usestate webpack-dev-server",
-    "examples:selector": "DIR=04_selector webpack-dev-server",
-    "examples:container": "DIR=05_container webpack-dev-server",
-    "examples:customhook": "DIR=06_customhook EXT=js webpack-dev-server",
-    "examples:todolist": "DIR=07_todolist webpack-dev-server",
-    "examples:comparison": "DIR=08_comparison webpack-dev-server",
-    "examples:reactmemo": "DIR=09_reactmemo webpack-dev-server",
-    "examples:untracked": "DIR=10_untracked webpack-dev-server",
-    "examples:form": "DIR=11_form webpack-dev-server",
-    "examples:async": "DIR=12_async webpack-dev-server",
-    "examples:saga": "DIR=13_saga webpack-dev-server"
+    "e2e-test:minimal": "server-test 'run-s examples:01_minimal' 8080 'jest --preset jest-puppeteer __tests__/e2e/01_minimal.js'",
+    "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
+    "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
+    "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
+    "examples:04_selector": "DIR=04_selector webpack-dev-server",
+    "examples:05_container": "DIR=05_container webpack-dev-server",
+    "examples:06_customhook": "DIR=06_customhook EXT=js webpack-dev-server",
+    "examples:07_todolist": "DIR=07_todolist webpack-dev-server",
+    "examples:08_comparison": "DIR=08_comparison webpack-dev-server",
+    "examples:09_reactmemo": "DIR=09_reactmemo webpack-dev-server",
+    "examples:10_untracked": "DIR=10_untracked webpack-dev-server",
+    "examples:11_form": "DIR=11_form webpack-dev-server",
+    "examples:12_async": "DIR=12_async webpack-dev-server",
+    "examples:13_saga": "DIR=13_saga webpack-dev-server"
   },
   "keywords": [
     "react",
@@ -64,9 +65,14 @@
     "html-webpack-plugin": "^3.2.0",
     "immer": "^5.0.0",
     "jest": "^24.9.0",
+    "jest-image-snapshot": "^2.11.1",
+    "jest-puppeteer": "^4.3.0",
+    "npm-run-all": "^4.1.5",
+    "puppeteer": "^2.0.0",
     "react": "experimental",
     "react-dom": "experimental",
     "redux-saga": "^1.1.1",
+    "start-server-and-test": "^1.10.6",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "use-reducer-async": "^0.5.0",
@@ -82,6 +88,14 @@
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
-    ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          ["@babel/preset-env", { "targets": { "node": "current" } }],
+          "@babel/preset-react"
+        ]
+      }
+    }
   }
 }

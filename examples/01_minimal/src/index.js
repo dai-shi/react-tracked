@@ -20,11 +20,13 @@ const reducer = (state, action) => {
   }
 };
 
+let numRendered = 0;
+
 const Counter = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       <div>
         <span>Count: {state.count}</span>
         <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
@@ -38,7 +40,7 @@ const TextBox = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       <div>
         <span>Text: {state.text}</span>
         <input value={state.text} onChange={event => dispatch({ type: 'setText', text: event.target.value })} />
