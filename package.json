@@ -97,5 +97,8 @@
         ]
       }
     }
+  },
+  "jest": {
+    "reporters": ["default", "<rootDir>/image-reporter.js"]
   }
 }
