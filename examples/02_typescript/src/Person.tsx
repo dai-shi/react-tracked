@@ -2,11 +2,13 @@ import React from 'react';
 
 import { useTracked } from './state';
 
+let numRendered = 0;
+
 const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
   const [state, dispatch] = useTracked();
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       {firstName}
       <div>
         <span>Count: {state.count}</span>
@@ -21,7 +23,7 @@ const Person: React.FC = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       <Counter firstName={state.person.firstName} />
       <div>
         First Name:

@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`02_typescript should work with recorded events 1`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 6<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 10<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 12<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 2`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 10<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 12<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 14<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 16<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 3`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 14<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 16<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 18<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 20<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 4`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 18<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 20<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 22<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 24<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 5`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 22<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 24<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 26<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 28<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 6`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 26<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 28<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 30<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 32<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 7`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 30<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 32<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 34<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 36<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 8`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 38<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 40<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 9`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 2<div>numRendered: 38<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 6<div>numRendered: 40<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 10`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 42<div>numRendered: 44a<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 46<div>numRendered: 48a<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 11`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 50<div>numRendered: 52ab<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"ab\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 54<div>numRendered: 56ab<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"ab\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 12`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 58<div>numRendered: 60abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 62<div>numRendered: 64abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 13`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 66<div>numRendered: 68abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"d\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 70<div>numRendered: 72abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"d\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 14`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 74<div>numRendered: 76abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"de\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 78<div>numRendered: 80abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"de\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 15`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 82<div>numRendered: 84abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 86<div>numRendered: 88abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 16`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 90<div>numRendered: 92abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"1\\"></div></div><div>numRendered: 94<div>numRendered: 96abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"1\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 17`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 98<div>numRendered: 100abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"12\\"></div></div><div>numRendered: 102<div>numRendered: 104abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"12\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
+
+exports[`02_typescript should work with recorded events 18`] = `
+"
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 36<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Person</h1><div>numRendered: 106<div>numRendered: 108abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"123\\"></div></div><div>numRendered: 110<div>numRendered: 112abc<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>First Name:<input value=\\"abc\\"></div><div>Last Name:<input value=\\"def\\"></div><div>Age:<input value=\\"123\\"></div></div></div>
+  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+
+"
+`;
