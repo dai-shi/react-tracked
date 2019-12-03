@@ -2,6 +2,8 @@ import React from 'react';
 
 import { useTracked } from './state';
 
+let numRendered = 0;
+
 const Counter: React.FC = () => {
   const [state, setState] = useTracked();
   const increment = () => {
@@ -12,7 +14,7 @@ const Counter: React.FC = () => {
   };
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       <div>
         <span>Count: {state.count}</span>
         <button type="button" onClick={increment}>+1</button>

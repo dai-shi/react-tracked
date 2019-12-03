@@ -2,11 +2,13 @@ import React from 'react';
 
 import { useTracked } from './state';
 
+let numRendered = 0;
+
 const Person: React.FC = () => {
   const [state, setState] = useTracked();
   return (
     <div>
-      {Math.random()}
+      numRendered: {++numRendered}
       <div>
         First Name:
         <input

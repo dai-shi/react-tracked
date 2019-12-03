@@ -23,6 +23,7 @@
     "tsc-test": "tsc --project . --noEmit",
     "e2e-test:01_minimal": "server-test 'run-s examples:01_minimal' 8080 'jest --preset jest-puppeteer __tests__/e2e/01_minimal.js'",
     "e2e-test:02_typescript": "server-test 'run-s examples:02_typescript' 8080 'jest --preset jest-puppeteer __tests__/e2e/02_typescript.js'",
+    "e2e-test:03_usestate": "server-test 'run-s examples:03_usestate' 8080 'jest --preset jest-puppeteer __tests__/e2e/03_usestate.js'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
