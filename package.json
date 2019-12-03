@@ -25,6 +25,7 @@
     "e2e-test:02_typescript": "server-test examples:02_typescript 8080 'jest --preset jest-puppeteer __tests__/e2e/02_typescript.js'",
     "e2e-test:03_usestate": "server-test examples:03_usestate 8080 'jest --preset jest-puppeteer __tests__/e2e/03_usestate.js'",
     "e2e-test:04_selector": "server-test examples:04_selector 8080 'jest --preset jest-puppeteer __tests__/e2e/04_selector.js'",
+    "e2e-test:05_container": "server-test examples:05_container 8080 'jest --preset jest-puppeteer __tests__/e2e/05_container.js'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
