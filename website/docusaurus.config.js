@@ -2,7 +2,7 @@
 
 module.exports = {
   title: 'React Tracked',
-  tagline: 'Super fast React global/shared state with context and hooks',
+  tagline: 'Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.',
   organizationName: 'dai-shi',
   projectName: 'react-tracked',
   url: 'https://react-tracked.js.org',

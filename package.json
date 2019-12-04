@@ -1,6 +1,6 @@
 {
   "name": "react-tracked",
-  "description": "Super fast React global/shared state with context and hooks",
+  "description": "Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.",
   "version": "0.11.0",
   "author": "Daishi Kato",
   "repository": {

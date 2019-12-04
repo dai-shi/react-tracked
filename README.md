@@ -6,7 +6,7 @@
 [![npm version](https://badge.fury.io/js/react-tracked.svg)](https://badge.fury.io/js/react-tracked)
 [![bundle size](https://badgen.net/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
 
-Super fast React global/shared state with context and hooks
+Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.
 
 Documentation site: https://react-tracked.js.org
 
