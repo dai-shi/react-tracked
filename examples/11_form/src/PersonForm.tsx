@@ -9,6 +9,8 @@ import {
   useFormField,
 } from './form';
 
+let numRendered = 0;
+
 const validateName = (name: unknown) => {
   if (typeof name !== 'string') return new Error('invlid type');
   if (name.length === 0) return new Error('name is required');
@@ -17,7 +19,7 @@ const validateName = (name: unknown) => {
 
 const FirstName: React.FC = React.memo(() => (
   <div>
-    {Math.random()}
+    numRendered: {++numRendered}
     <div>
       First Name:
       <input {...useFormField('firstName', '', validateName)} />
@@ -28,7 +30,7 @@ const FirstName: React.FC = React.memo(() => (
 
 const FamilyName: React.FC = React.memo(() => (
   <div>
-    {Math.random()}
+    numRendered: {++numRendered}
     <div>
       Family Name:
       <input {...useFormField('familyName', '', validateName)} />
@@ -39,7 +41,7 @@ const FamilyName: React.FC = React.memo(() => (
 
 const Gender: React.FC = React.memo(() => (
   <div>
-    {Math.random()}
+    numRendered: {++numRendered}
     <div>
       Gender:
       <select {...useFormField('gender', 'na')}>
@@ -54,7 +56,7 @@ const Gender: React.FC = React.memo(() => (
 
 const Teenager: React.FC = React.memo(() => (
   <div>
-    {Math.random()}
+    numRendered: {++numRendered}
     <div>
       Teenager:
       <input type="checkbox" {...useFormField('teenager', false)} />
@@ -72,7 +74,7 @@ const PersonForm: React.FC = React.memo(() => {
   };
   return (
     <form onSubmit={onSubmit}>
-      {Math.random()}
+      numRendered: {++numRendered}
       <button type="submit" disabled={formValues === null}>Submit</button>
       <h3>First Name</h3>
       <FirstName />

@@ -31,6 +31,7 @@
     "e2e-test:08_comparison": "server-test examples:08_comparison 8080 'jest --preset jest-puppeteer __tests__/e2e/08_comparison.js'",
     "e2e-test:09_reactmemo": "server-test examples:09_reactmemo 8080 'jest --preset jest-puppeteer __tests__/e2e/09_reactmemo.js'",
     "e2e-test:10_untracked": "server-test examples:10_untracked 8080 'jest --preset jest-puppeteer __tests__/e2e/10_untracked.js'",
+    "e2e-test:11_form": "server-test examples:11_form 8080 'jest --preset jest-puppeteer __tests__/e2e/11_form.js'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
