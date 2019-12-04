@@ -28,6 +28,7 @@
     "e2e-test:05_container": "server-test examples:05_container 8080 'jest --preset jest-puppeteer __tests__/e2e/05_container.js'",
     "e2e-test:06_customhook": "server-test examples:06_customhook 8080 'jest --preset jest-puppeteer __tests__/e2e/06_customhook.js'",
     "e2e-test:07_todolist": "server-test examples:07_todolist 8080 'jest --preset jest-puppeteer __tests__/e2e/07_todolist.js'",
+    "e2e-test:08_comparison": "server-test examples:08_comparison 8080 'jest --preset jest-puppeteer __tests__/e2e/08_comparison.js'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
