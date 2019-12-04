@@ -29,7 +29,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const PersonContext = createContext<[State, Dispatch]>([initialState, () => {}]);
+const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
 
 const InnerPersonFirstName: React.FC<{
   firstName: string;

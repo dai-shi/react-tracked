@@ -1,6 +1,8 @@
 import { createDeepProxy, isDeepChanged } from '../src/deepProxy';
 
-const noop = () => {};
+const noop = () => {
+  // do nothing
+};
 
 describe('shallow object spec', () => {
   it('no property access', () => {

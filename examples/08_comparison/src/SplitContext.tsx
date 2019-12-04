@@ -26,7 +26,7 @@ const reducer1: Reducer<State1, Action1> = (state, action) => {
   }
 };
 
-const PersonContext1 = createContext<[State1, Dispatch1]>([initialState1, () => {}]);
+const PersonContext1 = createContext<[State1, Dispatch1]>([initialState1, () => null]);
 
 const initialState2 = {
   familyName: 'Potter',
@@ -46,7 +46,7 @@ const reducer2: Reducer<State2, Action2> = (state, action) => {
   }
 };
 
-const PersonContext2 = createContext<[State2, Dispatch2]>([initialState2, () => {}]);
+const PersonContext2 = createContext<[State2, Dispatch2]>([initialState2, () => null]);
 
 const PersonFirstName: React.FC = React.memo(() => {
   const [state, dispatch] = useContext(PersonContext1);
