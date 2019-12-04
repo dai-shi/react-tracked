@@ -7,12 +7,14 @@ type Props = {
   todo: TodoType;
 };
 
+let numRendered = 0;
+
 const TodoItem: React.FC<Props> = ({ todo }) => {
   trackMemo(todo);
   const dispatch = useDispatch();
   return (
     <li>
-      {Math.random()}
+      numRendered: {++numRendered}
       <input
         type="checkbox"
         checked={todo.completed}
