@@ -8,7 +8,7 @@
     "react": "experimental",
     "react-dom": "experimental",
     "react-tracked": "latest",
-    "react-scripts": "^2.1.1",
+    "react-scripts": "latest",
     "typescript": "latest"
   },
   "scripts": {
