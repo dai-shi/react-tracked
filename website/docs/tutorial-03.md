@@ -1,12 +1,12 @@
 ---
 id: tutorial-03
-title: Tutorial - ToDo App with Async Actions
-sidebar_label: ToDo App (async)
+title: Tutorial - ToDo App with useState
+sidebar_label: ToDo App (useState)
 ---
 
-This tutorial shows example code with async actions.
+This tutorial shows example code with useState, [Immer](https://immerjs.github.io/immer/) and custom hooks.
 
-## src/App.js
+## src/components/App.js
 
 ```typescript ts2js
 import React from 'react';
@@ -29,217 +29,188 @@ It wraps TodoList with Provider.
 ## src/store.js
 
 ```typescript ts2js
-import { Reducer } from 'react';
-import { useReducerAsync, AsyncActionHandlers } from 'use-reducer-async';
+import { useState, useCallback } from 'react';
 import { createContainer } from 'react-tracked';
+import produce, { Draft } from 'immer';
 
 type TodoType = {
-  id: string;
+  id: number;
   title: string;
   completed?: boolean;
 };
 
-type State = {
-  todoIds: string[];
-  todoMap: { [id: string]: TodoType };
+export type State = {
+  todos: TodoType[];
   query: string;
-  pending: boolean;
-  error: Error | null;
 };
 
 const initialState: State = {
-  todoIds: [],
-  todoMap: {},
+  todos: [
+    { id: 1, title: 'Wash dishes' },
+    { id: 2, title: 'Study JS' },
+    { id: 3, title: 'Buy ticket' },
+  ],
   query: '',
-  pending: false,
-  error: null,
 };
 
-type InnerAction =
-  | { type: 'STARTED' }
-  | { type: 'TODO_CREATED'; todo: TodoType }
-  | { type: 'TODO_UPDATED'; todo: TodoType }
-  | { type: 'TODO_DELETED'; id: string }
-  | { type: 'FAILED'; error: Error };
+const useValue = () => useState(initialState);
 
-type OuterAction = { type: 'QUERY_CHANGED'; query: string };
+const { Provider, useTrackedState, useUpdate: useSetState } = createContainer(
+  useValue
+);
 
-type Action = InnerAction | OuterAction;
-
-const reducer: Reducer<State, Action> = (state, action) => {
-  switch (action.type) {
-    case 'STARTED':
-      return {
-        ...state,
-        pending: true,
-      };
-    case 'TODO_CREATED':
-      return {
-        ...state,
-        todoIds: [...state.todoIds, action.todo.id],
-        todoMap: { ...state.todoMap, [action.todo.id]: action.todo },
-        pending: false,
-      };
-    case 'TODO_UPDATED':
-      return {
-        ...state,
-        todoMap: { ...state.todoMap, [action.todo.id]: action.todo },
-        pending: false,
-      };
-    case 'TODO_DELETED': {
-      const { [action.id]: _removed, ...rest } = state.todoMap;
-      return {
-        ...state,
-        todoIds: state.todoIds.filter(id => id !== action.id),
-        todoMap: rest,
-        pending: false,
-      };
-    }
-    case 'FAILED':
-      return {
-        ...state,
-        pending: false,
-        error: action.error,
-      };
-    case 'QUERY_CHANGED':
-      return {
-        ...state,
-        query: action.query,
-      };
-    default:
-      throw new Error('unknown action type');
-  }
+const useSetDraft = () => {
+  const setState = useSetState();
+  return useCallback(
+    (draftUpdater: (draft: Draft<State>) => void) => {
+      setState(produce(draftUpdater));
+    },
+    [setState]
+  );
 };
 
-type AsyncActionCreate = { type: 'CREATE_TODO'; title: string };
-type AsyncActionToggle = { type: 'TOGGLE_TODO'; id: string };
-type AsyncActionDelete = { type: 'DELETE_TODO'; id: string };
-
-type AsyncAction = AsyncActionCreate | AsyncActionDelete | AsyncActionToggle;
-
-const asyncActionHandlers: AsyncActionHandlers<
-  Reducer<State, Action>,
-  AsyncAction
-> = {
-  CREATE_TODO: dispatch => async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      const response = await fetch(`https://reqres.in/api/todos?delay=1`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title: action.title }),
-      });
-      const data = await response.json();
-      if (typeof data.id !== 'string') throw new Error('no id');
-      if (typeof data.title !== 'string') throw new Error('no title');
-      dispatch({ type: 'TODO_CREATED', todo: data });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
-  TOGGLE_TODO: (dispatch, getState) => async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      const todo = getState().todoMap[action.id];
-      const body = {
-        ...todo,
-        completed: !todo.completed,
-      };
-      const response = await fetch(
-        `https://reqres.in/api/todos/${action.id}?delay=1`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(body),
-        }
-      );
-      const data = await response.json();
-      if (typeof data.title !== 'string') throw new Error('no title');
-      dispatch({ type: 'TODO_UPDATED', todo: { ...data, id: action.id } });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
-  DELETE_TODO: dispatch => async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      await fetch(`https://reqres.in/api/todos/${action.id}?delay=1`, {
-        method: 'DELETE',
-      });
-      dispatch({ type: 'TODO_DELETED', id: action.id });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
-};
-
-const useValue = () =>
-  useReducerAsync<
-    Reducer<State, Action>,
-    AsyncAction,
-    AsyncAction | OuterAction
-  >(reducer, initialState, asyncActionHandlers);
-
-export const {
-  Provider,
-  useTrackedState,
-  useUpdate: useDispatch,
-} = createContainer(useValue);
+export { Provider, useTrackedState, useSetDraft };
 ```
 
-This is the store we use.
-It is a bit long and you would eventually want to split into files.
-It defines a reducer for normal (sync) actions.
-Then, we combine it with async actioin handlers
-to create a store.
+The store is created by useState.
+useUpdate is renamed to useSetState,
+and based on it, useSetDraft with Immer is exported.
 
-In this example we use `use-reducer-async` helper hook.
-It's a tiny custom hook, and actually it's fairly easy
-to do the same thing without the custom hook.
+## src/hooks/useTodoList.js
 
-You could also use `redux-saga` for async actions.
-For saga users, here is [an example](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/13_saga).
+```typescript ts2js
+import { useTrackedState } from '../store';
 
-Another note in this store is that it has both `todoIds` and `todoMap`.
-They are denormalized. The reason for this pattern is
-it would allow state usage tracking easier.
-In other words, we might not need `React.memo` in a certain case.
-If you want the data in the store to be normalized,
-please check out the array pattern in [the other Tutorial](./tutorial-01.md).
+export const useTodoList = () => {
+  const state = useTrackedState();
+  return state.todos;
+};
+```
 
-## src/TodoList.js
+This is a custom hook to simply return `todos`.
+
+## src/hooks/useAddTodo.js
+
+```typescript ts2js
+import { useCallback } from 'react';
+
+import { useSetDraft } from '../store';
+
+let nextId = 100;
+
+export const useAddTodo = () => {
+  const setDraft = useSetDraft();
+  return useCallback(
+    title => {
+      setDraft(draft => {
+        draft.todos.push({ id: nextId++, title });
+      });
+    },
+    [setDraft]
+  );
+};
+```
+
+This is a custom hook to return `addTodo` function.
+
+## src/hooks/useDeleteTodo.js
+
+```typescript ts2js
+import { useCallback } from 'react';
+
+import { useSetDraft } from '../store';
+
+export const useDeleteTodo = () => {
+  const setDraft = useSetDraft();
+  return useCallback(
+    (id: number) => {
+      setDraft(draft => {
+        const index = draft.todos.findIndex(todo => todo.id === id);
+        if (index >= 0) draft.todos.splice(index, 1);
+      });
+    },
+    [setDraft]
+  );
+};
+```
+
+This is a custom hook to return `deleteTodo` function.
+
+## src/hooks/useToogleTodo.js
+
+```typescript ts2js
+import { useCallback } from 'react';
+
+import { useSetDraft } from '../store';
+
+export const useToggleTodo = () => {
+  const setDraft = useSetDraft();
+  return useCallback(
+    (id: number) => {
+      setDraft(draft => {
+        const todo = draft.todos.find(todo => todo.id === id);
+        if (todo) todo.completed = !todo.completed;
+      });
+    },
+    [setDraft]
+  );
+};
+```
+
+This is a custom hook to return `toggleTodo` function.
+
+## src/hooks/useQuery.js
+
+```typescript ts2js
+import { useCallback } from 'react';
+
+import { useTrackedState, useSetDraft } from '../store';
+
+export const useQuery = () => {
+  const state = useTrackedState();
+  const getQuery = () => state.query;
+  const setDraft = useSetDraft();
+  const setQuery = useCallback(
+    (query: string) => {
+      setDraft(draft => {
+        draft.query = query;
+      });
+    },
+    [setDraft]
+  );
+  return { getQuery, setQuery };
+};
+```
+
+This is a custom hook to return getQuery and setQuery.
+It doesn't return `state.query` directly, because
+it will be used conditionally.
+
+## src/components/TodoList.js
 
 ```typescript ts2js
 import React from 'react';
 
-import { useDispatch, useTrackedState } from './store';
+import { useTodoList } from '../hooks/useTodoList';
+import { useQuery } from '../hooks/useQuery';
 import TodoItem from './TodoItem';
 import NewTodo from './NewTodo';
 
 const TodoList: React.FC = () => {
-  const dispatch = useDispatch();
-  const state = useTrackedState();
-  const setQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch({ type: 'QUERY_CHANGED', query: event.target.value });
-  };
+  const { getQuery, setQuery } = useQuery();
+  const todos = useTodoList();
   return (
     <div>
-      {state.error && <h1>{state.error.message}</h1>}
       <ul>
-        {state.todoIds.map(id => (
-          <TodoItem key={id} id={id} />
+        {todos.map(({ id, title, completed }) => (
+          <TodoItem key={id} id={id} title={title} completed={completed} />
         ))}
         <NewTodo />
       </ul>
       <div>
         Highlight Query for incomplete items:
-        <input value={state.query} onChange={setQuery} />
+        <input value={getQuery()} onChange={e => setQuery(e.target.value)} />
       </div>
-      {state.pending && <h3>Processing...</h3>}
     </div>
   );
 };
@@ -249,19 +220,19 @@ export default TodoList;
 
 This component is to show the list of `TodoItem`s,
 `NewTodo` to create a new item, and
-a text field for highlight query.
-It will also show error and pending states.
+Clear button to reset notes in all items.
 
-Notice it only passes `id` to `TodoItem`.
-
-## src/TodoItem.js
+## src/components/TodoItem.js
 
 ```typescript ts2js
 import React from 'react';
 
-import { useDispatch, useTrackedState } from './store';
+import { useQuery } from '../hooks/useQuery';
+import { useDeleteTodo } from '../hooks/useDeleteTodo';
+import { useToggleTodo } from '../hooks/useToggleTodo';
+import { useFlasher } from '../utils';
 
-const renderHighlight = (title: string, query: string) => {
+const renderHighlight = (title, query) => {
   if (!query) return title;
   const index = title.indexOf(query);
   if (index === -1) return title;
@@ -275,31 +246,30 @@ const renderHighlight = (title: string, query: string) => {
 };
 
 type Props = {
-  id: string;
+  id: number;
+  title: string;
+  completed?: boolean;
 };
 
-const TodoItem: React.FC<Props> = ({ id }) => {
-  const dispatch = useDispatch();
-  const state = useTrackedState();
-  const todo = state.todoMap[id];
-  const delTodo = () => {
-    dispatch({ type: 'DELETE_TODO', id: todo.id });
-  };
+const TodoItem: React.FC<Props> = ({ id, title, completed }) => {
+  const { getQuery } = useQuery();
+  const deleteTodo = useDeleteTodo();
+  const toggleTodo = useToggleTodo();
   return (
-    <li>
+    <li ref={useFlasher()}>
       <input
         type="checkbox"
-        checked={!!todo.completed}
-        onChange={() => dispatch({ type: 'TOGGLE_TODO', id: todo.id })}
+        checked={!!completed}
+        onChange={() => toggleTodo(id)}
       />
       <span
         style={{
-          textDecoration: todo.completed ? 'line-through' : 'none',
+          textDecoration: completed ? 'line-through' : 'none',
         }}
       >
-        {todo.completed ? todo.title : renderHighlight(todo.title, state.query)}
+        {completed ? title : renderHighlight(title, getQuery())}
       </span>
-      <button onClick={delTodo}>Delete</button>
+      <button onClick={() => deleteTodo(id)}>Delete</button>
     </li>
   );
 };
@@ -308,32 +278,39 @@ export default React.memo(TodoItem);
 ```
 
 This is the TodoItem component.
-It dispathes async actions,
-but it doesn't need to know if an action is sync or async.
+We prefer primitive props for memoized components.
 
-## src/NewTodo.js
+If you want to use object props for memoized components,
+you need to notify the objects by [trackMemo](/docs/api#trackmemo).
+See [example/09](https://github.com/dai-shi/react-tracked/tree/master/examples/09_reactmemo) for the usage.
+
+## src/components/NewTodo.js
 
 ```typescript ts2js
 import React from 'react';
 import { useState } from 'react';
 
-import { useDispatch } from './store';
+import { useAddTodo } from '../hooks/useAddTodo';
+import { useFlasher } from '../utils';
 
 const NewTodo: React.FC = () => {
-  const dispatch = useDispatch();
+  const addTodo = useAddTodo();
   const [text, setText] = useState('');
-  const addTodo = () => {
-    dispatch({ type: 'CREATE_TODO', title: text });
-    setText('');
-  };
   return (
-    <li>
+    <li ref={useFlasher()}>
       <input
         value={text}
         placeholder="Enter title..."
         onChange={e => setText(e.target.value)}
       />
-      <button onClick={addTodo}>Add</button>
+      <button
+        onClick={() => {
+          addTodo(text);
+          setText('');
+        }}
+      >
+        Add
+      </button>
     </li>
   );
 };
@@ -344,6 +321,30 @@ export default React.memo(NewTodo);
 This is the NewTodo component to create a new item.
 It uses a local state for the text field.
 
+## src/utils.js
+
+```typescript ts2js
+import { useRef, useEffect } from 'react';
+
+export const useFlasher = () => {
+  const ref = useRef<HTMLLIElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    ref.current.setAttribute(
+      'style',
+      'box-shadow: 0 0 2px 1px red; transition: box-shadow 100ms ease-out;'
+    );
+    setTimeout(() => {
+      if (!ref.current) return;
+      ref.current.setAttribute('style', '');
+    }, 300);
+  });
+  return ref;
+};
+```
+
+This is a util function to show which components render.
+
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/great-euler-22bxz).
+You can try [working example](https://codesandbox.io/s/infallible-firefly-yzwxc).
