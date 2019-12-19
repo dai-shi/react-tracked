@@ -6,7 +6,7 @@ import { VisibilityFilterType, useTracked } from '../state';
 const useVisibilityFilter = () => {
   const [state, setState] = useTracked();
   const setVisibilityFilter = useCallback((filter: VisibilityFilterType) => {
-    setState(s => produce(s, (draft) => {
+    setState((s) => produce(s, (draft) => {
       draft.visibilityFilter = filter;
     }));
   }, [setState]);

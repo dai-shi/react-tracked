@@ -8,11 +8,11 @@ import { useIsomorphicLayoutEffect } from './utils';
 
 const defaultEqualityFn = (a, b) => a === b;
 
-export const createUseSelector = context => (
+export const createUseSelector = (context) => (
   selector,
   equalityFn = defaultEqualityFn,
 ) => {
-  const [, forceUpdate] = useReducer(c => c + 1, 0);
+  const [, forceUpdate] = useReducer((c) => c + 1, 0);
   const { state, subscribe } = useContext(context);
   const selected = selector(state);
   const ref = useRef(null);

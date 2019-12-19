@@ -70,13 +70,11 @@ const PersonFamilyName: React.FC = () => {
   );
 };
 
-const ReactTracked: React.FC = () => {
-  return (
-    <Provider>
-      <PersonFirstName />
-      <PersonFamilyName />
-    </Provider>
-  );
-};
+const ReactTracked: React.FC = () => (
+  <Provider>
+    <PersonFirstName />
+    <PersonFamilyName />
+  </Provider>
+);
 
 export default ReactTracked;

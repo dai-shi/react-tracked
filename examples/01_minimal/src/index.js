@@ -43,7 +43,7 @@ const TextBox = () => {
       numRendered: {++numRendered}
       <div>
         <span>Text: {state.text}</span>
-        <input value={state.text} onChange={event => dispatch({ type: 'setText', text: event.target.value })} />
+        <input value={state.text} onChange={(event) => dispatch({ type: 'setText', text: event.target.value })} />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       />
       <input
         value={todo.detail.title}
-        onChange={e => dispatch({ type: 'CHANGE_TODO', id: todo.id, title: e.target.value })}
+        onChange={(e) => dispatch({ type: 'CHANGE_TODO', id: todo.id, title: e.target.value })}
       />
       <button type="button" onClick={() => dispatch({ type: 'DELETE_TODO', id: todo.id })}>
         Delete

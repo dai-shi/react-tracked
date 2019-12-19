@@ -9,8 +9,8 @@ import { useIsomorphicLayoutEffect } from './utils';
 import { createDeepProxy, isDeepChanged } from './deepProxy';
 import { createUseUpdate } from './createUseUpdate';
 
-export const createUseTrackedState = context => (opts = {}) => {
-  const [, forceUpdate] = useReducer(c => c + 1, 0);
+export const createUseTrackedState = (context) => (opts = {}) => {
+  const [, forceUpdate] = useReducer((c) => c + 1, 0);
   const { state, subscribe } = useContext(context);
   const affected = new WeakMap();
   const lastTracked = useRef(null);

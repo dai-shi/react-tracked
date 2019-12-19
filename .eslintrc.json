@@ -28,9 +28,7 @@
     "import/prefer-default-export": "off",
     "import/no-unresolved": ["error", { "ignore": ["react-tracked"] }],
     "no-param-reassign": "off",
-    "arrow-body-style": "off",
     "no-plusplus": "off",
-    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "prefer-object-spread": "off"
   },
   "overrides": [{

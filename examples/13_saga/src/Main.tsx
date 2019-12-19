@@ -12,7 +12,7 @@ const Main: React.FC = () => {
       <h1>Person</h1>
       <div>
         User ID:
-        <input value={id} onChange={e => setId(e.target.value)} />
+        <input value={id} onChange={(e) => setId(e.target.value)} />
       </div>
       {state.loadingState !== 'idle' ? <span>{state.loadingState}...</span> : <Person id={id} />}
       <Counter />

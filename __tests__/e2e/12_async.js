@@ -3,7 +3,7 @@
 const port = process.env.PORT || '8080';
 jest.setTimeout(15 * 1000);
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // this test is not very stable because of timer
 describe('12_async', () => {

@@ -41,7 +41,7 @@ export const createProvider = (context, useValue) => (props) => {
   // listeners are not technically pure, but
   // otherwise we can't get benefits from concurrent mode.
   // we make sure to work with double or more invocation of listeners.
-  listeners.current.forEach(listener => listener(state));
+  listeners.current.forEach((listener) => listener(state));
   const subscribe = useCallback((listener) => {
     listeners.current.push(listener);
     const unsubscribe = () => {

@@ -17,7 +17,7 @@ const AddTodo: React.FC = () => {
           setText('');
         }}
       >
-        <input value={text} onChange={e => setText(e.target.value)} />
+        <input value={text} onChange={(e) => setText(e.target.value)} />
         <button type="submit">Add Todo</button>
       </form>
     </div>

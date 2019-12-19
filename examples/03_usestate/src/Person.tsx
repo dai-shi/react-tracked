@@ -15,7 +15,7 @@ const Person: React.FC = () => {
           value={state.person.firstName}
           onChange={(event) => {
             const firstName = event.target.value;
-            setState(s => ({
+            setState((s) => ({
               ...s,
               person: {
                 ...s.person,
@@ -31,7 +31,7 @@ const Person: React.FC = () => {
           value={state.person.lastName}
           onChange={(event) => {
             const lastName = event.target.value;
-            setState(s => ({
+            setState((s) => ({
               ...s,
               person: {
                 ...s.person,
@@ -47,7 +47,7 @@ const Person: React.FC = () => {
           value={state.person.age}
           onChange={(event) => {
             const age = Number(event.target.value) || 0;
-            setState(s => ({
+            setState((s) => ({
               ...s,
               person: {
                 ...s.person,

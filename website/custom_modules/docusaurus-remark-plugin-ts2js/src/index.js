@@ -17,14 +17,12 @@ const stripTypes = (origCode) => {
   return code.replace(/\r/g, '').replace(/\n\/\/--EMPTYLINE--\n/g, '\n\n');
 };
 
-const format = (code) => {
-  return prettier.format(code, {
-    parser: 'typescript',
-    plugins: [parserTypescript],
-    singleQuote: true,
-    trailingComma: 'all',
-  });
-};
+const format = (code) => prettier.format(code, {
+  parser: 'typescript',
+  plugins: [parserTypescript],
+  singleQuote: true,
+  trailingComma: 'all',
+});
 
 const uniqueId = 'UsedByRemarkPluginTs2Js'; // should this be configurable? maybe unnecessary.
 
@@ -34,7 +32,7 @@ const nodeForImport = {
 import TabItem${uniqueId} from '@theme/TabItem';`,
 };
 
-const matchNode = node => node.type === 'code' && node.meta === 'ts2js';
+const matchNode = (node) => node.type === 'code' && node.meta === 'ts2js';
 
 // this returns a list to replace the node
 const transformNode = (node) => {

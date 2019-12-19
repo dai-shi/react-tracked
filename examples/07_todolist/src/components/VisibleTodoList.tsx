@@ -11,7 +11,7 @@ const VisibleTodoList: React.FC = () => {
   const toggleTodo = useToggleTodo();
   return (
     <ul>
-      {visibleTodos.map(todo => (
+      {visibleTodos.map((todo) => (
         <Todo key={todo.id} {...todo} onClick={() => toggleTodo(todo.id)} />
       ))}
     </ul>

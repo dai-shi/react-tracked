@@ -7,7 +7,7 @@ let numRendered = 0;
 const Counter: React.FC = () => {
   const [state, setState] = useTracked();
   const increment = () => {
-    setState(s => ({
+    setState((s) => ({
       ...s,
       count: s.count + 1,
     }));

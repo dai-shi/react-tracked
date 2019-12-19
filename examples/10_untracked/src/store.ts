@@ -43,12 +43,12 @@ const reducer: Reducer<State, Action> = (state, action) => {
     case 'DELETE_TODO':
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id !== action.id),
+        todos: state.todos.filter((todo) => todo.id !== action.id),
       };
     case 'CHANGE_TODO':
       return {
         ...state,
-        todos: state.todos.map(todo => (
+        todos: state.todos.map((todo) => (
           todo.id === action.id ? {
             ...todo,
             detail: { ...todo.detail, title: action.title },
@@ -58,7 +58,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
     case 'TOGGLE_TODO':
       return {
         ...state,
-        todos: state.todos.map(todo => (
+        todos: state.todos.map((todo) => (
           todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
         )),
       };

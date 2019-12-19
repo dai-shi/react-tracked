@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from './state';
 let numRendered = 0;
 
 const Person: React.FC = () => {
-  const person = useSelector(state => state.person);
+  const person = useSelector((state) => state.person);
   const dispatch = useDispatch();
   return (
     <div>
