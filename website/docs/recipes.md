@@ -205,6 +205,45 @@ const App = ({ propState }) => (
 
 Note that `propState` has to be updated immutably.
 
+### useReducer (with event listener)
+
+Here's how to dispatch actions by DOM events.
+
+```javascript
+const reducer = ...;
+const initialState = ...;
+
+const useValue = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => {
+    const listener = () => {
+      dispatch({
+        type: 'WINDOW_RESIZED',
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', listener);
+    return () => {
+      window.removeEventListener('resize', listener);
+    };
+  }, []);
+  return [state, dispatch];
+};
+
+const {
+  Provider,
+  useTracked,
+  // ...
+} = createContainer(useValue);
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
 ## Recipes for useTrackedState and useTracked
 
 The `useTrackedState` and `useTracked` hooks are useful as is,
