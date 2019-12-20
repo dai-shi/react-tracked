@@ -7,9 +7,9 @@
     "deploy": "docusaurus deploy"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-alpha.37",
-    "@docusaurus/preset-classic": "^2.0.0-alpha.37",
-    "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.37",
+    "@docusaurus/core": "^2.0.0-alpha.39",
+    "@docusaurus/preset-classic": "^2.0.0-alpha.39",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-alpha.39",
     "prettier": "^1.19.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

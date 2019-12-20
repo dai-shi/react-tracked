@@ -5,8 +5,8 @@ module.exports = {
   tagline: 'Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.',
   organizationName: 'dai-shi',
   projectName: 'react-tracked',
-  url: 'https://react-tracked.js.org',
   baseUrl: '/',
+  url: 'https://react-tracked.js.org',
   favicon: 'img/favicon.ico',
   themes: [
     '@docusaurus/theme-live-codeblock',
