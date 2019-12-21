@@ -25,6 +25,7 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".tsx"] }],
     "react/prop-types": "off",
     "react/jsx-one-expression-per-line": "off",
+    "import/extensions": ["error", "never"],
     "import/prefer-default-export": "off",
     "import/no-unresolved": ["error", { "ignore": ["react-tracked"] }],
     "no-param-reassign": "off",

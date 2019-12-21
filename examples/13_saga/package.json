@@ -11,7 +11,7 @@
     "react-scripts": "latest",
     "redux-saga": "latest",
     "typescript": "latest",
-    "use-saga-reducer": "latest"
+    "use-saga-reducer": ">=2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
