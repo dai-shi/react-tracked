@@ -314,8 +314,7 @@ but it doesn't need to know if an action is sync or async.
 ## src/NewTodo.js
 
 ```typescript ts2js
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from './store';
 

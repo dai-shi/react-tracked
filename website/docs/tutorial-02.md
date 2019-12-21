@@ -201,8 +201,7 @@ See [example/09](https://github.com/dai-shi/react-tracked/tree/master/examples/0
 ## src/NewTodo.js
 
 ```typescript ts2js
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import { useDispatch } from './store';
 import { useFlasher } from './utils';
