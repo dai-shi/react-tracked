@@ -11,7 +11,7 @@ This tutorial shows example code with useState, [Immer](https://immerjs.github.i
 ```typescript ts2js
 import React from 'react';
 
-import { Provider } from './store';
+import { Provider } from '../store';
 import TodoList from './TodoList';
 
 const App: React.FC = () => (
