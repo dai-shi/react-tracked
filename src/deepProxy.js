@@ -2,9 +2,9 @@
 // deep proxy
 // -------------------------------------------------------
 
-const OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
-const TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO');
-const GET_ORIGINAL_SYMBOL = Symbol('GET_ORIGINAL');
+const OWN_KEYS_SYMBOL = Symbol();
+const TRACK_MEMO_SYMBOL = Symbol();
+const GET_ORIGINAL_SYMBOL = Symbol();
 
 const TRACK_OBJ_PROPERTY = 't';
 const AFFECTED_PROPERTY = 'a';

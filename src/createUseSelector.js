@@ -39,10 +39,11 @@ export const createUseSelector = (context) => (
   useIsomorphicLayoutEffect(() => {
     const callback = (nextState) => {
       try {
-        if (ref.current[STATE_PROPERTY] === nextState
-          || ref.current[EQUALITY_FN_PROPERTY](
-            ref.current[SELECTED_PROPERTY],
-            ref.current[SELECTOR_PROPERTY](nextState),
+        const refCurrent = ref.current;
+        if (refCurrent[STATE_PROPERTY] === nextState
+          || refCurrent[EQUALITY_FN_PROPERTY](
+            refCurrent[SELECTED_PROPERTY],
+            refCurrent[SELECTOR_PROPERTY](nextState),
           )) {
           // not changed
           return;

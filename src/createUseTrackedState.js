@@ -41,13 +41,14 @@ export const createUseTrackedState = (context) => (opts = {}) => {
   });
   useIsomorphicLayoutEffect(() => {
     const callback = (nextState) => {
-      if (lastTracked.current[STATE_PROPERTY] === nextState
+      const lastTrackedCurrent = lastTracked.current;
+      if (lastTrackedCurrent[STATE_PROPERTY] === nextState
         || !isDeepChanged(
-          lastTracked.current[STATE_PROPERTY],
+          lastTrackedCurrent[STATE_PROPERTY],
           nextState,
-          lastTracked.current[AFFECTED_PROPERTY],
-          lastTracked.current[CACHE_PROPERTY],
-          lastTracked.current[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY],
+          lastTrackedCurrent[AFFECTED_PROPERTY],
+          lastTrackedCurrent[CACHE_PROPERTY],
+          lastTrackedCurrent[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY],
         )) {
         // not changed
         return;
