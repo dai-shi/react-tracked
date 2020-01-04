@@ -9,20 +9,25 @@ import {
 // context
 // -------------------------------------------------------
 
+export const STATE_CONTEXT_PROPERTY = 's';
+export const UPDATE_CONTEXT_PROPERTY = 'u';
+export const SUBSCRIBE_CONTEXT_PROPERTY = 'b';
+
+const WARNING_MESSAGE = 'Please use <Provider>';
 const warningObject = {
-  get state() {
-    throw new Error('Please use <Provider>');
+  get [STATE_CONTEXT_PROPERTY]() {
+    throw new Error(WARNING_MESSAGE);
   },
-  get dispatch() {
-    throw new Error('Please use <Provider>');
-  },
-  get subscribe() {
-    throw new Error('Please use <Provider>');
+  get [UPDATE_CONTEXT_PROPERTY]() {
+    throw new Error(WARNING_MESSAGE);
   },
 };
 
 const calculateChangedBits = (a, b) => (
-  a.update !== b.update || a.subscribe !== b.subscribe ? 1 : 0
+  (
+    a[UPDATE_CONTEXT_PROPERTY] !== b[UPDATE_CONTEXT_PROPERTY]
+    || a[SUBSCRIBE_CONTEXT_PROPERTY] !== b[SUBSCRIBE_CONTEXT_PROPERTY]
+  ) ? 1 : 0
 );
 
 export const createCustomContext = (
@@ -52,7 +57,13 @@ export const createProvider = (context, useValue) => (props) => {
   }, []);
   return createElement(
     context.Provider,
-    { value: { state, update, subscribe } },
+    {
+      value: {
+        [STATE_CONTEXT_PROPERTY]: state,
+        [UPDATE_CONTEXT_PROPERTY]: update,
+        [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
+      },
+    },
     props.children,
   );
 };

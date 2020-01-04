@@ -6,21 +6,33 @@ import {
 } from 'react';
 
 import { useIsomorphicLayoutEffect } from './utils';
+import {
+  STATE_CONTEXT_PROPERTY,
+  SUBSCRIBE_CONTEXT_PROPERTY,
+} from './createProvider';
 import { createDeepProxy, isDeepChanged } from './deepProxy';
 import { createUseUpdate } from './createUseUpdate';
 
+const STATE_PROPERTY = 's';
+const AFFECTED_PROPERTY = 'a';
+const CACHE_PROPERTY = 'c';
+const ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY = 'g';
+
 export const createUseTrackedState = (context) => (opts = {}) => {
   const [, forceUpdate] = useReducer((c) => c + 1, 0);
-  const { state, subscribe } = useContext(context);
+  const {
+    [STATE_CONTEXT_PROPERTY]: state,
+    [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
+  } = useContext(context);
   const affected = new WeakMap();
   const lastTracked = useRef(null);
   useIsomorphicLayoutEffect(() => {
     lastTracked.current = {
-      state,
-      affected,
-      cache: new WeakMap(),
+      [STATE_PROPERTY]: state,
+      [AFFECTED_PROPERTY]: affected,
+      [CACHE_PROPERTY]: new WeakMap(),
       /* eslint-disable no-nested-ternary, indent */
-      assumeChangedIfNotAffected:
+      [ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY]:
         opts.unstable_forceUpdateForStateChange ? true
       : opts.unstable_ignoreIntermediateObjectUsage ? false
       : /* default */ null,
@@ -29,13 +41,13 @@ export const createUseTrackedState = (context) => (opts = {}) => {
   });
   useIsomorphicLayoutEffect(() => {
     const callback = (nextState) => {
-      if (lastTracked.current.state === nextState
+      if (lastTracked.current[STATE_PROPERTY] === nextState
         || !isDeepChanged(
-          lastTracked.current.state,
+          lastTracked.current[STATE_PROPERTY],
           nextState,
-          lastTracked.current.affected,
-          lastTracked.current.cache,
-          lastTracked.current.assumeChangedIfNotAffected,
+          lastTracked.current[AFFECTED_PROPERTY],
+          lastTracked.current[CACHE_PROPERTY],
+          lastTracked.current[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY],
         )) {
         // not changed
         return;
