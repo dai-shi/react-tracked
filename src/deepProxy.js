@@ -134,7 +134,7 @@ export const isDeepChanged = (
         cache,
         assumeChangedIfNotAffected !== false,
       );
-    if (typeof c === 'boolean') changed = c;
+    if (c === true || c === false) changed = c;
     if (changed) break;
   }
   if (changed === null) changed = !!assumeChangedIfNotAffected;

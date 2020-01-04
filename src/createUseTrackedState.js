@@ -25,7 +25,7 @@ export const createUseTrackedState = (context) => (opts = {}) => {
     [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
   } = useContext(context);
   const affected = new WeakMap();
-  const lastTracked = useRef(null);
+  const lastTracked = useRef();
   useIsomorphicLayoutEffect(() => {
     lastTracked.current = {
       [STATE_PROPERTY]: state,

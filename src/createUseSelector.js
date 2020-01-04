@@ -27,7 +27,7 @@ export const createUseSelector = (context) => (
     [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
   } = useContext(context);
   const selected = selector(state);
-  const ref = useRef(null);
+  const ref = useRef();
   useIsomorphicLayoutEffect(() => {
     ref.current = {
       [EQUALITY_FN_PROPERTY]: equalityFn,
