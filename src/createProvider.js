@@ -15,10 +15,10 @@ export const SUBSCRIBE_CONTEXT_PROPERTY = 'b';
 
 const WARNING_MESSAGE = 'Please use <Provider>';
 const warningObject = {
-  get [STATE_CONTEXT_PROPERTY]() {
+  get s/* [STATE_CONTEXT_PROPERTY] */() {
     throw new Error(WARNING_MESSAGE);
   },
-  get [UPDATE_CONTEXT_PROPERTY]() {
+  get u/* [UPDATE_CONTEXT_PROPERTY] */() {
     throw new Error(WARNING_MESSAGE);
   },
 };
