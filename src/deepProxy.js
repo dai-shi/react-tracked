@@ -18,6 +18,7 @@ const CHANGED_PROPERTY = 'g';
 
 const GLOBAL_OBJECT = Object;
 const GLOBAL_ARRAY = Array;
+const GLOBAL_REFLECT = Reflect;
 
 // check if obj is a plain object or an array
 const isPlainObject = (obj) => {
@@ -74,7 +75,7 @@ const createProxyHandler = () => ({
   },
   ownKeys(target) {
     this[RECORD_USAGE_PROPERTY](OWN_KEYS_SYMBOL);
-    return Reflect.ownKeys(target);
+    return GLOBAL_REFLECT.ownKeys(target);
   },
 });
 
@@ -96,8 +97,8 @@ export const createDeepProxy = (obj, affected, proxyCache) => {
 };
 
 const isOwnKeysChanged = (origObj, nextObj) => {
-  const origKeys = Reflect.ownKeys(origObj);
-  const nextKeys = Reflect.ownKeys(nextObj);
+  const origKeys = GLOBAL_REFLECT.ownKeys(origObj);
+  const nextKeys = GLOBAL_REFLECT.ownKeys(nextObj);
   return origKeys.length !== nextKeys.length
     || origKeys.some((k, i) => k !== nextKeys[i]);
 };
