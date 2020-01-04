@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createProvider = exports.createCustomContext = void 0;
+exports.createProvider = exports.createCustomContext = exports.SUBSCRIBE_CONTEXT_PROPERTY = exports.UPDATE_CONTEXT_PROPERTY = exports.STATE_CONTEXT_PROPERTY = void 0;
 
 var _react = require("react");
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -18,23 +20,30 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // -------------------------------------------------------
 // context
 // -------------------------------------------------------
+var STATE_CONTEXT_PROPERTY = 's';
+exports.STATE_CONTEXT_PROPERTY = STATE_CONTEXT_PROPERTY;
+var UPDATE_CONTEXT_PROPERTY = 'u';
+exports.UPDATE_CONTEXT_PROPERTY = UPDATE_CONTEXT_PROPERTY;
+var SUBSCRIBE_CONTEXT_PROPERTY = 'b';
+exports.SUBSCRIBE_CONTEXT_PROPERTY = SUBSCRIBE_CONTEXT_PROPERTY;
+var WARNING_MESSAGE = 'Please use <Provider>';
 var warningObject = {
-  get state() {
-    throw new Error('Please use <Provider>');
+  get s
+  /* [STATE_CONTEXT_PROPERTY] */
+  () {
+    throw new Error(WARNING_MESSAGE);
   },
 
-  get dispatch() {
-    throw new Error('Please use <Provider>');
-  },
-
-  get subscribe() {
-    throw new Error('Please use <Provider>');
+  get u
+  /* [UPDATE_CONTEXT_PROPERTY] */
+  () {
+    throw new Error(WARNING_MESSAGE);
   }
 
 };
 
 var calculateChangedBits = function calculateChangedBits(a, b) {
-  return a.update !== b.update || a.subscribe !== b.subscribe ? 1 : 0;
+  return a[UPDATE_CONTEXT_PROPERTY] !== b[UPDATE_CONTEXT_PROPERTY] || a[SUBSCRIBE_CONTEXT_PROPERTY] !== b[SUBSCRIBE_CONTEXT_PROPERTY] ? 1 : 0;
 };
 
 var createCustomContext = function createCustomContext() {
@@ -50,6 +59,8 @@ exports.createCustomContext = createCustomContext;
 
 var createProvider = function createProvider(context, useValue) {
   return function (props) {
+    var _value;
+
     var _useValue = useValue(props),
         _useValue2 = _slicedToArray(_useValue, 2),
         state = _useValue2[0],
@@ -74,11 +85,7 @@ var createProvider = function createProvider(context, useValue) {
       return unsubscribe;
     }, []);
     return (0, _react.createElement)(context.Provider, {
-      value: {
-        state: state,
-        update: update,
-        subscribe: subscribe
-      }
+      value: (_value = {}, _defineProperty(_value, STATE_CONTEXT_PROPERTY, state), _defineProperty(_value, UPDATE_CONTEXT_PROPERTY, update), _defineProperty(_value, SUBSCRIBE_CONTEXT_PROPERTY, subscribe), _value)
     }, props.children);
   };
 };
