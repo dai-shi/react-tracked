@@ -9,9 +9,13 @@ var _react = require("react");
 
 var _utils = require("./utils");
 
+var _createProvider = require("./createProvider");
+
 var _deepProxy = require("./deepProxy");
 
 var _createUseUpdate = require("./createUseUpdate");
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -20,6 +24,11 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var STATE_PROPERTY = 's';
+var AFFECTED_PROPERTY = 'a';
+var CACHE_PROPERTY = 'c';
+var ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY = 'g';
 
 var createUseTrackedState = function createUseTrackedState(context) {
   return function () {
@@ -32,28 +41,23 @@ var createUseTrackedState = function createUseTrackedState(context) {
         forceUpdate = _useReducer2[1];
 
     var _useContext = (0, _react.useContext)(context),
-        state = _useContext.state,
-        subscribe = _useContext.subscribe;
+        state = _useContext[_createProvider.STATE_CONTEXT_PROPERTY],
+        subscribe = _useContext[_createProvider.SUBSCRIBE_CONTEXT_PROPERTY];
 
     var affected = new WeakMap();
-    var lastTracked = (0, _react.useRef)(null);
+    var lastTracked = (0, _react.useRef)();
     (0, _utils.useIsomorphicLayoutEffect)(function () {
-      lastTracked.current = {
-        state: state,
-        affected: affected,
-        cache: new WeakMap(),
+      var _lastTracked$current;
 
-        /* eslint-disable no-nested-ternary, indent */
-        assumeChangedIfNotAffected: opts.unstable_forceUpdateForStateChange ? true : opts.unstable_ignoreIntermediateObjectUsage ? false :
-        /* default */
-        null
-        /* eslint-enable no-nested-ternary, indent */
-
-      };
+      lastTracked.current = (_lastTracked$current = {}, _defineProperty(_lastTracked$current, STATE_PROPERTY, state), _defineProperty(_lastTracked$current, AFFECTED_PROPERTY, affected), _defineProperty(_lastTracked$current, CACHE_PROPERTY, new WeakMap()), _defineProperty(_lastTracked$current, ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY, opts.unstable_forceUpdateForStateChange ? true : opts.unstable_ignoreIntermediateObjectUsage ? false :
+      /* default */
+      null), _lastTracked$current);
     });
     (0, _utils.useIsomorphicLayoutEffect)(function () {
       var callback = function callback(nextState) {
-        if (lastTracked.current.state === nextState || !(0, _deepProxy.isDeepChanged)(lastTracked.current.state, nextState, lastTracked.current.affected, lastTracked.current.cache, lastTracked.current.assumeChangedIfNotAffected)) {
+        var lastTrackedCurrent = lastTracked.current;
+
+        if (lastTrackedCurrent[STATE_PROPERTY] === nextState || !(0, _deepProxy.isDeepChanged)(lastTrackedCurrent[STATE_PROPERTY], nextState, lastTrackedCurrent[AFFECTED_PROPERTY], lastTrackedCurrent[CACHE_PROPERTY], lastTrackedCurrent[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY])) {
           // not changed
           return;
         }

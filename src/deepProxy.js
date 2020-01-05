@@ -2,15 +2,29 @@
 // deep proxy
 // -------------------------------------------------------
 
-const OWN_KEYS_SYMBOL = Symbol('OWN_KEYS');
-const TRACK_MEMO_SYMBOL = Symbol('TRACK_MEMO');
-const GET_ORIGINAL_SYMBOL = Symbol('GET_ORIGINAL');
+const OWN_KEYS_SYMBOL = Symbol();
+const TRACK_MEMO_SYMBOL = Symbol();
+const GET_ORIGINAL_SYMBOL = Symbol();
+
+const TRACK_OBJECT_PROPERTY = 't';
+const AFFECTED_PROPERTY = 'a';
+const RECORD_USAGE_PROPERTY = 'r';
+const RECORD_OBJECT_AS_USED_PROPERTY = 'u';
+const ORIGINAL_OBJECT_PROPERTY = 'o';
+const PROXY_PROPERTY = 'p';
+const PROXY_CACHE_PROPERTY = 'c';
+const NEXT_OBJECT_PROPERTY = 'n';
+const CHANGED_PROPERTY = 'g';
+
+const GLOBAL_OBJECT = Object;
+const GLOBAL_ARRAY = Array;
+const GLOBAL_REFLECT = Reflect;
 
 // check if obj is a plain object or an array
 const isPlainObject = (obj) => {
   try {
-    const proto = Object.getPrototypeOf(obj);
-    return proto === Object.prototype || proto === Array.prototype;
+    const proto = GLOBAL_OBJECT.getPrototypeOf(obj);
+    return proto === GLOBAL_OBJECT.prototype || proto === GLOBAL_ARRAY.prototype;
   } catch (e) {
     return false;
   }
@@ -18,50 +32,50 @@ const isPlainObject = (obj) => {
 
 // copy obj if frozen
 const unfreeze = (obj) => {
-  if (!Object.isFrozen(obj)) return obj;
-  if (Array.isArray(obj)) {
-    return Array.from(obj);
+  if (!GLOBAL_OBJECT.isFrozen(obj)) return obj;
+  if (GLOBAL_ARRAY.isArray(obj)) {
+    return GLOBAL_ARRAY.from(obj);
   }
-  return Object.assign({}, obj);
+  return GLOBAL_OBJECT.assign({}, obj);
 };
 
 const createProxyHandler = () => ({
-  recordUsage(key) {
-    if (this.trackObj) return;
-    let used = this.affected.get(this.originalObj);
+  [RECORD_USAGE_PROPERTY](key) {
+    if (this[TRACK_OBJECT_PROPERTY]) return;
+    let used = this[AFFECTED_PROPERTY].get(this[ORIGINAL_OBJECT_PROPERTY]);
     if (!used) {
       used = new Set();
-      this.affected.set(this.originalObj, used);
+      this[AFFECTED_PROPERTY].set(this[ORIGINAL_OBJECT_PROPERTY], used);
     }
     used.add(key);
   },
-  recordObjectAsUsed() {
-    this.trackObj = true;
-    this.affected.delete(this.originalObj);
+  [RECORD_OBJECT_AS_USED_PROPERTY]() {
+    this[TRACK_OBJECT_PROPERTY] = true;
+    this[AFFECTED_PROPERTY].delete(this[ORIGINAL_OBJECT_PROPERTY]);
   },
   get(target, key) {
     if (key === GET_ORIGINAL_SYMBOL) {
-      return this.originalObj;
+      return this[ORIGINAL_OBJECT_PROPERTY];
     }
-    this.recordUsage(key);
+    this[RECORD_USAGE_PROPERTY](key);
     // eslint-disable-next-line no-use-before-define, @typescript-eslint/no-use-before-define
-    return createDeepProxy(target[key], this.affected, this.proxyCache);
+    return createDeepProxy(target[key], this[AFFECTED_PROPERTY], this[PROXY_CACHE_PROPERTY]);
   },
   has(target, key) {
     if (key === TRACK_MEMO_SYMBOL) {
-      this.recordObjectAsUsed();
+      this[RECORD_OBJECT_AS_USED_PROPERTY]();
       return true;
     }
     // LIMITATION:
     // We simply record the same as get.
     // This means { a: {} } and { a: {} } is detected as changed,
     // if 'a' in obj is handled.
-    this.recordUsage(key);
+    this[RECORD_USAGE_PROPERTY](key);
     return key in target;
   },
   ownKeys(target) {
-    this.recordUsage(OWN_KEYS_SYMBOL);
-    return Reflect.ownKeys(target);
+    this[RECORD_USAGE_PROPERTY](OWN_KEYS_SYMBOL);
+    return GLOBAL_REFLECT.ownKeys(target);
   },
 });
 
@@ -70,21 +84,21 @@ export const createDeepProxy = (obj, affected, proxyCache) => {
   let proxyHandler = proxyCache && proxyCache.get(obj);
   if (!proxyHandler) {
     proxyHandler = createProxyHandler();
-    proxyHandler.proxy = new Proxy(unfreeze(obj), proxyHandler);
-    proxyHandler.originalObj = obj;
-    proxyHandler.trackObj = false; // for trackMemo
+    proxyHandler[PROXY_PROPERTY] = new Proxy(unfreeze(obj), proxyHandler);
+    proxyHandler[ORIGINAL_OBJECT_PROPERTY] = obj;
+    proxyHandler[TRACK_OBJECT_PROPERTY] = false; // for trackMemo
     if (proxyCache) {
       proxyCache.set(obj, proxyHandler);
     }
   }
-  proxyHandler.affected = affected;
-  proxyHandler.proxyCache = proxyCache;
-  return proxyHandler.proxy;
+  proxyHandler[AFFECTED_PROPERTY] = affected;
+  proxyHandler[PROXY_CACHE_PROPERTY] = proxyCache;
+  return proxyHandler[PROXY_PROPERTY];
 };
 
 const isOwnKeysChanged = (origObj, nextObj) => {
-  const origKeys = Reflect.ownKeys(origObj);
-  const nextKeys = Reflect.ownKeys(nextObj);
+  const origKeys = GLOBAL_REFLECT.ownKeys(origObj);
+  const nextKeys = GLOBAL_REFLECT.ownKeys(nextObj);
   return origKeys.length !== nextKeys.length
     || origKeys.some((k, i) => k !== nextKeys[i]);
 };
@@ -103,11 +117,11 @@ export const isDeepChanged = (
   if (!used) return !!assumeChangedIfNotAffected;
   if (cache) {
     const hit = cache.get(origObj);
-    if (hit && hit.nextObj === nextObj) {
-      return hit.changed;
+    if (hit && hit[NEXT_OBJECT_PROPERTY] === nextObj) {
+      return hit[CHANGED_PROPERTY];
     }
-    // for object with cycles (changed is `undefined`)
-    cache.set(origObj, { nextObj });
+    // for object with cycles (CHANGED_PROPERTY is `undefined`)
+    cache.set(origObj, { [NEXT_OBJECT_PROPERTY]: nextObj });
   }
   let changed = null;
   // eslint-disable-next-line no-restricted-syntax
@@ -120,12 +134,15 @@ export const isDeepChanged = (
         cache,
         assumeChangedIfNotAffected !== false,
       );
-    if (typeof c === 'boolean') changed = c;
+    if (c === true || c === false) changed = c;
     if (changed) break;
   }
   if (changed === null) changed = !!assumeChangedIfNotAffected;
   if (cache) {
-    cache.set(origObj, { nextObj, changed });
+    cache.set(origObj, {
+      [NEXT_OBJECT_PROPERTY]: nextObj,
+      [CHANGED_PROPERTY]: changed,
+    });
   }
   return changed;
 };
