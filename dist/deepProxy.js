@@ -15,7 +15,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var OWN_KEYS_SYMBOL = Symbol();
 var TRACK_MEMO_SYMBOL = Symbol();
 var GET_ORIGINAL_SYMBOL = Symbol();
-var TRACK_OBJ_PROPERTY = 't';
+var TRACK_OBJECT_PROPERTY = 't';
 var AFFECTED_PROPERTY = 'a';
 var RECORD_USAGE_PROPERTY = 'r';
 var RECORD_OBJECT_AS_USED_PROPERTY = 'u';
@@ -52,7 +52,7 @@ var createProxyHandler = function createProxyHandler() {
   var _ref;
 
   return _ref = {}, _defineProperty(_ref, RECORD_USAGE_PROPERTY, function (key) {
-    if (this[TRACK_OBJ_PROPERTY]) return;
+    if (this[TRACK_OBJECT_PROPERTY]) return;
     var used = this[AFFECTED_PROPERTY].get(this[ORIGINAL_OBJECT_PROPERTY]);
 
     if (!used) {
@@ -62,7 +62,7 @@ var createProxyHandler = function createProxyHandler() {
 
     used.add(key);
   }), _defineProperty(_ref, RECORD_OBJECT_AS_USED_PROPERTY, function () {
-    this[TRACK_OBJ_PROPERTY] = true;
+    this[TRACK_OBJECT_PROPERTY] = true;
     this[AFFECTED_PROPERTY]["delete"](this[ORIGINAL_OBJECT_PROPERTY]);
   }), _defineProperty(_ref, "get", function get(target, key) {
     if (key === GET_ORIGINAL_SYMBOL) {
@@ -98,7 +98,7 @@ var createDeepProxy = function createDeepProxy(obj, affected, proxyCache) {
     proxyHandler = createProxyHandler();
     proxyHandler[PROXY_PROPERTY] = new Proxy(unfreeze(obj), proxyHandler);
     proxyHandler[ORIGINAL_OBJECT_PROPERTY] = obj;
-    proxyHandler[TRACK_OBJ_PROPERTY] = false; // for trackMemo
+    proxyHandler[TRACK_OBJECT_PROPERTY] = false; // for trackMemo
 
     if (proxyCache) {
       proxyCache.set(obj, proxyHandler);

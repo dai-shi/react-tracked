@@ -6,7 +6,7 @@ const OWN_KEYS_SYMBOL = Symbol();
 const TRACK_MEMO_SYMBOL = Symbol();
 const GET_ORIGINAL_SYMBOL = Symbol();
 
-const TRACK_OBJ_PROPERTY = 't';
+const TRACK_OBJECT_PROPERTY = 't';
 const AFFECTED_PROPERTY = 'a';
 const RECORD_USAGE_PROPERTY = 'r';
 const RECORD_OBJECT_AS_USED_PROPERTY = 'u';
@@ -41,7 +41,7 @@ const unfreeze = (obj) => {
 
 const createProxyHandler = () => ({
   [RECORD_USAGE_PROPERTY](key) {
-    if (this[TRACK_OBJ_PROPERTY]) return;
+    if (this[TRACK_OBJECT_PROPERTY]) return;
     let used = this[AFFECTED_PROPERTY].get(this[ORIGINAL_OBJECT_PROPERTY]);
     if (!used) {
       used = new Set();
@@ -50,7 +50,7 @@ const createProxyHandler = () => ({
     used.add(key);
   },
   [RECORD_OBJECT_AS_USED_PROPERTY]() {
-    this[TRACK_OBJ_PROPERTY] = true;
+    this[TRACK_OBJECT_PROPERTY] = true;
     this[AFFECTED_PROPERTY].delete(this[ORIGINAL_OBJECT_PROPERTY]);
   },
   get(target, key) {
@@ -86,7 +86,7 @@ export const createDeepProxy = (obj, affected, proxyCache) => {
     proxyHandler = createProxyHandler();
     proxyHandler[PROXY_PROPERTY] = new Proxy(unfreeze(obj), proxyHandler);
     proxyHandler[ORIGINAL_OBJECT_PROPERTY] = obj;
-    proxyHandler[TRACK_OBJ_PROPERTY] = false; // for trackMemo
+    proxyHandler[TRACK_OBJECT_PROPERTY] = false; // for trackMemo
     if (proxyCache) {
       proxyCache.set(obj, proxyHandler);
     }
