@@ -1,4 +1,4 @@
-<img alt="logo" src="./website/static/img/react-tracked-logo.png" width="200" height="200" />
+[![logo](./website/static/img/react-tracked-logo.svg)](https://react-tracked.js.org)
 
 # react-tracked
 
