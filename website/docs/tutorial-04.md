@@ -55,16 +55,13 @@ const initialState: State = {
   error: null,
 };
 
-type InnerAction =
+type Action =
   | { type: 'STARTED' }
   | { type: 'TODO_CREATED'; todo: TodoType }
   | { type: 'TODO_UPDATED'; todo: TodoType }
   | { type: 'TODO_DELETED'; id: string }
-  | { type: 'FAILED'; error: Error };
-
-type OuterAction = { type: 'QUERY_CHANGED'; query: string };
-
-type Action = InnerAction | OuterAction;
+  | { type: 'FAILED'; error: Error }
+  | { type: 'QUERY_CHANGED'; query: string };
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
@@ -178,11 +175,11 @@ const asyncActionHandlers: AsyncActionHandlers<
 };
 
 const useValue = () =>
-  useReducerAsync<
-    Reducer<State, Action>,
-    AsyncAction,
-    AsyncAction | OuterAction
-  >(reducer, initialState, asyncActionHandlers);
+  useReducerAsync<Reducer<State, Action>, AsyncAction>(
+    reducer,
+    initialState,
+    asyncActionHandlers
+  );
 
 export const {
   Provider,
@@ -345,4 +342,4 @@ It uses a local state for the text field.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/great-euler-22bxz).
+You can try [working example](https://codesandbox.io/s/upbeat-kirch-cjkpe).
