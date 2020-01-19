@@ -1,6 +1,6 @@
 [![logo](./website/static/img/react-tracked-logo.svg)](https://react-tracked.js.org)
 
-# react-tracked
+# React Tracked
 
 [![Build Status](https://travis-ci.com/dai-shi/react-tracked.svg?branch=master)](https://travis-ci.com/dai-shi/react-tracked)
 [![npm version](https://badge.fury.io/js/react-tracked.svg)](https://badge.fury.io/js/react-tracked)
