@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.2] - 2020-01-19
 ### Changed
 - Change useValue type to accept a readonly tuple
 
