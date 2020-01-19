@@ -1,3 +1,6 @@
+// eslint-disable-next-line spaced-comment
+/// <reference types="react-dom/experimental" />
+
 import React, { useState, StrictMode } from 'react';
 import { createRoot } from 'react-dom';
 

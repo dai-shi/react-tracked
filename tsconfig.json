@@ -12,7 +12,6 @@
     "baseUrl": ".",
     "paths": {
       "react-tracked": ["."]
-    },
-    "types": ["react-dom/experimental"]
+    }
   }
 }
