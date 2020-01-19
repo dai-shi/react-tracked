@@ -40,7 +40,7 @@
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
     "examples:04_selector": "DIR=04_selector webpack-dev-server",
     "examples:05_container": "DIR=05_container webpack-dev-server",
-    "examples:06_customhook": "DIR=06_customhook EXT=js webpack-dev-server",
+    "examples:06_customhook": "DIR=06_customhook EXT=tsx webpack-dev-server",
     "examples:07_todolist": "DIR=07_todolist webpack-dev-server",
     "examples:08_comparison": "DIR=08_comparison webpack-dev-server",
     "examples:09_reactmemo": "DIR=09_reactmemo webpack-dev-server",

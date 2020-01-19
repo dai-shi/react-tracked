@@ -1,5 +1,9 @@
 import React, { useState, StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  createRoot,
+} from 'react-dom';
 
 import { createContainer } from 'react-tracked';
 
@@ -7,7 +11,7 @@ const useValue = () => {
   const [count, setCount] = useState(0);
   const increment = () => setCount((c) => c + 1);
   const decrement = () => setCount((c) => c - 1);
-  return [count, { increment, decrement }];
+  return [count, { increment, decrement }] as const;
 };
 
 const { Provider, useTracked } = createContainer(useValue);
@@ -32,4 +36,6 @@ const App = () => (
   </StrictMode>
 );
 
-ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+const ele = document.getElementById('app');
+if (!ele) throw new Error('no app');
+createRoot(ele).render(React.createElement(App));
