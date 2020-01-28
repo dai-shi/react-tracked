@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Fix typing of a readonly tuple in 1.0.2
 
 ## [1.0.2] - 2020-01-19
 ### Changed

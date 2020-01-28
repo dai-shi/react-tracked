@@ -5,7 +5,7 @@ type EqlFn<V> = (a: V, b: V) => boolean;
 // container
 
 export const createContainer: <State, Update, Props>(
-  useValue: (props?: Props) => Readonly<[State, Update]>,
+  useValue: (props?: Props) => readonly [State, Update],
 ) => {
   Provider: ComponentType<Props>;
   useTrackedState: () => State;
