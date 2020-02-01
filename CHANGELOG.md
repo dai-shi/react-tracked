@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.3] - 2020-02-01
 ### Changed
 - Fix typing of a readonly tuple in 1.0.2
 - Fix typing of useValue in createContainer
