@@ -25,10 +25,16 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED = 0;
+var MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = _deepProxy.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED | _deepProxy.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP;
+var MODE_MUTABLE_ROOT_STATE = _deepProxy.MODE_IGNORE_REF_EQUALITY; // only for root
+
+var MODE_DEFAULT = _deepProxy.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
+
 var STATE_PROPERTY = 's';
 var AFFECTED_PROPERTY = 'a';
 var CACHE_PROPERTY = 'c';
-var ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY = 'g';
+var DEEP_PROXY_MODE_PROPERTY = 'd';
 
 var createUseTrackedState = function createUseTrackedState(context) {
   return function () {
@@ -49,15 +55,15 @@ var createUseTrackedState = function createUseTrackedState(context) {
     (0, _utils.useIsomorphicLayoutEffect)(function () {
       var _lastTracked$current;
 
-      lastTracked.current = (_lastTracked$current = {}, _defineProperty(_lastTracked$current, STATE_PROPERTY, state), _defineProperty(_lastTracked$current, AFFECTED_PROPERTY, affected), _defineProperty(_lastTracked$current, CACHE_PROPERTY, new WeakMap()), _defineProperty(_lastTracked$current, ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY, opts.unstable_forceUpdateForStateChange ? true : opts.unstable_ignoreIntermediateObjectUsage ? false :
+      lastTracked.current = (_lastTracked$current = {}, _defineProperty(_lastTracked$current, STATE_PROPERTY, state), _defineProperty(_lastTracked$current, AFFECTED_PROPERTY, affected), _defineProperty(_lastTracked$current, CACHE_PROPERTY, new WeakMap()), _defineProperty(_lastTracked$current, DEEP_PROXY_MODE_PROPERTY, opts.unstable_forceUpdateForStateChange ? MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED : opts.unstable_ignoreIntermediateObjectUsage ? MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED : opts.unstable_ignoreStateEquality ? MODE_MUTABLE_ROOT_STATE :
       /* default */
-      null), _lastTracked$current);
+      MODE_DEFAULT), _lastTracked$current);
     });
     (0, _utils.useIsomorphicLayoutEffect)(function () {
       var callback = function callback(nextState) {
         var lastTrackedCurrent = lastTracked.current;
 
-        if (lastTrackedCurrent[STATE_PROPERTY] === nextState || !(0, _deepProxy.isDeepChanged)(lastTrackedCurrent[STATE_PROPERTY], nextState, lastTrackedCurrent[AFFECTED_PROPERTY], lastTrackedCurrent[CACHE_PROPERTY], lastTrackedCurrent[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY])) {
+        if (lastTrackedCurrent[STATE_PROPERTY] === nextState || !(0, _deepProxy.isDeepChanged)(lastTrackedCurrent[STATE_PROPERTY], nextState, lastTrackedCurrent[AFFECTED_PROPERTY], lastTrackedCurrent[CACHE_PROPERTY], lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY])) {
           // not changed
           return;
         }

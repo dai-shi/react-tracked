@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getUntrackedObject = exports.trackMemo = exports.isDeepChanged = exports.createDeepProxy = void 0;
+exports.getUntrackedObject = exports.trackMemo = exports.isDeepChanged = exports.MODE_IGNORE_REF_EQUALITY_IN_DEEP = exports.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP = exports.MODE_IGNORE_REF_EQUALITY = exports.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED = exports.createDeepProxy = void 0;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -120,12 +120,26 @@ var isOwnKeysChanged = function isOwnKeysChanged(origObj, nextObj) {
   });
 };
 
-var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, assumeChangedIfNotAffected) {
-  if (origObj === nextObj) return false;
+var MODE_ASSUME_UNCHANGED_IF_UNAFFECTED =
+/*   */
+1;
+exports.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED;
+var MODE_IGNORE_REF_EQUALITY =
+/*              */
+2;
+exports.MODE_IGNORE_REF_EQUALITY = MODE_IGNORE_REF_EQUALITY;
+var IN_DEEP_SHIFT = 2;
+var MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED << IN_DEEP_SHIFT;
+exports.MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP;
+var MODE_IGNORE_REF_EQUALITY_IN_DEEP = MODE_IGNORE_REF_EQUALITY << IN_DEEP_SHIFT;
+exports.MODE_IGNORE_REF_EQUALITY_IN_DEEP = MODE_IGNORE_REF_EQUALITY_IN_DEEP;
+
+var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, mode) {
+  if (origObj === nextObj && (mode & MODE_IGNORE_REF_EQUALITY) === 0) return false;
   if (_typeof(origObj) !== 'object' || origObj === null) return true;
   if (_typeof(nextObj) !== 'object' || nextObj === null) return true;
   var used = affected.get(origObj);
-  if (!used) return !!assumeChangedIfNotAffected;
+  if (!used) return (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
 
   if (cache) {
     var hit = cache.get(origObj);
@@ -147,7 +161,7 @@ var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, as
   try {
     for (var _iterator = used[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
       var key = _step.value;
-      var c = key === OWN_KEYS_SYMBOL ? isOwnKeysChanged(origObj, nextObj) : isDeepChanged(origObj[key], nextObj[key], affected, cache, assumeChangedIfNotAffected !== false);
+      var c = key === OWN_KEYS_SYMBOL ? isOwnKeysChanged(origObj, nextObj) : isDeepChanged(origObj[key], nextObj[key], affected, cache, mode >>> IN_DEEP_SHIFT << IN_DEEP_SHIFT | mode >>> IN_DEEP_SHIFT);
       if (c === true || c === false) changed = c;
       if (changed) break;
     }
@@ -166,7 +180,7 @@ var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, as
     }
   }
 
-  if (changed === null) changed = !!assumeChangedIfNotAffected;
+  if (changed === null) changed = (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
 
   if (cache) {
     var _cache$set2;
