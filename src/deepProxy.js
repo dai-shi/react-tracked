@@ -126,7 +126,7 @@ export const isDeepChanged = (
   if (typeof nextObj !== 'object' || nextObj === null) return true;
   const used = affected.get(origObj);
   if (!used) return (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
-  if (cache) {
+  if (cache && (mode & MODE_IGNORE_REF_EQUALITY) === 0) {
     const hit = cache.get(origObj);
     if (hit && hit[NEXT_OBJECT_PROPERTY] === nextObj) {
       return hit[CHANGED_PROPERTY];
@@ -149,7 +149,7 @@ export const isDeepChanged = (
     if (changed) break;
   }
   if (changed === null) changed = (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
-  if (cache) {
+  if (cache && (mode & MODE_IGNORE_REF_EQUALITY) === 0) {
     cache.set(origObj, {
       [NEXT_OBJECT_PROPERTY]: nextObj,
       [CHANGED_PROPERTY]: changed,
