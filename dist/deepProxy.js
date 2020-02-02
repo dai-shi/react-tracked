@@ -141,7 +141,7 @@ var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, mo
   var used = affected.get(origObj);
   if (!used) return (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
 
-  if (cache) {
+  if (cache && (mode & MODE_IGNORE_REF_EQUALITY) === 0) {
     var hit = cache.get(origObj);
 
     if (hit && hit[NEXT_OBJECT_PROPERTY] === nextObj) {
@@ -182,7 +182,7 @@ var isDeepChanged = function isDeepChanged(origObj, nextObj, affected, cache, mo
 
   if (changed === null) changed = (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
 
-  if (cache) {
+  if (cache && (mode & MODE_IGNORE_REF_EQUALITY) === 0) {
     var _cache$set2;
 
     cache.set(origObj, (_cache$set2 = {}, _defineProperty(_cache$set2, NEXT_OBJECT_PROPERTY, nextObj), _defineProperty(_cache$set2, CHANGED_PROPERTY, changed), _cache$set2));
