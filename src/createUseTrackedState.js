@@ -10,13 +10,26 @@ import {
   STATE_CONTEXT_PROPERTY,
   SUBSCRIBE_CONTEXT_PROPERTY,
 } from './createProvider';
-import { createDeepProxy, isDeepChanged } from './deepProxy';
+import {
+  createDeepProxy,
+  isDeepChanged,
+  MODE_ASSUME_UNCHANGED_IF_UNAFFECTED,
+  MODE_IGNORE_REF_EQUALITY,
+  MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP,
+} from './deepProxy';
 import { createUseUpdate } from './createUseUpdate';
+
+const MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED = 0;
+const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
+  MODE_ASSUME_UNCHANGED_IF_UNAFFECTED | MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP
+);
+const MODE_MUTABLE_ROOT_STATE = MODE_IGNORE_REF_EQUALITY; // only for root
+const MODE_DEFAULT = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
 
 const STATE_PROPERTY = 's';
 const AFFECTED_PROPERTY = 'a';
 const CACHE_PROPERTY = 'c';
-const ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY = 'g';
+const DEEP_PROXY_MODE_PROPERTY = 'd';
 
 export const createUseTrackedState = (context) => (opts = {}) => {
   const [, forceUpdate] = useReducer((c) => c + 1, 0);
@@ -32,10 +45,11 @@ export const createUseTrackedState = (context) => (opts = {}) => {
       [AFFECTED_PROPERTY]: affected,
       [CACHE_PROPERTY]: new WeakMap(),
       /* eslint-disable no-nested-ternary, indent */
-      [ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY]:
-        opts.unstable_forceUpdateForStateChange ? true
-      : opts.unstable_ignoreIntermediateObjectUsage ? false
-      : /* default */ null,
+      [DEEP_PROXY_MODE_PROPERTY]:
+        opts.unstable_forceUpdateForStateChange ? MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED
+      : opts.unstable_ignoreIntermediateObjectUsage ? MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED
+      : opts.unstable_ignoreStateEquality ? MODE_MUTABLE_ROOT_STATE
+      : /* default */ MODE_DEFAULT,
       /* eslint-enable no-nested-ternary, indent */
     };
   });
@@ -48,7 +62,7 @@ export const createUseTrackedState = (context) => (opts = {}) => {
           nextState,
           lastTrackedCurrent[AFFECTED_PROPERTY],
           lastTrackedCurrent[CACHE_PROPERTY],
-          lastTrackedCurrent[ASSUME_CHANGED_IF_NOT_AFFECTED_PROPERTY],
+          lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
         )) {
         // not changed
         return;

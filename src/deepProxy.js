@@ -103,18 +103,29 @@ const isOwnKeysChanged = (origObj, nextObj) => {
     || origKeys.some((k, i) => k !== nextKeys[i]);
 };
 
+export const MODE_ASSUME_UNCHANGED_IF_UNAFFECTED = /*   */ 0b00001;
+export const MODE_IGNORE_REF_EQUALITY = /*              */ 0b00010;
+
+const IN_DEEP_SHIFT = 2;
+export const MODE_ASSUME_UNCHANGED_IF_UNAFFECTED_IN_DEEP = (
+  MODE_ASSUME_UNCHANGED_IF_UNAFFECTED << IN_DEEP_SHIFT
+);
+export const MODE_IGNORE_REF_EQUALITY_IN_DEEP = (
+  MODE_IGNORE_REF_EQUALITY << IN_DEEP_SHIFT
+);
+
 export const isDeepChanged = (
   origObj,
   nextObj,
   affected,
   cache,
-  assumeChangedIfNotAffected,
+  mode,
 ) => {
-  if (origObj === nextObj) return false;
+  if (origObj === nextObj && (mode & MODE_IGNORE_REF_EQUALITY) === 0) return false;
   if (typeof origObj !== 'object' || origObj === null) return true;
   if (typeof nextObj !== 'object' || nextObj === null) return true;
   const used = affected.get(origObj);
-  if (!used) return !!assumeChangedIfNotAffected;
+  if (!used) return (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
   if (cache) {
     const hit = cache.get(origObj);
     if (hit && hit[NEXT_OBJECT_PROPERTY] === nextObj) {
@@ -132,12 +143,12 @@ export const isDeepChanged = (
         nextObj[key],
         affected,
         cache,
-        assumeChangedIfNotAffected !== false,
+        ((mode >>> IN_DEEP_SHIFT) << IN_DEEP_SHIFT) | (mode >>> IN_DEEP_SHIFT),
       );
     if (c === true || c === false) changed = c;
     if (changed) break;
   }
-  if (changed === null) changed = !!assumeChangedIfNotAffected;
+  if (changed === null) changed = (mode & MODE_ASSUME_UNCHANGED_IF_UNAFFECTED) === 0;
   if (cache) {
     cache.set(origObj, {
       [NEXT_OBJECT_PROPERTY]: nextObj,

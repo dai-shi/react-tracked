@@ -30,6 +30,7 @@
     "import/no-unresolved": ["error", { "ignore": ["react-tracked"] }],
     "no-param-reassign": "off",
     "no-plusplus": "off",
+    "no-bitwise": "off",
     "symbol-description": "off",
     "prefer-object-spread": "off"
   },
