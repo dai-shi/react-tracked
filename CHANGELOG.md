@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.4] - 2020-02-02
 ### Changed
 - Improve internal mode for deepProxy behavior
   - This doesn't change the default behavior
