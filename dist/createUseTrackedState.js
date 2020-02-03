@@ -61,11 +61,14 @@ var createUseTrackedState = function createUseTrackedState(context) {
     });
     (0, _utils.useIsomorphicLayoutEffect)(function () {
       var callback = function callback(nextState) {
-        var lastTrackedCurrent = lastTracked.current;
+        try {
+          var lastTrackedCurrent = lastTracked.current;
 
-        if (lastTrackedCurrent[STATE_PROPERTY] === nextState || !(0, _deepProxy.isDeepChanged)(lastTrackedCurrent[STATE_PROPERTY], nextState, lastTrackedCurrent[AFFECTED_PROPERTY], lastTrackedCurrent[CACHE_PROPERTY], lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY])) {
-          // not changed
-          return;
+          if (lastTrackedCurrent[STATE_PROPERTY] === nextState || !(0, _deepProxy.isDeepChanged)(lastTrackedCurrent[STATE_PROPERTY], nextState, lastTrackedCurrent[AFFECTED_PROPERTY], lastTrackedCurrent[CACHE_PROPERTY], lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY])) {
+            // not changed
+            return;
+          }
+        } catch (e) {// ignored (thrown promise or some other reason)
         }
 
         forceUpdate();
