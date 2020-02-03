@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Ignore thrown error/promise in useTrackedState callback (for Suspense)
 
 ## [1.0.4] - 2020-02-02
 ### Changed

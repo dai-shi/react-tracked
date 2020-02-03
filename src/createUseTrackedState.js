@@ -55,17 +55,21 @@ export const createUseTrackedState = (context) => (opts = {}) => {
   });
   useIsomorphicLayoutEffect(() => {
     const callback = (nextState) => {
-      const lastTrackedCurrent = lastTracked.current;
-      if (lastTrackedCurrent[STATE_PROPERTY] === nextState
-        || !isDeepChanged(
-          lastTrackedCurrent[STATE_PROPERTY],
-          nextState,
-          lastTrackedCurrent[AFFECTED_PROPERTY],
-          lastTrackedCurrent[CACHE_PROPERTY],
-          lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
-        )) {
-        // not changed
-        return;
+      try {
+        const lastTrackedCurrent = lastTracked.current;
+        if (lastTrackedCurrent[STATE_PROPERTY] === nextState
+          || !isDeepChanged(
+            lastTrackedCurrent[STATE_PROPERTY],
+            nextState,
+            lastTrackedCurrent[AFFECTED_PROPERTY],
+            lastTrackedCurrent[CACHE_PROPERTY],
+            lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
+          )) {
+          // not changed
+          return;
+        }
+      } catch (e) {
+        // ignored (thrown promise or some other reason)
       }
       forceUpdate();
     };
