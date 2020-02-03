@@ -1,7 +1,7 @@
 {
   "name": "react-tracked",
   "description": "Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",
