@@ -7,5 +7,6 @@ exports.useIsomorphicLayoutEffect = void 0;
 
 var _react = require("react");
 
-var useIsomorphicLayoutEffect = typeof window !== 'undefined' ? _react.useLayoutEffect : _react.useEffect;
+var isClient = typeof window !== 'undefined' && typeof window.navigator !== 'undefined' && typeof window.navigator.userAgent === 'string' && !window.navigator.userAgent.includes('ServerSideRendering');
+var useIsomorphicLayoutEffect = isClient ? _react.useLayoutEffect : _react.useEffect;
 exports.useIsomorphicLayoutEffect = useIsomorphicLayoutEffect;
