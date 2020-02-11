@@ -1,3 +1,10 @@
 import { useEffect, useLayoutEffect } from 'react';
 
-export const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
+const isClient = (
+  typeof window !== 'undefined'
+  && typeof window.navigator !== 'undefined'
+  && typeof window.navigator.userAgent === 'string'
+  && !window.navigator.userAgent.includes('ServerSideRendering')
+);
+
+export const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect;
