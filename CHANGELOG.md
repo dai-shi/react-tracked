@@ -1,8 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.0.6] - 2020-02-11
 ### Changed
-- Check userAgent for SSR
+- Betect SSR beter by checking userAgent
 
 ## [1.0.5] - 2020-02-03
 ### Changed
