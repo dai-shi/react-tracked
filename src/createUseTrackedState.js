@@ -5,7 +5,7 @@ import {
   useReducer,
 } from 'react';
 
-import { useIsomorphicLayoutEffect } from './utils';
+import { useIsomorphicLayoutEffect, useWarnMemo } from './utils';
 import {
   STATE_CONTEXT_PROPERTY,
   SUBSCRIBE_CONTEXT_PROPERTY,
@@ -76,6 +76,9 @@ export const createUseTrackedState = (context) => (opts = {}) => {
     const unsubscribe = subscribe(callback);
     return unsubscribe;
   }, [subscribe]);
+  if (process.env.NODE_ENV !== 'production') {
+    useWarnMemo(state, affected);
+  }
   const proxyCache = useRef(new WeakMap()); // per-hook proxyCache
   return createDeepProxy(state, affected, proxyCache.current);
 };
