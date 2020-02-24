@@ -66,14 +66,28 @@ var createProvider = function createProvider(context, useValue) {
         state = _useValue2[0],
         update = _useValue2[1];
 
-    var listeners = (0, _react.useRef)([]); // we call listeners in render intentionally.
-    // listeners are not technically pure, but
-    // otherwise we can't get benefits from concurrent mode.
-    // we make sure to work with double or more invocation of listeners.
+    var listeners = (0, _react.useRef)([]);
 
-    listeners.current.forEach(function (listener) {
-      return listener(state);
-    });
+    if (process.env.NODE_ENV !== 'production') {
+      // we use layout effect to eliminate warnings.
+      // but, this leads tearing with startTransition.
+      // https://github.com/dai-shi/use-context-selector/pull/13
+      (0, _react.useLayoutEffect)(function () {
+        listeners.current.forEach(function (listener) {
+          return listener(state);
+        });
+      });
+    } else {
+      // we call listeners in render for optimization.
+      // although this is not a recommended pattern,
+      // so far this is only the way to make it as expected.
+      // we are looking for better solutions.
+      // https://github.com/dai-shi/use-context-selector/pull/12
+      listeners.current.forEach(function (listener) {
+        return listener(state);
+      });
+    }
+
     var subscribe = (0, _react.useCallback)(function (listener) {
       listeners.current.push(listener);
 
