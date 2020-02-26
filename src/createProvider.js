@@ -2,9 +2,10 @@ import {
   createContext,
   createElement,
   useCallback,
-  useLayoutEffect,
   useRef,
 } from 'react';
+
+import { useIsomorphicLayoutEffect } from './utils';
 
 // -------------------------------------------------------
 // context
@@ -47,7 +48,7 @@ export const createProvider = (context, useValue) => (props) => {
     // we use layout effect to eliminate warnings.
     // but, this leads tearing with startTransition.
     // https://github.com/dai-shi/use-context-selector/pull/13
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
       listeners.current.forEach((listener) => listener(state));
     });
   } else {
