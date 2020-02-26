@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.1.1] - 2020-02-26
+### Changed
+- Use useIsomorphicLayoutEffect in Provider to eliminate SSR warning
+
 ## [1.1.0] - 2020-02-24
 ### Changed
 - A workaround for React render warning (hopefully temporarily)

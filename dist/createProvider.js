@@ -7,6 +7,8 @@ exports.createProvider = exports.createCustomContext = exports.SUBSCRIBE_CONTEXT
 
 var _react = require("react");
 
+var _utils = require("./utils");
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
@@ -72,7 +74,7 @@ var createProvider = function createProvider(context, useValue) {
       // we use layout effect to eliminate warnings.
       // but, this leads tearing with startTransition.
       // https://github.com/dai-shi/use-context-selector/pull/13
-      (0, _react.useLayoutEffect)(function () {
+      (0, _utils.useIsomorphicLayoutEffect)(function () {
         listeners.current.forEach(function (listener) {
           return listener(state);
         });
