@@ -44,12 +44,14 @@ const Child = React.memo(({ foo }) => {
 };
 ```
 
-## Proxied state might behave unexpectedly outside of render
+## Proxied state might behave unexpectedly outside render
 
 Proxies are basically transparent, and it should behave like normal objects.
 However, there can be edge cases where it behaves unexpectedly.
 For example, if you console.log a proxied value,
 it will display a proxy wrapping an object.
+Notice, it will be kept tracking outside render,
+so any prorerty access will mark as used to trigger re-render on updates.
 
 React Tracked will unwrap a Proxy before wrapping with a new Proxy,
 hence, it will work fine in usual use cases.
