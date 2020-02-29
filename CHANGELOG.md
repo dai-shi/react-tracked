@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Fix anonymous hook names
 
 ## [1.1.1] - 2020-02-26
 ### Changed
