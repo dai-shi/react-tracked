@@ -32,7 +32,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
-      'react-tracked': __dirname,
+      'react-tracked': `${__dirname}/src`,
     },
   },
   devServer: {
