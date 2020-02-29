@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { useDispatch, TodoType } from './store';
+import {
+  useDispatch,
+  // useUntrackedDispatch as useDispatch, // for unwrapping proxy
+  TodoType,
+} from './store';
 
 type Props = {
   todo: TodoType;

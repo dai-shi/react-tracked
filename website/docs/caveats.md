@@ -44,21 +44,35 @@ const Child = React.memo(({ foo }) => {
 };
 ```
 
-## Proxied state shouldn't be used outside of render
+## Proxied state might behave unexpectedly outside of render
+
+Proxies are basically transparent, and it should behave like normal objects.
+However, there can be edge cases where it behaves unexpectedly.
+For example, if you console.log a proxied value,
+it will display a proxy wrapping an object.
+
+React Tracked will unwrap a Proxy before wrapping with a new Proxy,
+hence, it will work fine in usual use cases.
+There's only one known pitfall: If you wrap proxied state with your own Proxy
+outside React Tracked, it might lead memory leaks, because React Tracked
+wouldn't know how to unwrap your own Proxy.
+
+To work around such edge cases, the first option is to use primitive values.
 
 ```javascript
 const state = useTrackedState();
 const dispatch = useUpdate();
-dispatch({ type: 'FOO', value: state.foo }); // This may lead unexpected behavior if state.foo is an object
-dispatch({ type: 'FOO', value: state.fooStr }); // This is OK if state.fooStr is a string
+dispatch({ type: 'FOO', value: state.fooObj }); // Instead of using objects,
+dispatch({ type: 'FOO', value: state.fooStr }); // Use primitives.
 ```
 
-It's recommended to use primitive values for `dispatch`, `setState` and others.
-
-In case you need to pass an object itself, here's a workaround.
+The second option is to use `getUntrackedObject`.
 
 ```javascript
 import { getUntrackedObject } from 'react-tracked';
 
-dispatch({ type: 'FOO', value: getUntrackedObject(state.foo) });
+dispatch({ type: 'FOO', value: getUntrackedObject(state.fooObj) });
 ```
+
+You could implement a special dispatch function to do this automatically.
+Check out [examples/10_untracked/src/store.ts](https://github.com/dai-shi/react-tracked/blob/master/examples/10_untracked/src/store.ts) for a concrate example.
