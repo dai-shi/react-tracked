@@ -60,7 +60,7 @@ var createCustomContext = function createCustomContext() {
 exports.createCustomContext = createCustomContext;
 
 var createProvider = function createProvider(context, useValue) {
-  return function (props) {
+  var Provider = function Provider(props) {
     var _value;
 
     var _useValue = useValue(props),
@@ -74,6 +74,7 @@ var createProvider = function createProvider(context, useValue) {
       // we use layout effect to eliminate warnings.
       // but, this leads tearing with startTransition.
       // https://github.com/dai-shi/use-context-selector/pull/13
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       (0, _utils.useIsomorphicLayoutEffect)(function () {
         listeners.current.forEach(function (listener) {
           return listener(state);
@@ -104,6 +105,8 @@ var createProvider = function createProvider(context, useValue) {
       value: (_value = {}, _defineProperty(_value, STATE_CONTEXT_PROPERTY, state), _defineProperty(_value, UPDATE_CONTEXT_PROPERTY, update), _defineProperty(_value, SUBSCRIBE_CONTEXT_PROPERTY, subscribe), _value)
     }, props.children);
   };
+
+  return Provider;
 };
 
 exports.createProvider = createProvider;

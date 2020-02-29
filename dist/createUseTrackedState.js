@@ -37,7 +37,7 @@ var CACHE_PROPERTY = 'c';
 var DEEP_PROXY_MODE_PROPERTY = 'd';
 
 var createUseTrackedState = function createUseTrackedState(context) {
-  return function () {
+  var useTrackedState = function useTrackedState() {
     var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
     var _useReducer = (0, _react.useReducer)(function (c) {
@@ -77,10 +77,18 @@ var createUseTrackedState = function createUseTrackedState(context) {
       var unsubscribe = subscribe(callback);
       return unsubscribe;
     }, [subscribe]);
+
+    if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      (0, _utils.useAffectedDebugValue)(state, affected);
+    }
+
     var proxyCache = (0, _react.useRef)(new WeakMap()); // per-hook proxyCache
 
     return (0, _deepProxy.createDeepProxy)(state, affected, proxyCache.current);
   };
+
+  return useTrackedState;
 };
 
 exports.createUseTrackedState = createUseTrackedState;
@@ -88,13 +96,16 @@ exports.createUseTrackedState = createUseTrackedState;
 var createUseTracked = function createUseTracked(context) {
   var useTrackedState = createUseTrackedState(context);
   var useUpdate = (0, _createUseUpdate.createUseUpdate)(context);
-  return function (opts) {
+
+  var useTracked = function useTracked(opts) {
     var state = useTrackedState(opts);
     var update = useUpdate();
     return (0, _react.useMemo)(function () {
       return [state, update];
     }, [state, update]);
   };
+
+  return useTracked;
 };
 
 exports.createUseTracked = createUseTracked;

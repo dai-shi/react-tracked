@@ -92,6 +92,9 @@ var createProxyHandler = function createProxyHandler() {
 
 var createDeepProxy = function createDeepProxy(obj, affected, proxyCache) {
   if (!isPlainObject(obj)) return obj;
+  var origObj = obj[GET_ORIGINAL_SYMBOL]; // unwrap proxy
+
+  if (origObj) obj = origObj;
   var proxyHandler = proxyCache && proxyCache.get(obj);
 
   if (!proxyHandler) {

@@ -31,7 +31,7 @@ var defaultEqualityFn = function defaultEqualityFn(a, b) {
 };
 
 var createUseSelector = function createUseSelector(context) {
-  return function (selector) {
+  var useSelector = function useSelector(selector) {
     var equalityFn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : defaultEqualityFn;
 
     var _useReducer = (0, _react.useReducer)(function (c) {
@@ -71,6 +71,8 @@ var createUseSelector = function createUseSelector(context) {
     }, [subscribe]);
     return selected;
   };
+
+  return useSelector;
 };
 
 exports.createUseSelector = createUseSelector;
