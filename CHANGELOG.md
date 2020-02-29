@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 ### Changed
-- Fix anonymous hook names
+- Fix anonymous hook names (#39)
+- Add debug value to show tracked paths in useTrackedState (#40)
 
 ## [1.1.1] - 2020-02-26
 ### Changed
