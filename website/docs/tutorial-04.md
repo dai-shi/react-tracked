@@ -118,7 +118,7 @@ const asyncActionHandlers: AsyncActionHandlers<
   Reducer<State, Action>,
   AsyncAction
 > = {
-  CREATE_TODO: dispatch => async action => {
+  CREATE_TODO: ({ dispatch }) => async action => {
     try {
       dispatch({ type: 'STARTED' });
       const response = await fetch(`https://reqres.in/api/todos?delay=1`, {
@@ -136,7 +136,7 @@ const asyncActionHandlers: AsyncActionHandlers<
       dispatch({ type: 'FAILED', error });
     }
   },
-  TOGGLE_TODO: (dispatch, getState) => async action => {
+  TOGGLE_TODO: ({ dispatch, getState }) => async action => {
     try {
       dispatch({ type: 'STARTED' });
       const todo = getState().todoMap[action.id];
@@ -161,7 +161,7 @@ const asyncActionHandlers: AsyncActionHandlers<
       dispatch({ type: 'FAILED', error });
     }
   },
-  DELETE_TODO: dispatch => async action => {
+  DELETE_TODO: ({ dispatch } )=> async action => {
     try {
       dispatch({ type: 'STARTED' });
       await fetch(`https://reqres.in/api/todos/${action.id}?delay=1`, {
@@ -342,4 +342,4 @@ It uses a local state for the text field.
 
 ## CodeSandbox
 
-You can try [working example](https://codesandbox.io/s/upbeat-kirch-cjkpe).
+You can try [working example](https://codesandbox.io/s/festive-wiles-es8ss).

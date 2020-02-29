@@ -77,7 +77,7 @@ type AsyncAction = AsyncActionFetch | AsyncActionClear;
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const asyncActionHandlers: AsyncActionHandlers<Reducer<State, Action>, AsyncAction> = {
-  FETCH_USER: (dispatch) => async (action) => {
+  FETCH_USER: ({ dispatch }) => async (action) => {
     try {
       dispatch({ type: 'START_FETCH_USER' });
       const response = await fetch(`https://reqres.in/api/users/${action.id}?delay=1`);
@@ -91,7 +91,7 @@ const asyncActionHandlers: AsyncActionHandlers<Reducer<State, Action>, AsyncActi
       dispatch({ type: 'ERROR_FETCH_USER' });
     }
   },
-  DELAYED_DECREMENT: (dispatch) => async () => {
+  DELAYED_DECREMENT: ({ dispatch }) => async () => {
     await sleep(500);
     dispatch({ type: 'DECREMENT' });
   },
