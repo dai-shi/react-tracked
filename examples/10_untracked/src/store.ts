@@ -72,12 +72,16 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const useValue = () => useReducer(reducer, initialState);
+const useValue = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  // console.log(state);
+  return [state, dispatch] as const;
+};
 
 const {
   Provider,
   useTrackedState,
-  useUpdate: useDispatchOrig,
+  useUpdate: useDispatch,
 } = createContainer(useValue);
 
 // eslint-disable-next-line arrow-parens
@@ -99,8 +103,8 @@ const untrackDeep = <T>(obj: T) => {
   return modified ? newObj : obj;
 };
 
-const useDispatch = () => {
-  const dispatch = useDispatchOrig();
+const useUntrackedDispatch = () => {
+  const dispatch = useDispatch();
   return useCallback((action) => {
     const untrackedAction = untrackDeep(action);
     // console.log(action, untrackedAction);
@@ -112,4 +116,5 @@ export {
   Provider,
   useTrackedState,
   useDispatch,
+  useUntrackedDispatch,
 };

@@ -4,6 +4,7 @@
 ### Changed
 - Fix anonymous hook names (#39)
 - Add debug value to show tracked paths in useTrackedState (#40)
+- Unwrap Proxy before wrapping to mitigate possible pitfalls (#41)
 
 ## [1.1.1] - 2020-02-26
 ### Changed
