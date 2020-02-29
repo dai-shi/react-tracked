@@ -41,41 +41,45 @@ export const createCustomContext = (
 // provider
 // -------------------------------------------------------
 
-export const createProvider = (context, useValue) => (props) => {
-  const [state, update] = useValue(props);
-  const listeners = useRef([]);
-  if (process.env.NODE_ENV !== 'production') {
-    // we use layout effect to eliminate warnings.
-    // but, this leads tearing with startTransition.
-    // https://github.com/dai-shi/use-context-selector/pull/13
-    useIsomorphicLayoutEffect(() => {
+export const createProvider = (context, useValue) => {
+  const Provider = (props) => {
+    const [state, update] = useValue(props);
+    const listeners = useRef([]);
+    if (process.env.NODE_ENV !== 'production') {
+      // we use layout effect to eliminate warnings.
+      // but, this leads tearing with startTransition.
+      // https://github.com/dai-shi/use-context-selector/pull/13
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      useIsomorphicLayoutEffect(() => {
+        listeners.current.forEach((listener) => listener(state));
+      });
+    } else {
+      // we call listeners in render for optimization.
+      // although this is not a recommended pattern,
+      // so far this is only the way to make it as expected.
+      // we are looking for better solutions.
+      // https://github.com/dai-shi/use-context-selector/pull/12
       listeners.current.forEach((listener) => listener(state));
-    });
-  } else {
-    // we call listeners in render for optimization.
-    // although this is not a recommended pattern,
-    // so far this is only the way to make it as expected.
-    // we are looking for better solutions.
-    // https://github.com/dai-shi/use-context-selector/pull/12
-    listeners.current.forEach((listener) => listener(state));
-  }
-  const subscribe = useCallback((listener) => {
-    listeners.current.push(listener);
-    const unsubscribe = () => {
-      const index = listeners.current.indexOf(listener);
-      listeners.current.splice(index, 1);
-    };
-    return unsubscribe;
-  }, []);
-  return createElement(
-    context.Provider,
-    {
-      value: {
-        [STATE_CONTEXT_PROPERTY]: state,
-        [UPDATE_CONTEXT_PROPERTY]: update,
-        [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
+    }
+    const subscribe = useCallback((listener) => {
+      listeners.current.push(listener);
+      const unsubscribe = () => {
+        const index = listeners.current.indexOf(listener);
+        listeners.current.splice(index, 1);
+      };
+      return unsubscribe;
+    }, []);
+    return createElement(
+      context.Provider,
+      {
+        value: {
+          [STATE_CONTEXT_PROPERTY]: state,
+          [UPDATE_CONTEXT_PROPERTY]: update,
+          [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
+        },
       },
-    },
-    props.children,
-  );
+      props.children,
+    );
+  };
+  return Provider;
 };
