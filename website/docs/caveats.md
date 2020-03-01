@@ -53,10 +53,11 @@ it will display a proxy wrapping an object.
 Notice, it will be kept tracking outside render,
 so any prorerty access will mark as used to trigger re-render on updates.
 
-React Tracked will unwrap a Proxy before wrapping with a new Proxy,
+useTrackedState will unwrap a Proxy before wrapping with a new Proxy,
 hence, it will work fine in usual use cases.
 There's only one known pitfall: If you wrap proxied state with your own Proxy
-outside React Tracked, it might lead memory leaks, because React Tracked
+outside the control of useTrackedState,
+it might lead memory leaks, because useTrackedState
 wouldn't know how to unwrap your own Proxy.
 
 To work around such edge cases, the first option is to use primitive values.
