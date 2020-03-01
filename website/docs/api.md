@@ -133,7 +133,7 @@ const Component = () => {
   const state = useTrackedState();
   const dispatch = useUpdate();
   const onClick = () => {
-    // this leaks a proxy outside of render
+    // this leaks a proxy outside render
     dispatch({ type: 'FOO', value: state.foo });
 
     // this works as expected
