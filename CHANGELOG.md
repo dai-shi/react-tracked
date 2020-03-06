@@ -2,7 +2,7 @@
 
 ## [Unreleased]
 ### Changed
-- Notify child components in update not in render
+- Notify child components in update not in render (#42)
   - No updates on props change (breaking change in an undocumented behavior)
 
 ## [1.2.0] - 2020-02-29
