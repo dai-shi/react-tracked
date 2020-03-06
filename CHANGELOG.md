@@ -1,6 +1,9 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Notify child components in update not in render
+  - No updates on props change (breaking change in an undocumented behavior)
 
 ## [1.2.0] - 2020-02-29
 ### Changed

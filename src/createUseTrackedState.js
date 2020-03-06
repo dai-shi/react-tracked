@@ -8,6 +8,7 @@ import {
 import { useIsomorphicLayoutEffect, useAffectedDebugValue } from './utils';
 import {
   STATE_CONTEXT_PROPERTY,
+  VERSION_CONTEXT_PROPERTY,
   SUBSCRIBE_CONTEXT_PROPERTY,
 } from './createProvider';
 import {
@@ -33,9 +34,9 @@ const DEEP_PROXY_MODE_PROPERTY = 'd';
 
 export const createUseTrackedState = (context) => {
   const useTrackedState = (opts = {}) => {
-    const [, forceUpdate] = useReducer((c) => c + 1, 0);
     const {
       [STATE_CONTEXT_PROPERTY]: state,
+      [VERSION_CONTEXT_PROPERTY]: version,
       [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
     } = useContext(context);
     const affected = new WeakMap();
@@ -54,25 +55,47 @@ export const createUseTrackedState = (context) => {
         /* eslint-enable no-nested-ternary, indent */
       };
     });
+    const [, checkUpdate] = useReducer((c, v) => {
+      if (version !== v) {
+        return c + 1; // schedule update
+      }
+      try {
+        const lastTrackedCurrent = lastTracked.current;
+        if (lastTrackedCurrent[STATE_PROPERTY] === state
+          || !isDeepChanged(
+            lastTrackedCurrent[STATE_PROPERTY],
+            state,
+            lastTrackedCurrent[AFFECTED_PROPERTY],
+            lastTrackedCurrent[CACHE_PROPERTY],
+            lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
+          )) {
+          // not changed
+          return c; // bail out
+        }
+      } catch (e) {
+        // ignored (thrown promise or some other reason)
+      }
+      return c + 1;
+    }, 0);
     useIsomorphicLayoutEffect(() => {
-      const callback = (nextState) => {
+      const callback = (nextVersion, nextState) => {
         try {
           const lastTrackedCurrent = lastTracked.current;
-          if (lastTrackedCurrent[STATE_PROPERTY] === nextState
+          if (nextState && (lastTrackedCurrent[STATE_PROPERTY] === nextState
             || !isDeepChanged(
               lastTrackedCurrent[STATE_PROPERTY],
               nextState,
               lastTrackedCurrent[AFFECTED_PROPERTY],
               lastTrackedCurrent[CACHE_PROPERTY],
               lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
-            )) {
+            ))) {
             // not changed
             return;
           }
         } catch (e) {
           // ignored (thrown promise or some other reason)
         }
-        forceUpdate();
+        checkUpdate(nextVersion);
       };
       const unsubscribe = subscribe(callback);
       return unsubscribe;

@@ -7,6 +7,7 @@ import {
 import { useIsomorphicLayoutEffect } from './utils';
 import {
   STATE_CONTEXT_PROPERTY,
+  VERSION_CONTEXT_PROPERTY,
   SUBSCRIBE_CONTEXT_PROPERTY,
 } from './createProvider';
 
@@ -22,9 +23,9 @@ export const createUseSelector = (context) => {
     selector,
     equalityFn = defaultEqualityFn,
   ) => {
-    const [, forceUpdate] = useReducer((c) => c + 1, 0);
     const {
       [STATE_CONTEXT_PROPERTY]: state,
+      [VERSION_CONTEXT_PROPERTY]: version,
       [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
     } = useContext(context);
     const selected = selector(state);
@@ -37,22 +38,41 @@ export const createUseSelector = (context) => {
         [SELECTED_PROPERTY]: selected,
       };
     });
+    const [, checkUpdate] = useReducer((c, v) => {
+      if (version !== v) {
+        return c + 1; // schedule update
+      }
+      try {
+        const refCurrent = ref.current;
+        if (refCurrent[STATE_PROPERTY] === state
+          || refCurrent[EQUALITY_FN_PROPERTY](
+            refCurrent[SELECTED_PROPERTY],
+            refCurrent[SELECTOR_PROPERTY](state),
+          )) {
+          // not changed
+          return c; // bail out
+        }
+      } catch (e) {
+        // ignored (stale props or some other reason)
+      }
+      return c + 1;
+    }, 0);
     useIsomorphicLayoutEffect(() => {
-      const callback = (nextState) => {
+      const callback = (nextVersion, nextState) => {
         try {
           const refCurrent = ref.current;
-          if (refCurrent[STATE_PROPERTY] === nextState
+          if (nextState && (refCurrent[STATE_PROPERTY] === nextState
             || refCurrent[EQUALITY_FN_PROPERTY](
               refCurrent[SELECTED_PROPERTY],
               refCurrent[SELECTOR_PROPERTY](nextState),
-            )) {
+            ))) {
             // not changed
             return;
           }
         } catch (e) {
           // ignored (stale props or some other reason)
         }
-        forceUpdate();
+        checkUpdate(nextVersion);
       };
       const unsubscribe = subscribe(callback);
       return unsubscribe;
