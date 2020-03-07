@@ -48,7 +48,7 @@ var createUseSelector = function createUseSelector(context) {
     });
 
     var _useReducer = (0, _react.useReducer)(function (c, v) {
-      if (version !== v) {
+      if (version < v) {
         return c + 1; // schedule update
       }
 
