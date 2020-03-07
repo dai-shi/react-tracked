@@ -2,16 +2,17 @@ import {
   createContext,
   createElement,
   useCallback,
+  useEffect,
   useRef,
+  useState,
 } from 'react';
-
-import { useIsomorphicLayoutEffect } from './utils';
 
 // -------------------------------------------------------
 // context
 // -------------------------------------------------------
 
 export const STATE_CONTEXT_PROPERTY = 's';
+export const VERSION_CONTEXT_PROPERTY = 'v';
 export const UPDATE_CONTEXT_PROPERTY = 'u';
 export const SUBSCRIBE_CONTEXT_PROPERTY = 'b';
 
@@ -44,23 +45,20 @@ export const createCustomContext = (
 export const createProvider = (context, useValue) => {
   const Provider = (props) => {
     const [state, update] = useValue(props);
+    const [version, setVersion] = useState(0);
+    const versionRef = useRef(0);
     const listeners = useRef([]);
-    if (process.env.NODE_ENV !== 'production') {
-      // we use layout effect to eliminate warnings.
-      // but, this leads tearing with startTransition.
-      // https://github.com/dai-shi/use-context-selector/pull/13
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useIsomorphicLayoutEffect(() => {
-        listeners.current.forEach((listener) => listener(state));
-      });
-    } else {
-      // we call listeners in render for optimization.
-      // although this is not a recommended pattern,
-      // so far this is only the way to make it as expected.
-      // we are looking for better solutions.
-      // https://github.com/dai-shi/use-context-selector/pull/12
-      listeners.current.forEach((listener) => listener(state));
-    }
+    const updateAndNotify = useCallback((...args) => {
+      versionRef.current += 1;
+      listeners.current.forEach((listener) => listener(versionRef.current));
+      setVersion(versionRef.current);
+      return update(...args);
+    }, [update]);
+    useEffect(() => {
+      versionRef.current += 1;
+      listeners.current.forEach((listener) => listener(versionRef.current, state));
+      setVersion(versionRef.current);
+    }, [state]);
     const subscribe = useCallback((listener) => {
       listeners.current.push(listener);
       const unsubscribe = () => {
@@ -74,7 +72,8 @@ export const createProvider = (context, useValue) => {
       {
         value: {
           [STATE_CONTEXT_PROPERTY]: state,
-          [UPDATE_CONTEXT_PROPERTY]: update,
+          [VERSION_CONTEXT_PROPERTY]: version,
+          [UPDATE_CONTEXT_PROPERTY]: updateAndNotify,
           [SUBSCRIBE_CONTEXT_PROPERTY]: subscribe,
         },
       },

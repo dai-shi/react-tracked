@@ -3,11 +3,9 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createProvider = exports.createCustomContext = exports.SUBSCRIBE_CONTEXT_PROPERTY = exports.UPDATE_CONTEXT_PROPERTY = exports.STATE_CONTEXT_PROPERTY = void 0;
+exports.createProvider = exports.createCustomContext = exports.SUBSCRIBE_CONTEXT_PROPERTY = exports.UPDATE_CONTEXT_PROPERTY = exports.VERSION_CONTEXT_PROPERTY = exports.STATE_CONTEXT_PROPERTY = void 0;
 
 var _react = require("react");
-
-var _utils = require("./utils");
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -24,6 +22,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 // -------------------------------------------------------
 var STATE_CONTEXT_PROPERTY = 's';
 exports.STATE_CONTEXT_PROPERTY = STATE_CONTEXT_PROPERTY;
+var VERSION_CONTEXT_PROPERTY = 'v';
+exports.VERSION_CONTEXT_PROPERTY = VERSION_CONTEXT_PROPERTY;
 var UPDATE_CONTEXT_PROPERTY = 'u';
 exports.UPDATE_CONTEXT_PROPERTY = UPDATE_CONTEXT_PROPERTY;
 var SUBSCRIBE_CONTEXT_PROPERTY = 'b';
@@ -68,29 +68,28 @@ var createProvider = function createProvider(context, useValue) {
         state = _useValue2[0],
         update = _useValue2[1];
 
+    var _useState = (0, _react.useState)(0),
+        _useState2 = _slicedToArray(_useState, 2),
+        version = _useState2[0],
+        setVersion = _useState2[1];
+
+    var versionRef = (0, _react.useRef)(0);
     var listeners = (0, _react.useRef)([]);
-
-    if (process.env.NODE_ENV !== 'production') {
-      // we use layout effect to eliminate warnings.
-      // but, this leads tearing with startTransition.
-      // https://github.com/dai-shi/use-context-selector/pull/13
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      (0, _utils.useIsomorphicLayoutEffect)(function () {
-        listeners.current.forEach(function (listener) {
-          return listener(state);
-        });
-      });
-    } else {
-      // we call listeners in render for optimization.
-      // although this is not a recommended pattern,
-      // so far this is only the way to make it as expected.
-      // we are looking for better solutions.
-      // https://github.com/dai-shi/use-context-selector/pull/12
+    var updateAndNotify = (0, _react.useCallback)(function () {
+      versionRef.current += 1;
       listeners.current.forEach(function (listener) {
-        return listener(state);
+        return listener(versionRef.current);
       });
-    }
-
+      setVersion(versionRef.current);
+      return update.apply(void 0, arguments);
+    }, [update]);
+    (0, _react.useEffect)(function () {
+      versionRef.current += 1;
+      listeners.current.forEach(function (listener) {
+        return listener(versionRef.current, state);
+      });
+      setVersion(versionRef.current);
+    }, [state]);
     var subscribe = (0, _react.useCallback)(function (listener) {
       listeners.current.push(listener);
 
@@ -102,7 +101,7 @@ var createProvider = function createProvider(context, useValue) {
       return unsubscribe;
     }, []);
     return (0, _react.createElement)(context.Provider, {
-      value: (_value = {}, _defineProperty(_value, STATE_CONTEXT_PROPERTY, state), _defineProperty(_value, UPDATE_CONTEXT_PROPERTY, update), _defineProperty(_value, SUBSCRIBE_CONTEXT_PROPERTY, subscribe), _value)
+      value: (_value = {}, _defineProperty(_value, STATE_CONTEXT_PROPERTY, state), _defineProperty(_value, VERSION_CONTEXT_PROPERTY, version), _defineProperty(_value, UPDATE_CONTEXT_PROPERTY, updateAndNotify), _defineProperty(_value, SUBSCRIBE_CONTEXT_PROPERTY, subscribe), _value)
     }, props.children);
   };
 
