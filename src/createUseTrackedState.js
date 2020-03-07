@@ -56,7 +56,7 @@ export const createUseTrackedState = (context) => {
       };
     });
     const [, checkUpdate] = useReducer((c, v) => {
-      if (version !== v) {
+      if (version < v) {
         return c + 1; // schedule update
       }
       try {
