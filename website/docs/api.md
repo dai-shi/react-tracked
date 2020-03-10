@@ -63,7 +63,7 @@ const Component = () => {
 The `useUpdate` hook returned by createContainer is for `update` from `useValue`;
 It's named "update" ambiguously, but typically
 it would be renamed to "dispatch" for useReducer,
-"setState" for useState, or "actions" for any actions.
+"setState" for useState, or any "update" function.
 
 ```javascript
 const Component = () => {

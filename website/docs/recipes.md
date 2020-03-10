@@ -99,39 +99,6 @@ const App = () => (
 );
 ```
 
-### useState (custom actions)
-
-You can also use a custom hook.
-The `update` can be anything, so for example it can be a set of action functions.
-
-```javascript
-const useValue = () => {
-  const [state, setState] = useState({ count1: 0, count2: 0 });
-  const increment1 = useCallback(() => {
-    setState(s => ({ ...s, count1: s.count1 + 1 }));
-  }, [setState]);
-  const increment2 = useCallback(() => {
-    setState(s => ({ ...s, count2: s.count2 + 2 }));
-  }, [setState]);
-  const actions = useMemo(() => (
-    { increment1, increment2 },
-  ), [increment1, increment2]);
-  return [state, actions];
-};
-
-const {
-  Provider,
-  useTracked,
-  // ...
-} = createContainer(useValue);
-
-const App = () => (
-  <Provider>
-    ...
-  </Provider>
-);
-```
-
 ### useReducer (with persistence)
 
 Here's how to persist state in localStorage.

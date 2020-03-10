@@ -6,6 +6,7 @@
 ### Changed
 - Notify child components in update not in render (#42)
   - No updates on props change (breaking change in an undocumented behavior)
+  - The `update` must be a function (breaking change in an example and a recipe)
 
 ## [1.2.0] - 2020-02-29
 ### Changed
