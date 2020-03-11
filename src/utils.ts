@@ -12,13 +12,16 @@ const isClient = (
 
 export const useIsomorphicLayoutEffect = isClient ? useLayoutEffect : useEffect;
 
-const affectedToPathList = (state, affected) => {
-  const list = [];
-  const walk = (obj, path) => {
-    const used = affected.get(obj);
+const affectedToPathList = <State>(
+  state: State,
+  affected: WeakMap<object, Set<string>>,
+) => {
+  const list: string[][] = [];
+  const walk = (obj: unknown, path?: string[]) => {
+    const used = affected.get(obj as object);
     if (used) {
       used.forEach((key) => {
-        walk(obj[key], path ? [...path, key] : [key]);
+        walk((obj as { [k: string]: object })[key], path ? [...path, key] : [key]);
       });
     } else if (path) {
       list.push(path);
@@ -28,8 +31,11 @@ const affectedToPathList = (state, affected) => {
   return list;
 };
 
-export const useAffectedDebugValue = (state, affected) => {
-  const pathList = useRef(null);
+export const useAffectedDebugValue = <State>(
+  state: State,
+  affected: WeakMap<object, Set<string>>,
+) => {
+  const pathList = useRef<string[][] | null>(null);
   useEffect(() => {
     pathList.current = affectedToPathList(state, affected);
   });
