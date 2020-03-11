@@ -45,7 +45,7 @@ export const createProvider = <State, Update extends (...args: any) => any, Prop
         listeners.current.forEach((listener) => listener());
       });
     });
-    const updateWithPriority = useCallback((...args: Parameters<Update>) => (
+    const updateWithPriority = useCallback((...args: any) => (
       runWithPriority(UserBlockingPriority, () => update(...args))
     ), [update]) as Update;
     const mutableSource = useMemo(() => createMutableSource({
