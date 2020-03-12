@@ -56,20 +56,20 @@ export const useTrackedState = <State, Update>(
     }) => {
       const nextState = source[STATEREF_SOURCE_PROPERTY].current;
       const lastTrackedCurrent = lastTracked.current;
-      if (lastTrackedCurrent && (lastTrackedCurrent[STATE_PROPERTY] === nextState
-        || !isDeepChanged(
-          lastTrackedCurrent[STATE_PROPERTY],
-          nextState,
-          lastTrackedCurrent[AFFECTED_PROPERTY],
-          lastTrackedCurrent[CACHE_PROPERTY],
-          lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
-        ))) {
-        // not changed
-        return lastTrackedCurrent[STATE_PROPERTY];
-      }
-      return nextState;
+      if (!lastTrackedCurrent) return nextState;
+      if (lastTrackedCurrent[AFFECTED_PROPERTY] !== affected) return nextState;
+      if (lastTrackedCurrent[STATE_PROPERTY] === nextState) return nextState;
+      if (isDeepChanged(
+        lastTrackedCurrent[STATE_PROPERTY],
+        nextState,
+        lastTrackedCurrent[AFFECTED_PROPERTY],
+        lastTrackedCurrent[CACHE_PROPERTY],
+        lastTrackedCurrent[DEEP_PROXY_MODE_PROPERTY],
+      )) return nextState;
+      // not changed
+      return lastTrackedCurrent[STATE_PROPERTY];
     },
-    [],
+    [affected],
   );
   const state: State = useMutableSource(mutableSource, getSnapshot, subscribe);
   useIsomorphicLayoutEffect(() => {
