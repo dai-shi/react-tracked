@@ -111,13 +111,6 @@ const App = () => (
 ReactDOM.render(<App />, document.getElementById('app'));
 ```
 
-## Technical memo
-
-React context by nature triggers propagation of component re-rendering
-if a value is changed. To avoid this, this libraries use undocumented
-feature of `calculateChangedBits`. It then uses a subscription model
-to force update when a component needs to re-render.
-
 ## API
 
 [docs/api](./website/docs/api.md)
