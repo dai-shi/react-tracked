@@ -1,3 +1,2 @@
-import { Context } from 'react';
-import { ContextValue } from './createProvider';
-export declare const useUpdate: <State, Update>(CustomContext: Context<ContextValue<State, Update>>) => Update;
+import { Context as ContextOrig } from 'react';
+export declare const useUpdate: <Update>(UpdateContext: ContextOrig<Update>) => Update;

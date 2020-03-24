@@ -1,3 +1,2 @@
-import { Context } from 'react';
-import { ContextValue } from './createProvider';
-export declare const useSelector: <State, Update, Selected>(CustomContext: Context<ContextValue<State, Update>>, selector: (state: State) => Selected) => any;
+import { Context } from 'use-context-selector';
+export declare const useSelector: <State, Selected>(StateContext: Context<State>, selector: (state: State) => Selected) => Selected;
