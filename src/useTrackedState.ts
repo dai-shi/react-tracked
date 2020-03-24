@@ -1,13 +1,11 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
-
+import {
+  Context as ContextOrig,
+  useMemo,
+} from 'react';
 import {
   Context,
-  MutableRefObject,
   useContext,
-  useMemo,
-  // @ts-ignore
-  useMutableSource,
-} from 'react';
+} from 'use-context-selector';
 import {
   createDeepProxy,
   isDeepChanged,
@@ -17,12 +15,6 @@ import {
 } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils';
-import {
-  ContextValue,
-  MUTABLE_SOURCE_CONTEXT_PROPERTY,
-  STATEREF_SOURCE_PROPERTY,
-  subscribe,
-} from './createProvider';
 import { useUpdate } from './useUpdate';
 
 const MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED = 0;
@@ -34,13 +26,10 @@ const MODE_DEFAULT = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
 
 type Opts = any; // TODO types
 
-export const useTrackedState = <State, Update>(
-  CustomContext: Context<ContextValue<State, Update>>,
+export const useTrackedState = <State>(
+  StateContext: Context<State>,
   opts: Opts = {},
 ) => {
-  const {
-    [MUTABLE_SOURCE_CONTEXT_PROPERTY]: mutableSource,
-  } = useContext(CustomContext);
   const affected = new WeakMap();
   const deepChangedMode = (
     /* eslint-disable no-nested-ternary, indent, no-multi-spaces */
@@ -50,13 +39,10 @@ export const useTrackedState = <State, Update>(
     : /* default */                                 MODE_DEFAULT
     /* eslint-enable no-nested-ternary, indent, no-multi-spaces */
   );
-  const getSnapshot = useMemo(() => {
+  const selector = useMemo(() => {
     let prevState: State | null = null;
     const deepChangedCache = new WeakMap();
-    return (source: {
-      [STATEREF_SOURCE_PROPERTY]: MutableRefObject<State>;
-    }) => {
-      const nextState = source[STATEREF_SOURCE_PROPERTY].current;
+    return (nextState: State) => {
       if (prevState !== null && prevState !== nextState && !isDeepChanged(
         prevState,
         nextState,
@@ -71,7 +57,7 @@ export const useTrackedState = <State, Update>(
       return nextState;
     };
   }, [affected, deepChangedMode]);
-  const state: State = useMutableSource(mutableSource, getSnapshot, subscribe);
+  const state = useContext(StateContext, selector);
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useAffectedDebugValue(state, affected);
@@ -81,10 +67,11 @@ export const useTrackedState = <State, Update>(
 };
 
 export const useTracked = <State, Update>(
-  CustomContext: Context<ContextValue<State, Update>>,
+  StateContext: Context<State>,
+  UpdateContext: ContextOrig<Update>,
   opts?: Opts,
 ) => {
-  const state = useTrackedState(CustomContext, opts);
-  const update = useUpdate(CustomContext);
+  const state = useTrackedState(StateContext, opts);
+  const update = useUpdate(UpdateContext);
   return useMemo(() => [state, update], [state, update]) as [State, Update];
 };

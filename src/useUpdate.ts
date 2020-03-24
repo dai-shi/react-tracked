@@ -1,10 +1,11 @@
-import { Context, useContext } from 'react';
+import {
+  Context as ContextOrig,
+  useContext as useContextOrig,
+} from 'react';
 
-import { ContextValue, UPDATE_CONTEXT_PROPERTY } from './createProvider';
-
-export const useUpdate = <State, Update>(
-  CustomContext: Context<ContextValue<State, Update>>,
+export const useUpdate = <Update>(
+  UpdateContext: ContextOrig<Update>,
 ) => {
-  const { [UPDATE_CONTEXT_PROPERTY]: update } = useContext(CustomContext);
+  const update = useContextOrig(UpdateContext);
   return update;
 };
