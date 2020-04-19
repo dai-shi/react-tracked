@@ -16,6 +16,7 @@ module.exports = {
     Reference: [
       'api',
       'recipes',
+      'debugging',
       'caveats',
     ],
   },
