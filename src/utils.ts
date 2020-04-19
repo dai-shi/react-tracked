@@ -31,5 +31,5 @@ export const useAffectedDebugValue = <State>(
   useEffect(() => {
     pathList.current = affectedToPathList(state, affected);
   });
-  useDebugValue(pathList);
+  useDebugValue(pathList.current);
 };
