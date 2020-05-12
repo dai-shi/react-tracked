@@ -17,13 +17,14 @@ export const createContainer: <State, Update, Props>(
 // deep proxy utils
 
 /**
- * If `obj` is a proxy, it will mark the entire object as used.
- * Otherwise, it does nothing.
- */
-export const trackMemo: (obj: unknown) => void;
-
-/**
  * If `obj` is a proxy, it will return the original object.
  * Otherwise, it will return null.
  */
 export const getUntrackedObject: <T>(obj: T) => T | null;
+
+// special React.memo with tracking suppoort
+
+export function memo<Props>(
+  Component: React.FC<Props>,
+  areEqual?: (prevProps: Props, nextProps: Props) => boolean,
+): React.FC<Props>;

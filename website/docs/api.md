@@ -100,21 +100,19 @@ const Component = () => {
 };
 ```
 
-## trackMemo
+## memo
 
-There is a tiny function exported from the library.
+There is a utility function exported from the library.
 
-This is used to explicitly mark a prop object as used
-in a memoized component. Otherwise, usage tracking may not
+This should be used instead of `React.memo` if props
+include objects being tracked. Otherwise, usage tracking may not
 work correctly because a memoized component doesn't always render
 when a parent component renders.
 
 ```javascript
-import { trackMemo } from 'react-tracked';
+import { memo } from 'react-tracked';
 
-const ChildComponent = React.memo(({ num1, str1, obj1, obj2 }) => {
-  trackMemo(obj1);
-  trackMemo(obj2);
+const ChildComponent = memo(({ num1, str1, obj1, obj2 }) => {
   // ...
 });
 ```
