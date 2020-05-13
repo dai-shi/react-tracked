@@ -3,7 +3,7 @@
 exports[`10_untracked should work with recorded events 1`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -11,7 +11,7 @@ exports[`10_untracked should work with recorded events 1`] = `
 exports[`10_untracked should work with recorded events 2`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -19,7 +19,7 @@ exports[`10_untracked should work with recorded events 2`] = `
 exports[`10_untracked should work with recorded events 3`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -27,7 +27,7 @@ exports[`10_untracked should work with recorded events 3`] = `
 exports[`10_untracked should work with recorded events 4`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket3\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -35,7 +35,7 @@ exports[`10_untracked should work with recorded events 4`] = `
 exports[`10_untracked should work with recorded events 5`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket3\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -43,7 +43,7 @@ exports[`10_untracked should work with recorded events 5`] = `
 exports[`10_untracked should work with recorded events 6`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket3\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -51,7 +51,7 @@ exports[`10_untracked should work with recorded events 6`] = `
 exports[`10_untracked should work with recorded events 7`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket3\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -59,7 +59,7 @@ exports[`10_untracked should work with recorded events 7`] = `
 exports[`10_untracked should work with recorded events 8`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Buy ticket3\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -67,7 +67,7 @@ exports[`10_untracked should work with recorded events 8`] = `
 exports[`10_untracked should work with recorded events 9`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -75,7 +75,7 @@ exports[`10_untracked should work with recorded events 9`] = `
 exports[`10_untracked should work with recorded events 10`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
@@ -83,7 +83,7 @@ exports[`10_untracked should work with recorded events 10`] = `
 exports[`10_untracked should work with recorded events 11`] = `
 "
     <div id=\\"app\\"><ul><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Wash dishes\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li><li><input type=\\"checkbox\\" checked=\\"\\"><input value=\\"Study JS2\\"><button type=\\"button\\">Delete</button><button type=\\"button\\">Duplicate</button></li></ul></div>
-  <script type=\\"text/javascript\\" src=\\"main.js\\"></script>
+  <script src=\\"main.js\\"></script>
 
 "
 `;
