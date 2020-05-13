@@ -1,5 +1,5 @@
 import React from 'react';
-import { trackMemo } from 'react-tracked';
+import { memo } from 'react-tracked';
 
 import { useDispatch, TodoType } from './store';
 
@@ -10,7 +10,6 @@ type Props = {
 let numRendered = 0;
 
 const TodoItem: React.FC<Props> = ({ todo }) => {
-  trackMemo(todo);
   const dispatch = useDispatch();
   return (
     <li>
@@ -31,4 +30,5 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
   );
 };
 
-export default React.memo(TodoItem);
+// export default React.memo(TodoItem); // Instead of React.memo
+export default memo(TodoItem); // Use custom memo

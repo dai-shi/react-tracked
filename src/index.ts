@@ -1,5 +1,6 @@
 export { createContainer } from './createContainer';
-export { trackMemo, getUntrackedObject } from 'proxy-compare';
+export { memo } from './memo';
+export { getUntrackedObject } from 'proxy-compare';
 
 // undocumented APIs
 export { Context, createContext } from 'use-context-selector';
