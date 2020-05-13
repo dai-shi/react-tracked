@@ -33,13 +33,12 @@ const Child = React.memo(({ foo }) => {
 // it won't trigger Child to re-render even if foo is changed.
 ```
 
-You need to explicitly notify an object as used in a memoized component.
+You need to use a special `memo` provided by this library.
 
 ```javascript
-import { trackMemo } from 'react-tracked';
+import { memo } from 'react-tracked';
 
-const Child = React.memo(({ foo }) => {
-  trackMemo(foo);
+const Child = memo(({ foo }) => {
   // ...
 };
 ```
