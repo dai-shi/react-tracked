@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.4.0] - 2020-05-13
+### Changed
+- Export a special memo instead of trackMemo (#47)
+  - This is a breaking change in API and requires migration
+
 ## [1.3.0] - 2020-03-07
 ### Changed
 - Notify child components in update not in render (#42)
