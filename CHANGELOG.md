@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.1] - 2020-06-23
+### Changed
+- Use unstable_batchedUpdates internally (#54)
+
 ## [1.4.0] - 2020-05-13
 ### Changed
 - Export a special memo instead of trackMemo (#47)
