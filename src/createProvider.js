@@ -7,6 +7,8 @@ import {
   useState,
 } from 'react';
 
+import { batchedUpdates } from './batchedUpdates';
+
 // -------------------------------------------------------
 // context
 // -------------------------------------------------------
@@ -49,10 +51,12 @@ export const createProvider = (context, useValue) => {
     const versionRef = useRef(0);
     const listeners = useRef([]);
     const updateAndNotify = useCallback((...args) => {
-      versionRef.current += 1;
-      listeners.current.forEach((listener) => listener(versionRef.current));
-      setVersion(versionRef.current);
-      return update(...args);
+      batchedUpdates(() => {
+        versionRef.current += 1;
+        listeners.current.forEach((listener) => listener(versionRef.current));
+        setVersion(versionRef.current);
+        update(...args);
+      });
     }, [update]);
     useEffect(() => {
       versionRef.current += 1;

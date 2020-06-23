@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Use unstable_batchedUpdates internally (#54)
 
 ## [1.4.0] - 2020-05-13
 ### Changed
