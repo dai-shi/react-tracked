@@ -170,7 +170,6 @@ describe('keys spec', () => {
   });
 });
 
-
 describe('special objects spec', () => {
   it('object with cycles', () => {
     const proxyCache = new WeakMap();
