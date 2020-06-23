@@ -7,13 +7,15 @@ exports.createProvider = exports.createCustomContext = exports.SUBSCRIBE_CONTEXT
 
 var _react = require("react");
 
+var _batchedUpdates = require("./batchedUpdates");
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(n); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
@@ -55,7 +57,7 @@ var calculateChangedBits = function calculateChangedBits(a, b) {
 var createCustomContext = function createCustomContext() {
   var w = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : warningObject;
   var c = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : calculateChangedBits;
-  return (0, _react.createContext)(w, c);
+  return /*#__PURE__*/(0, _react.createContext)(w, c);
 }; // -------------------------------------------------------
 // provider
 // -------------------------------------------------------
@@ -80,12 +82,18 @@ var createProvider = function createProvider(context, useValue) {
     var versionRef = (0, _react.useRef)(0);
     var listeners = (0, _react.useRef)([]);
     var updateAndNotify = (0, _react.useCallback)(function () {
-      versionRef.current += 1;
-      listeners.current.forEach(function (listener) {
-        return listener(versionRef.current);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      (0, _batchedUpdates.batchedUpdates)(function () {
+        versionRef.current += 1;
+        listeners.current.forEach(function (listener) {
+          return listener(versionRef.current);
+        });
+        setVersion(versionRef.current);
+        update.apply(void 0, args);
       });
-      setVersion(versionRef.current);
-      return update.apply(void 0, arguments);
     }, [update]);
     (0, _react.useEffect)(function () {
       versionRef.current += 1;
@@ -104,7 +112,7 @@ var createProvider = function createProvider(context, useValue) {
 
       return unsubscribe;
     }, []);
-    return (0, _react.createElement)(context.Provider, {
+    return /*#__PURE__*/(0, _react.createElement)(context.Provider, {
       value: (_value = {}, _defineProperty(_value, STATE_CONTEXT_PROPERTY, state), _defineProperty(_value, VERSION_CONTEXT_PROPERTY, version), _defineProperty(_value, UPDATE_CONTEXT_PROPERTY, updateAndNotify), _defineProperty(_value, SUBSCRIBE_CONTEXT_PROPERTY, subscribe), _value)
     }, props.children);
   };
