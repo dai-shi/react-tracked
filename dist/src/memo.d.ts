@@ -1,0 +1,2 @@
+import { ComponentProps, memo as reactMemo } from 'react';
+export declare const memo: (Component: Parameters<typeof reactMemo>[0], areEqual?: Parameters<typeof reactMemo>[1]) => import("react").MemoExoticComponent<(props: any) => import("react").ReactElement<any, string | ((props: any) => import("react").ReactElement<any, string | any | (new (props: any) => import("react").Component<any, any, any>)> | null) | (new (props: any) => import("react").Component<any, any, any>)>>;
