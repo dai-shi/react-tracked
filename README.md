@@ -2,9 +2,9 @@
 
 # React Tracked
 
-[![Build Status](https://travis-ci.com/dai-shi/react-tracked.svg?branch=master)](https://travis-ci.com/dai-shi/react-tracked)
-[![npm version](https://badge.fury.io/js/react-tracked.svg)](https://badge.fury.io/js/react-tracked)
-[![bundle size](https://badgen.net/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
+[![CI](https://img.shields.io/github/workflow/status/dai-shi/react-tracked/CI)](https://github.com/dai-shi/react-tracked/actions?query=workflow%3ACI)
+[![npm](https://img.shields.io/npm/v/react-tracked)](https://www.npmjs.com/package/react-tracked)
+[![size](https://img.shields.io/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
 
 Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.
 
