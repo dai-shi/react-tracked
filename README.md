@@ -5,8 +5,7 @@
 [![Build Status](https://travis-ci.com/dai-shi/react-tracked.svg?branch=master)](https://travis-ci.com/dai-shi/react-tracked)
 [![npm version](https://badge.fury.io/js/react-tracked.svg)](https://badge.fury.io/js/react-tracked)
 [![bundle size](https://badgen.net/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
-
-[![discord](https://discord.gg/MrQdmzd)](https://img.shields.io/discord/627656437971288081)
+[![discord](https://img.shields.io/discord/627656437971288081)](https://discord.gg/MrQdmzd)
 
 Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.
 
