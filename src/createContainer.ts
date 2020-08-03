@@ -1,3 +1,5 @@
+/* eslint react/destructuring-assignment: off */
+
 import {
   FC,
   createContext as createContextOrig,
