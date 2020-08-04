@@ -114,7 +114,7 @@ exports[`01_minimal should work with recorded events 14`] = `
 
 exports[`01_minimal should work with recorded events 15`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 54<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>TextBox</h1><div>numRendered: 66<div><span>Text: hello12</span><input value=\\"hello12\\"></div></div><div>numRendered: 68<div><span>Text: hello12</span><input value=\\"hello12\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 54<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>TextBox</h1><div>numRendered: 70<div><span>Text: hello12</span><input value=\\"hello12\\"></div></div><div>numRendered: 72<div><span>Text: hello12</span><input value=\\"hello12\\"></div></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -122,7 +122,7 @@ exports[`01_minimal should work with recorded events 15`] = `
 
 exports[`01_minimal should work with recorded events 16`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 54<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>TextBox</h1><div>numRendered: 70<div><span>Text: hello123</span><input value=\\"hello123\\"></div></div><div>numRendered: 72<div><span>Text: hello123</span><input value=\\"hello123\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 54<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>TextBox</h1><div>numRendered: 74<div><span>Text: hello123</span><input value=\\"hello123\\"></div></div><div>numRendered: 76<div><span>Text: hello123</span><input value=\\"hello123\\"></div></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
