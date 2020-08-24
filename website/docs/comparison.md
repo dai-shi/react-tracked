@@ -26,7 +26,7 @@ The difference is our effortless render optimization with `useTracked`.
 React Tracked provides `useSelector` hook from [React Redux](https://react-redux.js.org/api/hooks#useselector).
 So, the transition from React Redux hooks to React Tracked should be easy.
 
-React Tracked is nothing to do with Redux, so we can't use their nice ecosystem.
+React Tracked has nothing to do with Redux, so we can't use their nice ecosystem.
 
 ### Reactive React Redux
 
@@ -48,7 +48,7 @@ Whereas React Tracked is based on immutable states like Pure React and React Red
 
 ### Vue.js
 
-[Vue](https://github.com/vuejs/vue) is nothing to do with React,
+[Vue](https://github.com/vuejs/vue) has nothing to do with React,
 but it utilizes Proxies.
 The spirit of the effortless render optimization
 can be similar to the easiness of Vue.
