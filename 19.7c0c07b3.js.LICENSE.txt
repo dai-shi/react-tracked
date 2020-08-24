@@ -4,10 +4,3 @@
  * @author   Feross Aboukhadijeh <http://feross.org>
  * @license  MIT
  */
-
-/*!
- * clipboard.js v2.0.6
- * https://clipboardjs.com/
- * 
- * Licensed MIT © Zeno Rocha
- */
