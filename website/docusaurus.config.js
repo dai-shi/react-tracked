@@ -34,7 +34,7 @@ module.exports = {
         alt: 'React Tracked Logo',
         src: 'img/react-tracked-logo.svg',
       },
-      links: [
+      items: [
         { to: 'docs/introduction', label: 'Getting Started', position: 'left' },
         { to: 'docs/tutorial-01', label: 'Tutorial', position: 'left' },
         { to: 'docs/api', label: 'Reference', position: 'left' },
