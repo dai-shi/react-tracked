@@ -1,4 +1,9 @@
-import { useState, useCallback, useLayoutEffect } from 'react';
+import {
+  ChangeEvent,
+  useState,
+  useCallback,
+  useLayoutEffect,
+} from 'react';
 
 import { createContainer, getUntrackedObject } from 'react-tracked';
 
@@ -60,7 +65,7 @@ const useFormField = (
     updateValue(initialValue);
   }, [initialValue, updateValue]);
   const onChange = useCallback((
-    event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     const { target } = event;
     let value: Value;

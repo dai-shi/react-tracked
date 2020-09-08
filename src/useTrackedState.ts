@@ -72,7 +72,7 @@ export const useTrackedState = <State>(
       prevState = nextState;
       return nextState;
     };
-  }, [deepChangedMode]);
+  }, [deepChangedMode]); // eslint-disable-line react-hooks/exhaustive-deps
   const state = useContext(StateContext, selector);
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
