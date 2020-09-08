@@ -33,7 +33,8 @@
     "no-plusplus": "off",
     "no-bitwise": "off",
     "symbol-description": "off",
-    "prefer-object-spread": "off"
+    "prefer-object-spread": "off",
+    "no-use-before-define": "off"
   },
   "overrides": [{
     "files": ["__tests__/**/*"],
