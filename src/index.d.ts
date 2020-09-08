@@ -1,4 +1,4 @@
-import { ComponentType } from 'react';
+import { FC } from 'react';
 
 type EqlFn<V> = (a: V, b: V) => boolean;
 
@@ -7,7 +7,7 @@ type EqlFn<V> = (a: V, b: V) => boolean;
 export const createContainer: <State, Update, Props>(
   useValue: (props: Props) => readonly [State, Update],
 ) => {
-  Provider: ComponentType<Props>;
+  Provider: FC<Props>;
   useTrackedState: () => State;
   useTracked: () => [State, Update];
   useUpdate: () => Update;
@@ -25,6 +25,6 @@ export const getUntrackedObject: <T>(obj: T) => T | null;
 // special React.memo with tracking suppoort
 
 export function memo<Props>(
-  Component: React.FC<Props>,
+  Component: FC<Props>,
   areEqual?: (prevProps: Props, nextProps: Props) => boolean,
-): React.FC<Props>;
+): FC<Props>;
