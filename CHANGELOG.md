@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.4.2] - 2020-09-08
+### Changed
+- Fix invalid type definitions (#59)
+
 ## [1.4.1] - 2020-06-23
 ### Changed
 - Use unstable_batchedUpdates internally (#54)
