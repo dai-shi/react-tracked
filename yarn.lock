@@ -8105,10 +8105,10 @@ proxy-addr@~2.0.5:
     forwarded "~0.1.2"
     ipaddr.js "1.9.1"
 
-proxy-compare@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.0.2.tgz#2c7babcd5ca1c2b85fb86448a19eb5613d80d62d"
-  integrity sha512-ykdqgpT1yDcDT9tQgrf6SN6m2ZlLXW73xLz2aNg43356fpDikw68OCOR/ydrGsYPWUanijaRe7VBmfoBjVNseg==
+proxy-compare@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.0.3.tgz#2055a09bc7cdca75087f3f103d447bdd80737edc"
+  integrity sha512-1xLvXh4d3C1pAN89Sn7QpJdFez/agTjLuPmQ9pdHULjnjTd8ewvx+2GEmekCr7hlYQJ9cKyk2ZuMSbqiwsbl6w==
 
 proxy-from-env@^1.0.0:
   version "1.1.0"
