@@ -21,7 +21,7 @@ const warningObject = new Proxy({}, {
   apply() { throw new Error('Please use <Provider>'); },
 });
 
-export const createContainer = <State, Update extends (...args: any) => any, Props>(
+export const createContainer = <State, Update extends (...args: any[]) => any, Props>(
   useValue: (props: Props) => readonly [State, Update],
 ) => {
   const StateContext = createContext(warningObject as State);

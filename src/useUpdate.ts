@@ -8,7 +8,7 @@ import {
   useContextUpdate,
 } from 'use-context-selector';
 
-export const useUpdate = <State, Update extends (...args: any) => any>(
+export const useUpdate = <State, Update extends (...args: any[]) => any>(
   StateContext: Context<State>,
   UpdateContext: ContextOrig<Update>,
 ) => {

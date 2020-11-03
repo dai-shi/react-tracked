@@ -82,7 +82,7 @@ export const useTrackedState = <State>(
   return createDeepProxy(state, affected, proxyCache);
 };
 
-export const useTracked = <State, Update extends (...args: any) => any>(
+export const useTracked = <State, Update extends (...args: any[]) => any>(
   StateContext: Context<State>,
   UpdateContext: ContextOrig<Update>,
   opts?: Opts,
