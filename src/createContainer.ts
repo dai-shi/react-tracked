@@ -4,11 +4,9 @@ import {
   FC,
   createContext as createContextOrig,
   createElement,
-  useMemo,
 } from 'react';
 import {
   createContext,
-  wrapCallbackWithPriority,
 } from 'use-context-selector';
 
 import {
@@ -30,8 +28,7 @@ export const createContainer = <State, Update extends (...args: any) => any, Pro
   const UpdateContext = createContextOrig(warningObject as Update);
   const Provider: FC<Props> = (props) => {
     const [state, update] = useValue(props);
-    const updateValue = useMemo(() => wrapCallbackWithPriority(update), [update]);
-    return createElement(UpdateContext.Provider, { value: updateValue },
+    return createElement(UpdateContext.Provider, { value: update },
       createElement(StateContext.Provider, { value: state }, props.children));
   };
   const useTrackedState = (
@@ -40,7 +37,7 @@ export const createContainer = <State, Update extends (...args: any) => any, Pro
   const useTracked = (
     opts?: Parameters<typeof useTrackedOrig>[2],
   ) => useTrackedOrig(StateContext, UpdateContext, opts);
-  const useUpdate = () => useUpdateOrig(UpdateContext);
+  const useUpdate = () => useUpdateOrig(StateContext, UpdateContext);
   const useSelector = <Selected>(
     selector: (state: State) => Selected,
   ) => useSelectorOrig(StateContext, selector);

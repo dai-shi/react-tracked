@@ -42,7 +42,7 @@ exports[`11_form should work with recorded events 5`] = `
 
 exports[`11_form should work with recorded events 6`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 48<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 50<div>Family Name:<input value=\\"22\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 46<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 48<div>Family Name:<input value=\\"22\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -50,7 +50,7 @@ exports[`11_form should work with recorded events 6`] = `
 
 exports[`11_form should work with recorded events 7`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 52<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 54<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 50<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 52<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -58,7 +58,7 @@ exports[`11_form should work with recorded events 7`] = `
 
 exports[`11_form should work with recorded events 8`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 52<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 54<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 50<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 52<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 18<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -66,7 +66,7 @@ exports[`11_form should work with recorded events 8`] = `
 
 exports[`11_form should work with recorded events 9`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 56<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 54<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 60<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 54<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 52<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 58<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 20<div>Teenager:<input type=\\"checkbox\\" value=\\"false\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -74,7 +74,7 @@ exports[`11_form should work with recorded events 9`] = `
 
 exports[`11_form should work with recorded events 10`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 64<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 54<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 60<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 66<div>Teenager:<input type=\\"checkbox\\" value=\\"true\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 60<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 52<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 58<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 64<div>Teenager:<input type=\\"checkbox\\" value=\\"true\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
@@ -82,7 +82,7 @@ exports[`11_form should work with recorded events 10`] = `
 
 exports[`11_form should work with recorded events 11`] = `
 "
-    <div id=\\"app\\"><form>numRendered: 64<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 54<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 60<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 66<div>Teenager:<input type=\\"checkbox\\" value=\\"true\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
+    <div id=\\"app\\"><form>numRendered: 60<button type=\\"submit\\">Submit</button><h3>First Name</h3><div>numRendered: 38<div>First Name:<input value=\\"111\\"></div></div><h3>Family Name</h3><div>numRendered: 52<div>Family Name:<input value=\\"222\\"></div></div><h3>Gender</h3><div>numRendered: 58<div>Gender:<select><option value=\\"na\\">N/A</option><option value=\\"male\\">Male</option><option value=\\"female\\">Female</option></select></div></div><h3>Teenager</h3><div>numRendered: 64<div>Teenager:<input type=\\"checkbox\\" value=\\"true\\"></div></div></form><div><a href=\\"https://codesandbox.io/s/react-form-library-stress-test-4luf3\\">Stress Test</a></div></div>
   <script src=\\"/main.js\\"></script>
 
 "
