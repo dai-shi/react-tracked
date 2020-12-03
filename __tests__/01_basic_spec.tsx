@@ -11,7 +11,8 @@ describe('basic spec', () => {
     const initialState = {
       count1: 0,
     };
-    const reducer = (state = initialState, action) => {
+    type Action = { type: 'increment' };
+    const reducer = (state = initialState, action: Action) => {
       if (action.type === 'increment') {
         return { ...state, count1: state.count1 + 1 };
       }
