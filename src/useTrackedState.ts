@@ -74,7 +74,7 @@ export const useTrackedState = <State>(
     };
   }, [deepChangedMode]); // eslint-disable-line react-hooks/exhaustive-deps
   const state = useContextSelector(StateContext, selector);
-  if (process.env.NODE_ENV !== 'production') {
+  if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useAffectedDebugValue(state, affected);
   }
