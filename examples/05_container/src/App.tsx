@@ -12,13 +12,17 @@ const App: React.FC = () => (
   <StrictMode>
     <h1>First container</h1>
     <container1.Provider>
-      <Counter useTracked={container1.useTracked} />
-      <Counter useTracked={container1.useTracked} />
+      <div>
+        <Counter useTracked={container1.useTracked} />
+        <Counter useTracked={container1.useTracked} />
+      </div>
     </container1.Provider>
     <h1>Second container</h1>
     <container2.Provider>
-      <Counter useTracked={container2.useTracked} />
-      <Counter useTracked={container2.useTracked} />
+      <div>
+        <Counter useTracked={container2.useTracked} />
+        <Counter useTracked={container2.useTracked} />
+      </div>
     </container2.Provider>
   </StrictMode>
 );

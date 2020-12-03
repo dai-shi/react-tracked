@@ -72,8 +72,10 @@ const PersonFamilyName: React.FC = () => {
 
 const ReactTracked: React.FC = () => (
   <Provider>
-    <PersonFirstName />
-    <PersonFamilyName />
+    <div>
+      <PersonFirstName />
+      <PersonFamilyName />
+    </div>
   </Provider>
 );
 

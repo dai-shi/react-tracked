@@ -52,12 +52,14 @@ const TextBox = () => {
 const App = () => (
   <StrictMode>
     <Provider reducer={reducer} initialState={initialState}>
-      <h1>Counter</h1>
-      <Counter />
-      <Counter />
-      <h1>TextBox</h1>
-      <TextBox />
-      <TextBox />
+      <div>
+        <h1>Counter</h1>
+        <Counter />
+        <Counter />
+        <h1>TextBox</h1>
+        <TextBox />
+        <TextBox />
+      </div>
     </Provider>
   </StrictMode>
 );

@@ -38,8 +38,10 @@ const Counter = () => {
 const App = () => (
   <StrictMode>
     <Provider>
-      <Counter />
-      <Counter />
+      <div>
+        <Counter />
+        <Counter />
+      </div>
     </Provider>
   </StrictMode>
 );
