@@ -1,5 +1,4 @@
 import {
-  Context as ContextOrig,
   useMemo,
   useRef,
   useEffect,
@@ -17,7 +16,6 @@ import {
 } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils';
-import { useUpdate } from './useUpdate';
 
 const MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED = 0;
 const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
@@ -26,7 +24,7 @@ const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
 const MODE_MUTABLE_ROOT_STATE = MODE_IGNORE_REF_EQUALITY; // only for root
 const MODE_IGNORE_ROOT_STATE_USAGE = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
 
-type Opts = {
+export type Opts = {
   /* eslint-disable camelcase */
   unstable_ignoreIntermediateObjectUsage?: boolean;
   unstable_ignoreStateEquality?: boolean;
@@ -80,14 +78,4 @@ export const useTrackedState = <State>(
   }
   const proxyCache = useMemo(() => new WeakMap(), []); // per-hook proxyCache
   return createDeepProxy(state, affected, proxyCache);
-};
-
-export const useTracked = <State, Update extends (...args: any[]) => any>(
-  StateContext: Context<State>,
-  UpdateContext: ContextOrig<Update>,
-  opts?: Opts,
-) => {
-  const state = useTrackedState(StateContext, opts);
-  const update = useUpdate(StateContext, UpdateContext);
-  return useMemo(() => [state, update], [state, update]) as [State, Update];
 };

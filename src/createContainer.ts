@@ -9,10 +9,8 @@ import {
   createContext,
 } from 'use-context-selector';
 
-import {
-  useTrackedState as useTrackedStateOrig,
-  useTracked as useTrackedOrig,
-} from './useTrackedState';
+import { useTrackedState as useTrackedStateOrig } from './useTrackedState';
+import { useTracked as useTrackedOrig } from './useTracked';
 import { useUpdate as useUpdateOrig } from './useUpdate';
 import { useSelector as useSelectorOrig } from './useSelector';
 
