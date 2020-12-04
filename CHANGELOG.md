@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+### Changed
+- Refactor: typescript, proxy-compare, use-context-selector (#68)
+
 ## [1.4.2] - 2020-09-08
 ### Changed
 - Fix invalid type definitions (#59)
