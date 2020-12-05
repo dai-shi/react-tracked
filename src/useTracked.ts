@@ -1,10 +1,5 @@
-import {
-  Context as ContextOrig,
-  useMemo,
-} from 'react';
-import {
-  Context,
-} from 'use-context-selector';
+import { Context as ContextOrig, useMemo } from 'react';
+import { Context } from 'use-context-selector';
 
 import { useTrackedState, Opts } from './useTrackedState';
 import { useUpdate } from './useUpdate';

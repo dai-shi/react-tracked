@@ -1,12 +1,5 @@
-import {
-  useMemo,
-  useRef,
-  useEffect,
-} from 'react';
-import {
-  Context,
-  useContextSelector,
-} from 'use-context-selector';
+import { useMemo, useRef, useEffect } from 'react';
+import { Context, useContextSelector } from 'use-context-selector';
 import {
   createDeepProxy,
   isDeepChanged,
@@ -70,7 +63,7 @@ export const useTrackedState = <State>(
       prevState = nextState;
       return nextState;
     };
-  }, [deepChangedMode]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [deepChangedMode]);
   const state = useContextSelector(StateContext, selector);
   if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
