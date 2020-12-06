@@ -17,7 +17,7 @@ const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
 const MODE_MUTABLE_ROOT_STATE = MODE_IGNORE_REF_EQUALITY; // only for root
 const MODE_IGNORE_ROOT_STATE_USAGE = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
 
-export type Opts = {
+type Opts = {
   /* eslint-disable camelcase */
   unstable_ignoreIntermediateObjectUsage?: boolean;
   unstable_ignoreStateEquality?: boolean;
