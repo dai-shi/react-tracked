@@ -1,12 +1,5 @@
-import {
-  useMemo,
-  useRef,
-  useEffect,
-} from 'react';
-import {
-  Context,
-  useContext,
-} from 'use-context-selector';
+import { useMemo, useRef, useEffect } from 'react';
+import { Context, useContext } from 'use-context-selector';
 import {
   createDeepProxy,
   isDeepChanged,
@@ -24,7 +17,7 @@ const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
 const MODE_MUTABLE_ROOT_STATE = MODE_IGNORE_REF_EQUALITY; // only for root
 const MODE_IGNORE_ROOT_STATE_USAGE = MODE_ASSUME_UNCHANGED_IF_UNAFFECTED; // only for root
 
-export type Opts = {
+type Opts = {
   /* eslint-disable camelcase */
   unstable_ignoreIntermediateObjectUsage?: boolean;
   unstable_ignoreStateEquality?: boolean;
@@ -70,7 +63,7 @@ export const useTrackedState = <State>(
       prevState = nextState;
       return nextState;
     };
-  }, [deepChangedMode]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [deepChangedMode]);
   const state = useContext(StateContext, selector);
   if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks

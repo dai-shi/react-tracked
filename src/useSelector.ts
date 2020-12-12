@@ -1,10 +1,5 @@
-import {
-  useDebugValue,
-} from 'react';
-import {
-  Context,
-  useContext,
-} from 'use-context-selector';
+import { useDebugValue } from 'react';
+import { Context, useContext } from 'use-context-selector';
 
 export const useSelector = <State, Selected>(
   StateContext: Context<State>,

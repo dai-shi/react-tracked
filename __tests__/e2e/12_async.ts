@@ -1,12 +1,12 @@
 /* global page */
 
-const port = process.env.PORT || '8080';
 jest.setTimeout(15 * 1000);
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
 // this test is not very stable because of timer
-describe('13_saga', () => {
+describe('12_async', () => {
+  const port = process.env.PORT || '8080';
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
   it('should work with recorded events', async () => {
     await page.goto(`http://localhost:${port}/`);
 
@@ -14,7 +14,7 @@ describe('13_saga', () => {
     await page.click('body > #app > div > div:nth-child(3) > button');
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
 
-    await sleep(3000);
+    await sleep(4000);
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
 
     await page.waitForSelector('body > #app > div > div:nth-child(4) > button:nth-child(2)');

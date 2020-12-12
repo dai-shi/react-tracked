@@ -1,8 +1,4 @@
-import {
-  useEffect,
-  useRef,
-  useDebugValue,
-} from 'react';
+import { useEffect, useRef, useDebugValue } from 'react';
 import { affectedToPathList } from 'proxy-compare';
 
 type Obj = Record<string, unknown>;
