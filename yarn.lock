@@ -1202,7 +1202,7 @@
     source-map "^0.6.1"
     write-file-atomic "^3.0.0"
 
-"@jest/types@^26.6.2":
+"@jest/types@>=24 <=26", "@jest/types@^26.6.2":
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-26.6.2.tgz#bef5a532030e1d88a2f5a6d933f84e97226ed48e"
   integrity sha512-fC6QCp7Sc5sX6g8Tvbmj4XUTbyrik0akgRy03yjXbQaBWWNWGE7SGtJk98m0N8nzegD/7SggrUlivxo5ax4KWQ==
@@ -1478,6 +1478,15 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
+"@types/jest-environment-puppeteer@^4.4.1":
+  version "4.4.1"
+  resolved "https://registry.yarnpkg.com/@types/jest-environment-puppeteer/-/jest-environment-puppeteer-4.4.1.tgz#cee73afe7a774f6a02591dc117b47d39aa5e6119"
+  integrity sha512-LiZTD6i63le6QMnxi7pJB0SFv/fWtss6VVEEDm/UaeowBgjduf8txyE//j3WEeDPxngTvioUjbzA7Rc6Wc3cBA==
+  dependencies:
+    "@jest/types" ">=24 <=26"
+    "@types/puppeteer" "*"
+    jest-environment-node ">=24 <=26"
+
 "@types/jest@26.x", "@types/jest@^26.0.16":
   version "26.0.16"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-26.0.16.tgz#b47abd50f6ed0503f589db8e126fc8eb470cf87c"
@@ -1525,6 +1534,13 @@
   version "15.7.3"
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+
+"@types/puppeteer@*":
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-5.4.2.tgz#80f3a1f54dedbbf750779716de81401549062072"
+  integrity sha512-yjbHoKjZFOGqA6bIEI2dfBE5UPqU0YGWzP+ipDVP1iGzmlhksVKTBVZfT3Aj3wnvmcJ2PQ9zcncwOwyavmafBw==
+  dependencies:
+    "@types/node" "*"
 
 "@types/q@^1.5.1":
   version "1.5.4"
@@ -5930,7 +5946,7 @@ jest-environment-jsdom@^26.6.2:
     jest-util "^26.6.2"
     jsdom "^16.4.0"
 
-jest-environment-node@^26.6.2:
+"jest-environment-node@>=24 <=26", jest-environment-node@^26.6.2:
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/jest-environment-node/-/jest-environment-node-26.6.2.tgz#824e4c7fb4944646356f11ac75b229b0035f2b0c"
   integrity sha512-zhtMio3Exty18dy8ee8eJ9kjnRyZC1N4C1Nt/VShN1apyXc8rWGtJ9lI7vqiWcyyXS4BVSEn9lxAM2D+07/Tag==

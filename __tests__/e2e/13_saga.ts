@@ -1,12 +1,12 @@
 /* global page */
 
-const port = process.env.PORT || '8080';
 jest.setTimeout(15 * 1000);
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // this test is not very stable because of timer
 describe('13_saga', () => {
+  const port = process.env.PORT || '8080';
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
   it('should work with recorded events', async () => {
     await page.goto(`http://localhost:${port}/`);
 

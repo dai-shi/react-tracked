@@ -23,19 +23,19 @@
     "eslint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --ignore-pattern dist .",
     "jest": "jest --preset ts-jest/presets/js-with-ts __tests__/*.tsx",
     "tsc-test": "tsc --project . --noEmit",
-    "e2e-test:01_minimal": "server-test examples:01_minimal 8080 'jest --preset jest-puppeteer __tests__/e2e/01_minimal.js'",
-    "e2e-test:02_typescript": "server-test examples:02_typescript 8080 'jest --preset jest-puppeteer __tests__/e2e/02_typescript.js'",
-    "e2e-test:03_usestate": "server-test examples:03_usestate 8080 'jest --preset jest-puppeteer __tests__/e2e/03_usestate.js'",
-    "e2e-test:04_selector": "server-test examples:04_selector 8080 'jest --preset jest-puppeteer __tests__/e2e/04_selector.js'",
-    "e2e-test:05_container": "server-test examples:05_container 8080 'jest --preset jest-puppeteer __tests__/e2e/05_container.js'",
-    "e2e-test:06_customhook": "server-test examples:06_customhook 8080 'jest --preset jest-puppeteer __tests__/e2e/06_customhook.js'",
-    "e2e-test:07_todolist": "server-test examples:07_todolist 8080 'jest --preset jest-puppeteer __tests__/e2e/07_todolist.js'",
-    "e2e-test:08_comparison": "server-test examples:08_comparison 8080 'jest --preset jest-puppeteer __tests__/e2e/08_comparison.js'",
-    "e2e-test:09_reactmemo": "server-test examples:09_reactmemo 8080 'jest --preset jest-puppeteer __tests__/e2e/09_reactmemo.js'",
-    "e2e-test:10_untracked": "server-test examples:10_untracked 8080 'jest --preset jest-puppeteer __tests__/e2e/10_untracked.js'",
-    "e2e-test:11_form": "server-test examples:11_form 8080 'jest --preset jest-puppeteer __tests__/e2e/11_form.js'",
-    "e2e-test:12_async": "server-test examples:12_async 8080 'jest --preset jest-puppeteer __tests__/e2e/12_async.js'",
-    "e2e-test:13_saga": "server-test examples:13_saga 8080 'jest --preset jest-puppeteer __tests__/e2e/13_saga.js'",
+    "e2e-test:01_minimal": "server-test examples:01_minimal 8080 'jest --preset jest-puppeteer __tests__/e2e/01_minimal.ts'",
+    "e2e-test:02_typescript": "server-test examples:02_typescript 8080 'jest --preset jest-puppeteer __tests__/e2e/02_typescript.ts'",
+    "e2e-test:03_usestate": "server-test examples:03_usestate 8080 'jest --preset jest-puppeteer __tests__/e2e/03_usestate.ts'",
+    "e2e-test:04_selector": "server-test examples:04_selector 8080 'jest --preset jest-puppeteer __tests__/e2e/04_selector.ts'",
+    "e2e-test:05_container": "server-test examples:05_container 8080 'jest --preset jest-puppeteer __tests__/e2e/05_container.ts'",
+    "e2e-test:06_customhook": "server-test examples:06_customhook 8080 'jest --preset jest-puppeteer __tests__/e2e/06_customhook.ts'",
+    "e2e-test:07_todolist": "server-test examples:07_todolist 8080 'jest --preset jest-puppeteer __tests__/e2e/07_todolist.ts'",
+    "e2e-test:08_comparison": "server-test examples:08_comparison 8080 'jest --preset jest-puppeteer __tests__/e2e/08_comparison.ts'",
+    "e2e-test:09_reactmemo": "server-test examples:09_reactmemo 8080 'jest --preset jest-puppeteer __tests__/e2e/09_reactmemo.ts'",
+    "e2e-test:10_untracked": "server-test examples:10_untracked 8080 'jest --preset jest-puppeteer __tests__/e2e/10_untracked.ts'",
+    "e2e-test:11_form": "server-test examples:11_form 8080 'jest --preset jest-puppeteer __tests__/e2e/11_form.ts'",
+    "e2e-test:12_async": "server-test examples:12_async 8080 'jest --preset jest-puppeteer __tests__/e2e/12_async.ts'",
+    "e2e-test:13_saga": "server-test examples:13_saga 8080 'jest --preset jest-puppeteer __tests__/e2e/13_saga.ts'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
@@ -49,6 +49,11 @@
     "examples:11_form": "DIR=11_form webpack-dev-server",
     "examples:12_async": "DIR=12_async webpack-dev-server",
     "examples:13_saga": "DIR=13_saga webpack-dev-server"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    }
   },
   "keywords": [
     "react",
@@ -64,6 +69,7 @@
   "devDependencies": {
     "@testing-library/react": "^11.2.2",
     "@types/jest": "^26.0.16",
+    "@types/jest-environment-puppeteer": "^4.4.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/scheduler": "^0.16.1",

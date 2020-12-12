@@ -1,9 +1,10 @@
 /* global page */
 
-const port = process.env.PORT || '8080';
 jest.setTimeout(15 * 1000);
 
 describe('09_reactmemo', () => {
+  const port = process.env.PORT || '8080';
+
   it('should work with recorded events', async () => {
     await page.goto(`http://localhost:${port}/`);
 

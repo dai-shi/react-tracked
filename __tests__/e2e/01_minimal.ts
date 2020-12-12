@@ -1,10 +1,10 @@
 /* global page */
 
-const port = process.env.PORT || '8080';
 jest.setTimeout(15 * 1000);
 
 describe('01_minimal', () => {
   it('should work with recorded events', async () => {
+    const port = process.env.PORT || '8080';
     await page.goto(`http://localhost:${port}/`);
 
     await page.waitForSelector('body > #app > div:nth-child(2) > div > button:nth-child(2)');
