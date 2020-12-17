@@ -11,8 +11,6 @@ Simple and fast global state with React Context. Eliminate unnecessary re-render
 
 Documentation site: https://react-tracked.js.org
 
-> If you are looking for a Redux-based library, please visit [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux) which has the same hooks API.
-
 ## Introduction
 
 React Context and useContext is often used to avoid prop drilling,
@@ -43,7 +41,7 @@ is changed, it will re-render.
 npm install react-tracked
 ```
 
-## Usage (useTracked)
+## Usage (createContainer)
 
 The following shows a minimal example.
 Please check out others in the [examples](examples) folder.
@@ -110,6 +108,51 @@ const App = () => (
 );
 
 ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+## Usage (createTrackedSelector) EXPERIMENTAL
+
+### React-Redux
+
+```jsx
+import { useSelector, useDispatch } from 'react-redux';
+import { createTrackedSelector } from 'react-tracked';
+
+const useTrackedSelector = createTrackedSelector(useSelector);
+
+const Counter = () => {
+  const state = useTrackedSelector();
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <span>Count: {state.count}</span>
+      <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
+    </div>
+  );
+};
+```
+
+### Zustand
+
+```jsx
+import create from 'zustand';
+import { createTrackedSelector } from 'react-tracked';
+
+const useStore = create({ count: 0 });
+const useTrackedSelector = createTrackedSelector(useStore);
+
+const Counter = () => {
+  const state = useTrackedSelector();
+  const increment = () => {
+    useStore.setState(prev => ({ count: prev.count + 1 }));
+  };
+  return (
+    <div>
+      <span>Count: {state.count}</span>
+      <button type="button" onClick={increment}>+1</button>
+    </div>
+  );
+};
 ```
 
 ## API
