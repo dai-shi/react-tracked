@@ -138,7 +138,7 @@ const Counter = () => {
 import create from 'zustand';
 import { createTrackedSelector } from 'react-tracked';
 
-const useStore = create({ count: 0 });
+const useStore = create(() => ({ count: 0 }));
 const useTrackedSelector = createTrackedSelector(useStore);
 
 const Counter = () => {
