@@ -48,7 +48,8 @@
     "examples:10_untracked": "DIR=10_untracked webpack-dev-server",
     "examples:11_form": "DIR=11_form webpack-dev-server",
     "examples:12_async": "DIR=12_async webpack-dev-server",
-    "examples:13_saga": "DIR=13_saga webpack-dev-server"
+    "examples:13_saga": "DIR=13_saga webpack-dev-server",
+    "examples:14_dynamic": "DIR=14_dynamic webpack-dev-server"
   },
   "jest": {
     "transform": {
