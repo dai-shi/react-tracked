@@ -14,7 +14,7 @@ describe('12_async', () => {
     await page.click('body > #app > div > div:nth-child(3) > button');
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
 
-    await sleep(4000);
+    await sleep(3000);
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
 
     await page.waitForSelector('body > #app > div > div:nth-child(4) > button:nth-child(2)');
