@@ -2,7 +2,7 @@
 
 jest.setTimeout(15 * 1000);
 
-describe('02_typescript', () => {
+describe('14_dynamic', () => {
   const port = process.env.PORT || '8080';
 
   it('should work with recorded events', async () => {
