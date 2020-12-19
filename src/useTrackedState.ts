@@ -50,9 +50,9 @@ export const useTrackedState = <State>(
     /* eslint-enable no-nested-ternary, indent, no-multi-spaces */
   );
   const affected = new WeakMap();
-  const lastAffected = useRef<WeakMap<Record<string, unknown>, unknown>>();
-  const prevState = useRef<State | null>(null);
-  const lastState = useRef<State | null>(null);
+  const lastAffected = useRef<typeof affected>();
+  const prevState = useRef<State>();
+  const lastState = useRef<State>();
   useIsomorphicLayoutEffect(() => {
     lastAffected.current = affected;
     if (prevState.current !== lastState.current
@@ -71,7 +71,7 @@ export const useTrackedState = <State>(
     const deepChangedCache = new WeakMap();
     return (nextState: State) => {
       lastState.current = nextState;
-      if (prevState.current !== null
+      if (prevState.current
         && prevState.current !== nextState
         && lastAffected.current
         && !isDeepChanged(
