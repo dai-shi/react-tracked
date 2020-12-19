@@ -1,6 +1,6 @@
 {
   "name": "react-tracked",
-  "description": "Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.",
+  "description": "State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.",
   "version": "1.6.0-beta.2",
   "publishConfig": {
     "tag": "beta"
