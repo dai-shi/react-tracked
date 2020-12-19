@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.5.1] - 2020-12-19
+### Changed
+- Fix a fatal bug in v1.5.0 (#72)
+
 ## [1.5.0] - 2020-12-04
 ### Changed
 - Refactor: typescript, proxy-compare, use-context-selector (#68)
