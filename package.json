@@ -36,6 +36,7 @@
     "e2e-test:11_form": "server-test examples:11_form 8080 'jest --preset jest-puppeteer __tests__/e2e/11_form.ts'",
     "e2e-test:12_async": "server-test examples:12_async 8080 'jest --preset jest-puppeteer __tests__/e2e/12_async.ts'",
     "e2e-test:13_saga": "server-test examples:13_saga 8080 'jest --preset jest-puppeteer __tests__/e2e/13_saga.ts'",
+    "e2e-test:14_dynamic": "server-test examples:14_dynamic 8080 'jest --preset jest-puppeteer __tests__/e2e/14_dynamic.ts'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",

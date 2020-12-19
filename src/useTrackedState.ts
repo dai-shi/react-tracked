@@ -1,4 +1,10 @@
-import { useMemo, useRef, useEffect } from 'react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+} from 'react';
 import { Context, useContextSelector } from 'use-context-selector';
 import {
   createDeepProxy,
@@ -9,6 +15,11 @@ import {
 } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils';
+
+const isSSR = typeof window === 'undefined'
+  || /ServerSideRendering/.test(window.navigator && window.navigator.userAgent);
+
+const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
 
 const MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED = 0;
 const MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED = (
@@ -29,11 +40,7 @@ export const useTrackedState = <State>(
   StateContext: Context<State>,
   opts: Opts = {},
 ) => {
-  const affected = new WeakMap();
-  const lastAffected = useRef<WeakMap<Record<string, unknown>, unknown>>();
-  useEffect(() => {
-    lastAffected.current = affected;
-  });
+  const [, forceUpdate] = useReducer((c) => c + 1, 0);
   const deepChangedMode = (
     /* eslint-disable no-nested-ternary, indent, no-multi-spaces */
       opts.unstable_ignoreIntermediateObjectUsage ? MODE_ALWAYS_ASSUME_UNCHANGED_IF_UNAFFECTED
@@ -42,15 +49,33 @@ export const useTrackedState = <State>(
     : /* default */                                 MODE_ALWAYS_ASSUME_CHANGED_IF_UNAFFECTED
     /* eslint-enable no-nested-ternary, indent, no-multi-spaces */
   );
+  const affected = new WeakMap();
+  const lastAffected = useRef<WeakMap<Record<string, unknown>, unknown>>();
+  const prevState = useRef<State | null>(null);
+  const lastState = useRef<State | null>(null);
+  useIsomorphicLayoutEffect(() => {
+    lastAffected.current = affected;
+    if (prevState.current !== lastState.current
+      && isDeepChanged(
+        prevState.current,
+        lastState.current,
+        affected,
+        new WeakMap(),
+        deepChangedMode,
+      )) {
+      prevState.current = lastState.current;
+      forceUpdate();
+    }
+  });
   const selector = useMemo(() => {
-    let prevState: State | null = null;
     const deepChangedCache = new WeakMap();
     return (nextState: State) => {
-      if (prevState !== null
-        && prevState !== nextState
+      lastState.current = nextState;
+      if (prevState.current !== null
+        && prevState.current !== nextState
         && lastAffected.current
         && !isDeepChanged(
-          prevState,
+          prevState.current,
           nextState,
           lastAffected.current,
           deepChangedCache,
@@ -58,9 +83,9 @@ export const useTrackedState = <State>(
         )
       ) {
         // not changed
-        return prevState;
+        return prevState.current;
       }
-      prevState = nextState;
+      prevState.current = nextState;
       return nextState;
     };
   }, [deepChangedMode]);
