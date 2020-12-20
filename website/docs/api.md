@@ -21,7 +21,7 @@ It takes one argument `useSelector`, which is provided by
 any other hooks with the same signature and behavior.
 
 The created hook `useTrackedSelector` (or whatever named)
-is a hook that returns `state` wrapped by Proxy for usage tracking.
+is a hook that returns `state` wrapped by Proxies for usage tracking.
 It behaves the same as [useTrackedState](#usetrackedstate) from `createContainer`.
 
 ```javascript
@@ -78,7 +78,7 @@ const App = (props) => (
 
 The `useTracked` hook returned by createContainer is the recommended hook.
 It simply returns the `[state, update]` tuple that `useValue` returns.
-The `state` is wrapped by Proxy for usage tracking.
+The `state` is wrapped by Proxies for usage tracking.
 
 ```javascript
 const Component = () => {
@@ -104,7 +104,7 @@ const Component = () => {
 ### useTrackedState
 
 The `useTrackedState` hook returned by createContainer is for `state` from `useValue`;
-This is wrapped by Proxy as same as `useTracked`.
+This is wrapped by Proxies as same as `useTracked`.
 Use this hook if you don't need `update`.
 This hook is compatible with [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux).
 
