@@ -7,8 +7,6 @@ sidebar_label: Comparison
 There are several projects to provide global state management.
 Let's compare with other projects.
 
-> Disclaimer: The comparison is obviously biased.
-
 ## Notes about similarities and differences
 
 Here describes simiarities and differences.
@@ -16,26 +14,26 @@ Here describes simiarities and differences.
 ### Pure React
 
 As we saw in [Quick Start](quick-start.md),
-the way we use React Tracked is pretty much the same
+the way we use React Tracked's createContainer is pretty much the same
 as pure React with context and hooks.
 
 The difference is our effortless render optimization with `useTracked`.
 
 ### React Redux
 
-React Tracked provides `useSelector` hook from [React Redux](https://react-redux.js.org/api/hooks#useselector).
-So, the transition from React Redux hooks to React Tracked should be easy.
+Rect Redux provides [useSelector](https://react-redux.js.org/api/hooks#useselector) and it can be used to improve performance.
 
-React Tracked has nothing to do with Redux, so we can't use their nice ecosystem.
+React Tracked can add automatic optimization with Proxies in two ways.
+
+1. createTrackedSelector to create a hook for React Redux with state usage tracking
+2. useSelectorWithTracking hook for selector with usage tracking
 
 ### Reactive React Redux
 
-[Reactive React Redux](https://github.com/dai-shi/reactive-react-redux) is
-a branch project of React Tracked.
-It is based on Redux, and provides `useTrackedState` hook which
-allows us the effortless render optimization.
+[Reactive React Redux](https://github.com/dai-shi/reactive-react-redux)
+originally proposed `useTrackedState` hook in advance of React Tracked.
 
-If you want Redux ecosystem, this one is good to go instead of React Tracked.
+It also uses bleeding edge techniques to experiment for React Redux ecosystem.
 
 ### MobX React
 
