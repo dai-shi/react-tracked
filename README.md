@@ -41,7 +41,7 @@ Since v1.6.0, it provides another building-block API
 which is capable to create a "state usage tracking" hooks
 from any selector interface hooks.
 It can be used with React-Redux useSelector, and any other libraries
-that provides useSelector-like hooks.
+that provide useSelector-like hooks.
 
 ## Install
 

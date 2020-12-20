@@ -4,6 +4,9 @@ title: Quick Start
 sidebar_label: Quick Start
 ---
 
+We explain how to use `createContainer`, which is very similar
+to how to use bare React Context for global state.
+
 Let's try a minimal example from scratch.
 
 ## Create a new app

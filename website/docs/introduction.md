@@ -4,24 +4,32 @@ title: Introduction
 sidebar_label: Introduction
 ---
 
-React Context and useContext is often used to avoid prop drilling,
-however it's known that there's a performance issue.
-When a context value is changed, all components that useContext
-will re-render.
-React idiomatic usage of the Context API is
-to separate concerns into pieces and use multiple contexts.
-If each context value is small enough, there shouldn't be
-any performance issue.
+Preventing re-renders is one of performance issues in React.
+Smaller apps wouldn't usually suffer from such a performance issue,
+but once apps have a central global state that would be used in
+many components. The performance issue would become a problem.
+For example, Redux is usually used for a single global state,
+and React-Redux provides a selector interface to solve the performance issue.
+Selectors are useful to structure state accessor,
+however, using selectors only for performance wouldn't be the best fit.
+Selectors for performance require understanding object reference
+equality which is non-trival for beginners and
+experts would still have difficulties for complex structures.
 
-What if one wants to put a bigger state object into a context
-for various reasons?
-React Redux is one solution in this field. Redux is designed to
-handle one big global state, and React Redux optimizes that use case.
+React Tracked is a library to provide so-called "state usage tracking."
+It's a technique to track property access of a state object,
+and only triggers re-renders if the accessed property is changed.
+Technically, it uses Proxies underneath, and it works not only for
+the root level of the object but also for deep nested objects.
 
-This library tosses a new option. It's based on Context and
-typically with useReducer, and provides APIs to solve
-the performance issue.
-Most notably, it comes with `useTrackedState`, which allows
-optimization without hassle. Technically, it uses Proxy underneath,
-and it tracks state usage in render so that if only used part of the state
-is changed, it will re-render.
+Prior to v1.6.0, React Tracked is a library to replace React Context
+use cases for global state. React hook useContext triggers re-renders
+whenever a small part of state object is changed, and it would cause
+performance issues pretty easily. React Tracked provides an API
+that is very similar to useContext-style global state.
+
+Since v1.6.0, it provides another building-block API
+which is capable to create a "state usage tracking" hooks
+from any selector interface hooks.
+It can be used with React-Redux useSelector, and any other libraries
+that provide useSelector-like hooks.

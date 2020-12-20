@@ -216,13 +216,13 @@ const App = () => (
 The `useTrackedState` and `useTracked` hooks are useful as is,
 but new hooks can also be created based on them.
 
-### useTrackedSelector
+### useSelectorWithTracking
 
 Selector interface is useful to share selection logic.
 You can create a selector hook with state usage tracking very easily.
 
 ```javascript
-const useTrackedSelector = selector => selector(useTrackedState());
+const useSelectorWithTracking = selector => selector(useTrackedState());
 ```
 
 Note: This is different from `useSelector` which has no tracking support
