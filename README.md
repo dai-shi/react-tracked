@@ -7,35 +7,41 @@
 [![size](https://img.shields.io/bundlephobia/minzip/react-tracked)](https://bundlephobia.com/result?p=react-tracked)
 [![discord](https://img.shields.io/discord/627656437971288081)](https://discord.gg/MrQdmzd)
 
-Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.
+State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.
 
 Documentation site: https://react-tracked.js.org
 
-> If you are looking for a Redux-based library, please visit [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux) which has the same hooks API.
-
 ## Introduction
 
-React Context and useContext is often used to avoid prop drilling,
-however it's known that there's a performance issue.
-When a context value is changed, all components that useContext
-will re-render.
-React idiomatic usage of the Context API is
-to separate concerns into pieces and use multiple contexts.
-If each context value is small enough, there shouldn't be
-any performance issue.
+Preventing re-renders is one of performance issues in React.
+Smaller apps wouldn't usually suffer from such a performance issue,
+but once apps have a central global state that would be used in
+many components. The performance issue would become a problem.
+For example, Redux is usually used for a single global state,
+and React-Redux provides a selector interface to solve the performance issue.
+Selectors are useful to structure state accessor,
+however, using selectors only for performance wouldn't be the best fit.
+Selectors for performance require understanding object reference
+equality which is non-trival for beginners and
+experts would still have difficulties for complex structures.
 
-What if one wants to put a bigger state object into a context
-for various reasons?
-React Redux is one solution in this field. Redux is designed to
-handle one big global state, and React Redux optimizes that use case.
+React Tracked is a library to provide so-called "state usage tracking."
+It's a technique to track property access of a state object,
+and only triggers re-renders if the accessed property is changed.
+Technically, it uses Proxies underneath, and it works not only for
+the root level of the object but also for deep nested objects.
 
-This library tosses a new option. It's based on Context and
-typically with useReducer, and provides APIs to solve
-the performance issue.
-Most notably, it comes with `useTrackedState`, which allows
-optimization without hassle. Technically, it uses Proxy underneath,
-and it tracks state usage in render so that if only used part of the state
-is changed, it will re-render.
+Prior to v1.6.0, React Tracked is a library to replace React Context
+use cases for global state. React hook useContext triggers re-renders
+whenever a small part of state object is changed, and it would cause
+performance issues pretty easily. React Tracked provides an API
+that is very similar to useContext-style global state.
+
+Since v1.6.0, it provides another building-block API
+which is capable to create a "state usage tracking" hooks
+from any selector interface hooks.
+It can be used with React-Redux useSelector, and any other libraries
+that provide useSelector-like hooks.
 
 ## Install
 
@@ -43,73 +49,133 @@ is changed, it will re-render.
 npm install react-tracked
 ```
 
-## Usage (useTracked)
+## Usage
 
-The following shows a minimal example.
-Please check out others in the [examples](examples) folder.
+There are two main APIs `createContainer` and `createTrackedSelector`.
+Both take a hook as an input and return a hook (or a container including a hook).
 
-```javascript
-import React, { useReducer } from 'react';
-import ReactDOM from 'react-dom';
+There could be various use cases. Here are some typical ones.
 
-import { createContainer } from 'react-tracked';
+### createContainer / useState
 
-const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
-const { Provider, useTracked } = createContainer(useValue);
+#### Define a `useValue` custom hook
 
-const initialState = {
+```js
+import { useState } from 'react';
+
+const useValue = () => useState({
   count: 0,
   text: 'hello',
-};
+});
+```
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'increment': return { ...state, count: state.count + 1 };
-    case 'decrement': return { ...state, count: state.count - 1 };
-    case 'setText': return { ...state, text: action.text };
-    default: throw new Error(`unknown action type: ${action.type}`);
-  }
-};
+This can be useReducer or any hook that returns a tuple `[state, dispatch]`.
 
+#### Create a container
+
+```js
+import { createContainer } from 'react-tracked';
+
+const { Provider, useTracked } = createContainer(useValue);
+```
+
+#### useTracked in a component
+
+```jsx
 const Counter = () => {
-  const [state, dispatch] = useTracked();
+  const [state, setState] = useTracked();
+  const increment = () => {
+    setState((prev) => ({
+      ...prev,
+      count: prev.count + 1,
+    });
+  };
   return (
     <div>
-      {Math.random()}
-      <div>
-        <span>Count: {state.count}</span>
-        <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
-        <button type="button" onClick={() => dispatch({ type: 'decrement' })}>-1</button>
-      </div>
+      <span>Count: {state.count}</span>
+      <button type="button" onClick={increment}>+1</button>
     </div>
   );
 };
+```
 
-const TextBox = () => {
-  const [state, dispatch] = useTracked();
-  return (
-    <div>
-      {Math.random()}
-      <div>
-        <span>Text: {state.text}</span>
-        <input value={state.text} onChange={event => dispatch({ type: 'setText', text: event.target.value })} />
-      </div>
-    </div>
-  );
-};
+The `useTracked` hook returns a tuple that `useValue` returns,
+except that the first is the state wrapped by proxies and
+the second part is a wrapped function for a reason.
 
+Thanks to proxies, the property access in render is tracked and
+this component will re-render only if `state.count` is changed.
+
+#### Wrap your App with Provider
+
+```jsx
 const App = () => (
-  <Provider reducer={reducer} initialState={initialState}>
-    <h1>Counter</h1>
+  <Provider>
     <Counter />
-    <Counter />
-    <h1>TextBox</h1>
-    <TextBox />
     <TextBox />
   </Provider>
 );
+```
 
-ReactDOM.render(<App />, document.getElementById('app'));
+### createTrackedSelector / react-redux
+
+#### Create `useTrackedSelector` from `useSelector`
+
+```js
+import { useSelector, useDispatch } from 'react-redux';
+import { createTrackedSelector } from 'react-tracked';
+
+const useTrackedSelector = createTrackedSelector(useSelector);
+```
+
+#### useTrackedSelector in a component
+
+```jsx
+const Counter = () => {
+  const state = useTrackedSelector();
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <span>Count: {state.count}</span>
+      <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
+    </div>
+  );
+};
+```
+
+### createTrackedSelector / zustand
+
+#### Create useStore
+
+```js
+import create from 'zustand';
+
+const useStore = create(() => ({ count: 0 }));
+```
+
+#### Create `useTrackedStore` from `useStore`
+
+```js
+import { createTrackedSelector } from 'react-tracked';
+
+const useTrackedStore = createTrackedSelector(useStore);
+```
+
+#### useStore in a component
+
+```jsx
+const Counter = () => {
+  const state = useTrackedStore();
+  const increment = () => {
+    useStore.setState(prev => ({ count: prev.count + 1 }));
+  };
+  return (
+    <div>
+      <span>Count: {state.count}</span>
+      <button type="button" onClick={increment}>+1</button>
+    </div>
+  );
+};
 ```
 
 ## API

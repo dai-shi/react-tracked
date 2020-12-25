@@ -2,7 +2,7 @@
 
 module.exports = {
   title: 'React Tracked',
-  tagline: 'Simple and fast global state with React Context. Eliminate unnecessary re-renders without hassle.',
+  tagline: 'State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.',
   organizationName: 'dai-shi',
   projectName: 'react-tracked',
   baseUrl: '/',

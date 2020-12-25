@@ -1,6 +1,6 @@
 ---
 id: tutorial-02
-title: Tutorial - ToDo App with useReducer
+title: Tutorial with createContainer - ToDo App with useReducer
 sidebar_label: ToDo App (useReducer)
 ---
 

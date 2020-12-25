@@ -1,7 +1,7 @@
 ---
 id: tutorial-03
-title: Tutorial - ToDo App with useState
-sidebar_label: ToDo App (useState)
+title: Tutorial with createContainer - ToDo App with useState
+sidebar_label: ToDo App (useState+Immer)
 ---
 
 This tutorial shows example code with useState, [Immer](https://immerjs.github.io/immer/) and custom hooks.

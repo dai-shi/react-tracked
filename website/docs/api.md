@@ -4,8 +4,37 @@ title: API
 sidebar_label: API
 ---
 
-The `createContainer` is a main function exported from the library,
+There are two main functions exported from the library,
+`createContainer` and `createTrackedSelector`.
+
+`createTrackedSelector` is a building block function
+which takes a `useSelector` hook and creates a `useTrackedSelector` hook.
+
+`createContainer` is a higher level function for React Context-like usage,
 which creates a provider and other hooks.
+
+## createTrackedSelector
+
+This is a function to create a hook with state usage tracking.
+It takes one argument `useSelector`, which is provided by
+[react-redux](https://react-redux.js.org/api/hooks) or
+any other hooks with the same signature and behavior.
+
+The created hook `useTrackedSelector` (or whatever named)
+is a hook that returns `state` wrapped by Proxies for usage tracking.
+It behaves the same as [useTrackedState](#usetrackedstate) from `createContainer`.
+
+```javascript
+import { useSelector } from 'react-redux'; // or any similar library
+import { createTrackedSelector } from 'react-tracked';
+
+const useTrackedSelector = createTrackedSelector(useSelector);
+
+const Component = () => {
+  const state = useTrackedSelector();
+  // ...
+};
+```
 
 ## createContainer
 
@@ -49,7 +78,7 @@ const App = (props) => (
 
 The `useTracked` hook returned by createContainer is the recommended hook.
 It simply returns the `[state, update]` tuple that `useValue` returns.
-The `state` is wrapped by Proxy for usage tracking.
+The `state` is wrapped by Proxies for usage tracking.
 
 ```javascript
 const Component = () => {
@@ -75,7 +104,7 @@ const Component = () => {
 ### useTrackedState
 
 The `useTrackedState` hook returned by createContainer is for `state` from `useValue`;
-This is wrapped by Proxy as same as `useTracked`.
+This is wrapped by Proxies as same as `useTracked`.
 Use this hook if you don't need `update`.
 This hook is compatible with [reactive-react-redux](https://github.com/dai-shi/reactive-react-redux).
 
