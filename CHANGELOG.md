@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.6.0] - 2020-12-26
 ### Added
 - Export createTrackedSelector, a new building-block function (#71)
 
