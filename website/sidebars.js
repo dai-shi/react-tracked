@@ -15,6 +15,7 @@ module.exports = {
       'tutorial-redux-01',
     ],
     'Tutorial with zustand': [
+      'tutorial-zustand-01',
     ],
     Reference: [
       'api',

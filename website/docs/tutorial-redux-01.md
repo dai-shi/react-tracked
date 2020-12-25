@@ -9,7 +9,7 @@ There are two variants.
 The first one is with useSelector.
 The second one is with useTrackedSelector.
 
-## with useSelector
+## With useSelector
 
 ```typescript ts2js
 import * as React from "react";
