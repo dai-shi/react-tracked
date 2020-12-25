@@ -12,6 +12,7 @@ module.exports = {
       'tutorial-04',
     ],
     'Tutorial with react-redux': [
+      'tutorial-redux-01',
     ],
     'Tutorial with zustand': [
     ],
