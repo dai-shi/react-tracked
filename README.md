@@ -161,7 +161,7 @@ import { createTrackedSelector } from 'react-tracked';
 const useTrackedStore = createTrackedSelector(useStore);
 ```
 
-#### useStore in a component
+#### useTrackedStore in a component
 
 ```jsx
 const Counter = () => {
