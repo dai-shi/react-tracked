@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.6.1] - 2020-12-30
 ### Changed
 - Fix a hypothetical issue of reusing deepChangedCache
 
