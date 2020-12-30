@@ -1,4 +1,5 @@
 import {
+  useCallback,
   useEffect,
   useLayoutEffect,
   useMemo,
@@ -68,27 +69,24 @@ export const createTrackedSelector = <State>(
         forceUpdate();
       }
     });
-    const selector = useMemo(() => {
-      const deepChangedCache = new WeakMap();
-      return (nextState: State) => {
-        lastState.current = nextState;
-        if (prevState.current
-          && prevState.current !== nextState
-          && lastAffected.current
-          && !isDeepChanged(
-            prevState.current,
-            nextState,
-            lastAffected.current,
-            deepChangedCache,
-            deepChangedMode,
-          )
-        ) {
-          // not changed
-          return prevState.current;
-        }
-        prevState.current = nextState;
-        return nextState;
-      };
+    const selector = useCallback((nextState: State) => {
+      lastState.current = nextState;
+      if (prevState.current
+        && prevState.current !== nextState
+        && lastAffected.current
+        && !isDeepChanged(
+          prevState.current,
+          nextState,
+          lastAffected.current,
+          new WeakMap(),
+          deepChangedMode,
+        )
+      ) {
+        // not changed
+        return prevState.current;
+      }
+      prevState.current = nextState;
+      return nextState;
     }, [deepChangedMode]);
     const state = useSelector(selector);
     if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
