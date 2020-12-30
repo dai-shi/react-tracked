@@ -106,6 +106,16 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0",
+    "react-dom": "*",
+    "react-native": "*",
     "scheduler": ">=0.19.0"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    }
   }
 }

@@ -45,8 +45,16 @@ that provide useSelector-like hooks.
 
 ## Install
 
+This package requires some peer dependencies, which you need to install by yourself.
+
 ```bash
-npm install react-tracked
+yarn add react-tracked react scheduler react-dom
+```
+
+For React Native users:
+
+```bash
+yarn add react-tracked react scheduler react-native
 ```
 
 ## Usage
@@ -202,7 +210,7 @@ The [examples](examples) folder contains working examples.
 You can run one of them with
 
 ```bash
-PORT=8080 npm run examples:01_minimal
+PORT=8080 yarn run examples:01_minimal
 ```
 
 and open <http://localhost:8080> in your web browser.
