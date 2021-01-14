@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.6.2] - 2021-01-14
+### Changed
+- Improve memo typing (#77)
+
 ## [1.6.1] - 2020-12-30
 ### Changed
 - Fix a hypothetical issue of reusing deepChangedCache
