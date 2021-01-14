@@ -1,14 +1,38 @@
-import { ComponentProps, createElement, memo as reactMemo } from 'react';
+import { createElement, memo as reactMemo } from 'react';
+import type {
+  FC,
+  PropsWithChildren,
+  NamedExoticComponent,
+  ComponentType,
+  ComponentProps,
+  MemoExoticComponent,
+} from 'react';
 
 import { trackMemo } from 'proxy-compare';
 
-export const memo = (
-  Component: Parameters<typeof reactMemo>[0],
-  areEqual?: Parameters<typeof reactMemo>[1],
-) => {
-  const WrappedComponent = (props: ComponentProps<typeof Component>) => {
+export function memo<P extends Record<string, unknown>>(
+  Component: FC<P>,
+  propsAreEqual?: (
+    prevProps: Readonly<PropsWithChildren<P>>,
+    nextProps: Readonly<PropsWithChildren<P>>,
+  ) => boolean,
+): NamedExoticComponent<P>;
+
+export function memo<T extends ComponentType<any>>(
+  Component: T,
+  propsAreEqual?: (
+    prevProps: Readonly<ComponentProps<T>>,
+    nextProps: Readonly<ComponentProps<T>>,
+  ) => boolean,
+): MemoExoticComponent<T>;
+
+export function memo(
+  Component: any,
+  propsAreEqual?: any,
+) {
+  const WrappedComponent = (props: any) => {
     Object.values(props).forEach(trackMemo);
     return createElement(Component, props);
   };
-  return reactMemo(WrappedComponent, areEqual);
-};
+  return reactMemo(WrappedComponent, propsAreEqual);
+}

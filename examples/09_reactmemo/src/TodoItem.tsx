@@ -9,7 +9,8 @@ type Props = {
 
 let numRendered = 0;
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
+// Use custom memo instead of React.memo
+const TodoItem: React.FC<Props> = memo(({ todo }) => {
   const dispatch = useDispatch();
   return (
     <li>
@@ -28,7 +29,6 @@ const TodoItem: React.FC<Props> = ({ todo }) => {
       </span>
     </li>
   );
-};
+});
 
-// export default React.memo(TodoItem); // Instead of React.memo
-export default memo(TodoItem); // Use custom memo
+export default TodoItem;
