@@ -14,7 +14,7 @@ Let's try a minimal example from scratch.
 Use [create-react-app](https://create-react-app.dev) to create a new app.
 
 ```bash
-npx create-react-app my-app # Add --typescript for TypeScript
+npx create-react-app my-app # Add --template typescript for TypeScript
 ```
 
 Run the app.
