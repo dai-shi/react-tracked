@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Support memo with forwarded ref (#80)
 
 ## [1.6.2] - 2021-01-14
 ### Changed

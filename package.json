@@ -37,6 +37,7 @@
     "e2e-test:12_async": "server-test examples:12_async 8080 'jest --preset jest-puppeteer __tests__/e2e/12_async.ts'",
     "e2e-test:13_saga": "server-test examples:13_saga 8080 'jest --preset jest-puppeteer __tests__/e2e/13_saga.ts'",
     "e2e-test:14_dynamic": "server-test examples:14_dynamic 8080 'jest --preset jest-puppeteer __tests__/e2e/14_dynamic.ts'",
+    "e2e-test:15_reactmemoref": "server-test examples:15_reactmemoref 8080 'jest --preset jest-puppeteer __tests__/e2e/15_reactmemoref.ts'",
     "examples:01_minimal": "DIR=01_minimal EXT=js webpack-dev-server",
     "examples:02_typescript": "DIR=02_typescript webpack-dev-server",
     "examples:03_usestate": "DIR=03_usestate webpack-dev-server",
@@ -50,7 +51,8 @@
     "examples:11_form": "DIR=11_form webpack-dev-server",
     "examples:12_async": "DIR=12_async webpack-dev-server",
     "examples:13_saga": "DIR=13_saga webpack-dev-server",
-    "examples:14_dynamic": "DIR=14_dynamic webpack-dev-server"
+    "examples:14_dynamic": "DIR=14_dynamic webpack-dev-server",
+    "examples:15_reactmemoref": "DIR=15_reactmemoref webpack-dev-server"
   },
   "jest": {
     "transform": {
