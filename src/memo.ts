@@ -1,4 +1,4 @@
-import { createElement, memo as reactMemo } from 'react';
+import { createElement, memo as reactMemo, forwardRef } from 'react';
 import type {
   FC,
   PropsWithChildren,
@@ -26,13 +26,10 @@ export function memo<T extends ComponentType<any>>(
   ) => boolean,
 ): MemoExoticComponent<T>;
 
-export function memo(
-  Component: any,
-  propsAreEqual?: any,
-) {
-  const WrappedComponent = (props: any) => {
+export function memo(Component: any, propsAreEqual?: any) {
+  const WrappedComponent = forwardRef((props: any, ref: any) => {
     Object.values(props).forEach(trackMemo);
-    return createElement(Component, props);
-  };
+    return createElement(Component, { ...props, ref });
+  });
   return reactMemo(WrappedComponent, propsAreEqual);
 }
