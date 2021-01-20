@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.6.4] - 2021-01-21
+### Changed
+- Fix read-only and non-configurable data property error (#81)
+
 ## [1.6.3] - 2021-01-17
 ### Changed
 - Support memo with forwarded ref (#80)
