@@ -8053,10 +8053,10 @@ proxy-addr@~2.0.5:
     forwarded "~0.1.2"
     ipaddr.js "1.9.1"
 
-proxy-compare@1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.1.4.tgz#bfd72af51647d96af80d6c1b31c29f4c7e2aaca7"
-  integrity sha512-NEawV9OdBuC9jhIxCfrYDyR/Xd28eAVUKBrke6modl10o6uBrEBOfI/6iPomlFr2kQeBR1TWf0pjUOfWJic9Vw==
+proxy-compare@1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/proxy-compare/-/proxy-compare-1.1.6.tgz#dd7737be611a9d7142fae10dbc6d0ceb74ad6da0"
+  integrity sha512-V65euKrKgKjVyEh5+4nVlAf4dHJ6Q0cF77MCeZiJaOldAl9lndy/u270SJneHiz3UkVcSIhxfOKY7aFkrMyo5g==
 
 proxy-from-env@^1.0.0:
   version "1.1.0"

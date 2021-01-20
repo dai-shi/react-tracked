@@ -67,7 +67,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "proxy-compare": "1.1.4",
+    "proxy-compare": "1.1.6",
     "use-context-selector": "1.3.5"
   },
   "devDependencies": {
