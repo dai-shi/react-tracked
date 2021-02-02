@@ -1,4 +1,4 @@
-[![logo](./website/static/img/react-tracked-logo.svg)](https://react-tracked.js.org)
+[![logo](./website/static/img/react-tracked-logo-animated1.svg)](https://react-tracked.js.org)
 
 # React Tracked
 
