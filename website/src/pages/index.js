@@ -23,7 +23,7 @@ const Home = () => {
       >
         <img
           alt="React Tracked Logo"
-          src={useBaseUrl('img/react-tracked-logo.svg')}
+          src={useBaseUrl('img/react-tracked-logo-animated1.svg')}
         />
         <h1>{siteConfig.title}</h1>
         <h6>{siteConfig.tagline}</h6>
