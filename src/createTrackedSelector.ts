@@ -17,7 +17,7 @@ import {
 import { useAffectedDebugValue } from './utils';
 
 const isSSR = typeof window === 'undefined'
-  || typeof window.navigator === 'undefined'
+  || !window.navigator
   || /ServerSideRendering/.test(window.navigator.userAgent);
 
 const useIsomorphicLayoutEffect = isSSR ? useEffect : useLayoutEffect;
