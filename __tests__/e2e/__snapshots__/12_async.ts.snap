@@ -3,7 +3,7 @@
 exports[`12_async should work with recorded events 1`] = `
 "
     <div id=\\"app\\"><div><h1>Person</h1><div>User ID:<input value=\\"3\\"></div><span>connecting...</span><div><h1>Counter</h1>Count: 0<button type=\\"button\\">+1</button><button type=\\"button\\">-1 (Delayed)</button></div></div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -11,7 +11,7 @@ exports[`12_async should work with recorded events 1`] = `
 exports[`12_async should work with recorded events 2`] = `
 "
     <div id=\\"app\\"><div><h1>Person</h1><div>User ID:<input value=\\"3\\"></div><div>First Name: Emma<button type=\\"button\\">Fetch User</button><button type=\\"button\\">Clear</button></div><div><h1>Counter</h1>Count: 0<button type=\\"button\\">+1</button><button type=\\"button\\">-1 (Delayed)</button></div></div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -19,7 +19,7 @@ exports[`12_async should work with recorded events 2`] = `
 exports[`12_async should work with recorded events 3`] = `
 "
     <div id=\\"app\\"><div><h1>Person</h1><div>User ID:<input value=\\"3\\"></div><div>First Name: Emma<button type=\\"button\\">Fetch User</button><button type=\\"button\\">Clear</button></div><div><h1>Counter</h1>Count: 1<button type=\\"button\\">+1</button><button type=\\"button\\">-1 (Delayed)</button></div></div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -27,7 +27,7 @@ exports[`12_async should work with recorded events 3`] = `
 exports[`12_async should work with recorded events 4`] = `
 "
     <div id=\\"app\\"><div><h1>Person</h1><div>User ID:<input value=\\"3\\"></div><div>First Name: Emma<button type=\\"button\\">Fetch User</button><button type=\\"button\\">Clear</button></div><div><h1>Counter</h1>Count: 1<button type=\\"button\\">+1</button><button type=\\"button\\">-1 (Delayed)</button></div></div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -35,7 +35,7 @@ exports[`12_async should work with recorded events 4`] = `
 exports[`12_async should work with recorded events 5`] = `
 "
     <div id=\\"app\\"><div><h1>Person</h1><div>User ID:<input value=\\"3\\"></div><div>First Name: Emma<button type=\\"button\\">Fetch User</button><button type=\\"button\\">Clear</button></div><div><h1>Counter</h1>Count: 0<button type=\\"button\\">+1</button><button type=\\"button\\">-1 (Delayed)</button></div></div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;

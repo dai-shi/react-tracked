@@ -83,9 +83,9 @@ type AsyncAction = AsyncActionFetch | AsyncActionDecrement;
 function* userFetcher(action: AsyncActionFetch) {
   try {
     yield put<InnerAction>({ type: 'START_FETCH_USER' });
-    const response = yield call(() => fetch(`https://reqres.in/api/users/${action.id}?delay=1`));
+    const response: Response = yield call(() => fetch(`https://reqres.in/api/users/${action.id}?delay=1`));
     yield put<InnerAction>({ type: 'CONTINUE_FETCH_USER' });
-    const data = yield call(() => response.json());
+    const data: { data: Record<string, unknown> } = yield call(() => response.json());
     yield delay(500);
     const firstName = data.data.first_name;
     if (typeof firstName !== 'string') throw new Error();

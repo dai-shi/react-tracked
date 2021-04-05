@@ -3,7 +3,7 @@
 exports[`09_reactmemo should work with recorded events 1`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 8<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Wash dishes</span></li><li>numRendered: 4<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Study JS</span></li><li>numRendered: 6<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -11,7 +11,7 @@ exports[`09_reactmemo should work with recorded events 1`] = `
 exports[`09_reactmemo should work with recorded events 2`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 8<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Wash dishes</span></li><li>numRendered: 10<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Study JS</span></li><li>numRendered: 6<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -19,7 +19,7 @@ exports[`09_reactmemo should work with recorded events 2`] = `
 exports[`09_reactmemo should work with recorded events 3`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 8<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Wash dishes</span></li><li>numRendered: 10<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Study JS</span></li><li>numRendered: 12<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -27,7 +27,7 @@ exports[`09_reactmemo should work with recorded events 3`] = `
 exports[`09_reactmemo should work with recorded events 4`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 14<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Wash dishes</span></li><li>numRendered: 10<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Study JS</span></li><li>numRendered: 12<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -35,7 +35,7 @@ exports[`09_reactmemo should work with recorded events 4`] = `
 exports[`09_reactmemo should work with recorded events 5`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 14<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Wash dishes</span></li><li>numRendered: 16<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Study JS</span></li><li>numRendered: 12<input type=\\"checkbox\\"><span style=\\"text-decoration: line-through;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -43,7 +43,7 @@ exports[`09_reactmemo should work with recorded events 5`] = `
 exports[`09_reactmemo should work with recorded events 6`] = `
 "
     <div id=\\"app\\"><ul><li>numRendered: 14<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Wash dishes</span></li><li>numRendered: 16<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Study JS</span></li><li>numRendered: 18<input type=\\"checkbox\\"><span style=\\"text-decoration: none;\\">Buy ticket</span></li></ul></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;

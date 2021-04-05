@@ -3,7 +3,7 @@
 exports[`08_comparison should work with recorded events 1`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -11,7 +11,7 @@ exports[`08_comparison should work with recorded events 1`] = `
 exports[`08_comparison should work with recorded events 2`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -19,7 +19,7 @@ exports[`08_comparison should work with recorded events 2`] = `
 exports[`08_comparison should work with recorded events 3`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -27,7 +27,7 @@ exports[`08_comparison should work with recorded events 3`] = `
 exports[`08_comparison should work with recorded events 4`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -35,7 +35,7 @@ exports[`08_comparison should work with recorded events 4`] = `
 exports[`08_comparison should work with recorded events 5`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -43,7 +43,7 @@ exports[`08_comparison should work with recorded events 5`] = `
 exports[`08_comparison should work with recorded events 6`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -51,7 +51,7 @@ exports[`08_comparison should work with recorded events 6`] = `
 exports[`08_comparison should work with recorded events 7`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -59,7 +59,7 @@ exports[`08_comparison should work with recorded events 7`] = `
 exports[`08_comparison should work with recorded events 8`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter\\">(renders:2)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -67,7 +67,7 @@ exports[`08_comparison should work with recorded events 8`] = `
 exports[`08_comparison should work with recorded events 9`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry\\">(renders:1)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -75,7 +75,7 @@ exports[`08_comparison should work with recorded events 9`] = `
 exports[`08_comparison should work with recorded events 10`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
@@ -83,7 +83,7 @@ exports[`08_comparison should work with recorded events 10`] = `
 exports[`08_comparison should work with recorded events 11`] = `
 "
     <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:2)</div><div>Family Name:<input value=\\"Potter1\\">(renders:2)</div></div>
-  <script src=\\"/main.js\\"></script>
+  
 
 "
 `;
