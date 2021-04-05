@@ -92,7 +92,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: 'Copyright © 2019-2020 Daishi Kato',
+      copyright: 'Copyright © 2019-2021 Daishi Kato',
     },
   },
 };
