@@ -1,8 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.6.6] - 2021-04-05
 ### Changed
-- Better SSR detection for Deno
+- Better SSR detection for Deno (#89)
 
 ## [1.6.5] - 2021-01-24
 ### Changed
