@@ -38,10 +38,12 @@ const Component = () => {
 
 ## createContainer
 
-It takes one argument `useValue`,
+It takes two arguments, the first argument `useValue`,
 which is a hook that returns a tuple `[state, update]`.
 Typically, it's with useReducer and useState,
 but it can be any custom hooks based on them.
+
+The second argument `legacyMode` enables using original context instead of using `useContextUpdate` from `use-context-selector`. It is `false` by default.
 
 Note: you can create multiple containers in one app.
 
