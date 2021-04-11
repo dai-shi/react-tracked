@@ -5,8 +5,8 @@ import { createContainer } from 'react-tracked';
 import { useValue } from './state';
 import Counter from './Counter';
 
-const container1 = createContainer(useValue);
-const container2 = createContainer(useValue);
+const container1 = createContainer(useValue, true);
+const container2 = createContainer(useValue, true);
 
 const App: React.FC = () => (
   <StrictMode>

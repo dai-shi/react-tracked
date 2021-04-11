@@ -30,4 +30,4 @@ export const {
   useUpdate: useSetState,
   useTracked,
   useTrackedState,
-} = createContainer(useValue);
+} = createContainer(useValue, true);

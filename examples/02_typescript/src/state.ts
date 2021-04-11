@@ -58,4 +58,4 @@ const reducer: Reducer<State, Action> = (state, action) => {
 
 const useValue = () => useReducer(reducer, initialState);
 
-export const { Provider, useTracked } = createContainer(useValue);
+export const { Provider, useTracked } = createContainer(useValue, true);

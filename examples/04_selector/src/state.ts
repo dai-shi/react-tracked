@@ -62,4 +62,4 @@ export const {
   Provider,
   useSelector,
   useUpdate: useDispatch,
-} = createContainer(useValue);
+} = createContainer(useValue, true);

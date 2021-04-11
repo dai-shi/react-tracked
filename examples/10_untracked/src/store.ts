@@ -82,7 +82,7 @@ const {
   Provider,
   useTrackedState,
   useUpdate: useDispatch,
-} = createContainer(useValue);
+} = createContainer(useValue, true);
 
 // eslint-disable-next-line arrow-parens
 const untrackDeep = <T>(obj: T) => {
