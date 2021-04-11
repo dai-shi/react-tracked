@@ -22,7 +22,7 @@ type AnyFunction = (...args: any[]) => any;
 
 export const createContainer = <State, Update extends AnyFunction, Props>(
   useValue: (props: Props) => readonly [State, Update],
-  legacyMode = false,
+  concurrentMode = false,
 ) => {
   const StateContext = createContext(warningObject as State);
   const UpdateContext = createContextOrig(warningObject as Update);
@@ -41,7 +41,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     opts?: Parameters<typeof useTrackedOrig>[2],
   ) => useTrackedOrig(StateContext, UpdateContext, opts);
 
-  const useUpdate = !legacyMode
+  const useUpdate = concurrentMode
     ? () => useUpdateOrig(StateContext, UpdateContext)
     : () => useContextOrig(UpdateContext);
 
