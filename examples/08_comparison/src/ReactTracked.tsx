@@ -28,7 +28,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const { Provider, useTracked } = createContainer(() => useReducer(reducer, initialState));
+const { Provider, useTracked } = createContainer(() => useReducer(reducer, initialState), true);
 
 const PersonFirstName: React.FC = () => {
   const [state, dispatch] = useTracked();

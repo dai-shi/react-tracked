@@ -23,7 +23,7 @@ const {
   Provider: FormProvider,
   useTrackedState,
   useUpdate: useSetState,
-} = createContainer(() => useState(initialState));
+} = createContainer(() => useState(initialState), true);
 
 const useFormValues = () => {
   const state = useTrackedState();

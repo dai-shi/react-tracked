@@ -20,7 +20,7 @@ const useValue = () => {
   return [count, setCount] as const;
 };
 
-const { Provider, useTracked } = createContainer(useValue);
+const { Provider, useTracked } = createContainer(useValue, true);
 
 const Counter = () => {
   const [count, setCount] = useTracked();

@@ -125,4 +125,4 @@ export const {
   Provider,
   useTrackedState,
   useUpdate: useDispatch,
-} = createContainer(useValue);
+} = createContainer(useValue, true);

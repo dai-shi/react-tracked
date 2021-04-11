@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createContainer } from 'react-tracked';
 
 const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
-const { Provider, useTracked } = createContainer(useValue);
+const { Provider, useTracked } = createContainer(useValue, true);
 
 const initialState = {
   count: 0,
