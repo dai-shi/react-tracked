@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+## [1.7.0] - 2021-04-11
+### Changed
+- createContainer takes the second argument for opt-in concurrent mode support (#92)
+  - This is a (technically breaking) behavioral change.
+
 ## [1.6.6] - 2021-04-05
 ### Changed
 - Better SSR detection for Deno (#89)
