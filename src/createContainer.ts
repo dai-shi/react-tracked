@@ -33,13 +33,9 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       createElement(StateContext.Provider, { value: state }, props.children));
   };
 
-  const useTrackedState = (
-    opts?: Parameters<typeof useTrackedStateOrig>[1],
-  ) => useTrackedStateOrig(StateContext, opts);
+  const useTrackedState = () => useTrackedStateOrig(StateContext);
 
-  const useTracked = (
-    opts?: Parameters<typeof useTrackedOrig>[2],
-  ) => useTrackedOrig(StateContext, UpdateContext, opts);
+  const useTracked = () => useTrackedOrig(StateContext, UpdateContext);
 
   const useUpdate = concurrentMode
     ? () => useUpdateOrig(StateContext, UpdateContext)
