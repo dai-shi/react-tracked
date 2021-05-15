@@ -1,7 +1,7 @@
 {
   "name": "react-tracked",
   "description": "State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "author": "Daishi Kato",
   "repository": {
     "type": "git",

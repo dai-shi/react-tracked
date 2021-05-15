@@ -1,8 +1,10 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.1] - 2021-05-15
 ### Changed
-- Update proxy-compare and drop unstable options.
+- Update proxy-compare and drop unstable options (#96)
 
 ## [1.7.0] - 2021-04-11
 ### Changed
