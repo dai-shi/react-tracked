@@ -1,4 +1,4 @@
-/* global page */
+import puppeteer from 'puppeteer';
 
 jest.setTimeout(15 * 1000);
 
@@ -6,6 +6,8 @@ describe('08_comparison', () => {
   const port = process.env.PORT || '8080';
 
   it('should work with recorded events', async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/`);
 
     await page.waitForSelector('body > #app > div:nth-child(2) > input');
@@ -41,5 +43,7 @@ describe('08_comparison', () => {
 
     await page.type('body > #app > div:nth-child(15) > input', '1');
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
+
+    await browser.close();
   });
 });
