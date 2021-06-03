@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Fix useTracked for legacy mode following #92 (#102)
 
 ## [1.7.1] - 2021-05-15
 ### Changed
