@@ -1,4 +1,4 @@
-/* global page */
+import puppeteer from 'puppeteer';
 
 jest.setTimeout(15 * 1000);
 
@@ -6,6 +6,8 @@ describe('14_dynamic', () => {
   const port = process.env.PORT || '8080';
 
   it('should work with recorded events', async () => {
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/`);
 
     await page.waitForSelector('body > #app > div:nth-child(2) > div > button:nth-child(2)');
@@ -51,5 +53,7 @@ describe('14_dynamic', () => {
     await page.waitForSelector('body > #app > div:nth-child(6) > div > button');
     await page.click('body > #app > div:nth-child(6) > div > button');
     expect(await page.evaluate(() => document.body.innerHTML)).toMatchSnapshot();
+
+    await browser.close();
   });
 });
