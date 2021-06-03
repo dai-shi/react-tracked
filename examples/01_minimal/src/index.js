@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createContainer } from 'react-tracked';
 
 const useValue = ({ reducer, initialState }) => useReducer(reducer, initialState);
-const { Provider, useTracked } = createContainer(useValue, true);
+const { Provider, useTracked } = createContainer(useValue, false);
 
 const initialState = {
   count: 0,
@@ -62,4 +62,5 @@ const App = () => (
   </StrictMode>
 );
 
-ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+// legacy mode
+ReactDOM.render(<App />, document.getElementById('app'));

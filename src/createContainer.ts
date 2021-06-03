@@ -9,7 +9,6 @@ import {
 
 import { createContext } from 'use-context-selector';
 import { useTrackedState as useTrackedStateOrig } from './useTrackedState';
-import { useTracked as useTrackedOrig } from './useTracked';
 import { useSelector as useSelectorOrig } from './useSelector';
 import { useUpdate as useUpdateOrig } from './useUpdate';
 
@@ -35,11 +34,14 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
 
   const useTrackedState = () => useTrackedStateOrig(StateContext);
 
-  const useTracked = () => useTrackedOrig(StateContext, UpdateContext);
-
   const useUpdate = concurrentMode
     ? () => useUpdateOrig(StateContext, UpdateContext)
     : () => useContextOrig(UpdateContext);
+
+  const useTracked = () => [useTrackedState(), useUpdate()] as [
+    ReturnType<typeof useTrackedState>,
+    ReturnType<typeof useUpdate>,
+  ];
 
   const useSelector = <Selected>(
     selector: (state: State) => Selected,
