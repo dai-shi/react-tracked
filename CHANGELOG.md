@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.3] - 2021-07-01
 ### Changed
 - Fix anonymous functions shown in devtools (#108)
 
