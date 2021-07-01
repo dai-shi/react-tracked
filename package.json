@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "compile": "microbundle build -f modern,umd",
+    "compile": "microbundle build -f modern,umd --no-compress",
     "test": "run-s eslint tsc-test jest e2e-test:*",
     "eslint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --ignore-pattern dist .",
     "jest": "jest --preset ts-jest/presets/js-with-ts __tests__/*.tsx",
