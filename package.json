@@ -12,6 +12,15 @@
   "main": "./dist/index.umd.js",
   "module": "./dist/index.modern.js",
   "types": "./dist/src/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "module": "./dist/index.modern.js",
+      "import": "./dist/index.modern.mjs",
+      "default": "./dist/index.umd.js"
+    }
+  },
   "sideEffects": false,
   "files": [
     "src",
@@ -19,6 +28,7 @@
   ],
   "scripts": {
     "compile": "microbundle build -f modern,umd --no-compress",
+    "postcompile": "cp dist/index.modern.mjs dist/index.modern.js && cp dist/index.modern.mjs.map dist/index.modern.js.map",
     "test": "run-s eslint tsc-test jest e2e-test:*",
     "eslint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --ignore-pattern dist .",
     "jest": "jest --preset ts-jest/presets/js-with-ts __tests__/*.tsx",
@@ -68,7 +78,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "proxy-compare": "2.0.1",
+    "proxy-compare": "2.0.2",
     "use-context-selector": "1.3.7"
   },
   "devDependencies": {
