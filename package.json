@@ -130,5 +130,8 @@
     "react-native": {
       "optional": true
     }
+  },
+  "resolutions": {
+    "@types/node": "^15"
   }
 }
