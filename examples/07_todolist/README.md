@@ -4,14 +4,14 @@
 
 ### Live Example
 
-Checkout the [example on codesandbox](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/07_todolist).
+Checkout the [example on codesandbox](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/07_todolist).
 
 ### Download manually
 
 Download the example:
 
 ```bash
-curl https://codeload.github.com/dai-shi/react-tracked/tar.gz/master | tar -xz --strip=2 react-tracked-master/examples/07_todolist
+curl https://codeload.github.com/dai-shi/react-tracked/tar.gz/main | tar -xz --strip=2 react-tracked-main/examples/07_todolist
 cd 07_todolist
 yarn && yarn run start
 ```

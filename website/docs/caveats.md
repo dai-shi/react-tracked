@@ -77,4 +77,4 @@ dispatch({ type: 'FOO', value: getUntrackedObject(state.fooObj) });
 ```
 
 You could implement a special dispatch function to do this automatically.
-Check out [examples/10_untracked/src/store.ts](https://github.com/dai-shi/react-tracked/blob/master/examples/10_untracked/src/store.ts) for a concrete example.
+Check out [examples/10_untracked/src/store.ts](https://github.com/dai-shi/react-tracked/blob/main/examples/10_untracked/src/store.ts) for a concrete example.

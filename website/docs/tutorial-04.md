@@ -199,7 +199,7 @@ It's a tiny custom hook, and actually it's fairly easy
 to do the same thing without the custom hook.
 
 You could also use `redux-saga` for async actions.
-For saga users, here is [an example](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/master/examples/13_saga).
+For saga users, here is [an example](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/13_saga).
 
 Another note in this store is that it has both `todoIds` and `todoMap`.
 They are denormalized. The reason for this pattern is
