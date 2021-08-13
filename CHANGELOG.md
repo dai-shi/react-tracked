@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.7.4] - 2021-08-13
+### Changed
+- Fix package.json properly for ESM (#115)
+
 ## [1.7.3] - 2021-07-01
 ### Changed
 - Fix anonymous functions shown in devtools (#108)
