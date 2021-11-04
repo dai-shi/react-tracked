@@ -8,6 +8,7 @@ module.exports = {
   baseUrl: '/',
   url: 'https://react-tracked.js.org',
   favicon: 'img/favicon.ico',
+  trailingSlash: true,
   themes: [
     '@docusaurus/theme-live-codeblock',
   ],
