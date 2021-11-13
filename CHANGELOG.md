@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Update dependencies fixing ESM exports
 
 ## [1.7.4] - 2021-08-13
 ### Changed

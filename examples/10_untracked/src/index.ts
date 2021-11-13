@@ -1,9 +1,7 @@
 // eslint-disable-next-line spaced-comment
-/// <reference types="react-dom/experimental" />
+/// <reference types="react-dom/next" />
 
 import React from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { createRoot } from 'react-dom';
 
 import App from './App';

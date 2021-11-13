@@ -6,8 +6,8 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "immer": "latest",
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "alpha",
+    "react-dom": "alpha",
     "react-tracked": "latest",
     "react-scripts": "latest",
     "typescript": "latest"

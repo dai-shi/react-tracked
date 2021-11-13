@@ -5,8 +5,8 @@
   "dependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "react": "experimental",
-    "react-dom": "experimental",
+    "react": "alpha",
+    "react-dom": "alpha",
     "react-tracked": "latest",
     "react-scripts": "latest",
     "redux-saga": "latest",

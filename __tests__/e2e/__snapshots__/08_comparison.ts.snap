@@ -74,7 +74,7 @@ exports[`08_comparison should work with recorded events 9`] = `
 
 exports[`08_comparison should work with recorded events 10`] = `
 "
-    <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
+    <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter\\">(renders:1)</div></div>
   
 
 "
@@ -82,7 +82,7 @@ exports[`08_comparison should work with recorded events 10`] = `
 
 exports[`08_comparison should work with recorded events 11`] = `
 "
-    <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div></div>
+    <div id=\\"app\\"><h1>Naive Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>Split Context</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with React.memo</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div><h1>Context with useMemo</h1><div>First Name:<input value=\\"Harry1\\">(renders:4)</div><div>Family Name:<input value=\\"Potter1\\">(renders:4)</div><h1>react-tracked</h1><div>First Name:<input value=\\"Harry1\\">(renders:3)</div><div>Family Name:<input value=\\"Potter1\\">(renders:3)</div></div>
   
 
 "

@@ -2,7 +2,7 @@
 
 exports[`03_usestate should work with recorded events 1`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 10<div><span>Count: 1</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 12<div><span>Count: 1</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 14<div><span>Count: 1</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 16<div><span>Count: 1</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -10,7 +10,7 @@ exports[`03_usestate should work with recorded events 1`] = `
 
 exports[`03_usestate should work with recorded events 2`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 18<div><span>Count: 2</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 20<div><span>Count: 2</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 22<div><span>Count: 2</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 24<div><span>Count: 2</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -18,7 +18,7 @@ exports[`03_usestate should work with recorded events 2`] = `
 
 exports[`03_usestate should work with recorded events 3`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 26<div><span>Count: 3</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 28<div><span>Count: 3</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 30<div><span>Count: 3</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 32<div><span>Count: 3</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -26,7 +26,7 @@ exports[`03_usestate should work with recorded events 3`] = `
 
 exports[`03_usestate should work with recorded events 4`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 34<div><span>Count: 4</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 36<div><span>Count: 4</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 38<div><span>Count: 4</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 40<div><span>Count: 4</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -34,7 +34,7 @@ exports[`03_usestate should work with recorded events 4`] = `
 
 exports[`03_usestate should work with recorded events 5`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -42,7 +42,7 @@ exports[`03_usestate should work with recorded events 5`] = `
 
 exports[`03_usestate should work with recorded events 6`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 2<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 4<div>First Name:<input value=\\"\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -50,7 +50,7 @@ exports[`03_usestate should work with recorded events 6`] = `
 
 exports[`03_usestate should work with recorded events 7`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 30<div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 32<div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 54<div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 56<div>First Name:<input value=\\"a\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -58,7 +58,7 @@ exports[`03_usestate should work with recorded events 7`] = `
 
 exports[`03_usestate should work with recorded events 8`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 38<div>First Name:<input value=\\"aa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 40<div>First Name:<input value=\\"aa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 62<div>First Name:<input value=\\"aa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 64<div>First Name:<input value=\\"aa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -66,7 +66,7 @@ exports[`03_usestate should work with recorded events 8`] = `
 
 exports[`03_usestate should work with recorded events 9`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 46<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 48<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 70<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 72<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -74,7 +74,7 @@ exports[`03_usestate should work with recorded events 9`] = `
 
 exports[`03_usestate should work with recorded events 10`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 54<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"b\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 56<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"b\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 78<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"b\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 80<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"b\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -82,7 +82,7 @@ exports[`03_usestate should work with recorded events 10`] = `
 
 exports[`03_usestate should work with recorded events 11`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 62<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bb\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 64<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bb\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 86<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bb\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 88<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bb\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -90,7 +90,7 @@ exports[`03_usestate should work with recorded events 11`] = `
 
 exports[`03_usestate should work with recorded events 12`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 70<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 72<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 94<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"0\\"></div></div><div>numRendered: 96<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"0\\"></div></div></div>
   
 
 "
@@ -98,7 +98,7 @@ exports[`03_usestate should work with recorded events 12`] = `
 
 exports[`03_usestate should work with recorded events 13`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 78<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"1\\"></div></div><div>numRendered: 80<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"1\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 102<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"1\\"></div></div><div>numRendered: 104<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"1\\"></div></div></div>
   
 
 "
@@ -106,7 +106,7 @@ exports[`03_usestate should work with recorded events 13`] = `
 
 exports[`03_usestate should work with recorded events 14`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 86<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"11\\"></div></div><div>numRendered: 88<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"11\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 110<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"11\\"></div></div><div>numRendered: 112<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"11\\"></div></div></div>
   
 
 "
@@ -114,7 +114,7 @@ exports[`03_usestate should work with recorded events 14`] = `
 
 exports[`03_usestate should work with recorded events 15`] = `
 "
-    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 42<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 44<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 94<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"111\\"></div></div><div>numRendered: 96<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"111\\"></div></div></div>
+    <div id=\\"app\\"><h1>Counter</h1><div>numRendered: 46<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><div>numRendered: 48<div><span>Count: 5</span><button type=\\"button\\">+1</button></div></div><h1>Person</h1><div>numRendered: 118<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"111\\"></div></div><div>numRendered: 120<div>First Name:<input value=\\"aaa\\"></div><div>Last Name:<input value=\\"bbb\\"></div><div>Age:<input value=\\"111\\"></div></div></div>
   
 
 "
