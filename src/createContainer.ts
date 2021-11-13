@@ -4,13 +4,19 @@ import {
   FC,
   createContext as createContextOrig,
   createElement,
+  useCallback,
   useContext as useContextOrig,
+  useDebugValue,
 } from 'react';
 
-import { createContext } from 'use-context-selector';
-import { useTrackedState as useTrackedStateOrig } from './useTrackedState';
-import { useSelector as useSelectorOrig } from './useSelector';
-import { useUpdate as useUpdateOrig } from './useUpdate';
+import {
+  Context,
+  createContext,
+  useContextSelector,
+  useContextUpdate,
+} from 'use-context-selector';
+
+import { createTrackedSelector } from './createTrackedSelector';
 
 const warningObject = new Proxy({}, {
   get() { throw new Error('Please use <Provider>'); },
@@ -32,20 +38,35 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       createElement(StateContext.Provider, { value: state }, props.children));
   };
 
-  const useTrackedState = () => useTrackedStateOrig(StateContext);
+  const useSelector = <Selected>(
+    selector: (state: State) => Selected,
+  ) => {
+    const selected = useContextSelector(StateContext, selector);
+    useDebugValue(selected);
+    return selected;
+  };
+
+  const useTrackedState = createTrackedSelector(useSelector);
 
   const useUpdate = concurrentMode
-    ? () => useUpdateOrig(StateContext, UpdateContext)
+    ? () => {
+      const contextUpdate = useContextUpdate(StateContext as Context<unknown>);
+      const update = useContextOrig(UpdateContext);
+      return useCallback((...args: Parameters<Update>) => {
+        let result: ReturnType<Update> | undefined;
+        contextUpdate(() => {
+          result = update(...args);
+        });
+        return result as ReturnType<Update>;
+      }, [contextUpdate, update]);
+    }
+    // not concurrentMode
     : () => useContextOrig(UpdateContext);
 
   const useTracked = () => [useTrackedState(), useUpdate()] as [
     ReturnType<typeof useTrackedState>,
     ReturnType<typeof useUpdate>,
   ];
-
-  const useSelector = <Selected>(
-    selector: (state: State) => Selected,
-  ) => useSelectorOrig(StateContext, selector);
 
   return {
     Provider,
