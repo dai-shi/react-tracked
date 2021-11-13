@@ -2,7 +2,8 @@
 
 ## [Unreleased]
 ### Changed
-- Update dependencies fixing ESM exports
+- Update dependencies fixing ESM exports (#125)
+- fix: eliminate useLayoutEffect (#118)
 
 ## [1.7.4] - 2021-08-13
 ### Changed
