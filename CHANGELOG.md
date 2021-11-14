@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.5] - 2021-11-14
 ### Changed
 - Update dependencies fixing ESM exports (#125)
 - fix: eliminate useLayoutEffect (#118)
