@@ -211,6 +211,41 @@ const App = () => (
 );
 ```
 
+### useState (with update functions)
+
+If you want to have custom update functions,
+you can store them in a state object.
+Be sure to use `useCallback` and `useMemo`
+to make the state object stable.
+
+```javascript
+const useValue = () => {
+  const [count, setCount] = useState(0);
+  const increment = useCallack(() => setCount((c) => c + 1), []);
+  const decrement = useCallack(() => setCount((c) => c - 1), []);
+  const state = useMemo(() => ({
+    count,
+    increment,
+    decrement,
+  }, [count, increment, decrement]);
+  return [state, () => { throw new Error('use functions in the state') }];
+};
+
+const {
+  Provider,
+  useTrackedState,
+} = createContainer(useValue);
+
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
+```
+
+Note: With custom update functions, you don't get the benefit
+even if you enable `concurrentMode` in `createContainer`.
+
 ## Recipes for useTrackedState and useTracked
 
 The `useTrackedState` and `useTracked` hooks are useful as is,
