@@ -50,7 +50,7 @@ However, there can be edge cases where it behaves unexpectedly.
 For example, if you console.log a proxied value,
 it will display a proxy wrapping an object.
 Notice, it will be kept tracking outside render,
-so any prorerty access will mark as used to trigger re-render on updates.
+so any property access will mark as used to trigger re-render on updates.
 
 useTrackedState will unwrap a Proxy before wrapping with a new Proxy,
 hence, it will work fine in usual use cases.
