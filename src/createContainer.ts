@@ -24,13 +24,19 @@ const warningObject = new Proxy({}, {
 });
 
 type AnyFunction = (...args: any[]) => any;
+type ContainerOptions = {
+  concurrentMode?: boolean;
+  contextName?: string | {stateContextName: string, updateContextName: string};
+}
 
 export const createContainer = <State, Update extends AnyFunction, Props>(
   useValue: (props: Props) => readonly [State, Update],
-  concurrentMode = false,
+  { concurrentMode = false, contextName = { stateContextName: 'StateContext', updateContextName: 'UpdateContext' } }: ContainerOptions,
 ) => {
   const StateContext = createContext(warningObject as State);
   const UpdateContext = createContextOrig(warningObject as Update);
+  StateContext.displayName = typeof contextName === 'string' ? contextName : contextName.stateContextName;
+  UpdateContext.displayName = typeof contextName === 'string' ? contextName : contextName.updateContextName;
 
   const Provider: FC<Props> = (props) => {
     const [state, update] = useValue(props);
