@@ -24,16 +24,34 @@ const warningObject = new Proxy({}, {
 });
 
 type AnyFunction = (...args: any[]) => any;
-type ContainerName = string | {stateContainerName: string, updateContainerName: string};
+type Options = {
+  concurrentMode?: boolean;
+  stateContextName?: string;
+  updateContextName?: string;
+}
+/**
+ * [Deprecated] Please use object option
+ */
+type DeprecatedOption = boolean
 
 export const createContainer = <State, Update extends AnyFunction, Props>(
   useValue: (props: Props) => readonly [State, Update],
-  concurrentMode = false, containerName: ContainerName = { stateContainerName: 'StateContainer', updateContainerName: 'UpdateContainer' },
+  options?: Options | DeprecatedOption,
 ) => {
+  if (typeof options === 'boolean') {
+    // eslint-disable-next-line no-console
+    console.warn('boolean option is deprecated, please specify { concurrentMode: true }');
+    options = { concurrentMode: options };
+  }
+  const {
+    concurrentMode,
+    stateContextName = 'StateContainer',
+    updateContextName = 'UpdateContainer',
+  } = options || {};
   const StateContext = createContext(warningObject as State);
   const UpdateContext = createContextOrig(warningObject as Update);
-  StateContext.displayName = typeof containerName === 'string' ? containerName : containerName.stateContainerName;
-  UpdateContext.displayName = typeof containerName === 'string' ? containerName : containerName.updateContainerName;
+  StateContext.displayName = stateContextName;
+  UpdateContext.displayName = updateContextName;
 
   const Provider: FC<Props> = (props) => {
     const [state, update] = useValue(props);
