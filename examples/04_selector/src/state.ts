@@ -62,4 +62,4 @@ export const {
   Provider,
   useSelector,
   useUpdate: useDispatch,
-} = createContainer(useValue, true);
+} = createContainer(useValue, { concurrentMode: true });

@@ -67,4 +67,4 @@ export const {
   Provider,
   useTrackedState,
   useUpdate: useDispatch,
-} = createContainer(useValue, true);
+} = createContainer(useValue, { concurrentMode: true });

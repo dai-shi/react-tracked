@@ -23,7 +23,7 @@ const {
   Provider: FormProvider,
   useTrackedState,
   useUpdate: useSetState,
-} = createContainer(() => useState(initialState), true);
+} = createContainer(() => useState(initialState), { concurrentMode: true });
 
 const useFormValues = () => {
   const state = useTrackedState();
@@ -41,7 +41,7 @@ const useFormError = (name: string) => {
 
 const useFormField = (
   name: string,
-  initialValue: Value = '',
+  initialValue?: Value,
   validate?: (value: Value) => Error | null,
 ) => {
   const state = useTrackedState();
@@ -62,7 +62,7 @@ const useFormField = (
     });
   }, [name, validate, setState]);
   useLayoutEffect(() => {
-    updateValue(initialValue);
+    updateValue(initialValue || '');
   }, [initialValue, updateValue]);
   const onChange = useCallback((
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>,

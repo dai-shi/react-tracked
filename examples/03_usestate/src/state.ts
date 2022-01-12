@@ -13,4 +13,4 @@ const initialState = {
 
 const useValue = () => useState(initialState);
 
-export const { Provider, useTracked } = createContainer(useValue, true);
+export const { Provider, useTracked } = createContainer(useValue, { concurrentMode: true });

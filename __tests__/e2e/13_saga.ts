@@ -5,7 +5,9 @@ jest.setTimeout(15 * 1000);
 // this test is not very stable because of timer
 describe('13_saga', () => {
   const port = process.env.PORT || '8080';
-  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+  const sleep = (ms: number) => new Promise((r) => {
+    setTimeout(r, ms);
+  });
 
   it('should work with recorded events', async () => {
     const browser = await puppeteer.launch();

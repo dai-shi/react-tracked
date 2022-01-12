@@ -20,7 +20,7 @@ const useValue = () => {
   return [count, setCount] as const;
 };
 
-const { Provider, useTracked } = createContainer(useValue, true);
+const { Provider, useTracked } = createContainer(useValue, { concurrentMode: true });
 
 const Counter = () => {
   const [count, setCount] = useTracked();

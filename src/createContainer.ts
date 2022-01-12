@@ -55,8 +55,11 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
 
   const Provider: FC<Props> = (props) => {
     const [state, update] = useValue(props);
-    return createElement(UpdateContext.Provider, { value: update },
-      createElement(StateContext.Provider, { value: state }, props.children));
+    return createElement(
+      UpdateContext.Provider,
+      { value: update },
+      createElement(StateContext.Provider, { value: state }, props.children),
+    );
   };
 
   const useSelector = <Selected>(

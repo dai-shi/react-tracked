@@ -37,7 +37,8 @@
     "prefer-object-spread": "off",
     "no-use-before-define": "off",
     "no-unused-vars": "off",
-    "no-redeclare": "off"
+    "no-redeclare": "off",
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }]
   },
   "overrides": [{
     "files": ["__tests__/**/*"],
