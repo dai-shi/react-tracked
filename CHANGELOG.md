@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.6] - 2022-01-12
 ### Changed
 - feat: Added container name optional args when creating containers (#132)
 
