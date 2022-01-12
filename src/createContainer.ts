@@ -25,9 +25,9 @@ const warningObject = new Proxy({}, {
 
 type AnyFunction = (...args: any[]) => any;
 type Options = {
-  concurrentMode?: boolean;
   stateContextName?: string;
   updateContextName?: string;
+  concurrentMode?: boolean;
 }
 /**
  * [Deprecated] Please use object option
@@ -44,9 +44,9 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     options = { concurrentMode: options };
   }
   const {
-    concurrentMode,
     stateContextName = 'StateContainer',
     updateContextName = 'UpdateContainer',
+    concurrentMode,
   } = options || {};
   const StateContext = createContext(warningObject as State);
   const UpdateContext = createContextOrig(warningObject as Update);

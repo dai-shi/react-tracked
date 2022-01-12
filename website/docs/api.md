@@ -38,12 +38,23 @@ const Component = () => {
 
 ## createContainer
 
-It takes two arguments, the first argument `useValue`,
+It takes two arguments, the first argument is `useValue`,
 which is a hook that returns a tuple `[state, update]`.
-Typically, it's with useReducer and useState,
+Typically, it's with useReducer or useState,
 but it can be any custom hooks based on them.
 
-The second argument `concurrentMode` enables using `useContextUpdate` from `use-context-selector` for Concurrent Mode, it's available in experimental branch of React. It is `false` by default.
+The second argument is `options`.
+
+```ts
+type Options = {
+  stateContextName?: string;
+  updateContextName?: string;
+  concurrentMode?: boolean;
+}
+```
+
+The first two items in `options` are to specify context display names.
+`concurrentMode` is to enable using `useContextUpdate` from `use-context-selector` for concurrent features, available in newer versions of React.
 
 Note: you can create multiple containers in one app.
 
