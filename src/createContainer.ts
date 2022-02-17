@@ -1,6 +1,7 @@
 /* eslint react/destructuring-assignment: off */
 
 import {
+  Context as ContextOrig,
   FC,
   createContext as createContextOrig,
   createElement,
@@ -12,16 +13,12 @@ import {
 import {
   Context,
   createContext,
+  useContext,
   useContextSelector,
   useContextUpdate,
 } from 'use-context-selector';
 
 import { createTrackedSelector } from './createTrackedSelector';
-
-const warningObject = new Proxy({}, {
-  get() { throw new Error('Please use <Provider>'); },
-  apply() { throw new Error('Please use <Provider>'); },
-});
 
 type AnyFunction = (...args: any[]) => any;
 type Options = {
@@ -48,8 +45,8 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     updateContextName = 'UpdateContainer',
     concurrentMode,
   } = options || {};
-  const StateContext = createContext(warningObject as State);
-  const UpdateContext = createContextOrig(warningObject as Update);
+  const StateContext = createContext<State | null>(null);
+  const UpdateContext = createContextOrig<Update | null>(null);
   StateContext.displayName = stateContextName;
   UpdateContext.displayName = updateContextName;
 
@@ -65,7 +62,15 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   const useSelector = <Selected>(
     selector: (state: State) => Selected,
   ) => {
-    const selected = useContextSelector(StateContext, selector);
+    if (
+      typeof process === 'object'
+      && process.env.NODE_ENV !== 'production'
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      && useContext(StateContext) === null
+    ) {
+      throw new Error('Please use <Provider>');
+    }
+    const selected = useContextSelector(StateContext as Context<State>, selector);
     useDebugValue(selected);
     return selected;
   };
@@ -74,8 +79,18 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
 
   const useUpdate = concurrentMode
     ? () => {
+      if (
+        typeof process === 'object'
+        && process.env.NODE_ENV !== 'production'
+        && (
+          useContext(StateContext) === null
+          || useContextOrig(UpdateContext) === null
+        )
+      ) {
+        throw new Error('Please use <Provider>');
+      }
       const contextUpdate = useContextUpdate(StateContext as Context<unknown>);
-      const update = useContextOrig(UpdateContext);
+      const update = useContextOrig(UpdateContext as ContextOrig<Update>);
       return useCallback((...args: Parameters<Update>) => {
         let result: ReturnType<Update> | undefined;
         contextUpdate(() => {
@@ -85,7 +100,16 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       }, [contextUpdate, update]);
     }
     // not concurrentMode
-    : () => useContextOrig(UpdateContext);
+    : () => {
+      if (
+        typeof process === 'object'
+        && process.env.NODE_ENV !== 'production'
+        && useContextOrig(UpdateContext) === null
+      ) {
+        throw new Error('Please use <Provider>');
+      }
+      return useContextOrig(UpdateContext as ContextOrig<Update>);
+    };
 
   const useTracked = () => [useTrackedState(), useUpdate()] as [
     ReturnType<typeof useTrackedState>,
