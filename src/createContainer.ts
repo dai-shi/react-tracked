@@ -63,10 +63,9 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     selector: (state: State) => Selected,
   ) => {
     if (
-      typeof process === 'object'
+      useContext(StateContext) === null
+      && typeof process === 'object'
       && process.env.NODE_ENV !== 'production'
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      && useContext(StateContext) === null
     ) {
       throw new Error('Please use <Provider>');
     }
@@ -80,12 +79,12 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   const useUpdate = concurrentMode
     ? () => {
       if (
-        typeof process === 'object'
-        && process.env.NODE_ENV !== 'production'
-        && (
+        (
           useContext(StateContext) === null
           || useContextOrig(UpdateContext) === null
         )
+        && typeof process === 'object'
+        && process.env.NODE_ENV !== 'production'
       ) {
         throw new Error('Please use <Provider>');
       }
