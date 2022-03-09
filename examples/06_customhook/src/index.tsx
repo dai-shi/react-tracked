@@ -2,7 +2,7 @@
 /// <reference types="react-dom/next" />
 
 import React, { useEffect, useState, StrictMode } from 'react';
-import { createRoot } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { createContainer } from 'react-tracked';
 
