@@ -19,7 +19,9 @@ describe('basic spec', () => {
       return state;
     };
     const useValue = () => useReducer(reducer, initialState);
-    const { Provider, useTracked } = createContainer(useValue, true);
+    const { Provider, useTracked } = createContainer(useValue, {
+      concurrentMode: true,
+    });
     const Counter = () => {
       const [state, dispatch] = useTracked();
       return (
