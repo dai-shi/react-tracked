@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.7] - 2022-03-09
 ### Changed
 - fix: improve no provider error #139
 
