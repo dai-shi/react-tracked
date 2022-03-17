@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- fix: make default context values customizable #143
 
 ## [1.7.7] - 2022-03-09
 ### Changed
