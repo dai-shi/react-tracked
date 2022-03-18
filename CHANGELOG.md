@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Changed
 - fix: make default context values customizable #143
+- Update proxy-compare
 
 ## [1.7.7] - 2022-03-09
 ### Changed
