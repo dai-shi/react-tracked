@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.8] - 2022-03-18
 ### Changed
 - fix: make default context values customizable #143
 - Update proxy-compare
