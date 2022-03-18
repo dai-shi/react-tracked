@@ -21,7 +21,9 @@ import {
 import { createTrackedSelector } from './createTrackedSelector';
 
 type AnyFunction = (...args: any[]) => any;
-type Options = {
+type Options<State, Update extends AnyFunction> = {
+  defaultState?: State;
+  defaultUpdate?: Update;
   stateContextName?: string;
   updateContextName?: string;
   concurrentMode?: boolean;
@@ -33,7 +35,7 @@ type DeprecatedOption = boolean
 
 export const createContainer = <State, Update extends AnyFunction, Props>(
   useValue: (props: Props) => readonly [State, Update],
-  options?: Options | DeprecatedOption,
+  options?: Options<State, Update> | DeprecatedOption,
 ) => {
   if (typeof options === 'boolean') {
     // eslint-disable-next-line no-console
@@ -45,8 +47,8 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     updateContextName = 'UpdateContainer',
     concurrentMode,
   } = options || {};
-  const StateContext = createContext<State | null>(null);
-  const UpdateContext = createContextOrig<Update | null>(null);
+  const StateContext = createContext<State | undefined>(options?.defaultState);
+  const UpdateContext = createContextOrig<Update | undefined>(options?.defaultUpdate);
   StateContext.displayName = stateContextName;
   UpdateContext.displayName = updateContextName;
 
@@ -66,7 +68,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       typeof process === 'object'
       && process.env.NODE_ENV !== 'production'
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      && useContext(StateContext) === null
+      && useContext(StateContext) === undefined
     ) {
       throw new Error('Please use <Provider>');
     }
@@ -83,8 +85,8 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
         typeof process === 'object'
         && process.env.NODE_ENV !== 'production'
         && (
-          useContext(StateContext) === null
-          || useContextOrig(UpdateContext) === null
+          useContext(StateContext) === undefined
+          || useContextOrig(UpdateContext) === undefined
         )
       ) {
         throw new Error('Please use <Provider>');
@@ -104,7 +106,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       if (
         typeof process === 'object'
         && process.env.NODE_ENV !== 'production'
-        && useContextOrig(UpdateContext) === null
+        && useContextOrig(UpdateContext) === undefined
       ) {
         throw new Error('Please use <Provider>');
       }
