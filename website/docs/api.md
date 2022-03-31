@@ -47,14 +47,17 @@ The second argument is `options`.
 
 ```ts
 type Options = {
+  defaultState?: State;
+  defaultUpdate?: Update;
   stateContextName?: string;
   updateContextName?: string;
   concurrentMode?: boolean;
 }
 ```
 
-The first two items in `options` are to specify context display names.
-`concurrentMode` is to enable using `useContextUpdate` from `use-context-selector` for concurrent features, available in newer versions of React.
+- `defaultState` and `defaultUpdate` are to specify context default values in case you want something without Provider.
+- `stateContextName` and `updateContextName` are to specify context display names.
+- `concurrentMode` is to enable using `useContextUpdate` from `use-context-selector` for concurrent features, available since React 18.
 
 Note: you can create multiple containers in one app.
 
