@@ -13,7 +13,6 @@ import {
 import {
   Context,
   createContext,
-  useContext,
   useContextSelector,
   useContextUpdate,
 } from 'use-context-selector';
@@ -67,10 +66,14 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     if (
       typeof process === 'object'
       && process.env.NODE_ENV !== 'production'
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      && useContext(StateContext) === undefined
     ) {
-      throw new Error('Please use <Provider>');
+      const selectorOrig = selector;
+      selector = (state: State) => {
+        if (state === undefined) {
+          throw new Error('Please use <Provider>');
+        }
+        return selectorOrig(state);
+      };
     }
     const selected = useContextSelector(StateContext as Context<State>, selector);
     useDebugValue(selected);
@@ -84,10 +87,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
       if (
         typeof process === 'object'
         && process.env.NODE_ENV !== 'production'
-        && (
-          useContext(StateContext) === undefined
-          || useContextOrig(UpdateContext) === undefined
-        )
+        && useContextOrig(UpdateContext) === undefined
       ) {
         throw new Error('Please use <Provider>');
       }
