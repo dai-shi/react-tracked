@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.7.9] - 2022-04-17
+### Changed
+- fix: extra re-renders in dev mode #148
+
 ## [1.7.8] - 2022-03-18
 ### Changed
 - fix: make default context values customizable #143
