@@ -10,7 +10,7 @@
     "@docusaurus/core": "^2.0.0-beta.18",
     "@docusaurus/preset-classic": "^2.0.0-beta.18",
     "@docusaurus/theme-live-codeblock": "^2.0.0-beta.18",
-    "prettier": "^2.6.1",
+    "prettier": "^2.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "typescript": "^4.6.3"
