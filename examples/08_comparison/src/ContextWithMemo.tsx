@@ -31,10 +31,10 @@ const reducer: Reducer<State, Action> = (state, action) => {
 
 const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
 
-const InnerPersonFirstName: React.FC<{
+const InnerPersonFirstName = React.memo(({ firstName, dispatch }: {
   firstName: string;
   dispatch: Dispatch;
-}> = React.memo(({ firstName, dispatch }) => {
+}) => {
   const renders = useRef(1);
   useEffect(() => {
     renders.current += 1;
@@ -53,15 +53,15 @@ const InnerPersonFirstName: React.FC<{
   );
 });
 
-const PersonFirstName: React.FC = () => {
+const PersonFirstName = () => {
   const [state, dispatch] = useContext(PersonContext);
   return <InnerPersonFirstName firstName={state.firstName} dispatch={dispatch} />;
 };
 
-const InnerPersonFamilyName: React.FC<{
+const InnerPersonFamilyName = React.memo(({ familyName, dispatch }: {
   familyName: string;
   dispatch: Dispatch;
-}> = React.memo(({ familyName, dispatch }) => {
+}) => {
   const renders = useRef(1);
   useEffect(() => {
     renders.current += 1;
@@ -80,12 +80,12 @@ const InnerPersonFamilyName: React.FC<{
   );
 });
 
-const PersonFamilyName: React.FC = () => {
+const PersonFamilyName = () => {
   const [state, dispatch] = useContext(PersonContext);
   return <InnerPersonFamilyName familyName={state.familyName} dispatch={dispatch} />;
 };
 
-const ContextWithMemo: React.FC = () => {
+const ContextWithMemo = () => {
   const value = useReducer(reducer, initialState);
   return (
     <PersonContext.Provider value={value}>

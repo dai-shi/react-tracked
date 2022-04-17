@@ -6,7 +6,7 @@ import useVisibleTodos from '../hooks/useVisibleTodos';
 import useToggleTodo from '../hooks/useToggleTodo';
 import Todo from './Todo';
 
-const VisibleTodoList: React.FC = () => {
+const VisibleTodoList = () => {
   const visibleTodos = useVisibleTodos();
   const toggleTodo = useToggleTodo();
   return (

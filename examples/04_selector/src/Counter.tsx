@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from './state';
 
 let numRendered = 0;
 
-const Counter: React.FC = () => {
+const Counter = () => {
   const count = useSelector((state) => state.count);
   const dispatch = useDispatch();
   return (

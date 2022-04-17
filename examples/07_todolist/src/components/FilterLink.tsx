@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 import useVisibilityFilter from '../hooks/useVisibilityFilter';
 import { VisibilityFilterType } from '../state';
 
 type Props = {
   filter: VisibilityFilterType;
+  children: ReactNode;
 };
 
-const FilterLink: React.FC<Props> = ({ filter, children }) => {
+const FilterLink = ({ filter, children }: Props) => {
   const [visibilityFilter, setVisibilityFilter] = useVisibilityFilter();
   const active = filter === visibilityFilter;
   return (

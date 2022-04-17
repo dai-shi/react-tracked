@@ -14,7 +14,7 @@ import React from 'react';
 import { Provider } from '../store';
 import TodoList from './TodoList';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider>
     <TodoList />
   </Provider>
@@ -196,7 +196,7 @@ import { useQuery } from '../hooks/useQuery';
 import TodoItem from './TodoItem';
 import NewTodo from './NewTodo';
 
-const TodoList: React.FC = () => {
+const TodoList = () => {
   const { getQuery, setQuery } = useQuery();
   const todos = useTodoList();
   return (
@@ -251,7 +251,7 @@ type Props = {
   completed?: boolean;
 };
 
-const TodoItem: React.FC<Props> = ({ id, title, completed }) => {
+const TodoItem = ({ id, title, completed }: Props) => {
   const { getQuery } = useQuery();
   const deleteTodo = useDeleteTodo();
   const toggleTodo = useToggleTodo();
@@ -292,7 +292,7 @@ import React, { useState } from 'react';
 import { useAddTodo } from '../hooks/useAddTodo';
 import { useFlasher } from '../utils';
 
-const NewTodo: React.FC = () => {
+const NewTodo = () => {
   const addTodo = useAddTodo();
   const [text, setText] = useState('');
   return (

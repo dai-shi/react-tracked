@@ -15,7 +15,7 @@ import { Provider } from './store';
 import EditPerson from './EditPerson';
 import ShowPerson from './ShowPerson';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider>
     <EditPerson />
     <ShowPerson />
@@ -57,7 +57,7 @@ import React from 'react';
 
 import { useSetState, useTrackedState } from './store';
 
-const EditPerson: React.FC = () => {
+const EditPerson = () => {
   const setState = useSetState();
   const state = useTrackedState();
   const setFirstName = (e) => {
@@ -95,7 +95,7 @@ import React, { useState } from 'react';
 import { useDispatch, useTrackedState } from './store';
 import { useFlasher } from './utils';
 
-const ShowPerson: React.FC = () => {
+const ShowPerson = () => {
   const state = useTrackedState();
   const [onlyFirstName, setOnlyFirstName] = useState(false);
   return (

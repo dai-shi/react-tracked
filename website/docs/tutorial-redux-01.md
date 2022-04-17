@@ -41,7 +41,7 @@ const reducer = (state = initialState, action: Action) => {
 
 const store = createStore(reducer);
 
-const EditPerson: React.FC = () => {
+const EditPerson = () => {
   const dispatch = useDispatch();
   const firstName = useSelector((state: State) => state.firstName);
   const lastName = useSelector((state: State) => state.lastName);
@@ -67,7 +67,7 @@ const EditPerson: React.FC = () => {
   );
 };
 
-const ShowPerson: React.FC = () => {
+const ShowPerson = () => {
   const [onlyFirstName, setOnlyFirstName] = useState(false);
   const firstName = useSelector((state: State) => state.firstName);
   const lastName = useSelector((state: State) =>
@@ -89,7 +89,7 @@ const ShowPerson: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Provider store={store}>
       <EditPerson />
@@ -140,7 +140,7 @@ const store = createStore(reducer);
 
 const useTrackedSelector = createTrackedSelector<State>(useSelector);
 
-const EditPerson: React.FC = () => {
+const EditPerson = () => {
   const dispatch = useDispatch();
   const state = useTrackedSelector();
   const setFirstName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -165,7 +165,7 @@ const EditPerson: React.FC = () => {
   );
 };
 
-const ShowPerson: React.FC = () => {
+const ShowPerson = () => {
   const state = useTrackedSelector();
   const [onlyFirstName, setOnlyFirstName] = useState(false);
   return (
@@ -184,7 +184,7 @@ const ShowPerson: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <Provider store={store}>
       <EditPerson />

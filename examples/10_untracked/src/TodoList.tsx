@@ -3,7 +3,7 @@ import React from 'react';
 import { useTrackedState } from './store';
 import TodoItem from './TodoItem';
 
-const TodoList: React.FC = () => {
+const TodoList = () => {
   const state = useTrackedState();
   const { todos } = state;
   return (

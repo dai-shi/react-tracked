@@ -1,8 +1,9 @@
 /* eslint react/destructuring-assignment: off */
 
 import {
+  ComponentType,
   Context as ContextOrig,
-  FC,
+  ReactNode,
   createContext as createContextOrig,
   createElement,
   useCallback,
@@ -51,12 +52,14 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   StateContext.displayName = stateContextName;
   UpdateContext.displayName = updateContextName;
 
-  const Provider: FC<Props> = (props) => {
+  const Provider = (props: Props & { children: ReactNode }) => {
     const [state, update] = useValue(props);
     return createElement(
       UpdateContext.Provider,
       { value: update },
-      createElement(StateContext.Provider, { value: state }, props.children),
+      createElement(StateContext.Provider as ComponentType<{
+        value: State;
+      }>, { value: state }, props.children),
     );
   };
 

@@ -105,7 +105,7 @@ const untrackDeep = <T>(obj: T) => {
 
 const useUntrackedDispatch = () => {
   const dispatch = useDispatch();
-  return useCallback((action) => {
+  return useCallback((action: Action) => {
     const untrackedAction = untrackDeep(action);
     // console.log(action, untrackedAction);
     dispatch(untrackedAction);

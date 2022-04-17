@@ -30,7 +30,7 @@ const useStore = create<State>((set) => ({
   setLastName: (lastName) => set({ lastName })
 }));
 
-const EditPerson: React.FC = () => {
+const EditPerson = () => {
   const firstName = useStore((state) => state.firstName);
   const lastName = useStore((state) => state.lastName);
   const setFirstName = useStore((state) => state.setFirstName);
@@ -52,7 +52,7 @@ const EditPerson: React.FC = () => {
   );
 };
 
-const ShowPerson: React.FC = () => {
+const ShowPerson = () => {
   const [onlyFirstName, setOnlyFirstName] = useState(false);
   const firstName = useStore((state) => state.firstName);
   const lastName = useStore((state) => (onlyFirstName ? null : state.lastName));
@@ -72,7 +72,7 @@ const ShowPerson: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <EditPerson />
@@ -112,7 +112,7 @@ const useStore = create<State>((set) => ({
 
 const useTrackedStore = createTrackedSelector(useStore);
 
-const EditPerson: React.FC = () => {
+const EditPerson = () => {
   const state = useTrackedStore();
   return (
     <div>
@@ -134,7 +134,7 @@ const EditPerson: React.FC = () => {
   );
 };
 
-const ShowPerson: React.FC = () => {
+const ShowPerson = () => {
   const state = useTrackedStore();
   const [onlyFirstName, setOnlyFirstName] = useState(false);
   return (
@@ -153,7 +153,7 @@ const ShowPerson: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <>
       <EditPerson />

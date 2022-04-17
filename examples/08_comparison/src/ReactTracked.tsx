@@ -33,7 +33,7 @@ const { Provider, useTracked } = createContainer(
   { concurrentMode: true },
 );
 
-const PersonFirstName: React.FC = () => {
+const PersonFirstName = () => {
   const [state, dispatch] = useTracked();
   const renders = useRef(1);
   useEffect(() => {
@@ -53,7 +53,7 @@ const PersonFirstName: React.FC = () => {
   );
 };
 
-const PersonFamilyName: React.FC = () => {
+const PersonFamilyName = () => {
   const [state, dispatch] = useTracked();
   const renders = useRef(1);
   useEffect(() => {
@@ -73,7 +73,7 @@ const PersonFamilyName: React.FC = () => {
   );
 };
 
-const ReactTracked: React.FC = () => (
+const ReactTracked = () => (
   <Provider>
     <PersonFirstName />
     <PersonFamilyName />

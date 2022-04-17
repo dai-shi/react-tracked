@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from './store';
 import TodoList from './TodoList';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider>
     <TodoList />
   </Provider>

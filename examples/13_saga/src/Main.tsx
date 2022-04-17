@@ -4,7 +4,7 @@ import { useTrackedState } from './store';
 import Person from './Person';
 import Counter from './Counter';
 
-const Main: React.FC = () => {
+const Main = () => {
   const state = useTrackedState();
   const [id, setId] = useState('3');
   return (

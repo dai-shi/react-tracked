@@ -31,7 +31,7 @@ Now, we create a global state that contains a number and a string.
 Create a new file `./src/store.js`. (`./src/store.tsx` for TypeScript)
 
 ```typescript ts2js
-import React, { createContext, useState, useContext } from 'react';
+import React, { ReactNode, createContext, useState, useContext } from 'react';
 
 const initialState = {
   count: 0,
@@ -48,7 +48,7 @@ export const useSharedState = () => {
   return value;
 };
 
-export const SharedStateProvider: React.FC = ({ children }) => (
+export const SharedStateProvider = ({ children }: { children: ReactNode }) => (
   <MyContext.Provider value={useMyState()}>
     {children}
   </MyContext.Provider>
@@ -62,7 +62,7 @@ import React from 'react';
 
 import { useSharedState } from './store';
 
-const Counter: React.FC = () => {
+const Counter = () => {
   const [state, setState] = useSharedState();
   const increment = () => {
     setState(prev => ({ ...prev, count: prev.count + 1 }));
@@ -85,7 +85,7 @@ import React from 'react';
 
 import { useSharedState } from './store';
 
-const TextBox: React.FC = () => {
+const TextBox = () => {
   const [state, setState] = useSharedState();
   const setText = (text: string) => {
     setState(prev => ({ ...prev, text }));
@@ -112,7 +112,7 @@ import { SharedStateProvider } from './store';
 import Counter from './Counter';
 import TextBox from './TextBox';
 
-const App: React.FC = () => (
+const App = () => (
   <SharedStateProvider>
     <div className="App">
       <header className="App-header">
@@ -181,7 +181,7 @@ or add `{Math.random()}` in JSX which is easier.
 For example, modify the Counter component like this.
 
 ```typescript ts2js
-const Counter: React.FC = () => {
+const Counter = () => {
   const [state, setState] = useSharedState();
   const increment = () => {
     setState(prev => ({ ...prev, count: prev.count + 1 }));

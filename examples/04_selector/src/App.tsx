@@ -5,7 +5,7 @@ import { Provider } from './state';
 import Counter from './Counter';
 import Person from './Person';
 
-const App: React.FC = () => (
+const App = () => (
   <StrictMode>
     <Provider>
       <h1>Counter</h1>
