@@ -10,7 +10,7 @@ type Props = {
 let numRendered = 0;
 
 // Use custom memo instead of React.memo
-const TodoItem: React.FC<Props> = memo(({ todo }) => {
+const TodoItem = memo(({ todo }: Props) => {
   const dispatch = useDispatch();
   return (
     <li>

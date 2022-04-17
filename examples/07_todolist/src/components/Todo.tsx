@@ -6,7 +6,7 @@ type Props = {
   text: string;
 };
 
-const Todo: React.FC<Props> = ({ onClick, completed, text }) => (
+const Todo = ({ onClick, completed, text }: Props) => (
   <li
     onClick={onClick}
     role="presentation"

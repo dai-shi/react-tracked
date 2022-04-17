@@ -4,7 +4,7 @@ import { useTracked } from './state';
 
 let numRendered = 0;
 
-const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
+const Counter = ({ firstName }: { firstName: string }) => {
   const [state, dispatch] = useTracked();
   return (
     <div>
@@ -19,7 +19,7 @@ const Counter: React.FC<{ firstName: string }> = ({ firstName }) => {
   );
 };
 
-const Person: React.FC = () => {
+const Person = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>

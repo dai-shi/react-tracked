@@ -2,7 +2,6 @@ import { createElement, memo as reactMemo, forwardRef } from 'react';
 import { trackMemo } from 'proxy-compare';
 
 import type {
-  FC,
   PropsWithChildren,
   NamedExoticComponent,
   ComponentType,
@@ -11,7 +10,7 @@ import type {
 } from 'react';
 
 export function memo<P extends Record<string, unknown>>(
-  Component: FC<P>,
+  Component: ComponentType<P>,
   propsAreEqual?: (
     prevProps: Readonly<PropsWithChildren<P>>,
     nextProps: Readonly<PropsWithChildren<P>>,

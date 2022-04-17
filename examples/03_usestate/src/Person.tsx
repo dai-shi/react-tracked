@@ -4,7 +4,7 @@ import { useTracked } from './state';
 
 let numRendered = 0;
 
-const Person: React.FC = () => {
+const Person = () => {
   const [state, setState] = useTracked();
   return (
     <div>

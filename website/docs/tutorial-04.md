@@ -14,7 +14,7 @@ import React from 'react';
 import { Provider } from './store';
 import TodoList from './TodoList';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider>
     <TodoList />
   </Provider>
@@ -217,7 +217,7 @@ import { useDispatch, useTrackedState } from './store';
 import TodoItem from './TodoItem';
 import NewTodo from './NewTodo';
 
-const TodoList: React.FC = () => {
+const TodoList = () => {
   const dispatch = useDispatch();
   const state = useTrackedState();
   const setQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -275,7 +275,7 @@ type Props = {
   id: string;
 };
 
-const TodoItem: React.FC<Props> = ({ id }) => {
+const TodoItem = ({ id }: Props) => {
   const dispatch = useDispatch();
   const state = useTrackedState();
   const todo = state.todoMap[id];
@@ -315,7 +315,7 @@ import React, { useState } from 'react';
 
 import { useDispatch } from './store';
 
-const NewTodo: React.FC = () => {
+const NewTodo = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const addTodo = () => {

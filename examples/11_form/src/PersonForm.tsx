@@ -17,7 +17,7 @@ const validateName = (name: unknown) => {
   return null;
 };
 
-const FirstName: React.FC = React.memo(() => (
+const FirstName = React.memo(() => (
   <div>
     numRendered: {++numRendered}
     <div>
@@ -28,7 +28,7 @@ const FirstName: React.FC = React.memo(() => (
   </div>
 ));
 
-const FamilyName: React.FC = React.memo(() => (
+const FamilyName = React.memo(() => (
   <div>
     numRendered: {++numRendered}
     <div>
@@ -39,7 +39,7 @@ const FamilyName: React.FC = React.memo(() => (
   </div>
 ));
 
-const Gender: React.FC = React.memo(() => (
+const Gender = React.memo(() => (
   <div>
     numRendered: {++numRendered}
     <div>
@@ -54,7 +54,7 @@ const Gender: React.FC = React.memo(() => (
   </div>
 ));
 
-const Teenager: React.FC = React.memo(() => (
+const Teenager = React.memo(() => (
   <div>
     numRendered: {++numRendered}
     <div>
@@ -65,7 +65,7 @@ const Teenager: React.FC = React.memo(() => (
   </div>
 ));
 
-const PersonForm: React.FC = React.memo(() => {
+const PersonForm = React.memo(() => {
   const formValues = useFormValues();
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -88,7 +88,7 @@ const PersonForm: React.FC = React.memo(() => {
   );
 });
 
-const FormHolder: React.FC = () => (
+const FormHolder = () => (
   <FormProvider>
     <PersonForm />
   </FormProvider>

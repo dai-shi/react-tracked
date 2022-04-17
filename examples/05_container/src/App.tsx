@@ -8,7 +8,7 @@ import Counter from './Counter';
 const container1 = createContainer(useValue, { concurrentMode: true });
 const container2 = createContainer(useValue, { concurrentMode: true });
 
-const App: React.FC = () => (
+const App = () => (
   <StrictMode>
     <h1>First container</h1>
     <container1.Provider>

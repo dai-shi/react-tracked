@@ -10,7 +10,7 @@ type Props = {
 let numRendered = 0;
 
 // Use custom memo instead of React.memo
-const TodoItem: React.FC<Props & React.RefAttributes<HTMLInputElement>> = memo(
+const TodoItem = memo(
   forwardRef<HTMLInputElement, Props>(({ todo }, ref) => {
     const dispatch = useDispatch();
     return (

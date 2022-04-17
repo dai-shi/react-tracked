@@ -4,7 +4,7 @@ import { useTracked } from './state';
 
 let numRendered = 0;
 
-const Counter: React.FC = () => {
+const Counter = () => {
   const [state, dispatch] = useTracked();
   return (
     <div>

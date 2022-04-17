@@ -31,7 +31,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
 
 const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
 
-const PersonFirstName: React.FC = () => {
+const PersonFirstName = () => {
   const [state, dispatch] = useContext(PersonContext);
   const { firstName } = state;
   const renders = useRef(1);
@@ -52,7 +52,7 @@ const PersonFirstName: React.FC = () => {
   }, [firstName, dispatch]);
 };
 
-const PersonFamilyName: React.FC = () => {
+const PersonFamilyName = () => {
   const [state, dispatch] = useContext(PersonContext);
   const { familyName } = state;
   const renders = useRef(1);
@@ -73,7 +73,7 @@ const PersonFamilyName: React.FC = () => {
   }, [familyName, dispatch]);
 };
 
-const ContextWithUseMemo: React.FC = () => {
+const ContextWithUseMemo = () => {
   const value = useReducer(reducer, initialState);
   return (
     <PersonContext.Provider value={value}>

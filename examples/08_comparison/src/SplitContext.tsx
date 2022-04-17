@@ -48,7 +48,7 @@ const reducer2: Reducer<State2, Action2> = (state, action) => {
 
 const PersonContext2 = createContext<[State2, Dispatch2]>([initialState2, () => null]);
 
-const PersonFirstName: React.FC = React.memo(() => {
+const PersonFirstName = React.memo(() => {
   const [state, dispatch] = useContext(PersonContext1);
   const renders = useRef(1);
   useEffect(() => {
@@ -68,7 +68,7 @@ const PersonFirstName: React.FC = React.memo(() => {
   );
 });
 
-const PersonFamilyName: React.FC = React.memo(() => {
+const PersonFamilyName = React.memo(() => {
   const [state, dispatch] = useContext(PersonContext2);
   const renders = useRef(1);
   useEffect(() => {
@@ -88,7 +88,7 @@ const PersonFamilyName: React.FC = React.memo(() => {
   );
 });
 
-const SplitContext: React.FC = () => {
+const SplitContext = () => {
   const [state1, dispatch1] = useReducer(reducer1, initialState1);
   const [state2, dispatch2] = useReducer(reducer2, initialState2);
   const value1 = useMemo<[State1, Dispatch1]>(() => [state1, dispatch1], [state1, dispatch1]);

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTrackedState, useDispatch } from './store';
 
-const Counter: React.FC = () => {
+const Counter = () => {
   const state = useTrackedState();
   const dispatch = useDispatch();
   return (

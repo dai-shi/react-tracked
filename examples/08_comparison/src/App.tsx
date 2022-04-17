@@ -6,7 +6,7 @@ import ContextWithMemo from './ContextWithMemo';
 import ContextWithUseMemo from './ContextWithUseMemo';
 import ReactTracked from './ReactTracked';
 
-const App: React.FC = () => (
+const App = () => (
   <StrictMode>
     <h1>Naive Context</h1>
     <NaiveContext />

@@ -6,7 +6,7 @@ type Props = {
   id: string;
 };
 
-const Person: React.FC<Props> = ({ id }) => {
+const Person = ({ id }: Props) => {
   const state = useTrackedState();
   const dispatch = useDispatch();
   return (

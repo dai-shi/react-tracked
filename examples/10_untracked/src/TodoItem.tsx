@@ -10,7 +10,7 @@ type Props = {
   todo: TodoType;
 };
 
-const TodoItem: React.FC<Props> = ({ todo }) => {
+const TodoItem = ({ todo }: Props) => {
   const dispatch = useDispatch();
   return (
     <li>

@@ -14,7 +14,7 @@ import React from 'react';
 import { Provider } from './store';
 import TodoList from './TodoList';
 
-const App: React.FC = () => (
+const App = () => (
   <Provider>
     <TodoList />
   </Provider>
@@ -110,7 +110,7 @@ import { useDispatch, useTrackedState } from './store';
 import TodoItem from './TodoItem';
 import NewTodo from './NewTodo';
 
-const TodoList: React.FC = () => {
+const TodoList = () => {
   const dispatch = useDispatch();
   const state = useTrackedState();
   const setQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -163,7 +163,7 @@ const renderHighlight = (title: string, query: string) => {
 
 type Props = TodoType;
 
-const TodoItem: React.FC<Props> = ({ id, title, completed }) => {
+const TodoItem = ({ id, title, completed }: Props) => {
   const dispatch = useDispatch();
   const state = useTrackedState();
   const delTodo = () => {
@@ -206,7 +206,7 @@ import React, { useState } from 'react';
 import { useDispatch } from './store';
 import { useFlasher } from './utils';
 
-const NewTodo: React.FC = () => {
+const NewTodo = () => {
   const dispatch = useDispatch();
   const [text, setText] = useState('');
   const addTodo = () => {
