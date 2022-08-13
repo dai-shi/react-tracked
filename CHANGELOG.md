@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Changed
 - Update proxy-compare
+- Update use-context-selector
 
 ## [1.7.9] - 2022-04-17
 ### Changed
