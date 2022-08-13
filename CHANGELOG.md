@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.10] - 2022-08-13
 ### Changed
 - Update proxy-compare
 - Update use-context-selector
