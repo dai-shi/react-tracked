@@ -227,7 +227,7 @@ const useValue = () => {
     count,
     increment,
     decrement,
-  }, [count, increment, decrement]);
+  }), [count, increment, decrement]);
   return [state, () => { throw new Error('use functions in the state') }];
 };
 
