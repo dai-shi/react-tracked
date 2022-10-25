@@ -221,13 +221,13 @@ to make the state object stable.
 ```javascript
 const useValue = () => {
   const [count, setCount] = useState(0);
-  const increment = useCallack(() => setCount((c) => c + 1), []);
-  const decrement = useCallack(() => setCount((c) => c - 1), []);
+  const increment = useCallback(() => setCount((c) => c + 1), []);
+  const decrement = useCallback(() => setCount((c) => c - 1), []);
   const state = useMemo(() => ({
     count,
     increment,
     decrement,
-  }, [count, increment, decrement]);
+  }), [count, increment, decrement]);
   return [state, () => { throw new Error('use functions in the state') }];
 };
 
