@@ -21,7 +21,7 @@ The difference is our effortless render optimization with `useTracked`.
 
 ### React Redux
 
-Rect Redux provides [useSelector](https://react-redux.js.org/api/hooks#useselector) and it can be used to improve performance.
+React Redux provides [useSelector](https://react-redux.js.org/api/hooks#useselector) and it can be used to improve performance.
 
 React Tracked can add automatic optimization with Proxies in two ways.
 
