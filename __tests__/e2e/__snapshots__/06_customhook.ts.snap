@@ -2,7 +2,7 @@
 
 exports[`06_customhook should work with recorded events 1`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -10,7 +10,7 @@ exports[`06_customhook should work with recorded events 1`] = `
 
 exports[`06_customhook should work with recorded events 2`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -18,7 +18,7 @@ exports[`06_customhook should work with recorded events 2`] = `
 
 exports[`06_customhook should work with recorded events 3`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -26,7 +26,7 @@ exports[`06_customhook should work with recorded events 3`] = `
 
 exports[`06_customhook should work with recorded events 4`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -34,7 +34,7 @@ exports[`06_customhook should work with recorded events 4`] = `
 
 exports[`06_customhook should work with recorded events 5`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -42,7 +42,7 @@ exports[`06_customhook should work with recorded events 5`] = `
 
 exports[`06_customhook should work with recorded events 6`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -50,7 +50,7 @@ exports[`06_customhook should work with recorded events 6`] = `
 
 exports[`06_customhook should work with recorded events 7`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "
@@ -58,7 +58,7 @@ exports[`06_customhook should work with recorded events 7`] = `
 
 exports[`06_customhook should work with recorded events 8`] = `
 "
-    <div id=\\"app\\"><div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div><div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div>
+    <div id="app"><div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div><div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div>
   
 
 "

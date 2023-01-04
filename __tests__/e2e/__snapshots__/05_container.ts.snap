@@ -2,7 +2,7 @@
 
 exports[`05_container should work with recorded events 1`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 30<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 32<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 30<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 32<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -10,7 +10,7 @@ exports[`05_container should work with recorded events 1`] = `
 
 exports[`05_container should work with recorded events 2`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 38<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 40<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 38<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 40<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -18,7 +18,7 @@ exports[`05_container should work with recorded events 2`] = `
 
 exports[`05_container should work with recorded events 3`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 46<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 48<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 46<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 48<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -26,7 +26,7 @@ exports[`05_container should work with recorded events 3`] = `
 
 exports[`05_container should work with recorded events 4`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 54<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 54<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 56<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -34,7 +34,7 @@ exports[`05_container should work with recorded events 4`] = `
 
 exports[`05_container should work with recorded events 5`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 62<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 64<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 62<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 64<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -42,7 +42,7 @@ exports[`05_container should work with recorded events 5`] = `
 
 exports[`05_container should work with recorded events 6`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 70<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 72<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 70<div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 72<div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -50,7 +50,7 @@ exports[`05_container should work with recorded events 6`] = `
 
 exports[`05_container should work with recorded events 7`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 78<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 80<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 78<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 80<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -58,7 +58,7 @@ exports[`05_container should work with recorded events 7`] = `
 
 exports[`05_container should work with recorded events 8`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 86<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 88<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 86<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 88<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -66,7 +66,7 @@ exports[`05_container should work with recorded events 8`] = `
 
 exports[`05_container should work with recorded events 9`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 94<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 96<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 94<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 96<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -74,7 +74,7 @@ exports[`05_container should work with recorded events 9`] = `
 
 exports[`05_container should work with recorded events 10`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 6<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 8<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -82,7 +82,7 @@ exports[`05_container should work with recorded events 10`] = `
 
 exports[`05_container should work with recorded events 11`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 110<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 112<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 110<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 112<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -90,7 +90,7 @@ exports[`05_container should work with recorded events 11`] = `
 
 exports[`05_container should work with recorded events 12`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 118<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 120<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 118<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 120<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -98,7 +98,7 @@ exports[`05_container should work with recorded events 12`] = `
 
 exports[`05_container should work with recorded events 13`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 126<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 128<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 126<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 128<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -106,7 +106,7 @@ exports[`05_container should work with recorded events 13`] = `
 
 exports[`05_container should work with recorded events 14`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 134<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 136<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 134<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 136<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -114,7 +114,7 @@ exports[`05_container should work with recorded events 14`] = `
 
 exports[`05_container should work with recorded events 15`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 142<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 144<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 142<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 144<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -122,7 +122,7 @@ exports[`05_container should work with recorded events 15`] = `
 
 exports[`05_container should work with recorded events 16`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 150<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 152<div><span>Count: 2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 150<div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 152<div><span>Count: 2</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -130,7 +130,7 @@ exports[`05_container should work with recorded events 16`] = `
 
 exports[`05_container should work with recorded events 17`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 158<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 160<div><span>Count: 1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 158<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 160<div><span>Count: 1</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -138,7 +138,7 @@ exports[`05_container should work with recorded events 17`] = `
 
 exports[`05_container should work with recorded events 18`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 166<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 168<div><span>Count: 0</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 166<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 168<div><span>Count: 0</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -146,7 +146,7 @@ exports[`05_container should work with recorded events 18`] = `
 
 exports[`05_container should work with recorded events 19`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 174<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 176<div><span>Count: -1</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 174<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 176<div><span>Count: -1</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
@@ -154,7 +154,7 @@ exports[`05_container should work with recorded events 19`] = `
 
 exports[`05_container should work with recorded events 20`] = `
 "
-    <div id=\\"app\\"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><h1>Second container</h1><div>numRendered: 182<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div><div>numRendered: 184<div><span>Count: -2</span><button type=\\"button\\">+1</button><button type=\\"button\\">-1</button></div></div></div>
+    <div id="app"><h1>First container</h1><div>numRendered: 102<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 104<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><h1>Second container</h1><div>numRendered: 182<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div><div>numRendered: 184<div><span>Count: -2</span><button type="button">+1</button><button type="button">-1</button></div></div></div>
   
 
 "
