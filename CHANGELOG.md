@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Changed
+- Update proxy-compare v2.4.0 #170
 
 ## [1.7.10] - 2022-08-13
 ### Changed
