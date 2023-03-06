@@ -26,7 +26,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
       ...state,
       count: [
         ...state.count.slice(0, action.index),
-        state.count[action.index] + 1,
+        (state.count[action.index] as number) + 1,
         ...state.count.slice(action.index + 1),
       ],
     };
@@ -34,7 +34,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
       ...state,
       count: [
         ...state.count.slice(0, action.index),
-        state.count[action.index] - 1,
+        (state.count[action.index] as number) - 1,
         ...state.count.slice(action.index + 1),
       ],
     };
