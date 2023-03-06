@@ -1,19 +1,20 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "es2015",
+    "target": "esnext",
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "module": "es2015",
     "moduleResolution": "node",
-    "jsx": "react",
     "allowJs": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "sourceMap": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "jsx": "react",
     "baseUrl": ".",
     "paths": {
       "react-tracked": ["./src"]
-    },
-    "outDir": "./dist"
+    }
   }
 }

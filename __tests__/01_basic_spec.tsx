@@ -41,7 +41,7 @@ describe('basic spec', () => {
     );
     const { getAllByText, container } = render(<App />);
     expect(container).toMatchSnapshot();
-    fireEvent.click(getAllByText('+1')[0]);
+    fireEvent.click(getAllByText('+1')[0] as HTMLElement);
     expect(container).toMatchSnapshot();
   });
 });
