@@ -78,7 +78,7 @@ devDependencies:
   npm-run-all:
     specifier: ^4.1.5
     version: 4.1.5
-  puppeteer-core:
+  puppeteer:
     specifier: ^20.7.3
     version: 20.7.3(typescript@5.1.3)
   react:
