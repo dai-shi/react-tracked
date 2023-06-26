@@ -12,7 +12,7 @@ dependencies:
     version: 0.19.0
   use-context-selector:
     specifier: 1.4.1
-    version: 1.4.1(react-dom@18.2.0)(react-native@0.0.0-116359998)(react@18.2.0)(scheduler@0.19.0)
+    version: 1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.19.0)
 
 devDependencies:
   '@testing-library/react':
@@ -78,7 +78,7 @@ devDependencies:
   npm-run-all:
     specifier: ^4.1.5
     version: 4.1.5
-  puppeteer:
+  puppeteer-core:
     specifier: ^20.7.3
     version: 20.7.3(typescript@5.1.3)
   react:
@@ -11118,7 +11118,7 @@ packages:
       requires-port: 1.0.0
     dev: true
 
-  /use-context-selector@1.4.1(react-dom@18.2.0)(react-native@0.0.0-116359998)(react@18.2.0)(scheduler@0.19.0):
+  /use-context-selector@1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.19.0):
     resolution: {integrity: sha512-Io2ArvcRO+6MWIhkdfMFt+WKQX+Vb++W8DS2l03z/Vw/rz3BclKpM0ynr4LYGyU85Eke+Yx5oIhTY++QR0ZDoA==}
     peerDependencies:
       react: '>=16.8.0'
@@ -11133,7 +11133,6 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      react-native: 0.0.0-116359998(@babel/core@7.22.5)(react@18.2.0)
       scheduler: 0.19.0
     dev: false
 
