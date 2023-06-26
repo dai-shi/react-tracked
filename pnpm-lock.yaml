@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   proxy-compare:
-    specifier: 2.5.1
-    version: 2.5.1
+    specifier: 2.4.0
+    version: 2.4.0
   react-native:
     specifier: '*'
     version: 0.0.0-116359998(@babel/core@7.22.5)(react@18.2.0)
@@ -9372,8 +9372,8 @@ packages:
       - supports-color
     dev: true
 
-  /proxy-compare@2.5.1:
-    resolution: {integrity: sha512-oyfc0Tx87Cpwva5ZXezSp5V9vht1c7dZBhvuV/y3ctkgMVUmiAGDVeeB0dKhGSyT0v1ZTEQYpe/RXlBVBNuCLA==}
+  /proxy-compare@2.4.0:
+    resolution: {integrity: sha512-FD8KmQUQD6Mfpd0hywCOzcon/dbkFP8XBd9F1ycbKtvVsfv6TsFUKJ2eC0Iz2y+KzlkdT1Z8SY6ZSgm07zOyqg==}
     dev: false
 
   /proxy-from-env@1.1.0:
