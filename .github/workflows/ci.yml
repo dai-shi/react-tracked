@@ -17,5 +17,5 @@ jobs:
           node-version: 18
           cache: 'pnpm'
           cache-dependency-path: '**/pnpm-lock.yaml'
-      - run: pnpm install --no-frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - run: npm test
