@@ -31,7 +31,7 @@
     "postcompile": "cp dist/index.modern.mjs dist/index.modern.js && cp dist/index.modern.mjs.map dist/index.modern.js.map",
     "test": "run-s eslint tsc-test jest e2e-test:*",
     "eslint": "eslint --ext .js,.ts,.tsx --ignore-path .gitignore --ignore-pattern dist .",
-    "jest": "jest --preset ts-jest/presets/js-with-ts __tests__/*.tsx",
+    "jest": "jest --preset ts-jest/presets/js-with-ts --env jsdom __tests__/*.tsx",
     "tsc-test": "tsc --project . --noEmit",
     "e2e-test:01_minimal": "server-test examples:01_minimal 8080 'jest --preset jest-puppeteer __tests__/e2e/01_minimal.ts'",
     "e2e-test:02_typescript": "server-test examples:02_typescript 8080 'jest --preset jest-puppeteer __tests__/e2e/02_typescript.ts'",
@@ -65,7 +65,6 @@
     "examples:15_reactmemoref": "DIR=15_reactmemoref webpack serve"
   },
   "jest": {
-    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.ts$": "ts-jest"
     }
