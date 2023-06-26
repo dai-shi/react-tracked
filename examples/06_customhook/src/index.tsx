@@ -1,6 +1,3 @@
-// eslint-disable-next-line spaced-comment
-/// <reference types="react-dom/next" />
-
 import React, { useEffect, useState, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
