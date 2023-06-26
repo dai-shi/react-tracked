@@ -186,6 +186,19 @@ const Counter = () => {
 };
 ```
 
+## Notes with React 18
+
+This library internally uses `use-context-selector`,
+a userland solution for `useContextSelector` hook.
+React 18 changes useReducer behavior which `use-context-selector` depends on.
+This may cause an unexpected behavior for developers.
+If you see more `console.log` logs than expected,
+you may want to try putting `console.log` in useEffect.
+If that shows logs as expected, it's an expected behavior.
+For more information:
+- https://github.com/dai-shi/use-context-selector/issues/100
+- https://github.com/dai-shi/react-tracked/issues/177
+
 ## API
 
 [docs/api](./website/docs/api.md)
