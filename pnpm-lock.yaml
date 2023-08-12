@@ -9,10 +9,10 @@ dependencies:
     version: 0.0.0-116359998(@babel/core@7.22.5)(react@18.2.0)
   scheduler:
     specifier: '>=0.19.0'
-    version: 0.19.0
+    version: 0.23.0
   use-context-selector:
     specifier: 1.4.1
-    version: 1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.19.0)
+    version: 1.4.1(react-dom@18.2.0)(react-native@0.0.0-116359998)(react@18.2.0)(scheduler@0.23.0)
 
 devDependencies:
   '@testing-library/react':
@@ -82,10 +82,10 @@ devDependencies:
     specifier: ^20.7.3
     version: 20.7.3(typescript@5.1.3)
   react:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0
   react-dom:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   redux-saga:
     specifier: ^1.2.3
@@ -9517,6 +9517,7 @@ packages:
   /react-native@0.0.0-116359998(@babel/core@7.22.5)(react@18.2.0):
     resolution: {integrity: sha512-ZpRhvd/yFiHxWSdhJk5MPwb4aorZcQFmH+Ab4mOGvICzZhHbMAmatVfOw0VeLuhWBMNhkEoLg+WvabMaej1Vzg==}
     engines: {node: '>=12'}
+    deprecated: 'Issues and pull requests filed against this version are not supported. See the React Native release support policy to learn more: https://github.com/reactwg/react-native-releases#releases-support-policy'
     hasBin: true
     peerDependencies:
       react: 17.0.1
@@ -9994,13 +9995,6 @@ packages:
     dependencies:
       xmlchars: 2.2.0
     dev: true
-
-  /scheduler@0.19.0:
-    resolution: {integrity: sha512-xowbVaTPe9r7y7RUejcK73/j8tt2jfiyTednOvHbA8JoClvMYCp+r8QegLwK/n8zWQAtZb1fFnER4XLBZXrCxA==}
-    dependencies:
-      loose-envify: 1.4.0
-      object-assign: 4.1.1
-    dev: false
 
   /scheduler@0.20.2:
     resolution: {integrity: sha512-2eWfGgAqqWFGqtdMmcL5zCMK1U8KlXv8SQFGglL3CEtd0aDVDWgeF/YoCmvln55m5zSk3J/20hTaSBeSObsQDQ==}
@@ -11118,7 +11112,7 @@ packages:
       requires-port: 1.0.0
     dev: true
 
-  /use-context-selector@1.4.1(react-dom@18.2.0)(react@18.2.0)(scheduler@0.19.0):
+  /use-context-selector@1.4.1(react-dom@18.2.0)(react-native@0.0.0-116359998)(react@18.2.0)(scheduler@0.23.0):
     resolution: {integrity: sha512-Io2ArvcRO+6MWIhkdfMFt+WKQX+Vb++W8DS2l03z/Vw/rz3BclKpM0ynr4LYGyU85Eke+Yx5oIhTY++QR0ZDoA==}
     peerDependencies:
       react: '>=16.8.0'
@@ -11133,7 +11127,8 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      scheduler: 0.19.0
+      react-native: 0.0.0-116359998(@babel/core@7.22.5)(react@18.2.0)
+      scheduler: 0.23.0
     dev: false
 
   /use-reducer-async@2.1.1(react@18.2.0):
