@@ -96,7 +96,7 @@ const Counter = () => {
     setState((prev) => ({
       ...prev,
       count: prev.count + 1,
-    });
+    }));
   };
   return (
     <div>
