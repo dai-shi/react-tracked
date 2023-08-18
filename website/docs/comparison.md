@@ -9,7 +9,7 @@ Let's compare with other projects.
 
 ## Notes about similarities and differences
 
-Here describes simiarities and differences.
+Here describes similarities and differences.
 
 ### Pure React
 
