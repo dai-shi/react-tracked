@@ -192,11 +192,8 @@ export default React.memo(TodoItem);
 ```
 
 This is the TodoItem component.
-We prefer primitive props for memoized components.
-
-If you want to use object props for memoized components,
-you need to use a special [memo](../api#memo) instead of `React.memo`.
-See [example/09](https://github.com/dai-shi/react-tracked/tree/main/examples/09_reactmemo) for the usage.
+We used to prefer primitive props for memoized components with v1.
+With v2, object props are also fine.
 
 ## src/NewTodo.js
 
