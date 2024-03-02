@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+### Added
+- breaking: make it compatible with memo and react compiler #202
 
 ## [1.7.12] - 2024-03-02
 ### Changed
