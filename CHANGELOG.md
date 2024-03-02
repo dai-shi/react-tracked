@@ -1,6 +1,8 @@
 # Change Log
 
 ## [Unreleased]
+
+## [1.7.12] - 2024-03-02
 ### Changed
 - update use-context-selector #200
 
