@@ -78,8 +78,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "proxy-compare": "2.4.0",
-    "use-context-selector": "1.4.1"
+    "proxy-compare": "2.6.0",
+    "use-context-selector": "1.4.2"
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
