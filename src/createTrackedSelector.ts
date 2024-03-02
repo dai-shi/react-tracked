@@ -9,38 +9,35 @@ import { createProxy, isChanged } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils';
 
-type Affected = WeakMap<object, unknown>;
-
 export const createTrackedSelector = <State>(
   useSelector: <Selected>(selector: (state: State) => Selected) => Selected,
 ) => {
   const useTrackedSelector = () => {
     const [, forceUpdate] = useReducer((c) => c + 1, 0);
-    const lastStateAndAffected = useRef<readonly [State, Affected]>();
+    // per-hook affected, it's not ideal but memo compatible
+    const affected = useMemo(() => new WeakMap(), []);
     const prevState = useRef<State>();
-    const latestState = useRef<State>();
+    const lastState = useRef<State>();
     useEffect(() => {
-      lastStateAndAffected.current = [state, affected];
-      if (prevState.current !== latestState.current
+      if (prevState.current !== lastState.current
         && isChanged(
           prevState.current,
-          latestState.current,
+          lastState.current,
           affected,
           new WeakMap(),
         )) {
-        prevState.current = latestState.current;
+        prevState.current = lastState.current;
         forceUpdate();
       }
     });
     const selector = useCallback((nextState: State) => {
-      latestState.current = nextState;
+      lastState.current = nextState;
       if (prevState.current
         && prevState.current !== nextState
-        && lastStateAndAffected.current
         && !isChanged(
           prevState.current,
           nextState,
-          lastStateAndAffected.current[1],
+          affected,
           new WeakMap(),
         )
       ) {
@@ -49,11 +46,8 @@ export const createTrackedSelector = <State>(
       }
       prevState.current = nextState;
       return nextState;
-    }, []);
+    }, [affected]);
     const state = useSelector(selector);
-    const affected = lastStateAndAffected.current?.[0] === state
-      ? lastStateAndAffected.current[1]
-      : new WeakMap();
     if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useAffectedDebugValue(state, affected);
