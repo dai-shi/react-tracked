@@ -1,5 +1,5 @@
 import React, { useReducer, StrictMode } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { createContainer } from 'react-tracked';
 
@@ -62,5 +62,4 @@ const App = () => (
   </StrictMode>
 );
 
-// legacy mode
-ReactDOM.render(<App />, document.getElementById('app'));
+createRoot(document.getElementById('app')).render(<App />);
