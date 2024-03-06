@@ -15,8 +15,8 @@ dependencies:
     specifier: '>=0.19.0'
     version: 0.23.0
   use-context-selector:
-    specifier: 1.4.2
-    version: 1.4.2(react-dom@18.2.0)(react-native@0.73.5)(react@18.2.0)(scheduler@0.23.0)
+    specifier: 1.4.3
+    version: 1.4.3(react-dom@18.2.0)(react-native@0.73.5)(react@18.2.0)(scheduler@0.23.0)
 
 devDependencies:
   '@testing-library/react':
@@ -10790,8 +10790,8 @@ packages:
     resolution: {integrity: sha512-H/A06tKD7sS1O1X2SshBVeA5FLycRpjqiBeqGKmBwBDBy28EnRjORxTNe269KSSr5un5qyWi1iL61wLxpd+ZOg==}
     dev: true
 
-  /use-context-selector@1.4.2(react-dom@18.2.0)(react-native@0.73.5)(react@18.2.0)(scheduler@0.23.0):
-    resolution: {integrity: sha512-OZvd4TWirCMOwIwFlQFnECIyEGb3fvSrd71A8sGWiAPl6SIJTS60Ho+WnAr67T6/JedvlperiReCM5n9mnM3fQ==}
+  /use-context-selector@1.4.3(react-dom@18.2.0)(react-native@0.73.5)(react@18.2.0)(scheduler@0.23.0):
+    resolution: {integrity: sha512-rFo2z14XipT7XvXfw0lB/GCbxaKp9LCJoW96VWbZTlzoe4/E1dlqufv8xDvXRMPh3aIjFtNlwoaofuKX1UwUNw==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '*'
