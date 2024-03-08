@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [1.7.14] - 2024-03-08
+### Changed
+- update use-context-selector v1.4.4
+
 ## [1.7.13] - 2024-03-06
 ### Changed
 - update use-context-selector v1.4.3
