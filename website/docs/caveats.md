@@ -19,7 +19,9 @@ const state2 = useTrackedState();
 You should use `useTrackedState` only once in a component
 if you need referential equality of objects in the state.
 
-## An object referential change doesn't trigger re-render if an property of the object is accessed in previous render
+## An object referential change doesn't trigger re-render if an property of the object is accessed in previous render (v1 only)
+
+:warning: This caveat only applies to v1. Since v2, we don't have such limitations.
 
 ```javascript
 const state = useTrackedState();

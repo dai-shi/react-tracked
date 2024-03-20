@@ -1,5 +1,4 @@
 import React from 'react';
-import { memo } from 'react-tracked';
 
 import { useDispatch, TodoType } from './store';
 
@@ -9,8 +8,7 @@ type Props = {
 
 let numRendered = 0;
 
-// Use custom memo instead of React.memo
-const TodoItem = memo(({ todo }: Props) => {
+const TodoItem = React.memo(({ todo }: Props) => {
   const dispatch = useDispatch();
   return (
     <li>

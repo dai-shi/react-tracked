@@ -147,6 +147,9 @@ const Component = () => {
 
 ## memo
 
+`memo` is removed in v2. With v2, we can use `React.memo`.
+The description below only applies to v1.
+
 There is a utility function exported from the library.
 
 This should be used instead of `React.memo` if props
@@ -155,7 +158,7 @@ work correctly because a memoized component doesn't always render
 when a parent component renders.
 
 ```javascript
-import { memo } from 'react-tracked';
+import { memo } from 'react-tracked'; // v1 only
 
 const ChildComponent = memo(({ num1, str1, obj1, obj2 }) => {
   // ...
