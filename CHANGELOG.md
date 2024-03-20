@@ -3,6 +3,8 @@
 ## [Unreleased]
 ### Added
 - breaking: make it compatible with memo and react compiler #202
+### Removed
+- `memo` is removed as it is no longer necessary with #202
 
 ## [1.7.14] - 2024-03-08
 ### Changed
