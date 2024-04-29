@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { Provider } from './store';
-import Main from './Main';
+import Main from './main';
 
 const App = () => (
   <Provider>

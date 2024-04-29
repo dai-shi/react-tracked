@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useTrackedState } from './store';
-import Person from './Person';
-import Counter from './Counter';
+import Person from './person';
+import Counter from './counter';
 
 const Main = () => {
   const state = useTrackedState();

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useTrackedState, useDispatch } from './store';
 
 type Props = {

@@ -1,5 +1,6 @@
-import { Reducer } from 'react';
-import { useReducerAsync, AsyncActionHandlers } from 'use-reducer-async';
+import type { Reducer } from 'react';
+import { useReducerAsync } from 'use-reducer-async';
+import type { AsyncActionHandlers } from 'use-reducer-async';
 import { createContainer } from 'react-tracked';
 
 type State = {
@@ -95,7 +96,7 @@ const asyncActionHandlers: AsyncActionHandlers<
         const firstName = data.data.first_name;
         if (typeof firstName !== 'string') throw new Error();
         dispatch({ type: 'FINISH_FETCH_USER', firstName });
-      } catch (e) {
+      } catch (_e) {
         dispatch({ type: 'ERROR_FETCH_USER' });
       }
     },
