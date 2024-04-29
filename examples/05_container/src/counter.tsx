@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useValue } from './state';
 
 let numRendered = 0;

@@ -1,9 +1,9 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 
 import { createContainer } from 'react-tracked';
 
 import { useValue } from './state';
-import Counter from './Counter';
+import Counter from './counter';
 
 const container1 = createContainer(useValue, { concurrentMode: true });
 const container2 = createContainer(useValue, { concurrentMode: true });
