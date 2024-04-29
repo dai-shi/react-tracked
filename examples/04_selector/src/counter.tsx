@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useSelector, useDispatch } from './state';
 
 let numRendered = 0;
