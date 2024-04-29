@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useTracked } from './state';
 
 let numRendered = 0;
