@@ -47,7 +47,7 @@
     "test:e2e": "run-s e2e:*",
     "e2e:01_counter": "server-test examples:01_counter http://localhost:8080 'vitest run --project=e2e 01_counter'",
     "e2e:02_person": "server-test examples:02_person http://localhost:8080 'vitest run --project=e2e 02_person'",
-    "e2e:03_setstate": "server-test examples:03_setstate http://localhost:8080 'vitest run --project=e2e 03_setstate'",
+    "e2e:03_usestate": "server-test examples:03_usestate http://localhost:8080 'vitest run --project=e2e 03_usestate'",
     "e2e:04_selector": "server-test examples:04_selector http://localhost:8080 'vitest run --project=e2e 04_selector'",
     "e2e:05_container": "server-test examples:05_container http://localhost:8080 'vitest run --project=e2e 05_container'",
     "e2e:06_customhook": "server-test examples:06_customhook http://localhost:8080 'vitest run --project=e2e 06_customhook'",
