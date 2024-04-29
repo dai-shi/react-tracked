@@ -1,4 +1,5 @@
-import { TodoType, VisibilityFilterType, useTrackedState } from '../state';
+import { useTrackedState } from '../state';
+import type { TodoType, VisibilityFilterType } from '../state';
 
 const getVisibleTodos = (todos: TodoType[], filter: VisibilityFilterType) => {
   switch (filter) {

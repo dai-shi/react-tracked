@@ -64,6 +64,9 @@ devDependencies:
   happy-dom:
     specifier: ^14.7.1
     version: 14.7.1
+  immer:
+    specifier: ^10.1.1
+    version: 10.1.1
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -2046,6 +2049,10 @@ packages:
   /ignore@5.3.1:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
+    dev: true
+
+  /immer@10.1.1:
+    resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
     dev: true
 
   /import-fresh@3.3.0:
