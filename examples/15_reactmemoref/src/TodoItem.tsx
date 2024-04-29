@@ -1,16 +1,16 @@
 import React, { forwardRef } from 'react';
-import { memo } from 'react-tracked';
 
 import { useDispatch, TodoType } from './store';
 
 type Props = {
+  // FIXME why this complaints?
+  // eslint-disable-next-line react/no-unused-prop-types
   todo: TodoType;
 };
 
 let numRendered = 0;
 
-// Use custom memo instead of React.memo
-const TodoItem = memo(
+const TodoItem = React.memo(
   forwardRef<HTMLInputElement, Props>(({ todo }, ref) => {
     const dispatch = useDispatch();
     return (

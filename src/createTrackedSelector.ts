@@ -14,12 +14,11 @@ export const createTrackedSelector = <State>(
 ) => {
   const useTrackedSelector = () => {
     const [, forceUpdate] = useReducer((c) => c + 1, 0);
-    const affected = new WeakMap();
-    const lastAffected = useRef<typeof affected>();
+    // per-hook affected, it's not ideal but memo compatible
+    const affected = useMemo(() => new WeakMap(), []);
     const prevState = useRef<State>();
     const lastState = useRef<State>();
     useEffect(() => {
-      lastAffected.current = affected;
       if (prevState.current !== lastState.current
         && isChanged(
           prevState.current,
@@ -35,11 +34,10 @@ export const createTrackedSelector = <State>(
       lastState.current = nextState;
       if (prevState.current
         && prevState.current !== nextState
-        && lastAffected.current
         && !isChanged(
           prevState.current,
           nextState,
-          lastAffected.current,
+          affected,
           new WeakMap(),
         )
       ) {
@@ -48,7 +46,7 @@ export const createTrackedSelector = <State>(
       }
       prevState.current = nextState;
       return nextState;
-    }, []);
+    }, [affected]);
     const state = useSelector(selector);
     if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line react-hooks/rules-of-hooks
