@@ -5,20 +5,14 @@ import {
   useContext as useContextOrig,
   useDebugValue,
 } from 'react';
-import type {
-  ComponentType,
-  Context as ContextOrig,
-  ReactNode,
-} from 'react';
+import type { ComponentType, Context as ContextOrig, ReactNode } from 'react';
 
 import {
   createContext,
   useContextSelector,
   useContextUpdate,
 } from 'use-context-selector';
-import type {
-  Context,
-} from 'use-context-selector';
+import type { Context } from 'use-context-selector';
 
 import { createTrackedSelector } from './createTrackedSelector.js';
 

@@ -13,7 +13,7 @@ type State = typeof initialState;
 type Action =
   | { type: 'increment' }
   | { type: 'decrement' }
-  | { type: 'setText'; text: string }
+  | { type: 'setText'; text: string };
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
