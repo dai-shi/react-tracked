@@ -46,7 +46,7 @@
     "test:spec": "vitest run",
     "text:e2e": "echo 'TODO'",
     "examples:01_counter": "DIR=01_counter vite",
-    "examples:02_typescript": "DIR=02_typescript vite",
+    "examples:02_person": "DIR=02_person vite",
     "examples:03_usestate": "DIR=03_usestate vite",
     "examples:04_selector": "DIR=04_selector vite",
     "examples:05_container": "DIR=05_container vite",

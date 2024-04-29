@@ -1,18 +1,21 @@
-import React, { useReducer, StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { useReducer, StrictMode } from 'react';
+import type { Reducer } from 'react';
 
 import { createContainer } from 'react-tracked';
-
-const useValue = ({ reducer, initialState }) =>
-  useReducer(reducer, initialState);
-const { Provider, useTracked } = createContainer(useValue);
 
 const initialState = {
   count: 0,
   text: 'hello',
 };
 
-const reducer = (state, action) => {
+type State = typeof initialState;
+
+type Action =
+  | { type: 'increment' }
+  | { type: 'decrement' }
+  | { type: 'setText'; text: string }
+
+const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case 'increment':
       return { ...state, count: state.count + 1 };
@@ -21,9 +24,13 @@ const reducer = (state, action) => {
     case 'setText':
       return { ...state, text: action.text };
     default:
-      throw new Error(`unknown action type: ${action.type}`);
+      throw new Error(`unknown action type: ${(action as Action).type}`);
   }
 };
+
+const useValue = () => useReducer(reducer, initialState);
+
+const { Provider, useTracked } = createContainer(useValue);
 
 let numRendered = 0;
 
@@ -65,7 +72,7 @@ const TextBox = () => {
 
 const App = () => (
   <StrictMode>
-    <Provider reducer={reducer} initialState={initialState}>
+    <Provider>
       <h1>Counter</h1>
       <Counter />
       <Counter />
@@ -76,4 +83,4 @@ const App = () => (
   </StrictMode>
 );
 
-createRoot(document.getElementById('app')).render(<App />);
+export default App;
