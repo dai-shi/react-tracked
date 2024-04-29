@@ -1,11 +1,11 @@
-import React from 'react';
+import { useRef } from 'react';
 
 import { useTrackedState } from './store';
 import TodoItem from './TodoItem';
 
 const TodoList = () => {
   const state = useTrackedState();
-  const ref = React.useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null);
   const { todos } = state;
   return (
     <ul>
