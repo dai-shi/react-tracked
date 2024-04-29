@@ -5,12 +5,10 @@ import { createContainer } from 'react-tracked';
 const useValue = () => {
   const [count, setCountOrig] = useState(0);
   const setCount = (nextCount: number) => {
-    // eslint-disable-next-line no-console
     console.log({ nextCount });
     setCountOrig(nextCount);
   };
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.log({ count });
   });
   return [count, setCount] as const;

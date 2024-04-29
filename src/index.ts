@@ -1,3 +1,3 @@
-export { createContainer } from './createContainer';
-export { createTrackedSelector } from './createTrackedSelector';
+export { createContainer } from './createContainer.js';
+export { createTrackedSelector } from './createTrackedSelector.js';
 export { getUntracked as getUntrackedObject } from 'proxy-compare';

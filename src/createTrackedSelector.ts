@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { createProxy, isChanged } from 'proxy-compare';
 
-import { useAffectedDebugValue } from './utils';
+import { useAffectedDebugValue } from './utils.js';
 
 export const createTrackedSelector = <State>(
   useSelector: <Selected>(selector: (state: State) => Selected) => Selected,

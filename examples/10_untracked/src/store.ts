@@ -1,4 +1,5 @@
-import { useReducer, useCallback, Reducer } from 'react';
+import { useReducer, useCallback } from 'react';
+import type { Reducer } from 'react';
 import { createContainer, getUntrackedObject } from 'react-tracked';
 
 export type TodoType = {
@@ -88,7 +89,6 @@ const {
   useUpdate: useDispatch,
 } = createContainer(useValue, { concurrentMode: true });
 
-// eslint-disable-next-line arrow-parens
 const untrackDeep = <T>(obj: T) => {
   if (typeof obj !== 'object' || obj === null) return obj;
   const untrackedObj = getUntrackedObject(obj);

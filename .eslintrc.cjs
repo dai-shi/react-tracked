@@ -14,7 +14,7 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'prettier',
   ],
-  ignorePatterns: ['dist/'],
+  ignorePatterns: ['dist/', 'website/'],
   settings: {
     'import/resolver': {
       typescript: true,

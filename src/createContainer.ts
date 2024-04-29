@@ -1,5 +1,3 @@
-/* eslint react/destructuring-assignment: off */
-
 import {
   createContext as createContextOrig,
   createElement,
@@ -22,8 +20,9 @@ import type {
   Context,
 } from 'use-context-selector';
 
-import { createTrackedSelector } from './createTrackedSelector';
+import { createTrackedSelector } from './createTrackedSelector.js';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: any[]) => any;
 type Options<State, Update extends AnyFunction> = {
   defaultState?: State;

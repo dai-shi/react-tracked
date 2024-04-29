@@ -1,6 +1,3 @@
-/* eslint react/jsx-props-no-spreading: off */
-/* eslint react/display-name: off */
-
 import { memo } from 'react';
 import type { FormEvent } from 'react';
 
@@ -19,6 +16,7 @@ const validateName = (name: unknown) => {
   return null;
 };
 
+// eslint-disable-next-line react/display-name
 const FirstName = memo(() => (
   <div>
     numRendered: {++numRendered}
@@ -30,6 +28,7 @@ const FirstName = memo(() => (
   </div>
 ));
 
+// eslint-disable-next-line react/display-name
 const FamilyName = memo(() => (
   <div>
     numRendered: {++numRendered}
@@ -41,6 +40,7 @@ const FamilyName = memo(() => (
   </div>
 ));
 
+// eslint-disable-next-line react/display-name
 const Gender = memo(() => (
   <div>
     numRendered: {++numRendered}
@@ -56,6 +56,7 @@ const Gender = memo(() => (
   </div>
 ));
 
+// eslint-disable-next-line react/display-name
 const Teenager = memo(() => (
   <div>
     numRendered: {++numRendered}
@@ -67,11 +68,11 @@ const Teenager = memo(() => (
   </div>
 ));
 
+// eslint-disable-next-line react/display-name
 const PersonForm = memo(() => {
   const formValues = useFormValues();
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    // eslint-disable-next-line no-console
     console.log(formValues);
   };
   return (

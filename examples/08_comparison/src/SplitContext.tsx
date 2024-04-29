@@ -1,5 +1,3 @@
-/* eslint react/display-name: off */
-
 import {
   createContext,
   memo,
@@ -55,6 +53,7 @@ const PersonContext2 = createContext<[State2, Dispatch2]>([
   () => null,
 ]);
 
+// eslint-disable-next-line react/display-name
 const PersonFirstName = memo(() => {
   const [state, dispatch] = useContext(PersonContext1);
   const renders = useRef(1);
@@ -75,6 +74,7 @@ const PersonFirstName = memo(() => {
   );
 });
 
+// eslint-disable-next-line react/display-name
 const PersonFamilyName = memo(() => {
   const [state, dispatch] = useContext(PersonContext2);
   const renders = useRef(1);

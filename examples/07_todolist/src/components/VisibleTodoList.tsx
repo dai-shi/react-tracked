@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import useVisibleTodos from '../hooks/useVisibleTodos';
 import useToggleTodo from '../hooks/useToggleTodo';
 import Todo from './Todo';

@@ -1,4 +1,5 @@
-import { ChangeEvent, useState, useCallback, useLayoutEffect } from 'react';
+import { useState, useCallback, useLayoutEffect } from 'react';
+import type { ChangeEvent } from 'react';
 
 import { createContainer, getUntrackedObject } from 'react-tracked';
 

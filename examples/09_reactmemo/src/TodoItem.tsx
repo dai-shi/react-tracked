@@ -1,5 +1,3 @@
-/* eslint react/display-name: off */
-
 import { memo } from 'react';
 
 import { useDispatch } from './store';
@@ -11,6 +9,7 @@ type Props = {
 
 let numRendered = 0;
 
+// eslint-disable-next-line react/display-name
 const TodoItem = memo(({ todo }: Props) => {
   const dispatch = useDispatch();
   return (
