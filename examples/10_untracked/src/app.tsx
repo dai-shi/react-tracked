@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Provider } from './store';
 import TodoList from './TodoList';
 

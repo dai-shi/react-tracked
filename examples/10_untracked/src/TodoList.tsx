@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useTrackedState } from './store';
 import TodoItem from './TodoItem';
 
