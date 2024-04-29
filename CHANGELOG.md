@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Module-first setup #209
+
 ### Added
 
 - breaking: make it compatible with memo and react compiler #202
