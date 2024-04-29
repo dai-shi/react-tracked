@@ -1,6 +1,6 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 
-import PersonForm from './PersonForm';
+import PersonForm from './person-form';
 
 const App = () => (
   <StrictMode>
