@@ -17,7 +17,9 @@ const useValue = () => {
   return [count, setCount] as const;
 };
 
-const { Provider, useTracked } = createContainer(useValue, { concurrentMode: true });
+const { Provider, useTracked } = createContainer(useValue, {
+  concurrentMode: true,
+});
 
 const Counter = () => {
   const [count, setCount] = useTracked();
@@ -26,8 +28,12 @@ const Counter = () => {
   return (
     <div>
       <span>Count: {count}</span>
-      <button type="button" onClick={increment}>+1</button>
-      <button type="button" onClick={decrement}>-1</button>
+      <button type="button" onClick={increment}>
+        +1
+      </button>
+      <button type="button" onClick={decrement}>
+        -1
+      </button>
     </div>
   );
 };

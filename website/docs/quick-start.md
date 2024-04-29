@@ -166,10 +166,8 @@ const initialState = {
 
 const useMyState = () => useState(initialState);
 
-export const {
-  Provider: SharedStateProvider,
-  useTracked: useSharedState,
-} = createContainer(useMyState);
+export const { Provider: SharedStateProvider, useTracked: useSharedState } =
+  createContainer(useMyState);
 ```
 
 That's it. Check the running app and see it works as before.

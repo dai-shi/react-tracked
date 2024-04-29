@@ -48,19 +48,23 @@ const reducer: Reducer<State, Action> = (state, action) => {
     case 'CHANGE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? {
-            ...todo,
-            detail: { ...todo.detail, title: action.title },
-          } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id
+            ? {
+                ...todo,
+                detail: { ...todo.detail, title: action.title },
+              }
+            : todo,
+        ),
       };
     case 'TOGGLE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id
+            ? { ...todo, completed: !todo.completed }
+            : todo,
+        ),
       };
     case 'DUPLICATE_TODO':
       return {
@@ -105,16 +109,14 @@ const untrackDeep = <T>(obj: T) => {
 
 const useUntrackedDispatch = () => {
   const dispatch = useDispatch();
-  return useCallback((action: Action) => {
-    const untrackedAction = untrackDeep(action);
-    // console.log(action, untrackedAction);
-    dispatch(untrackedAction);
-  }, [dispatch]);
+  return useCallback(
+    (action: Action) => {
+      const untrackedAction = untrackDeep(action);
+      // console.log(action, untrackedAction);
+      dispatch(untrackedAction);
+    },
+    [dispatch],
+  );
 };
 
-export {
-  Provider,
-  useTrackedState,
-  useDispatch,
-  useUntrackedDispatch,
-};
+export { Provider, useTrackedState, useDispatch, useUntrackedDispatch };

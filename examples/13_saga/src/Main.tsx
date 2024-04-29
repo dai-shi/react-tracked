@@ -14,7 +14,11 @@ const Main = () => {
         User ID:
         <input value={id} onChange={(e) => setId(e.target.value)} />
       </div>
-      {state.loadingState !== 'idle' ? <span>{state.loadingState}...</span> : <Person id={id} />}
+      {state.loadingState !== 'idle' ? (
+        <span>{state.loadingState}...</span>
+      ) : (
+        <Person id={id} />
+      )}
       <Counter />
     </div>
   );

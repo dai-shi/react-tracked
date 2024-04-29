@@ -20,7 +20,9 @@ const Person = () => {
               dispatch({ firstName, type: 'setFirstName' });
             }}
           />
-          <button type="button" onClick={() => setMode('last')}>toggle</button>
+          <button type="button" onClick={() => setMode('last')}>
+            toggle
+          </button>
         </div>
       )}
       {mode === 'last' && (
@@ -33,7 +35,9 @@ const Person = () => {
               dispatch({ lastName, type: 'setLastName' });
             }}
           />
-          <button type="button" onClick={() => setMode('first')}>toggle</button>
+          <button type="button" onClick={() => setMode('first')}>
+            toggle
+          </button>
         </div>
       )}
       <div>

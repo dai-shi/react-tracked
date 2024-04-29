@@ -29,7 +29,10 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
+const PersonContext = createContext<[State, Dispatch]>([
+  initialState,
+  () => null,
+]);
 
 const PersonFirstName = () => {
   const [state, dispatch] = useContext(PersonContext);

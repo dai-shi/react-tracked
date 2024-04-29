@@ -52,7 +52,7 @@ type Options = {
   stateContextName?: string;
   updateContextName?: string;
   concurrentMode?: boolean;
-}
+};
 ```
 
 - `defaultState` and `defaultUpdate` are to specify context default values in case you want something without Provider.
@@ -83,11 +83,7 @@ Typically, it's close to the root component,
 but it can be (sometimes desirably) lower in the component tree.
 
 ```javascript
-const App = (props) => (
-  <Provider {...props}>
-    ...
-  </Provider>
-);
+const App = (props) => <Provider {...props}>...</Provider>;
 ```
 
 ### useTracked

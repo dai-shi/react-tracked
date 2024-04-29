@@ -12,8 +12,12 @@ const Counter = () => {
       numRendered: {++numRendered}
       <div>
         <span>Count: {count}</span>
-        <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
-        <button type="button" onClick={() => dispatch({ type: 'decrement' })}>-1</button>
+        <button type="button" onClick={() => dispatch({ type: 'increment' })}>
+          +1
+        </button>
+        <button type="button" onClick={() => dispatch({ type: 'decrement' })}>
+          -1
+        </button>
       </div>
     </div>
   );

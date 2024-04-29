@@ -27,7 +27,9 @@ describe('basic spec', () => {
       return (
         <div>
           <span>{state.count1}</span>
-          <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
+          <button type="button" onClick={() => dispatch({ type: 'increment' })}>
+            +1
+          </button>
         </div>
       );
     };

@@ -29,60 +29,65 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
+const PersonContext = createContext<[State, Dispatch]>([
+  initialState,
+  () => null,
+]);
 
-const InnerPersonFirstName = React.memo(({ firstName, dispatch }: {
-  firstName: string;
-  dispatch: Dispatch;
-}) => {
-  const renders = useRef(1);
-  useEffect(() => {
-    renders.current += 1;
-  });
-  return (
-    <div>
-      First Name:
-      <input
-        value={firstName}
-        onChange={(event) => {
-          dispatch({ type: 'setFirstName', firstName: event.target.value });
-        }}
-      />
-      (renders:{renders.current})
-    </div>
-  );
-});
+const InnerPersonFirstName = React.memo(
+  ({ firstName, dispatch }: { firstName: string; dispatch: Dispatch }) => {
+    const renders = useRef(1);
+    useEffect(() => {
+      renders.current += 1;
+    });
+    return (
+      <div>
+        First Name:
+        <input
+          value={firstName}
+          onChange={(event) => {
+            dispatch({ type: 'setFirstName', firstName: event.target.value });
+          }}
+        />
+        (renders:{renders.current})
+      </div>
+    );
+  },
+);
 
 const PersonFirstName = () => {
   const [state, dispatch] = useContext(PersonContext);
-  return <InnerPersonFirstName firstName={state.firstName} dispatch={dispatch} />;
+  return (
+    <InnerPersonFirstName firstName={state.firstName} dispatch={dispatch} />
+  );
 };
 
-const InnerPersonFamilyName = React.memo(({ familyName, dispatch }: {
-  familyName: string;
-  dispatch: Dispatch;
-}) => {
-  const renders = useRef(1);
-  useEffect(() => {
-    renders.current += 1;
-  });
-  return (
-    <div>
-      Family Name:
-      <input
-        value={familyName}
-        onChange={(event) => {
-          dispatch({ type: 'setFamilyName', familyName: event.target.value });
-        }}
-      />
-      (renders:{renders.current})
-    </div>
-  );
-});
+const InnerPersonFamilyName = React.memo(
+  ({ familyName, dispatch }: { familyName: string; dispatch: Dispatch }) => {
+    const renders = useRef(1);
+    useEffect(() => {
+      renders.current += 1;
+    });
+    return (
+      <div>
+        Family Name:
+        <input
+          value={familyName}
+          onChange={(event) => {
+            dispatch({ type: 'setFamilyName', familyName: event.target.value });
+          }}
+        />
+        (renders:{renders.current})
+      </div>
+    );
+  },
+);
 
 const PersonFamilyName = () => {
   const [state, dispatch] = useContext(PersonContext);
-  return <InnerPersonFamilyName familyName={state.familyName} dispatch={dispatch} />;
+  return (
+    <InnerPersonFamilyName familyName={state.familyName} dispatch={dispatch} />
+  );
 };
 
 const ContextWithMemo = () => {

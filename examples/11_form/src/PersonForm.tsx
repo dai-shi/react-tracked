@@ -75,7 +75,9 @@ const PersonForm = React.memo(() => {
   return (
     <form onSubmit={onSubmit}>
       numRendered: {++numRendered}
-      <button type="submit" disabled={formValues === null}>Submit</button>
+      <button type="submit" disabled={formValues === null}>
+        Submit
+      </button>
       <h3>First Name</h3>
       <FirstName />
       <h3>Family Name</h3>

@@ -45,16 +45,18 @@ const reducer: Reducer<State, Action> = (state, action) => {
     case 'CHANGE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? { ...todo, title: action.title } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id ? { ...todo, title: action.title } : todo,
+        ),
       };
     case 'TOGGLE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id
+            ? { ...todo, completed: !todo.completed }
+            : todo,
+        ),
       };
     default:
       return state;
