@@ -1,4 +1,5 @@
-import { useReducer, Reducer } from 'react';
+import { useReducer } from 'react';
+import type { Reducer } from 'react';
 
 import { createContainer } from 'react-tracked';
 
@@ -22,35 +23,40 @@ type Action =
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
-    case 'increment': return {
-      ...state,
-      count: state.count + 1,
-    };
-    case 'decrement': return {
-      ...state,
-      count: state.count - 1,
-    };
-    case 'setFirstName': return {
-      ...state,
-      person: {
-        ...state.person,
-        firstName: action.firstName,
-      },
-    };
-    case 'setLastName': return {
-      ...state,
-      person: {
-        ...state.person,
-        lastName: action.lastName,
-      },
-    };
-    case 'setAge': return {
-      ...state,
-      person: {
-        ...state.person,
-        age: action.age,
-      },
-    };
+    case 'increment':
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case 'decrement':
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    case 'setFirstName':
+      return {
+        ...state,
+        person: {
+          ...state.person,
+          firstName: action.firstName,
+        },
+      };
+    case 'setLastName':
+      return {
+        ...state,
+        person: {
+          ...state.person,
+          lastName: action.lastName,
+        },
+      };
+    case 'setAge':
+      return {
+        ...state,
+        person: {
+          ...state.person,
+          age: action.age,
+        },
+      };
     default:
       throw new Error('unknown action type');
   }

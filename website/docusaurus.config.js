@@ -2,16 +2,15 @@
 
 module.exports = {
   title: 'React Tracked',
-  tagline: 'State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.',
+  tagline:
+    'State usage tracking with Proxies. Optimize re-renders for useState/useReducer, React Redux, Zustand and others.',
   organizationName: 'dai-shi',
   projectName: 'react-tracked',
   baseUrl: '/',
   url: 'https://react-tracked.js.org',
   favicon: 'img/favicon.ico',
   trailingSlash: true,
-  themes: [
-    '@docusaurus/theme-live-codeblock',
-  ],
+  themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [],
   presets: [
     [

@@ -1,25 +1,22 @@
-/* eslint react/destructuring-assignment: off */
-
 import {
-  ComponentType,
-  Context as ContextOrig,
-  ReactNode,
   createContext as createContextOrig,
   createElement,
   useCallback,
   useContext as useContextOrig,
   useDebugValue,
 } from 'react';
+import type { ComponentType, Context as ContextOrig, ReactNode } from 'react';
 
 import {
-  Context,
   createContext,
   useContextSelector,
   useContextUpdate,
 } from 'use-context-selector';
+import type { Context } from 'use-context-selector';
 
-import { createTrackedSelector } from './createTrackedSelector';
+import { createTrackedSelector } from './createTrackedSelector.js';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: any[]) => any;
 type Options<State, Update extends AnyFunction> = {
   defaultState?: State;
@@ -27,11 +24,11 @@ type Options<State, Update extends AnyFunction> = {
   stateContextName?: string;
   updateContextName?: string;
   concurrentMode?: boolean;
-}
+};
 /**
  * [Deprecated] Please use object option
  */
-type DeprecatedOption = boolean
+type DeprecatedOption = boolean;
 
 export const createContainer = <State, Update extends AnyFunction, Props>(
   useValue: (props: Props) => readonly [State, Update],
@@ -39,7 +36,9 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
 ) => {
   if (typeof options === 'boolean') {
     // eslint-disable-next-line no-console
-    console.warn('boolean option is deprecated, please specify { concurrentMode: true }');
+    console.warn(
+      'boolean option is deprecated, please specify { concurrentMode: true }',
+    );
     options = { concurrentMode: options };
   }
   const {
@@ -48,7 +47,9 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     concurrentMode,
   } = options || {};
   const StateContext = createContext<State | undefined>(options?.defaultState);
-  const UpdateContext = createContextOrig<Update | undefined>(options?.defaultUpdate);
+  const UpdateContext = createContextOrig<Update | undefined>(
+    options?.defaultUpdate,
+  );
   StateContext.displayName = stateContextName;
   UpdateContext.displayName = updateContextName;
 
@@ -57,19 +58,18 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
     return createElement(
       UpdateContext.Provider,
       { value: update },
-      createElement(StateContext.Provider as ComponentType<{
-        value: State;
-      }>, { value: state }, props.children),
+      createElement(
+        StateContext.Provider as ComponentType<{
+          value: State;
+        }>,
+        { value: state },
+        props.children,
+      ),
     );
   };
 
-  const useSelector = <Selected>(
-    selector: (state: State) => Selected,
-  ) => {
-    if (
-      typeof process === 'object'
-      && process.env.NODE_ENV !== 'production'
-    ) {
+  const useSelector = <Selected>(selector: (state: State) => Selected) => {
+    if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
       const selectorOrig = selector;
       selector = (state: State) => {
         if (state === undefined) {
@@ -78,7 +78,10 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
         return selectorOrig(state);
       };
     }
-    const selected = useContextSelector(StateContext as Context<State>, selector);
+    const selected = useContextSelector(
+      StateContext as Context<State>,
+      selector,
+    );
     useDebugValue(selected);
     return selected;
   };
@@ -87,39 +90,45 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
 
   const useUpdate = concurrentMode
     ? () => {
-      if (
-        typeof process === 'object'
-        && process.env.NODE_ENV !== 'production'
-        && useContextOrig(UpdateContext) === undefined
-      ) {
-        throw new Error('Please use <Provider>');
+        if (
+          typeof process === 'object' &&
+          process.env.NODE_ENV !== 'production' &&
+          useContextOrig(UpdateContext) === undefined
+        ) {
+          throw new Error('Please use <Provider>');
+        }
+        const contextUpdate = useContextUpdate(
+          StateContext as Context<unknown>,
+        );
+        const update = useContextOrig(UpdateContext as ContextOrig<Update>);
+        return useCallback(
+          (...args: Parameters<Update>) => {
+            let result: ReturnType<Update> | undefined;
+            contextUpdate(() => {
+              result = update(...args);
+            });
+            return result as ReturnType<Update>;
+          },
+          [contextUpdate, update],
+        );
       }
-      const contextUpdate = useContextUpdate(StateContext as Context<unknown>);
-      const update = useContextOrig(UpdateContext as ContextOrig<Update>);
-      return useCallback((...args: Parameters<Update>) => {
-        let result: ReturnType<Update> | undefined;
-        contextUpdate(() => {
-          result = update(...args);
-        });
-        return result as ReturnType<Update>;
-      }, [contextUpdate, update]);
-    }
-    // not concurrentMode
-    : () => {
-      if (
-        typeof process === 'object'
-        && process.env.NODE_ENV !== 'production'
-        && useContextOrig(UpdateContext) === undefined
-      ) {
-        throw new Error('Please use <Provider>');
-      }
-      return useContextOrig(UpdateContext as ContextOrig<Update>);
-    };
+    : // not concurrentMode
+      () => {
+        if (
+          typeof process === 'object' &&
+          process.env.NODE_ENV !== 'production' &&
+          useContextOrig(UpdateContext) === undefined
+        ) {
+          throw new Error('Please use <Provider>');
+        }
+        return useContextOrig(UpdateContext as ContextOrig<Update>);
+      };
 
-  const useTracked = () => [useTrackedState(), useUpdate()] as [
-    ReturnType<typeof useTrackedState>,
-    ReturnType<typeof useUpdate>,
-  ];
+  const useTracked = () =>
+    [useTrackedState(), useUpdate()] as [
+      ReturnType<typeof useTrackedState>,
+      ReturnType<typeof useUpdate>,
+    ];
 
   return {
     Provider,

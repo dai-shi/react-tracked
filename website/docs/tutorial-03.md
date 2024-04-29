@@ -55,9 +55,11 @@ const initialState: State = {
 
 const useValue = () => useState(initialState);
 
-const { Provider, useTrackedState, useUpdate: useSetState } = createContainer(
-  useValue
-);
+const {
+  Provider,
+  useTrackedState,
+  useUpdate: useSetState,
+} = createContainer(useValue);
 
 const useSetDraft = () => {
   const setState = useSetState();
@@ -65,7 +67,7 @@ const useSetDraft = () => {
     (draftUpdater: (draft: Draft<State>) => void) => {
       setState(produce(draftUpdater));
     },
-    [setState]
+    [setState],
   );
 };
 
@@ -101,12 +103,12 @@ let nextId = 100;
 export const useAddTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
-    title => {
-      setDraft(draft => {
+    (title) => {
+      setDraft((draft) => {
         draft.todos.push({ id: nextId++, title });
       });
     },
-    [setDraft]
+    [setDraft],
   );
 };
 ```
@@ -124,12 +126,12 @@ export const useDeleteTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
     (id: number) => {
-      setDraft(draft => {
-        const index = draft.todos.findIndex(todo => todo.id === id);
+      setDraft((draft) => {
+        const index = draft.todos.findIndex((todo) => todo.id === id);
         if (index >= 0) draft.todos.splice(index, 1);
       });
     },
-    [setDraft]
+    [setDraft],
   );
 };
 ```
@@ -147,12 +149,12 @@ export const useToggleTodo = () => {
   const setDraft = useSetDraft();
   return useCallback(
     (id: number) => {
-      setDraft(draft => {
-        const todo = draft.todos.find(todo => todo.id === id);
+      setDraft((draft) => {
+        const todo = draft.todos.find((todo) => todo.id === id);
         if (todo) todo.completed = !todo.completed;
       });
     },
-    [setDraft]
+    [setDraft],
   );
 };
 ```
@@ -172,11 +174,11 @@ export const useQuery = () => {
   const setDraft = useSetDraft();
   const setQuery = useCallback(
     (query: string) => {
-      setDraft(draft => {
+      setDraft((draft) => {
         draft.query = query;
       });
     },
-    [setDraft]
+    [setDraft],
   );
   return { getQuery, setQuery };
 };
@@ -328,7 +330,7 @@ export const useFlasher = () => {
     if (ref.current) {
       ref.current.setAttribute(
         'style',
-        'box-shadow: 0 0 2px 1px red; transition: box-shadow 100ms ease-out;'
+        'box-shadow: 0 0 2px 1px red; transition: box-shadow 100ms ease-out;',
       );
     }
     const timeOutId = setTimeout(() => {

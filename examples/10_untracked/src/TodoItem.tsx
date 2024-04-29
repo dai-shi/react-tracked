@@ -1,10 +1,8 @@
-import React from 'react';
-
 import {
   useDispatch,
   // useUntrackedDispatch as useDispatch, // for unwrapping proxy
-  TodoType,
 } from './store';
+import type { TodoType } from './store';
 
 type Props = {
   todo: TodoType;
@@ -21,12 +19,20 @@ const TodoItem = ({ todo }: Props) => {
       />
       <input
         value={todo.detail.title}
-        onChange={(e) => dispatch({ type: 'CHANGE_TODO', id: todo.id, title: e.target.value })}
+        onChange={(e) =>
+          dispatch({ type: 'CHANGE_TODO', id: todo.id, title: e.target.value })
+        }
       />
-      <button type="button" onClick={() => dispatch({ type: 'DELETE_TODO', id: todo.id })}>
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'DELETE_TODO', id: todo.id })}
+      >
         Delete
       </button>
-      <button type="button" onClick={() => dispatch({ type: 'DUPLICATE_TODO', todo })}>
+      <button
+        type="button"
+        onClick={() => dispatch({ type: 'DUPLICATE_TODO', todo })}
+      >
         Duplicate
       </button>
     </li>

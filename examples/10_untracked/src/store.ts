@@ -1,4 +1,5 @@
-import { useReducer, useCallback, Reducer } from 'react';
+import { useReducer, useCallback } from 'react';
+import type { Reducer } from 'react';
 import { createContainer, getUntrackedObject } from 'react-tracked';
 
 export type TodoType = {
@@ -48,19 +49,23 @@ const reducer: Reducer<State, Action> = (state, action) => {
     case 'CHANGE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? {
-            ...todo,
-            detail: { ...todo.detail, title: action.title },
-          } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id
+            ? {
+                ...todo,
+                detail: { ...todo.detail, title: action.title },
+              }
+            : todo,
+        ),
       };
     case 'TOGGLE_TODO':
       return {
         ...state,
-        todos: state.todos.map((todo) => (
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
-        )),
+        todos: state.todos.map((todo) =>
+          todo.id === action.id
+            ? { ...todo, completed: !todo.completed }
+            : todo,
+        ),
       };
     case 'DUPLICATE_TODO':
       return {
@@ -84,7 +89,6 @@ const {
   useUpdate: useDispatch,
 } = createContainer(useValue, { concurrentMode: true });
 
-// eslint-disable-next-line arrow-parens
 const untrackDeep = <T>(obj: T) => {
   if (typeof obj !== 'object' || obj === null) return obj;
   const untrackedObj = getUntrackedObject(obj);
@@ -105,16 +109,14 @@ const untrackDeep = <T>(obj: T) => {
 
 const useUntrackedDispatch = () => {
   const dispatch = useDispatch();
-  return useCallback((action: Action) => {
-    const untrackedAction = untrackDeep(action);
-    // console.log(action, untrackedAction);
-    dispatch(untrackedAction);
-  }, [dispatch]);
+  return useCallback(
+    (action: Action) => {
+      const untrackedAction = untrackDeep(action);
+      // console.log(action, untrackedAction);
+      dispatch(untrackedAction);
+    },
+    [dispatch],
+  );
 };
 
-export {
-  Provider,
-  useTrackedState,
-  useDispatch,
-  useUntrackedDispatch,
-};
+export { Provider, useTrackedState, useDispatch, useUntrackedDispatch };

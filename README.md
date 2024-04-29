@@ -71,10 +71,11 @@ There could be various use cases. Here are some typical ones.
 ```js
 import { useState } from 'react';
 
-const useValue = () => useState({
-  count: 0,
-  text: 'hello',
-});
+const useValue = () =>
+  useState({
+    count: 0,
+    text: 'hello',
+  });
 ```
 
 This can be useReducer or any hook that returns a tuple `[state, dispatch]`.
@@ -101,7 +102,9 @@ const Counter = () => {
   return (
     <div>
       <span>Count: {state.count}</span>
-      <button type="button" onClick={increment}>+1</button>
+      <button type="button" onClick={increment}>
+        +1
+      </button>
     </div>
   );
 };
@@ -145,7 +148,9 @@ const Counter = () => {
   return (
     <div>
       <span>Count: {state.count}</span>
-      <button type="button" onClick={() => dispatch({ type: 'increment' })}>+1</button>
+      <button type="button" onClick={() => dispatch({ type: 'increment' })}>
+        +1
+      </button>
     </div>
   );
 };
@@ -175,12 +180,14 @@ const useTrackedStore = createTrackedSelector(useStore);
 const Counter = () => {
   const state = useTrackedStore();
   const increment = () => {
-    useStore.setState(prev => ({ count: prev.count + 1 }));
+    useStore.setState((prev) => ({ count: prev.count + 1 }));
   };
   return (
     <div>
       <span>Count: {state.count}</span>
-      <button type="button" onClick={increment}>+1</button>
+      <button type="button" onClick={increment}>
+        +1
+      </button>
     </div>
   );
 };
@@ -196,6 +203,7 @@ If you see more `console.log` logs than expected,
 you may want to try putting `console.log` in useEffect.
 If that shows logs as expected, it's an expected behavior.
 For more information:
+
 - https://github.com/dai-shi/use-context-selector/issues/100
 - https://github.com/dai-shi/react-tracked/issues/177
 

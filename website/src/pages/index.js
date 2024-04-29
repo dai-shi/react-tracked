@@ -11,15 +11,13 @@ const Home = () => {
   const { siteConfig = {} } = useDocusaurusContext();
 
   return (
-    <Layout
-      permalink="/"
-      description={siteConfig.tagline}
-    >
-      <div style={{
-        textAlign: 'center',
-        paddingTop: 40,
-        paddingBottom: 40,
-      }}
+    <Layout permalink="/" description={siteConfig.tagline}>
+      <div
+        style={{
+          textAlign: 'center',
+          paddingTop: 40,
+          paddingBottom: 40,
+        }}
       >
         <img
           alt="React Tracked Logo"
@@ -27,15 +25,12 @@ const Home = () => {
         />
         <h1>{siteConfig.title}</h1>
         <h6>{siteConfig.tagline}</h6>
-        <div style={{
-          fontSize: '2em',
-        }}
+        <div
+          style={{
+            fontSize: '2em',
+          }}
         >
-          <Link
-            to={useBaseUrl('docs/introduction')}
-          >
-            Getting Started
-          </Link>
+          <Link to={useBaseUrl('docs/introduction')}>Getting Started</Link>
         </div>
       </div>
     </Layout>

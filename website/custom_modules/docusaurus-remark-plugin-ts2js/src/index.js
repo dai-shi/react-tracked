@@ -18,12 +18,13 @@ const stripTypes = (origCode) => {
   return code.replace(/\r/g, '').replace(/\n\/\/--EMPTYLINE--\n/g, '\n\n');
 };
 
-const format = (code) => prettier.format(code, {
-  parser: 'typescript',
-  plugins: [parserTypescript, prettierPluginEstree],
-  singleQuote: true,
-  trailingComma: 'all',
-});
+const format = (code) =>
+  prettier.format(code, {
+    parser: 'typescript',
+    plugins: [parserTypescript, prettierPluginEstree],
+    singleQuote: true,
+    trailingComma: 'all',
+  });
 
 const uniqueId = 'UsedByRemarkPluginTs2Js'; // should this be configurable? maybe unnecessary.
 
@@ -39,9 +40,10 @@ const matchNode = (node) => node.type === 'code' && node.meta === 'ts2js';
 const transformNode = (node) => {
   const jscode = format(stripTypes(node.value));
   const tscode = format(node.value);
-  return [{
-    type: 'jsx',
-    value: `<Tabs${uniqueId}
+  return [
+    {
+      type: 'jsx',
+      value: `<Tabs${uniqueId}
   defaultValue="js"
   values={[
     { label: 'JavaScript', value: 'js', },
@@ -49,23 +51,28 @@ const transformNode = (node) => {
   ]}
 >
 <TabItem${uniqueId} value="js">`,
-  }, {
-    type: node.type,
-    lang: 'javascript',
-    value: jscode,
-  }, {
-    type: 'jsx',
-    value: `</TabItem${uniqueId}>
+    },
+    {
+      type: node.type,
+      lang: 'javascript',
+      value: jscode,
+    },
+    {
+      type: 'jsx',
+      value: `</TabItem${uniqueId}>
 <TabItem${uniqueId} value="ts">`,
-  }, {
-    type: node.type,
-    lang: 'typescript',
-    value: tscode,
-  }, {
-    type: 'jsx',
-    value: `</TabItem${uniqueId}>
+    },
+    {
+      type: node.type,
+      lang: 'typescript',
+      value: tscode,
+    },
+    {
+      type: 'jsx',
+      value: `</TabItem${uniqueId}>
 </Tabs${uniqueId}>`,
-  }];
+    },
+  ];
 };
 
 module.exports = () => {

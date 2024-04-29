@@ -1,11 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useRef,
-  useMemo,
-  Reducer,
-} from 'react';
+import { createContext, useContext, useReducer, useRef, useMemo } from 'react';
+import type { Reducer } from 'react';
 
 const initialState = {
   firstName: 'Harry',
@@ -29,7 +23,10 @@ const reducer: Reducer<State, Action> = (state, action) => {
   }
 };
 
-const PersonContext = createContext<[State, Dispatch]>([initialState, () => null]);
+const PersonContext = createContext<[State, Dispatch]>([
+  initialState,
+  () => null,
+]);
 
 const PersonFirstName = () => {
   const [state, dispatch] = useContext(PersonContext);

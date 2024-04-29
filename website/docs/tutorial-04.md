@@ -87,7 +87,7 @@ const reducer: Reducer<State, Action> = (state, action) => {
       const { [action.id]: _removed, ...rest } = state.todoMap;
       return {
         ...state,
-        todoIds: state.todoIds.filter(id => id !== action.id),
+        todoIds: state.todoIds.filter((id) => id !== action.id),
         todoMap: rest,
         pending: false,
       };
@@ -118,67 +118,73 @@ const asyncActionHandlers: AsyncActionHandlers<
   Reducer<State, Action>,
   AsyncAction
 > = {
-  CREATE_TODO: ({ dispatch }) => async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      const response = await fetch(`https://reqres.in/api/todos?delay=1`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title: action.title }),
-      });
-      const data = await response.json();
-      if (typeof data.id !== 'string') throw new Error('no id');
-      if (typeof data.title !== 'string') throw new Error('no title');
-      dispatch({ type: 'TODO_CREATED', todo: data });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
-  TOGGLE_TODO: ({ dispatch, getState }) => async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      const todo = getState().todoMap[action.id];
-      const body = {
-        ...todo,
-        completed: !todo.completed,
-      };
-      const response = await fetch(
-        `https://reqres.in/api/todos/${action.id}?delay=1`,
-        {
-          method: 'PUT',
+  CREATE_TODO:
+    ({ dispatch }) =>
+    async (action) => {
+      try {
+        dispatch({ type: 'STARTED' });
+        const response = await fetch(`https://reqres.in/api/todos?delay=1`, {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(body),
-        }
-      );
-      const data = await response.json();
-      if (typeof data.title !== 'string') throw new Error('no title');
-      dispatch({ type: 'TODO_UPDATED', todo: { ...data, id: action.id } });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
-  DELETE_TODO: ({ dispatch } )=> async action => {
-    try {
-      dispatch({ type: 'STARTED' });
-      await fetch(`https://reqres.in/api/todos/${action.id}?delay=1`, {
-        method: 'DELETE',
-      });
-      dispatch({ type: 'TODO_DELETED', id: action.id });
-    } catch (error) {
-      dispatch({ type: 'FAILED', error });
-    }
-  },
+          body: JSON.stringify({ title: action.title }),
+        });
+        const data = await response.json();
+        if (typeof data.id !== 'string') throw new Error('no id');
+        if (typeof data.title !== 'string') throw new Error('no title');
+        dispatch({ type: 'TODO_CREATED', todo: data });
+      } catch (error) {
+        dispatch({ type: 'FAILED', error });
+      }
+    },
+  TOGGLE_TODO:
+    ({ dispatch, getState }) =>
+    async (action) => {
+      try {
+        dispatch({ type: 'STARTED' });
+        const todo = getState().todoMap[action.id];
+        const body = {
+          ...todo,
+          completed: !todo.completed,
+        };
+        const response = await fetch(
+          `https://reqres.in/api/todos/${action.id}?delay=1`,
+          {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(body),
+          },
+        );
+        const data = await response.json();
+        if (typeof data.title !== 'string') throw new Error('no title');
+        dispatch({ type: 'TODO_UPDATED', todo: { ...data, id: action.id } });
+      } catch (error) {
+        dispatch({ type: 'FAILED', error });
+      }
+    },
+  DELETE_TODO:
+    ({ dispatch }) =>
+    async (action) => {
+      try {
+        dispatch({ type: 'STARTED' });
+        await fetch(`https://reqres.in/api/todos/${action.id}?delay=1`, {
+          method: 'DELETE',
+        });
+        dispatch({ type: 'TODO_DELETED', id: action.id });
+      } catch (error) {
+        dispatch({ type: 'FAILED', error });
+      }
+    },
 };
 
 const useValue = () =>
   useReducerAsync<Reducer<State, Action>, AsyncAction>(
     reducer,
     initialState,
-    asyncActionHandlers
+    asyncActionHandlers,
   );
 
 export const {

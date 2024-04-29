@@ -1,7 +1,7 @@
-import React from 'react';
+import type { MouseEvent } from 'react';
 
 type Props = {
-  onClick: (e: React.MouseEvent) => void;
+  onClick: (e: MouseEvent) => void;
   completed: boolean;
   text: string;
 };

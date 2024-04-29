@@ -151,7 +151,8 @@ you can sync a container state with a state from props.
 ```javascript
 const useValue = ({ propState }) => {
   const [state, setState] = useState(propState);
-  useEffect(() => { // or useLayoutEffect
+  useEffect(() => {
+    // or useLayoutEffect
     setState(propState);
   }, [propState]);
   return [state, setState];
@@ -163,11 +164,7 @@ const {
   // ...
 } = createContainer(useValue);
 
-const App = ({ propState }) => (
-  <Provider propState={propState}>
-    ...
-  </Provider>
-);
+const App = ({ propState }) => <Provider propState={propState}>...</Provider>;
 ```
 
 Note that `propState` has to be updated immutably.
@@ -223,24 +220,25 @@ const useValue = () => {
   const [count, setCount] = useState(0);
   const increment = useCallback(() => setCount((c) => c + 1), []);
   const decrement = useCallback(() => setCount((c) => c - 1), []);
-  const state = useMemo(() => ({
-    count,
-    increment,
-    decrement,
-  }), [count, increment, decrement]);
-  return [state, () => { throw new Error('use functions in the state') }];
+  const state = useMemo(
+    () => ({
+      count,
+      increment,
+      decrement,
+    }),
+    [count, increment, decrement],
+  );
+  return [
+    state,
+    () => {
+      throw new Error('use functions in the state');
+    },
+  ];
 };
 
-const {
-  Provider,
-  useTrackedState,
-} = createContainer(useValue);
+const { Provider, useTrackedState } = createContainer(useValue);
 
-const App = () => (
-  <Provider>
-    ...
-  </Provider>
-);
+const App = () => <Provider>...</Provider>;
 ```
 
 Note: With custom update functions, you don't get the benefit
@@ -257,7 +255,7 @@ Selector interface is useful to share selection logic.
 You can create a selector hook with state usage tracking very easily.
 
 ```javascript
-const useSelectorWithTracking = selector => selector(useTrackedState());
+const useSelectorWithTracking = (selector) => selector(useTrackedState());
 ```
 
 Note: This is different from `useSelector` which has no tracking support
@@ -271,12 +269,15 @@ Here's a custom hook to return a tuple `[value, setValue]` selected by a name.
 ```javascript
 const useTrackedByName = (name) => {
   const [state, setState] = useTracked();
-  const update = useCallback((newVal) => {
-    setState(oldVal => ({
-      ...oldVal,
-      [name]: typeof newVal === 'function' ? newVal(oldVal[name]) : newVal,
-    }));
-  }, [setState, name]);
+  const update = useCallback(
+    (newVal) => {
+      setState((oldVal) => ({
+        ...oldVal,
+        [name]: typeof newVal === 'function' ? newVal(oldVal[name]) : newVal,
+      }));
+    },
+    [setState, name],
+  );
   return [state[name], update];
 };
 ```
@@ -291,9 +292,12 @@ import produce from 'immer';
 
 const useTrackedWithImmer = () => {
   const [state, setState] = useTracked();
-  const update = useCallback((updater) => {
-    setState(oldVal => produce(oldVal, updater));
-  }, [setState]);
+  const update = useCallback(
+    (updater) => {
+      setState((oldVal) => produce(oldVal, updater));
+    },
+    [setState],
+  );
   return [state, update];
 };
 ```
@@ -333,8 +337,11 @@ const untrackDeep = (obj) => {
 
 const useSafeDispatch = () => {
   const dispatch = useDispatch();
-  return useCallback((action) => {
-    dispatch(untrackDeep(action));
-  }, [dispatch]);
+  return useCallback(
+    (action) => {
+      dispatch(untrackDeep(action));
+    },
+    [dispatch],
+  );
 };
 ```

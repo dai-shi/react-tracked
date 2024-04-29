@@ -1,6 +1,7 @@
-import React from 'react';
+import { memo } from 'react';
 
-import { useDispatch, TodoType } from './store';
+import { useDispatch } from './store';
+import type { TodoType } from './store';
 
 type Props = {
   todo: TodoType;
@@ -8,7 +9,8 @@ type Props = {
 
 let numRendered = 0;
 
-const TodoItem = React.memo(({ todo }: Props) => {
+// eslint-disable-next-line react/display-name
+const TodoItem = memo(({ todo }: Props) => {
   const dispatch = useDispatch();
   return (
     <li>

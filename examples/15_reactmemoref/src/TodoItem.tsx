@@ -1,16 +1,15 @@
-import React, { forwardRef } from 'react';
+import { memo, forwardRef } from 'react';
 
-import { useDispatch, TodoType } from './store';
+import { useDispatch } from './store';
+import type { TodoType } from './store';
 
 type Props = {
-  // FIXME why this complaints?
-  // eslint-disable-next-line react/no-unused-prop-types
   todo: TodoType;
 };
 
 let numRendered = 0;
 
-const TodoItem = React.memo(
+const TodoItem = memo(
   forwardRef<HTMLInputElement, Props>(({ todo }, ref) => {
     const dispatch = useDispatch();
     return (

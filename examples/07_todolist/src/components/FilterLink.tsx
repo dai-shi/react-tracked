@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import useVisibilityFilter from '../hooks/useVisibilityFilter';
-import { VisibilityFilterType } from '../state';
+import type { VisibilityFilterType } from '../state';
 
 type Props = {
   filter: VisibilityFilterType;

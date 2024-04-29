@@ -1,20 +1,20 @@
-import React, {
+import {
   createContext,
+  memo,
   useContext,
   useReducer,
   useRef,
   useEffect,
   useMemo,
-  Reducer,
 } from 'react';
+import type { Reducer } from 'react';
 
 const initialState1 = {
   firstName: 'Harry',
 };
 
 type State1 = typeof initialState1;
-type Action1 =
-  | { type: 'setFirstName'; firstName: string }
+type Action1 = { type: 'setFirstName'; firstName: string };
 type Dispatch1 = (action: Action1) => void;
 
 const reducer1: Reducer<State1, Action1> = (state, action) => {
@@ -26,15 +26,17 @@ const reducer1: Reducer<State1, Action1> = (state, action) => {
   }
 };
 
-const PersonContext1 = createContext<[State1, Dispatch1]>([initialState1, () => null]);
+const PersonContext1 = createContext<[State1, Dispatch1]>([
+  initialState1,
+  () => null,
+]);
 
 const initialState2 = {
   familyName: 'Potter',
 };
 
 type State2 = typeof initialState2;
-type Action2 =
-  | { type: 'setFamilyName'; familyName: string };
+type Action2 = { type: 'setFamilyName'; familyName: string };
 type Dispatch2 = (action: Action2) => void;
 
 const reducer2: Reducer<State2, Action2> = (state, action) => {
@@ -46,9 +48,13 @@ const reducer2: Reducer<State2, Action2> = (state, action) => {
   }
 };
 
-const PersonContext2 = createContext<[State2, Dispatch2]>([initialState2, () => null]);
+const PersonContext2 = createContext<[State2, Dispatch2]>([
+  initialState2,
+  () => null,
+]);
 
-const PersonFirstName = React.memo(() => {
+// eslint-disable-next-line react/display-name
+const PersonFirstName = memo(() => {
   const [state, dispatch] = useContext(PersonContext1);
   const renders = useRef(1);
   useEffect(() => {
@@ -68,7 +74,8 @@ const PersonFirstName = React.memo(() => {
   );
 });
 
-const PersonFamilyName = React.memo(() => {
+// eslint-disable-next-line react/display-name
+const PersonFamilyName = memo(() => {
   const [state, dispatch] = useContext(PersonContext2);
   const renders = useRef(1);
   useEffect(() => {
@@ -91,8 +98,14 @@ const PersonFamilyName = React.memo(() => {
 const SplitContext = () => {
   const [state1, dispatch1] = useReducer(reducer1, initialState1);
   const [state2, dispatch2] = useReducer(reducer2, initialState2);
-  const value1 = useMemo<[State1, Dispatch1]>(() => [state1, dispatch1], [state1, dispatch1]);
-  const value2 = useMemo<[State2, Dispatch2]>(() => [state2, dispatch2], [state2, dispatch2]);
+  const value1 = useMemo<[State1, Dispatch1]>(
+    () => [state1, dispatch1],
+    [state1, dispatch1],
+  );
+  const value2 = useMemo<[State2, Dispatch2]>(
+    () => [state2, dispatch2],
+    [state2, dispatch2],
+  );
   return (
     <PersonContext1.Provider value={value1}>
       <PersonContext2.Provider value={value2}>
