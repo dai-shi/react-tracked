@@ -1,11 +1,5 @@
-import React, {
-  createContext,
-  useContext,
-  useReducer,
-  useRef,
-  useMemo,
-  Reducer,
-} from 'react';
+import { createContext, useContext, useReducer, useRef, useMemo } from 'react';
+import type { Reducer } from 'react';
 
 const initialState = {
   firstName: 'Harry',

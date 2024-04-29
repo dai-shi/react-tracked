@@ -1,11 +1,14 @@
-import React, {
+/* eslint react/display-name: off */
+
+import {
   createContext,
+  memo,
   useContext,
   useReducer,
   useRef,
   useEffect,
-  Reducer,
 } from 'react';
+import type { Reducer } from 'react';
 
 const initialState = {
   firstName: 'Harry',
@@ -34,7 +37,7 @@ const PersonContext = createContext<[State, Dispatch]>([
   () => null,
 ]);
 
-const InnerPersonFirstName = React.memo(
+const InnerPersonFirstName = memo(
   ({ firstName, dispatch }: { firstName: string; dispatch: Dispatch }) => {
     const renders = useRef(1);
     useEffect(() => {
@@ -62,7 +65,7 @@ const PersonFirstName = () => {
   );
 };
 
-const InnerPersonFamilyName = React.memo(
+const InnerPersonFamilyName = memo(
   ({ familyName, dispatch }: { familyName: string; dispatch: Dispatch }) => {
     const renders = useRef(1);
     useEffect(() => {

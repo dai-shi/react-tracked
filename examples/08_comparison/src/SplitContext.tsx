@@ -1,12 +1,15 @@
-import React, {
+/* eslint react/display-name: off */
+
+import {
   createContext,
+  memo,
   useContext,
   useReducer,
   useRef,
   useEffect,
   useMemo,
-  Reducer,
 } from 'react';
+import type { Reducer } from 'react';
 
 const initialState1 = {
   firstName: 'Harry',
@@ -52,7 +55,7 @@ const PersonContext2 = createContext<[State2, Dispatch2]>([
   () => null,
 ]);
 
-const PersonFirstName = React.memo(() => {
+const PersonFirstName = memo(() => {
   const [state, dispatch] = useContext(PersonContext1);
   const renders = useRef(1);
   useEffect(() => {
@@ -72,7 +75,7 @@ const PersonFirstName = React.memo(() => {
   );
 });
 
-const PersonFamilyName = React.memo(() => {
+const PersonFamilyName = memo(() => {
   const [state, dispatch] = useContext(PersonContext2);
   const renders = useRef(1);
   useEffect(() => {

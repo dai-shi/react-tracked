@@ -1,11 +1,11 @@
-import React, {
+import {
   createContext,
   useContext,
   useReducer,
   useRef,
   useEffect,
-  Reducer,
 } from 'react';
+import type { Reducer } from 'react';
 
 const initialState = {
   firstName: 'Harry',

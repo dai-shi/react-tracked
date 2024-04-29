@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 
 import NaiveContext from './NaiveContext';
 import SplitContext from './SplitContext';

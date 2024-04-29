@@ -1,4 +1,5 @@
-import React, { useReducer, useRef, useEffect, Reducer } from 'react';
+import { useReducer, useRef, useEffect } from 'react';
+import type { Reducer } from 'react';
 
 import { createContainer } from 'react-tracked';
 
