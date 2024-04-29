@@ -1,8 +1,7 @@
-import React, { useReducer, StrictMode } from 'react';
-
+import { afterEach, describe, expect, it } from 'vitest';
 import { render, fireEvent, cleanup } from '@testing-library/react';
-
-import { createContainer } from '../src/index';
+import { useReducer, StrictMode } from 'react';
+import { createContainer } from 'react-tracked';
 
 describe('basic spec', () => {
   afterEach(cleanup);

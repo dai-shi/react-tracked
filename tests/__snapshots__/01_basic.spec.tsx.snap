@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`basic spec create a component 1`] = `
+exports[`basic spec > create a component 1`] = `
 <div>
   <div>
     <span>
@@ -25,7 +25,7 @@ exports[`basic spec create a component 1`] = `
 </div>
 `;
 
-exports[`basic spec create a component 2`] = `
+exports[`basic spec > create a component 2`] = `
 <div>
   <div>
     <span>
