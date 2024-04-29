@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import { useTrackedState, useDispatch } from './store';
 
@@ -22,4 +22,4 @@ const Counter = () => {
   );
 };
 
-export default React.memo(Counter);
+export default memo(Counter);

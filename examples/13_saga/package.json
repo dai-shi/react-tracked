@@ -1,28 +1,23 @@
 {
-  "name": "react-tracked-example",
-  "version": "0.1.0",
+  "name": "example",
+  "version": "0.0.0",
   "private": true,
+  "type": "commonjs",
   "dependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "react": "18.0.0-rc.2",
-    "react-dom": "18.0.0-rc.2",
-    "react-tracked": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "react-scripts": "latest",
+    "react-tracked": "latest",
     "redux-saga": "latest",
     "typescript": "latest",
-    "use-saga-reducer": ">=2.0.0"
+    "use-saga-reducer": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
