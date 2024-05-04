@@ -3,7 +3,7 @@
 const ts = require('typescript');
 const prettier = require('prettier/standalone');
 const parserTypescript = require('prettier/parser-typescript');
-const prettierPluginEstree = require('prettier/plugins/estree');
+// const prettierPluginEstree = require('prettier/plugins/estree');
 
 const stripTypes = (origCode) => {
   const modifiedCode = origCode.replace(/\n\n/g, '\n//--EMPTYLINE--\n');
@@ -21,7 +21,10 @@ const stripTypes = (origCode) => {
 const format = (code) =>
   prettier.format(code, {
     parser: 'typescript',
-    plugins: [parserTypescript, prettierPluginEstree],
+    plugins: [
+      parserTypescript,
+      // prettierPluginEstree,
+    ],
     singleQuote: true,
     trailingComma: 'all',
   });
