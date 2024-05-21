@@ -15,8 +15,10 @@ describe('13_saga', () => {
     const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/`);
 
-    await page.waitForSelector('body > #app > div > div:nth-child(3) > button');
-    await page.click('body > #app > div > div:nth-child(3) > button');
+    await page.waitForSelector(
+      'body > #root > div > div:nth-child(3) > button',
+    );
+    await page.click('body > #root > div > div:nth-child(3) > button');
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
@@ -27,17 +29,19 @@ describe('13_saga', () => {
     ).toMatchSnapshot();
 
     await page.waitForSelector(
-      'body > #app > div > div:nth-child(4) > button:nth-child(2)',
+      'body > #root > div > div:nth-child(4) > button:nth-child(2)',
     );
     await page.click(
-      'body > #app > div > div:nth-child(4) > button:nth-child(2)',
+      'body > #root > div > div:nth-child(4) > button:nth-child(2)',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
-    await page.waitForSelector('body > #app > div > div > button:nth-child(3)');
-    await page.click('body > #app > div > div > button:nth-child(3)');
+    await page.waitForSelector(
+      'body > #root > div > div > button:nth-child(3)',
+    );
+    await page.click('body > #root > div > div > button:nth-child(3)');
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();

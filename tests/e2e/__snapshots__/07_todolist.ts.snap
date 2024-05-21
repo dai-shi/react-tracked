@@ -2,7 +2,8 @@
 
 exports[`07_todolist > should work with recorded events 1`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -10,7 +11,8 @@ exports[`07_todolist > should work with recorded events 1`] = `
 
 exports[`07_todolist > should work with recorded events 2`] = `
 "
-    <div id="app"><div><div><form><input value="a"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="a"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -18,7 +20,8 @@ exports[`07_todolist > should work with recorded events 2`] = `
 
 exports[`07_todolist > should work with recorded events 3`] = `
 "
-    <div id="app"><div><div><form><input value="aa"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="aa"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -26,7 +29,8 @@ exports[`07_todolist > should work with recorded events 3`] = `
 
 exports[`07_todolist > should work with recorded events 4`] = `
 "
-    <div id="app"><div><div><form><input value="aaa"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="aaa"><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -34,7 +38,8 @@ exports[`07_todolist > should work with recorded events 4`] = `
 
 exports[`07_todolist > should work with recorded events 5`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -42,7 +47,8 @@ exports[`07_todolist > should work with recorded events 5`] = `
 
 exports[`07_todolist > should work with recorded events 6`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -50,7 +56,8 @@ exports[`07_todolist > should work with recorded events 6`] = `
 
 exports[`07_todolist > should work with recorded events 7`] = `
 "
-    <div id="app"><div><div><form><input value="b"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="b"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -58,7 +65,8 @@ exports[`07_todolist > should work with recorded events 7`] = `
 
 exports[`07_todolist > should work with recorded events 8`] = `
 "
-    <div id="app"><div><div><form><input value="bb"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="bb"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -66,7 +74,8 @@ exports[`07_todolist > should work with recorded events 8`] = `
 
 exports[`07_todolist > should work with recorded events 9`] = `
 "
-    <div id="app"><div><div><form><input value="bbb"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="bbb"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -74,7 +83,8 @@ exports[`07_todolist > should work with recorded events 9`] = `
 
 exports[`07_todolist > should work with recorded events 10`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -82,7 +92,8 @@ exports[`07_todolist > should work with recorded events 10`] = `
 
 exports[`07_todolist > should work with recorded events 11`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -90,7 +101,8 @@ exports[`07_todolist > should work with recorded events 11`] = `
 
 exports[`07_todolist > should work with recorded events 12`] = `
 "
-    <div id="app"><div><div><form><input value="c"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="c"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -98,7 +110,8 @@ exports[`07_todolist > should work with recorded events 12`] = `
 
 exports[`07_todolist > should work with recorded events 13`] = `
 "
-    <div id="app"><div><div><form><input value="cc"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="cc"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -106,7 +119,8 @@ exports[`07_todolist > should work with recorded events 13`] = `
 
 exports[`07_todolist > should work with recorded events 14`] = `
 "
-    <div id="app"><div><div><form><input value="ccc"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value="ccc"><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -114,7 +128,8 @@ exports[`07_todolist > should work with recorded events 14`] = `
 
 exports[`07_todolist > should work with recorded events 15`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" disabled="" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -122,7 +137,8 @@ exports[`07_todolist > should work with recorded events 15`] = `
 
 exports[`07_todolist > should work with recorded events 16`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -130,7 +146,8 @@ exports[`07_todolist > should work with recorded events 16`] = `
 
 exports[`07_todolist > should work with recorded events 17`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -138,7 +155,8 @@ exports[`07_todolist > should work with recorded events 17`] = `
 
 exports[`07_todolist > should work with recorded events 18`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -146,7 +164,8 @@ exports[`07_todolist > should work with recorded events 18`] = `
 
 exports[`07_todolist > should work with recorded events 19`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -154,7 +173,8 @@ exports[`07_todolist > should work with recorded events 19`] = `
 
 exports[`07_todolist > should work with recorded events 20`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -162,7 +182,8 @@ exports[`07_todolist > should work with recorded events 20`] = `
 
 exports[`07_todolist > should work with recorded events 21`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -170,7 +191,8 @@ exports[`07_todolist > should work with recorded events 21`] = `
 
 exports[`07_todolist > should work with recorded events 22`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: none; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -178,7 +200,8 @@ exports[`07_todolist > should work with recorded events 22`] = `
 
 exports[`07_todolist > should work with recorded events 23`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -186,7 +209,8 @@ exports[`07_todolist > should work with recorded events 23`] = `
 
 exports[`07_todolist > should work with recorded events 24`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -194,7 +218,8 @@ exports[`07_todolist > should work with recorded events 24`] = `
 
 exports[`07_todolist > should work with recorded events 25`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -202,7 +227,8 @@ exports[`07_todolist > should work with recorded events 25`] = `
 
 exports[`07_todolist > should work with recorded events 26`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;" disabled="">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -210,7 +236,8 @@ exports[`07_todolist > should work with recorded events 26`] = `
 
 exports[`07_todolist > should work with recorded events 27`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li><li role="presentation" style="text-decoration: line-through; cursor: pointer;">ccc</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;" disabled="">All</button><button type="button" style="margin-left: 4px;">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "
@@ -218,7 +245,8 @@ exports[`07_todolist > should work with recorded events 27`] = `
 
 exports[`07_todolist > should work with recorded events 28`] = `
 "
-    <div id="app"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <div id="root"><div><div><form><input value=""><button type="submit">Add Todo</button></form></div><ul><li role="presentation" style="text-decoration: none; cursor: pointer;">aaa</li><li role="presentation" style="text-decoration: none; cursor: pointer;">bbb</li></ul><div><span>Show: </span><button type="button" style="margin-left: 4px;">All</button><button type="button" style="margin-left: 4px;" disabled="">Active</button><button type="button" style="margin-left: 4px;">Completed</button></div></div></div>
+    <script type="module" src="/src/main.tsx"></script>
   
 
 "

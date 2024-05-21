@@ -48,13 +48,7 @@ that provide useSelector-like hooks.
 This package requires some peer dependencies, which you need to install by yourself.
 
 ```bash
-yarn add react-tracked react scheduler react-dom
-```
-
-For React Native users:
-
-```bash
-yarn add react-tracked react scheduler react-native
+npm add react-tracked react scheduler
 ```
 
 ## Usage
@@ -231,25 +225,25 @@ The [examples](examples) folder contains working examples.
 You can run one of them with
 
 ```bash
-PORT=8080 yarn run examples:01_minimal
+PORT=8080 pnpm run examples:01_minimal
 ```
 
 and open <http://localhost:8080> in your web browser.
 
-You can also try them in codesandbox.io:
-[01](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/01_minimal)
-[02](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/02_typescript)
-[03](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/03_usestate)
-[04](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/04_selector)
-[05](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/05_container)
-[06](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/06_customhook)
-[07](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/07_todolist)
-[08](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/08_comparison)
-[09](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/09_reactmemo)
-[10](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/10_untracked)
-[11](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/11_form)
-[12](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/12_async)
-[13](https://codesandbox.io/s/github/dai-shi/react-tracked/tree/main/examples/13_saga)
+You can also try them directly:
+[01](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/01_minimal)
+[02](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/02_typescript)
+[03](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/03_usestate)
+[04](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/04_selector)
+[05](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/05_container)
+[06](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/06_customhook)
+[07](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/07_todolist)
+[08](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/08_comparison)
+[09](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/09_reactmemo)
+[10](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/10_untracked)
+[11](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/11_form)
+[12](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/12_async)
+[13](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/13_saga)
 
 ## Benchmarks
 

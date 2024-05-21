@@ -11,57 +11,57 @@ describe('04_selector', () => {
     await page.goto(`http://localhost:${port}/`);
 
     await page.waitForSelector(
-      'body > #app > div:nth-child(2) > div > button:nth-child(2)',
+      'body > #root > div:nth-child(2) > div > button:nth-child(2)',
     );
     await page.click(
-      'body > #app > div:nth-child(2) > div > button:nth-child(2)',
+      'body > #root > div:nth-child(2) > div > button:nth-child(2)',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
     await page.waitForSelector(
-      'body > #app > div:nth-child(2) > div > button:nth-child(3)',
+      'body > #root > div:nth-child(2) > div > button:nth-child(3)',
     );
     await page.click(
-      'body > #app > div:nth-child(2) > div > button:nth-child(3)',
+      'body > #root > div:nth-child(2) > div > button:nth-child(3)',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
     await page.waitForSelector(
-      'body > #app > div:nth-child(3) > div > button:nth-child(2)',
+      'body > #root > div:nth-child(3) > div > button:nth-child(2)',
     );
     await page.click(
-      'body > #app > div:nth-child(3) > div > button:nth-child(2)',
+      'body > #root > div:nth-child(3) > div > button:nth-child(2)',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
     await page.waitForSelector(
-      'body > #app > div:nth-child(3) > div > button:nth-child(3)',
+      'body > #root > div:nth-child(3) > div > button:nth-child(3)',
     );
     await page.click(
-      'body > #app > div:nth-child(3) > div > button:nth-child(3)',
+      'body > #root > div:nth-child(3) > div > button:nth-child(3)',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
     await page.waitForSelector(
-      'body > #app > div:nth-child(5) > div:nth-child(1) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(1) > input',
     );
     await page.click(
-      'body > #app > div:nth-child(5) > div:nth-child(1) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(1) > input',
     );
     expect(
       await page.evaluate(() => document.body.innerHTML),
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(1) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(1) > input',
       'a',
     );
     expect(
@@ -69,7 +69,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(1) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(1) > input',
       'a',
     );
     expect(
@@ -77,7 +77,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(1) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(1) > input',
       'a',
     );
     expect(
@@ -85,7 +85,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(2) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(2) > input',
       'b',
     );
     expect(
@@ -93,7 +93,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(2) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(2) > input',
       'b',
     );
     expect(
@@ -101,7 +101,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(2) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(2) > input',
       'b',
     );
     expect(
@@ -109,7 +109,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(3) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(3) > input',
       '1',
     );
     expect(
@@ -117,7 +117,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(3) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(3) > input',
       '1',
     );
     expect(
@@ -125,7 +125,7 @@ describe('04_selector', () => {
     ).toMatchSnapshot();
 
     await page.type(
-      'body > #app > div:nth-child(5) > div:nth-child(3) > input',
+      'body > #root > div:nth-child(5) > div:nth-child(3) > input',
       '1',
     );
     expect(
