@@ -82,6 +82,9 @@ devDependencies:
   react-dom:
     specifier: ^18.3.1
     version: 18.3.1(react@18.3.1)
+  react-tracked:
+    specifier: link:.
+    version: 'link:'
   redux-saga:
     specifier: ^1.3.0
     version: 1.3.0
