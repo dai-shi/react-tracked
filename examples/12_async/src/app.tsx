@@ -1,9 +1,9 @@
 import { Provider } from './store';
-import Main from './main';
+import Root from './root';
 
 const App = () => (
   <Provider>
-    <Main />
+    <Root />
   </Provider>
 );
 
