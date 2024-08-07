@@ -16,6 +16,8 @@ import type { Context } from 'use-context-selector';
 
 import { createTrackedSelector } from './createTrackedSelector.js';
 
+const hasGlobalProcess = typeof process === 'object';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyFunction = (...args: any[]) => any;
 type Options<State, Update extends AnyFunction> = {
@@ -69,7 +71,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   };
 
   const useSelector = <Selected>(selector: (state: State) => Selected) => {
-    if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
+    if (hasGlobalProcess && process.env.NODE_ENV !== 'production') {
       const selectorOrig = selector;
       selector = (state: State) => {
         if (state === undefined) {
@@ -91,7 +93,7 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   const useUpdate = concurrentMode
     ? () => {
         if (
-          typeof process === 'object' &&
+          hasGlobalProcess &&
           process.env.NODE_ENV !== 'production' &&
           useContextOrig(UpdateContext) === undefined
         ) {

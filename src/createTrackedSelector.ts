@@ -3,6 +3,8 @@ import { createProxy, isChanged } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils.js';
 
+const hasGlobalProcess = typeof process === 'object';
+
 export const createTrackedSelector = <State>(
   useSelector: <Selected>(selector: (state: State) => Selected) => Selected,
 ) => {
@@ -38,7 +40,7 @@ export const createTrackedSelector = <State>(
       [affected],
     );
     const state = useSelector(selector);
-    if (typeof process === 'object' && process.env.NODE_ENV !== 'production') {
+    if (hasGlobalProcess && process.env.NODE_ENV !== 'production') {
       // eslint-disable-next-line react-hooks/rules-of-hooks
       useAffectedDebugValue(state, affected);
     }
