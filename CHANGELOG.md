@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+## [2.0.1] - 2024-09-10
+
+### Changed
+
+- fix: check global process at module level #215
+
 ## [2.0.0] - 2024-05-07
 
 ### Changed
