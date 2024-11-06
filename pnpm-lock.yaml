@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^4.6.2
     version: 4.6.2(eslint@8.57.0)
   happy-dom:
-    specifier: ^14.9.0
-    version: 14.10.0
+    specifier: ^15.10.2
+    version: 15.10.2
   immer:
     specifier: ^10.1.1
     version: 10.1.1
@@ -108,7 +108,7 @@ devDependencies:
     version: 5.2.11(@types/node@20.12.10)
   vitest:
     specifier: ^1.6.0
-    version: 1.6.0(@types/node@20.12.10)(happy-dom@14.10.0)
+    version: 1.6.0(@types/node@20.12.10)(happy-dom@15.10.2)
 
 packages:
 
@@ -695,7 +695,7 @@ packages:
       dom-accessibility-api: 0.6.3
       lodash: 4.17.21
       redent: 3.0.0
-      vitest: 1.6.0(@types/node@20.12.10)(happy-dom@14.10.0)
+      vitest: 1.6.0(@types/node@20.12.10)(happy-dom@15.10.2)
     dev: true
 
   /@testing-library/react@15.0.6(@types/react@18.3.1)(react-dom@18.3.1)(react@18.3.1):
@@ -2403,9 +2403,9 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /happy-dom@14.10.0:
-    resolution: {integrity: sha512-Te8542OdwwTsm3a0DLx8Z6nWk0T5Q7ZlZgcyVemH0uwutt7e+8rvcpGUHZCKFpckB3W0gqrzArts/39SUMXD1Q==}
-    engines: {node: '>=16.0.0'}
+  /happy-dom@15.10.2:
+    resolution: {integrity: sha512-NbA5XrSovenJIIcfixCREX3ZnV7yHP4phhbfuxxf4CPn+LZpz/jIM9EqJ2DrPwgVDSMoAKH3pZwQvkbsSiCrUw==}
+    engines: {node: '>=18.0.0'}
     dependencies:
       entities: 4.5.0
       webidl-conversions: 7.0.0
@@ -4278,7 +4278,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.6.0(@types/node@20.12.10)(happy-dom@14.10.0):
+  /vitest@1.6.0(@types/node@20.12.10)(happy-dom@15.10.2):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4313,7 +4313,7 @@ packages:
       chai: 4.4.1
       debug: 4.3.4
       execa: 8.0.1
-      happy-dom: 14.10.0
+      happy-dom: 15.10.2
       local-pkg: 0.5.0
       magic-string: 0.30.10
       pathe: 1.1.2
