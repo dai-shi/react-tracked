@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   proxy-compare:
-    specifier: ^3.0.0
-    version: 3.0.0
+    specifier: https://pkg.csb.dev/dai-shi/proxy-compare/commit/42bb1fee/proxy-compare
+    version: '@pkg.csb.dev/dai-shi/proxy-compare/commit/42bb1fee/proxy-compare'
   scheduler:
     specifier: '>=0.19.0'
     version: 0.23.2
@@ -3407,10 +3407,6 @@ packages:
       - supports-color
     dev: true
 
-  /proxy-compare@3.0.0:
-    resolution: {integrity: sha512-y44MCkgtZUCT9tZGuE278fB7PWVf7fRYy0vbRXAts2o5F0EfC4fIQrvQQGBJo1WJbFcVLXzApOscyJuZqHQc1w==}
-    dev: false
-
   /proxy-from-env@1.1.0:
     resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
     dev: true
@@ -4510,3 +4506,9 @@ packages:
   /zod@3.22.4:
     resolution: {integrity: sha512-iC+8Io04lddc+mVqQ9AZ7OQ2MrUKGN+oIQyq1vemgt46jwCwLfhq7/pwnBnNXXXZb8VTVLKwp9EDkx+ryxIWmg==}
     dev: true
+
+  '@pkg.csb.dev/dai-shi/proxy-compare/commit/42bb1fee/proxy-compare':
+    resolution: {tarball: https://pkg.csb.dev/dai-shi/proxy-compare/commit/42bb1fee/proxy-compare}
+    name: proxy-compare
+    version: 3.0.0
+    dev: false
