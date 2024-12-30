@@ -48,7 +48,7 @@ that provide useSelector-like hooks.
 This package requires some peer dependencies, which you need to install by yourself.
 
 ```bash
-npm add react-tracked react scheduler
+npm install react-tracked react scheduler
 ```
 
 ## Usage
