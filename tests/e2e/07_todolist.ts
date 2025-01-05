@@ -5,7 +5,6 @@ describe('07_todolist', () => {
   const port = process.env.PORT || '8080';
 
   it('should work with recorded events', async () => {
-    // eslint-disable-next-line import/no-named-as-default-member
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/`);

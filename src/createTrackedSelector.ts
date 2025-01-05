@@ -12,8 +12,8 @@ export const createTrackedSelector = <State>(
     const [, forceUpdate] = useReducer((c) => c + 1, 0);
     // per-hook affected, it's not ideal but memo compatible
     const affected = useMemo(() => new WeakMap(), []);
-    const prevState = useRef<State>();
-    const lastState = useRef<State>();
+    const prevState = useRef<State>(undefined);
+    const lastState = useRef<State>(undefined);
     useEffect(() => {
       if (
         prevState.current !== lastState.current &&

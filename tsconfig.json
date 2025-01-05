@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "react-tracked": ["./src/index.js"]
+      "react-tracked": ["./src/index.ts"]
     }
   },
   "exclude": ["dist", "examples"]

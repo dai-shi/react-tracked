@@ -96,7 +96,7 @@ const asyncActionHandlers: AsyncActionHandlers<
         const firstName = data.data.first_name;
         if (typeof firstName !== 'string') throw new Error();
         dispatch({ type: 'FINISH_FETCH_USER', firstName });
-      } catch (_e) {
+      } catch {
         dispatch({ type: 'ERROR_FETCH_USER' });
       }
     },

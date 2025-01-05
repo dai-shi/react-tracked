@@ -7,7 +7,6 @@ import {
   takeEvery,
   all,
 } from 'redux-saga/effects';
-// eslint-disable-next-line import/no-named-as-default
 import useSagaReducer from 'use-saga-reducer';
 import { createContainer } from 'react-tracked';
 
@@ -93,7 +92,7 @@ function* userFetcher(action: AsyncActionFetch) {
     const firstName = data.data.first_name;
     if (typeof firstName !== 'string') throw new Error();
     yield put<InnerAction>({ type: 'FINISH_FETCH_USER', firstName });
-  } catch (_e) {
+  } catch {
     yield put<InnerAction>({ type: 'ERROR_FETCH_USER' });
   }
 }
