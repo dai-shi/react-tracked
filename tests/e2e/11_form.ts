@@ -5,7 +5,9 @@ describe('11_form', () => {
   const port = process.env.PORT || '8080';
 
   it('should work with recorded events', async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: process.env.CI ? ['--no-sandbox'] : [],
+    });
     const page = await browser.newPage();
     await page.goto(`http://localhost:${port}/`);
 
