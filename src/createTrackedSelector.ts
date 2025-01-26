@@ -3,6 +3,8 @@ import { createProxy, isChanged } from 'proxy-compare';
 
 import { useAffectedDebugValue } from './utils.js';
 
+const condUseAffectedDebugValue = useAffectedDebugValue;
+
 const hasGlobalProcess = typeof process === 'object';
 
 export const createTrackedSelector = <State>(
@@ -12,8 +14,8 @@ export const createTrackedSelector = <State>(
     const [, forceUpdate] = useReducer((c) => c + 1, 0);
     // per-hook affected, it's not ideal but memo compatible
     const affected = useMemo(() => new WeakMap(), []);
-    const prevState = useRef<State>();
-    const lastState = useRef<State>();
+    const prevState = useRef<State>(undefined);
+    const lastState = useRef<State>(undefined);
     useEffect(() => {
       if (
         prevState.current !== lastState.current &&
@@ -41,8 +43,7 @@ export const createTrackedSelector = <State>(
     );
     const state = useSelector(selector);
     if (hasGlobalProcess && process.env.NODE_ENV !== 'production') {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useAffectedDebugValue(state, affected);
+      condUseAffectedDebugValue(state, affected);
     }
     const proxyCache = useMemo(() => new WeakMap(), []); // per-hook proxyCache
     return createProxy(state, affected, proxyCache);

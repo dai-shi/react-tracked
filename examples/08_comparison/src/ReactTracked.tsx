@@ -1,3 +1,5 @@
+/* eslint-disable react-compiler/react-compiler */
+
 import { useReducer, useRef, useEffect } from 'react';
 import type { Reducer } from 'react';
 

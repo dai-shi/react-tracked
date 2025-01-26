@@ -37,7 +37,6 @@ export const createContainer = <State, Update extends AnyFunction, Props>(
   options?: Options<State, Update> | DeprecatedOption,
 ) => {
   if (typeof options === 'boolean') {
-    // eslint-disable-next-line no-console
     console.warn(
       'boolean option is deprecated, please specify { concurrentMode: true }',
     );

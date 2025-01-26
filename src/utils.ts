@@ -7,7 +7,7 @@ export const useAffectedDebugValue = <State>(
   state: State,
   affected: WeakMap<Obj, unknown>,
 ) => {
-  const pathList = useRef<(string | number | symbol)[][]>();
+  const pathList = useRef<(string | number | symbol)[][]>(undefined);
   useEffect(() => {
     pathList.current = affectedToPathList(state, affected);
   });

@@ -7,7 +7,7 @@ export default defineWorkspace([
     test: {
       name: 'spec',
       environment: 'happy-dom',
-      setupFiles: ['./tests/vitest-setup.js'],
+      setupFiles: ['./tests/vitest-setup.ts'],
     },
   },
   {
