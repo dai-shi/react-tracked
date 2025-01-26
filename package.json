@@ -85,7 +85,7 @@
     "singleQuote": true
   },
   "dependencies": {
-    "proxy-compare": "^3.0.1",
+    "proxy-compare": "^3.0.0",
     "use-context-selector": "^2.0.0"
   },
   "devDependencies": {
