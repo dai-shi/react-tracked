@@ -1,5 +1,3 @@
-/* eslint-disable react-compiler/react-compiler */
-
 import { createContext, useContext, useReducer, useRef, useMemo } from 'react';
 import type { Reducer } from 'react';
 

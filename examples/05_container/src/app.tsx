@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/react-compiler */
+
 import { StrictMode } from 'react';
 
 import { createContainer } from 'react-tracked';
