@@ -78,11 +78,13 @@ type AsyncActionFetch = { type: 'FETCH_USER'; id: number };
 type AsyncActionDecrement = { type: 'DELAYED_DECREMENT' };
 type AsyncAction = AsyncActionFetch | AsyncActionDecrement;
 
-function* userFetcher(action: AsyncActionFetch) {
+function* userFetcher(_action: AsyncActionFetch) {
   try {
     yield put<InnerAction>({ type: 'START_FETCH_USER' });
     const response: Response = yield call(() =>
-      fetch(`https://reqres.in/api/users/${action.id}?delay=1`),
+      fetch(
+        'data:application/json;base64,eyJkYXRhIjp7ImZpcnN0X25hbWUiOiJFbW1hIn19',
+      ),
     );
     yield put<InnerAction>({ type: 'CONTINUE_FETCH_USER' });
     const data: { data: Record<string, unknown> } = yield call(() =>
