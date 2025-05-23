@@ -90,6 +90,7 @@ const asyncActionHandlers: AsyncActionHandlers<
         const response = await fetch(
           'data:application/json;base64,eyJkYXRhIjp7ImZpcnN0X25hbWUiOiJFbW1hIn19',
         );
+        await sleep(500);
         dispatch({ type: 'CONTINUE_FETCH_USER' });
         const data = await response.json();
         await sleep(500);

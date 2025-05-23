@@ -86,6 +86,7 @@ function* userFetcher(_action: AsyncActionFetch) {
         'data:application/json;base64,eyJkYXRhIjp7ImZpcnN0X25hbWUiOiJFbW1hIn19',
       ),
     );
+    yield delay(500);
     yield put<InnerAction>({ type: 'CONTINUE_FETCH_USER' });
     const data: { data: Record<string, unknown> } = yield call(() =>
       response.json(),
