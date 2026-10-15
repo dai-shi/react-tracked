@@ -225,14 +225,14 @@ The [examples](examples) folder contains working examples.
 You can run one of them with
 
 ```bash
-PORT=8080 pnpm run examples:01_minimal
+PORT=8080 pnpm run examples:01_counter
 ```
 
 and open <http://localhost:8080> in your web browser.
 
 You can also try them directly:
-[01](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/01_minimal)
-[02](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/02_typescript)
+[01](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/01_counter)
+[02](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/02_person)
 [03](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/03_usestate)
 [04](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/04_selector)
 [05](https://stackblitz.com/github/dai-shi/react-tracked/tree/main/examples/05_container)

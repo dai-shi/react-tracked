@@ -69,13 +69,10 @@ const {
   Provider,
   useTracked,
   // ...
-} = createContainer(({ initialState }) => useState(initialState);
-
+} = createContainer(({ initialState }) => useState(initialState));
 
 const App = ({ initialState }) => (
-  <Provider initialState={initialState}>
-    ...
-  </Provider>
+  <Provider initialState={initialState}>...</Provider>
 );
 ```
 
@@ -90,13 +87,9 @@ const {
   Provider,
   useTracked,
   // ...
-} = createContainer(() => useState({});
+} = createContainer(() => useState({}));
 
-const App = () => (
-  <Provider>
-    ...
-  </Provider>
-);
+const App = () => <Provider>...</Provider>;
 ```
 
 ### useReducer (with persistence)
@@ -288,7 +281,7 @@ Updating a property deep in a state object is troublesome.
 Here's a custom hook to use [immer](https://github.com/immerjs/immer) for setState.
 
 ```javascript
-import produce from 'immer';
+import { produce } from 'immer';
 
 const useTrackedWithImmer = () => {
   const [state, setState] = useTracked();
