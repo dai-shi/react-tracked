@@ -72,7 +72,9 @@ const {
 } = createContainer(({ initialState }) => useState(initialState));
 
 const App = ({ initialState }) => (
-  <Provider initialState={initialState}>...</Provider>
+  <Provider initialState={initialState}>
+    ...
+  </Provider>
 );
 ```
 
@@ -89,7 +91,11 @@ const {
   // ...
 } = createContainer(() => useState({}));
 
-const App = () => <Provider>...</Provider>;
+const App = () => (
+  <Provider>
+    ...
+  </Provider>
+);
 ```
 
 ### useReducer (with persistence)
