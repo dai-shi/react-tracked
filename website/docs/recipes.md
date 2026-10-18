@@ -71,6 +71,7 @@ const {
   // ...
 } = createContainer(({ initialState }) => useState(initialState));
 
+// prettier-ignore
 const App = ({ initialState }) => (
   <Provider initialState={initialState}>
     ...
@@ -91,6 +92,7 @@ const {
   // ...
 } = createContainer(() => useState({}));
 
+// prettier-ignore
 const App = () => (
   <Provider>
     ...
