@@ -92,7 +92,7 @@ This component is to edit person object.
 ```typescript ts2js
 import React, { useState } from 'react';
 
-import { useDispatch, useTrackedState } from './store';
+import { useTrackedState } from './store';
 import { useFlasher } from './utils';
 
 const ShowPerson = () => {
@@ -128,7 +128,7 @@ It shows only first name or full name.
 import { useRef, useEffect } from 'react';
 
 export const useFlasher = () => {
-  const ref = useRef<HTMLLIElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!ref.current) return;
     ref.current.setAttribute(

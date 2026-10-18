@@ -69,9 +69,9 @@ const {
   Provider,
   useTracked,
   // ...
-} = createContainer(({ initialState }) => useState(initialState);
+} = createContainer(({ initialState }) => useState(initialState));
 
-
+// prettier-ignore
 const App = ({ initialState }) => (
   <Provider initialState={initialState}>
     ...
@@ -90,8 +90,9 @@ const {
   Provider,
   useTracked,
   // ...
-} = createContainer(() => useState({});
+} = createContainer(() => useState({}));
 
+// prettier-ignore
 const App = () => (
   <Provider>
     ...
@@ -288,7 +289,7 @@ Updating a property deep in a state object is troublesome.
 Here's a custom hook to use [immer](https://github.com/immerjs/immer) for setState.
 
 ```javascript
-import produce from 'immer';
+import { produce } from 'immer';
 
 const useTrackedWithImmer = () => {
   const [state, setState] = useTracked();

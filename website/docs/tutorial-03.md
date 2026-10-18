@@ -31,7 +31,7 @@ It wraps TodoList with Provider.
 ```typescript ts2js
 import { useState, useCallback } from 'react';
 import { createContainer } from 'react-tracked';
-import produce, { Draft } from 'immer';
+import { produce, Draft } from 'immer';
 
 type TodoType = {
   id: number;
